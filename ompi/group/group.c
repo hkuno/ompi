@@ -578,3 +578,24 @@ bool ompi_group_have_remote_peers (ompi_group_t *group)
 
     return false;
 }
+
+bool ompi_group_have_local_peers (ompi_group_t *group)
+{
+    for (int i = 0 ; i < group->grp_proc_count ; ++i) {
+        ompi_proc_t *proc = NULL;
+#if OMPI_GROUP_SPARSE
+        proc = ompi_group_peer_lookup (group, i);
+#else
+        proc = ompi_group_get_proc_ptr_raw (group, i);
+        if (!ompi_proc_is_sentinel (proc)) {
+            /* If the proc is in the local hash table it is not remote */
+            return true;
+        }
+#endif
+        if (OPAL_PROC_ON_LOCAL_NODE(proc->super.proc_flags)) {
+            return true;
+        }
+    }
+
+    return false;
+}

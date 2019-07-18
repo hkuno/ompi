@@ -422,6 +422,8 @@ static inline struct ompi_proc_t *ompi_group_peer_lookup_existing (ompi_group_t 
 
 bool ompi_group_have_remote_peers (ompi_group_t *group);
 
+bool ompi_group_have_local_peers (ompi_group_t *group);
+
 /**
  *  Function to print the group info
  */
