@@ -30,8 +30,16 @@
 #include "opal/include/opal/align.h"
 #include "opal/util/info_subscriber.h"
 #include "opal/util/printf.h"
+#include "opal/mca/common/ofi/common_ofi.h"
+#include "ompi/mca/mtl/mtl.h"
+#include "ompi/mca/mtl/ofi/mtl_ofi_endpoint.h"
 
 #include "osc_fsm.h"
+#include <sys/mman.h>
+#include <rdma/fabric.h>
+#include <rdma/fi_domain.h>
+#include <rdma/fi_endpoint.h>
+#include <rdma/fi_ext_zhpe.h>
 
 static int component_open(void);
 static int component_init(bool enable_progress_threads, bool enable_mpi_threads);
@@ -112,6 +120,7 @@ ompi_osc_fsm_module_t ompi_osc_fsm_module_template = {
 
 static int component_register (void)
 {
+    /* TODO: Add own component vars */
     if (0 == access ("/dev/shm", W_OK)) {
         mca_osc_fsm_component.backing_directory = "/dev/shm";
     } else {
@@ -159,9 +168,17 @@ check_win_ok(ompi_communicator_t *comm, int flavor)
         return OMPI_ERR_NOT_SUPPORTED;
     }
 
-    if (ompi_group_have_remote_peers (comm->c_local_group)) {
-        return OMPI_ERR_RMA_SHARED;
+    if (ompi_group_have_local_peers (comm->c_local_group)) {
+        return OMPI_ERR_NOT_SUPPORTED;
     }
+
+    if (mca_common_ofi_get_ofi_info(NULL, NULL, NULL, NULL) != OPAL_SUCCESS) {
+        OPAL_OUTPUT_VERBOSE((1, ompi_osc_base_framework.framework_output,
+                             "No ofi endpoint found; disqualifying myself\n"));
+        return OMPI_ERR_NOT_AVAILABLE;
+    }
+
+    /* FIXME: look if HW supports RMA */
 
     return OMPI_SUCCESS;
 }
@@ -174,13 +191,12 @@ component_query(struct ompi_win_t *win, void **base, size_t size, int disp_unit,
 {
     int ret;
     if (OMPI_SUCCESS != (ret = check_win_ok(comm, flavor))) {
-        if (OMPI_ERR_NOT_SUPPORTED == ret) {
-            return -1;
-        }
         return ret;
     }
 
-    return 100;
+    /* FIXME: Look in opal_info_t if there are any flags that are not supported in this window */
+
+    return 1000; //FIXME: Maybe don't return an arbitrary value that ensures this component is selected
 }
 
 
@@ -191,7 +207,7 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
 {
     ompi_osc_fsm_module_t *module = NULL;
     int comm_size = ompi_comm_size (comm);
-    bool unlink_needed = false;
+
     int ret = OMPI_ERROR;
 
     if (OMPI_SUCCESS != (ret = check_win_ok(comm, flavor))) {
@@ -207,10 +223,6 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
 
     OBJ_CONSTRUCT(&module->lock, opal_mutex_t);
 
-    ret = opal_infosubscribe_subscribe(&(win->super), "alloc_shared_contig", "false", component_set_alloc_shared_noncontig_info);
-
-    if (OPAL_SUCCESS != ret) goto error;
-
     /* fill in the function pointer part */
     memcpy(module, &ompi_osc_fsm_module_template,
            sizeof(ompi_osc_base_module_t));
@@ -223,7 +235,7 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
 
     /* create the segment */
     if (1 == comm_size) {
-        module->segment_base = NULL;
+        module->my_segment_base = NULL;
         module->sizes = malloc(sizeof(size_t));
         if (NULL == module->sizes) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
         module->bases = malloc(sizeof(void*));
@@ -242,85 +254,113 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
         module->posts[0] = (osc_fsm_post_atomic_type_t *) (module->posts + 1);
     } else {
         unsigned long total, *rbuf;
-        int i, flag;
+        int i;
         size_t pagesize;
         size_t state_size;
-        size_t posts_size, post_size = (comm_size + 63) / 64;
+        uint64_t* remote_keys;
+        size_t posts_size, post_amount = (comm_size + OSC_FSM_POST_MASK) / (OSC_FSM_POST_MASK + 1);
+        struct fid_domain *ofi_domain = NULL;
+        struct fid_fabric *ofi_fabric = NULL;
+        struct fid_av *ofi_av = NULL;
+        struct fid_ep *ofi_ep = NULL;
+        uint64_t access_flags = FI_REMOTE_WRITE | FI_REMOTE_READ | FI_READ | FI_WRITE;
+
 
         OPAL_OUTPUT_VERBOSE((1, ompi_osc_base_framework.framework_output,
                              "allocating shared memory region of size %ld\n", (long) size));
 
-        /* get the pagesize */
         pagesize = opal_getpagesize();
+        mca_common_ofi_get_ofi_info(&ofi_fabric, &ofi_domain, &ofi_av, &ofi_ep);
 
-        rbuf = malloc(sizeof(unsigned long) * comm_size);
+        rbuf = malloc(sizeof(rbuf[0]) * comm_size);
         if (NULL == rbuf) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+        remote_keys = malloc(sizeof(remote_keys[0]) * comm_size);
+        if (NULL == remote_keys) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+        module->mdesc = malloc(sizeof(module->mdesc[0]) * comm_size);
+        if (NULL == module->mdesc) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
 
         module->noncontig = false;
-        if (OMPI_SUCCESS != opal_info_get_bool(info, "alloc_shared_noncontig",
-                                               &module->noncontig, &flag)) {
+
+        // Expand size to page size
+        total = ((size - 1) / pagesize + 1) * pagesize;
+
+        if (0 == ompi_comm_rank (module->comm)) {
+            state_size = sizeof(ompi_osc_fsm_global_state_t) + sizeof(ompi_osc_fsm_node_state_t);
+        } else {
+            state_size = sizeof(ompi_osc_fsm_node_state_t);
+        }
+        state_size += OPAL_ALIGN_PAD_AMOUNT(state_size, CACHELINE_SZ);
+        /* TODO: Find out if only one post integer per cache line is needed */
+        posts_size = post_amount * sizeof (module->posts[0][0]);
+        posts_size += OPAL_ALIGN_PAD_AMOUNT(posts_size, CACHELINE_SZ);
+
+        //TODO segment create and get magic number
+        ret = posix_memalign(&module->my_segment_base, pagesize, total + posts_size + state_size);
+        if(ret) {
+            if(EINVAL == ret) {
+                OPAL_OUTPUT_VERBOSE((1, ompi_osc_base_framework.framework_output,
+                                     "Couldn't allocate memory aligned to %ld\n", (long) pagesize));
+                ret = OMPI_ERR_OUT_OF_RESOURCE;
+            } else if(ENOMEM == ret){
+                ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+            }
             goto error;
         }
 
-        if (module->noncontig) {
-            total = ((size - 1) / pagesize + 1) * pagesize;
-        } else {
-            total = size;
+        ret = fi_mr_reg(ofi_domain, module->my_segment_base, total, access_flags, 0, 0, 0, &module->mr, NULL);
+
+        if(ret) {
+            goto error;
         }
+
+        module->mr_key = fi_mr_key(module->mr);
+
+        // FIXME properly move every communication into one buffer (Only one all gather needed...)
+        ret = module->comm->c_coll->coll_allgather(&module->mr_key, 1, MPI_UINT64_T,
+                                                  remote_keys, 1, MPI_UINT64_T,
+                                                  module->comm,
+                                                  module->comm->c_coll->coll_allgather_module);
+        if (OMPI_SUCCESS != ret) {
+            goto error;
+        }
+
         ret = module->comm->c_coll->coll_allgather(&total, 1, MPI_UNSIGNED_LONG,
                                                   rbuf, 1, MPI_UNSIGNED_LONG,
                                                   module->comm,
                                                   module->comm->c_coll->coll_allgather_module);
-        if (OMPI_SUCCESS != ret) return ret;
-
-        total = 0;
-        for (i = 0 ; i < comm_size ; ++i) {
-            total += rbuf[i];
-        }
-
-        /* user opal/shmem directly to create a shared memory segment */
-        state_size = sizeof(ompi_osc_fsm_global_state_t) + sizeof(ompi_osc_fsm_node_state_t) * comm_size;
-        state_size += OPAL_ALIGN_PAD_AMOUNT(state_size, 64);
-        posts_size = comm_size * post_size * sizeof (module->posts[0][0]);
-        posts_size += OPAL_ALIGN_PAD_AMOUNT(posts_size, 64);
-        if (0 == ompi_comm_rank (module->comm)) {
-            char *data_file;
-            ret = opal_asprintf (&data_file, "%s" OPAL_PATH_SEP "osc_fsm.%s.%x.%d.%d",
-                            mca_osc_fsm_component.backing_directory, ompi_process_info.nodename,
-                            OMPI_PROC_MY_NAME->jobid, (int) OMPI_PROC_MY_NAME->vpid, ompi_comm_get_cid(module->comm));
-            if (ret < 0) {
-                return OMPI_ERR_OUT_OF_RESOURCE;
-            }
-
-            ret = opal_shmem_segment_create (&module->seg_ds, data_file, total + pagesize + state_size + posts_size);
-            free(data_file);
-            if (OPAL_SUCCESS != ret) {
-                goto error;
-            }
-
-            unlink_needed = true;
-        }
-
-        ret = module->comm->c_coll->coll_bcast (&module->seg_ds, sizeof (module->seg_ds), MPI_BYTE, 0,
-                                               module->comm, module->comm->c_coll->coll_bcast_module);
         if (OMPI_SUCCESS != ret) {
             goto error;
         }
+        ret = fi_open_ops(&ofi_fabric->fid, FI_ZHPE_OPS_V1, 0,
+                (void **)&module->ext_ops, NULL);
 
-        module->segment_base = opal_shmem_segment_attach (&module->seg_ds);
-        if (NULL == module->segment_base) {
-            goto error;
+        for(i = 0; i < comm_size; i++) {
+            if(i != ompi_comm_rank(module->comm)) {
+                struct ompi_proc_t *ompi_proc;
+                mca_mtl_ofi_endpoint_t *endpoint;
+
+                ompi_proc = ompi_comm_peer_lookup(comm, i);
+                //FIXME: This should be done in a common component. If is just a coincident that ompi_mtl_ofi_get_endpoint doesn't need the module
+                endpoint = ompi_mtl_ofi_get_endpoint(NULL, ompi_proc);
+
+                /*FIXME: For Scalable Endpoints, gather target receive context */
+                //sep_peer_fiaddr = fi_rx_addr(endpoint->peer_fiaddr, ctxt_id, ompi_mtl_ofi.rx_ctx_bits);
+                ret = module->ext_ops->mmap(NULL, rbuf[i], PROT_READ | PROT_WRITE,
+                        MAP_SHARED, 0, ofi_ep, endpoint->peer_fiaddr, remote_keys[i],
+                        FI_ZHPE_MMAP_CACHE_WB, module->mdesc + i);
+                if(ret) {
+                    //TODO cleanup
+                    goto error;
+                }
+            } else {
+                module->mdesc[i] = NULL;
+            }
         }
 
-        /* wait for all processes to attach */
+        /* FIXME: Is this needed? Wait for all processes to attach */
         ret = module->comm->c_coll->coll_barrier (module->comm, module->comm->c_coll->coll_barrier_module);
         if (OMPI_SUCCESS != ret) {
             goto error;
-        }
-
-        if (0 == ompi_comm_rank (module->comm)) {
-            opal_shmem_unlink (&module->seg_ds);
-            unlink_needed = false;
         }
 
         module->sizes = malloc(sizeof(size_t) * comm_size);
@@ -329,31 +369,34 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
         if (NULL == module->bases) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
         module->posts = calloc (comm_size, sizeof (module->posts[0]));
         if (NULL == module->posts) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+        module->node_states = calloc (comm_size, sizeof (module->node_states[0]));
+        if (NULL == module->node_states) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
 
-        /* set module->posts[0] first to ensure 64-bit alignment */
-        module->posts[0] = (osc_fsm_post_atomic_type_t *) (module->segment_base);
-        module->global_state = (ompi_osc_fsm_global_state_t *) (module->posts[0] + comm_size * post_size);
-        module->node_states = (ompi_osc_fsm_node_state_t *) (module->global_state + 1);
-
-        for (i = 0, total = state_size + posts_size ; i < comm_size ; ++i) {
-            if (i > 0) {
-                module->posts[i] = module->posts[i - 1] + post_size;
-            }
-
-            module->sizes[i] = rbuf[i];
-            if (module->sizes[i]) {
-                module->bases[i] = ((char *) module->segment_base) + total;
-                total += rbuf[i];
+        for(i = 0; i < comm_size; i++) {
+            void * base;
+            if(i == ompi_comm_rank(module->comm)) {
+                base = module->my_segment_base;
             } else {
-                module->bases[i] = NULL;
+                base = module->mdesc[i]->addr;
             }
+
+            module->posts[i] = base;
+            base = module->posts[i] + posts_size;
+            if(0 == i) {
+                module->global_state = base;
+                base = module->global_state + 1;
+            }
+            module->node_states[i] = base;
+            module->bases[i] = module->node_states[i] + 1;
+            module->sizes[i] = rbuf[i];
         }
 
         free(rbuf);
+        free(remote_keys);
     }
 
     /* initialize my state shared */
-    module->my_node_state = &module->node_states[ompi_comm_rank(module->comm)];
+    module->my_node_state = module->node_states[ompi_comm_rank(module->comm)];
     memset (module->my_node_state, 0, sizeof(*module->my_node_state));
 
     *base = module->bases[ompi_comm_rank(module->comm)];
@@ -436,10 +479,7 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
 
  error:
 
-    if (0 == ompi_comm_rank (module->comm) && unlink_needed) {
-        opal_shmem_unlink (&module->seg_ds);
-    }
-
+    //TODO: Free; look at ompi_osc_fsm_free(struct ompi_win_t *win)
     ompi_osc_fsm_free (win);
 
     return ret;
@@ -509,16 +549,17 @@ ompi_osc_fsm_detach(struct ompi_win_t *win, const void *base)
 int
 ompi_osc_fsm_free(struct ompi_win_t *win)
 {
+    //TODO rework
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
 
     /* free memory */
-    if (NULL != module->segment_base) {
+    if (NULL != module->my_segment_base) {
         /* synchronize */
         module->comm->c_coll->coll_barrier(module->comm,
                                           module->comm->c_coll->coll_barrier_module);
 
-        opal_shmem_segment_detach (&module->seg_ds);
+        // TODO cleanup opal_shmem_segment_detach (&module->seg_ds);
     } else {
         free(module->node_states);
         free(module->global_state);

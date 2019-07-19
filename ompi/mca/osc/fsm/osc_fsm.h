@@ -19,6 +19,8 @@
 
 #include "opal/mca/shmem/base/base.h"
 
+#define CACHELINE_SZ 64
+
 #if OPAL_HAVE_ATOMIC_MATH_64
 
 typedef uint64_t osc_fsm_post_type_t;
@@ -81,9 +83,14 @@ struct ompi_osc_fsm_module_t {
     ompi_osc_base_module_t super;
     struct ompi_communicator_t *comm;
     int flavor;
-    opal_shmem_ds_t seg_ds; /* TODO definetly remove that */
-    void *segment_base;
+    void *my_segment_base;
+    struct fid_mr *mr;
+    uint64_t mr_key;
     bool noncontig;
+
+    /* FIXME: ZHPE related */
+    struct fi_zhpe_mmap_desc **mdesc;
+    struct fi_zhpe_ext_ops_v1 *ext_ops;
 
     size_t *sizes;
     void **bases;
@@ -99,7 +106,7 @@ struct ompi_osc_fsm_module_t {
     /* exposed data */
     ompi_osc_fsm_global_state_t *global_state;
     ompi_osc_fsm_node_state_t *my_node_state;
-    ompi_osc_fsm_node_state_t *node_states;
+    ompi_osc_fsm_node_state_t **node_states;
 
     osc_fsm_post_atomic_type_t **posts;
 

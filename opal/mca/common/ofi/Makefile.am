@@ -28,7 +28,7 @@
 # Note that building this common component statically and linking
 # against other dynamic components is *not* supported!
 
-AM_CPPFLAGS = $(opal_common_ofi_CPPFLAGS)
+AM_CPPFLAGS = $(opal_common_ofi_CPPFLAGS) -I$(prefix)/include
 
 # Header files
 

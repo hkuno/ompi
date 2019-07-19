@@ -128,7 +128,7 @@ ompi_osc_fsm_raccumulate(const void *origin_addr,
 
     remote_address = ((char*) (module->bases[target])) + module->disp_units[target] * target_disp;
 
-    opal_atomic_lock(&module->node_states[target].accumulate_lock);
+    opal_atomic_lock(&module->node_states[target]->accumulate_lock);
     if (op == &ompi_mpi_op_replace.op) {
         ret = ompi_datatype_sndrcv((void *)origin_addr, origin_count, origin_dt,
                                     remote_address, target_count, target_dt);
@@ -137,7 +137,7 @@ ompi_osc_fsm_raccumulate(const void *origin_addr,
                                       remote_address, target_count, target_dt,
                                       op);
     }
-    opal_atomic_unlock(&module->node_states[target].accumulate_lock);
+    opal_atomic_unlock(&module->node_states[target]->accumulate_lock);
 
     /* the only valid field of RMA request status is the MPI_ERROR field.
      * ompi_request_empty has status MPI_SUCCESS and indicates the request is
@@ -179,7 +179,7 @@ ompi_osc_fsm_rget_accumulate(const void *origin_addr,
 
     remote_address = ((char*) (module->bases[target])) + module->disp_units[target] * target_disp;
 
-    opal_atomic_lock(&module->node_states[target].accumulate_lock);
+    opal_atomic_lock(&module->node_states[target]->accumulate_lock);
 
     ret = ompi_datatype_sndrcv(remote_address, target_count, target_dt,
                                result_addr, result_count, result_dt);
@@ -195,7 +195,7 @@ ompi_osc_fsm_rget_accumulate(const void *origin_addr,
     }
 
  done:
-    opal_atomic_unlock(&module->node_states[target].accumulate_lock);
+    opal_atomic_unlock(&module->node_states[target]->accumulate_lock);
 
     /* the only valid field of RMA request status is the MPI_ERROR field.
      * ompi_request_empty has status MPI_SUCCESS and indicates the request is
@@ -294,7 +294,7 @@ ompi_osc_fsm_accumulate(const void *origin_addr,
 
     remote_address = ((char*) (module->bases[target])) + module->disp_units[target] * target_disp;
 
-    opal_atomic_lock(&module->node_states[target].accumulate_lock);
+    opal_atomic_lock(&module->node_states[target]->accumulate_lock);
     if (op == &ompi_mpi_op_replace.op) {
         ret = ompi_datatype_sndrcv((void *)origin_addr, origin_count, origin_dt,
                                     remote_address, target_count, target_dt);
@@ -303,7 +303,7 @@ ompi_osc_fsm_accumulate(const void *origin_addr,
                                       remote_address, target_count, target_dt,
                                       op);
     }
-    opal_atomic_unlock(&module->node_states[target].accumulate_lock);
+    opal_atomic_unlock(&module->node_states[target]->accumulate_lock);
 
     return ret;
 }
@@ -338,7 +338,7 @@ ompi_osc_fsm_get_accumulate(const void *origin_addr,
 
     remote_address = ((char*) (module->bases[target])) + module->disp_units[target] * target_disp;
 
-    opal_atomic_lock(&module->node_states[target].accumulate_lock);
+    opal_atomic_lock(&module->node_states[target]->accumulate_lock);
 
     ret = ompi_datatype_sndrcv(remote_address, target_count, target_dt,
                                result_addr, result_count, result_dt);
@@ -354,7 +354,7 @@ ompi_osc_fsm_get_accumulate(const void *origin_addr,
     }
 
  done:
-    opal_atomic_unlock(&module->node_states[target].accumulate_lock);
+    opal_atomic_unlock(&module->node_states[target]->accumulate_lock);
 
     return ret;
 }
@@ -384,7 +384,7 @@ ompi_osc_fsm_compare_and_swap(const void *origin_addr,
 
     ompi_datatype_type_size(dt, &size);
 
-    opal_atomic_lock(&module->node_states[target].accumulate_lock);
+    opal_atomic_lock(&module->node_states[target]->accumulate_lock);
 
     /* fetch */
     ompi_datatype_copy_content_same_ddt(dt, 1, (char*) result_addr, (char*) remote_address);
@@ -394,7 +394,7 @@ ompi_osc_fsm_compare_and_swap(const void *origin_addr,
         ompi_datatype_copy_content_same_ddt(dt, 1, (char*) remote_address, (char*) origin_addr);
     }
 
-    opal_atomic_unlock(&module->node_states[target].accumulate_lock);
+    opal_atomic_unlock(&module->node_states[target]->accumulate_lock);
 
     return OMPI_SUCCESS;
 }
@@ -422,7 +422,7 @@ ompi_osc_fsm_fetch_and_op(const void *origin_addr,
 
     remote_address = ((char*) (module->bases[target])) + module->disp_units[target] * target_disp;
 
-    opal_atomic_lock(&module->node_states[target].accumulate_lock);
+    opal_atomic_lock(&module->node_states[target]->accumulate_lock);
 
     /* fetch */
     ompi_datatype_copy_content_same_ddt(dt, 1, (char*) result_addr, (char*) remote_address);
@@ -436,7 +436,7 @@ ompi_osc_fsm_fetch_and_op(const void *origin_addr,
     }
 
  done:
-    opal_atomic_unlock(&module->node_states[target].accumulate_lock);
+    opal_atomic_unlock(&module->node_states[target]->accumulate_lock);
 
     return OMPI_SUCCESS;;
 }

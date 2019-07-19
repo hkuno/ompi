@@ -152,7 +152,7 @@ ompi_osc_fsm_start(struct ompi_group_t *group,
 
         for (int i = 0 ; i < size ; ++i) {
             int rank_byte = ranks[i] >> OSC_FSM_POST_BITS;
-            osc_fsm_post_type_t rank_bit = ((osc_fsm_post_type_t) 1) << (ranks[i] & 0x3f);
+            osc_fsm_post_type_t rank_bit = ((osc_fsm_post_type_t) 1) << (ranks[i] & OSC_FSM_POST_MASK);
 
             /* wait for rank to post */
             while (!(module->posts[my_rank][rank_byte] & rank_bit)) {
@@ -202,7 +202,7 @@ ompi_osc_fsm_complete(struct ompi_win_t *win)
 
     gsize = ompi_group_size(group);
     for (int i = 0 ; i < gsize ; ++i) {
-        (void) opal_atomic_add_fetch_32(&module->node_states[ranks[i]].complete_count, 1);
+        (void) opal_atomic_add_fetch_32(&module->node_states[ranks[i]]->complete_count, 1);
     }
 
     free (ranks);
@@ -222,8 +222,8 @@ ompi_osc_fsm_post(struct ompi_group_t *group,
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
     int my_rank = ompi_comm_rank (module->comm);
-    int my_byte = my_rank >> 6;
-    uint64_t my_bit = ((uint64_t) 1) << (my_rank & 0x3f);
+    int my_byte = my_rank >> OSC_FSM_POST_BITS;
+    osc_fsm_post_type_t my_bit = ((osc_fsm_post_type_t) 1) << (my_rank & OSC_FSM_POST_MASK);
     int gsize;
 
     OPAL_THREAD_LOCK(&module->lock);
