@@ -50,8 +50,10 @@ AC_DEFUN([MCA_opal_memory_patcher_CONFIG],[
     AS_IF([test "$opal_memory_patcher_happy" == "yes"], [
         AC_CHECK_FUNCS([__curbrk])
 	AC_CHECK_HEADERS([linux/mman.h sys/syscall.h])
-	AC_CHECK_DECLS([__mmap], [], [], [#include <sys/mman.h>])
-	AC_CHECK_FUNCS([__mmap])
+# On certain systems, __mmap and mmap point to the same function,
+# causing intercept_mmap to infinitely recurse.
+#    AC_CHECK_DECLS([__mmap], [], [], [#include <sys/mman.h>])
+#    AC_CHECK_FUNCS([__mmap])
 	AC_CHECK_DECLS([__syscall], [], [], [#include <sys/syscall.h>])
 	AC_CHECK_FUNCS([__syscall])
         $1], [$2])
