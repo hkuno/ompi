@@ -5,6 +5,7 @@
 # Copyright (c) 2014-2019 Cisco Systems, Inc.  All rights reserved
 # Copyright (c) 2017      Los Alamos National Security, LLC.  All rights
 #                         reserved.
+# Copyright (c) 2019      Hewlett Packard Enterprise. All rights reserved.
 # $COPYRIGHT$
 #
 # Additional copyrights may follow
@@ -27,6 +28,9 @@ AC_DEFUN([MCA_ompi_mtl_ofi_CONFIG],[
 
     # Check for OFI
     OPAL_CHECK_OFI
+
+    # ensure we already ran the common OFI/libfabric config
+    AC_REQUIRE([MCA_opal_common_ofi_CONFIG])
 
     AS_IF([test "$opal_ofi_happy" = "yes"],
           [$1],

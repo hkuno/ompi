@@ -7,6 +7,7 @@
 # Copyright (c) 2017      IBM Corporation.  All rights reserved.
 # Copyright (c) 2019      Research Organization for Information Science
 #                         and Technology (RIST).  All rights reserved.
+# Copyright (c) 2019      Hewlett Packard Enterprise. All rights reserved.
 # $COPYRIGHT$
 #
 # Additional copyrights may follow
@@ -76,13 +77,16 @@ mcacomponent_LTLIBRARIES = $(component_install)
 mca_mtl_ofi_la_SOURCES = $(mtl_ofi_sources)
 mca_mtl_ofi_la_LDFLAGS = \
         $(opal_ofi_LDFLAGS) \
-        -module -avoid-version
+        -module -avoid-version \
+	$(opal_common_ofi_LDFLAGS)
 mca_mtl_ofi_la_LIBADD = $(top_builddir)/ompi/lib@OMPI_LIBMPI_NAME@.la \
-        $(opal_ofi_LIBS)
+	$(OPAL_TOP_BUILDDIR)/opal/mca/common/ofi/lib@OPAL_LIB_PREFIX@mca_common_ofi.la \
+        $(opal_ofi_LIBS) $(opal_common_ofi_LIBS)
 
 noinst_LTLIBRARIES = $(component_noinst)
 libmca_mtl_ofi_la_SOURCES = $(mtl_ofi_sources)
 libmca_mtl_ofi_la_LDFLAGS = \
         $(opal_ofi_LDFLAGS) \
-        -module -avoid-version
-libmca_mtl_ofi_la_LIBADD = $(opal_ofi_LIBS)
+        -module -avoid-version \
+	$(opal_common_ofi_LDFLAGS)
+libmca_mtl_ofi_la_LIBADD = $(opal_ofi_LIBS) $(opal_common_ofi_LIBS)

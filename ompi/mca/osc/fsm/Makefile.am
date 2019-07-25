@@ -18,7 +18,7 @@ fsm_sources = \
 	osc_fsm_active_target.c \
 	osc_fsm_passive_target.c
 
-AM_CPPFLAGS = $(osc_fsm_CPPFLAGS) -I$(prefix)/include
+AM_CPPFLAGS = $(osc_fsm_CPPFLAGS) -I$(prefix)/include $(opal_common_ofi_CPPFLAGS)
 
 # Make the output library in this directory, and name it either
 # mca_<type>_<name>.la (for DSO builds) or libmca_<type>_<name>.la
@@ -36,10 +36,11 @@ mcacomponentdir = $(pkglibdir)
 mcacomponent_LTLIBRARIES = $(component_install)
 mca_osc_fsm_la_SOURCES = $(fsm_sources)
 mca_osc_fsm_la_LIBADD = $(top_builddir)/ompi/lib@OMPI_LIBMPI_NAME@.la \
-	$(osc_fsm_LIBS)
-mca_osc_fsm_la_LDFLAGS = -module -avoid-version $(osc_fsm_LDFLAGS)
+			$(OPAL_TOP_BUILDDIR)/opal/mca/common/ofi/lib@OPAL_LIB_PREFIX@mca_common_ofi.la \
+			$(osc_fsm_LIBS) $(opal_common_ofi_LIBS)
+mca_osc_fsm_la_LDFLAGS = -module -avoid-version $(osc_fsm_LDFLAGS) $(opal_common_ofi_LDFLAGS)
 
 noinst_LTLIBRARIES = $(component_noinst)
 libmca_osc_fsm_la_SOURCES = $(fsm_sources)
-libmca_osc_fsm_la_LIBADD = $(osc_fsm_LIBS)
-libmca_osc_fsm_la_LDFLAGS = -module -avoid-version $(osc_fsm_LDFLAGS)
+libmca_osc_fsm_la_LIBADD = $(osc_fsm_LIBS) $(opal_common_ofi_LIBS)
+libmca_osc_fsm_la_LDFLAGS = -module -avoid-version $(osc_fsm_LDFLAGS) $(opal_common_ofi_LDFLAGS)
