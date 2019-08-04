@@ -69,13 +69,13 @@ endif
 
 lib@OPAL_LIB_PREFIX@mca_common_ofi_la_SOURCES = $(headers) $(sources)
 lib@OPAL_LIB_PREFIX@mca_common_ofi_la_LDFLAGS = \
-        $(opal_common_ofi_LDFLAGS) \
+        $(opal_ofi_LDFLAGS) \
         -version-info $(libmca_opal_common_ofi_so_version)
-lib@OPAL_LIB_PREFIX@mca_common_ofi_la_LIBADD = $(opal_common_ofi_LIBS)
+lib@OPAL_LIB_PREFIX@mca_common_ofi_la_LIBADD = $(opal_ofi_LIBS)
 
 lib@OPAL_LIB_PREFIX@mca_common_ofi_noinst_la_SOURCES = $(headers) $(sources)
-lib@OPAL_LIB_PREFIX@mca_common_ofi_noinst_la_LDFLAGS = $(opal_common_ofi_LDFLAGS)
-lib@OPAL_LIB_PREFIX@mca_common_ofi_noinst_la_LIBADD = $(opal_common_ofi_LIBS)
+lib@OPAL_LIB_PREFIX@mca_common_ofi_noinst_la_LDFLAGS = $(opal_ofi_LDFLAGS)
+lib@OPAL_LIB_PREFIX@mca_common_ofi_noinst_la_LIBADD = $(opal_ofi_LIBS)
 
 # Conditionally install the header files
 

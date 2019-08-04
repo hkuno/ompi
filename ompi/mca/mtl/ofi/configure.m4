@@ -32,7 +32,10 @@ AC_DEFUN([MCA_ompi_mtl_ofi_CONFIG],[
     # ensure we already ran the common OFI/libfabric config
     AC_REQUIRE([MCA_opal_common_ofi_CONFIG])
 
-    AS_IF([test "$opal_ofi_happy" = "yes"],
+    AC_MSG_CHECKING([if opal::common::ofi is happy])
+    AC_MSG_RESULT([$opal_common_ofi_happy])
+
+    AS_IF([test "$opal_common_ofi_happy" = "yes"],
           [$1],
           [$2])
 ])dnl
