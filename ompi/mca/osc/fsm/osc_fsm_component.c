@@ -165,13 +165,13 @@ check_win_ok(ompi_communicator_t *comm, int flavor)
 {
     if (! (MPI_WIN_FLAVOR_SHARED == flavor
            || MPI_WIN_FLAVOR_ALLOCATE == flavor) ) {
+        OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_COMPONENT, "Only supporting WIN_SHARED or WIN_ALLOCATE. Disqualifying myself\n");
+
         return OMPI_ERR_NOT_SUPPORTED;
     }
 
-
     if (mca_common_ofi_get_ofi_info(NULL, NULL, NULL, NULL) != OPAL_SUCCESS) {
-        OPAL_OUTPUT_VERBOSE((1, ompi_osc_base_framework.framework_output,
-                             "No ofi endpoint found; disqualifying myself\n"));
+        OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_COMPONENT, "No ofi endpoint found; disqualifying myself\n");
         return OMPI_ERR_NOT_AVAILABLE;
     }
 
@@ -186,6 +186,7 @@ component_query(struct ompi_win_t *win, void **base, size_t size, int disp_unit,
                 struct ompi_communicator_t *comm, struct opal_info_t *info,
                 int flavor)
 {
+    OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_TRACE, "osc/fsm: component_query called\n");
     int ret;
     if (OMPI_SUCCESS != (ret = check_win_ok(comm, flavor))) {
         return ret;
@@ -193,6 +194,7 @@ component_query(struct ompi_win_t *win, void **base, size_t size, int disp_unit,
 
     /* FIXME: Look in opal_info_t if there are any flags that are not supported in this window */
 
+    OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_INFO, "Query fits criteria.\n");
     return 1000; //FIXME: Maybe don't return an arbitrary value that ensures this component is selected
 }
 
@@ -208,6 +210,7 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
     int ret = OMPI_ERROR;
 
     if (OMPI_SUCCESS != (ret = check_win_ok(comm, flavor))) {
+        OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_ERROR, "Failed to initializing shared window because the parameters don't fit the requirements.\n");
         return ret;
     }
 
@@ -263,8 +266,8 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
         uint64_t access_flags = FI_REMOTE_WRITE | FI_REMOTE_READ | FI_READ | FI_WRITE;
 
 
-        OPAL_OUTPUT_VERBOSE((1, ompi_osc_base_framework.framework_output,
-                             "allocating shared memory region of size %ld\n", (long) size));
+        OSC_FSM_VERBOSE_F(1, "Initializing shared window with %d ranks and size %ld\n",
+                            comm_size, (long) size);
 
         pagesize = opal_getpagesize();
         mca_common_ofi_get_ofi_info(&ofi_fabric, &ofi_domain, &ofi_av, &ofi_ep);

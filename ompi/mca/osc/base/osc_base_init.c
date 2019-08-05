@@ -45,6 +45,8 @@ ompi_osc_base_select(ompi_win_t *win,
 
     if (opal_list_get_size(&ompi_osc_base_framework.framework_components) <= 0) {
         /* we don't have any components to support us... */
+        opal_output_verbose(MCA_BASE_VERBOSE_COMPONENT, ompi_osc_base_framework.framework_output,
+                             "select: osc: No components to choose from\n");
         return OMPI_ERR_NOT_SUPPORTED;
     }
 
@@ -56,6 +58,9 @@ ompi_osc_base_select(ompi_win_t *win,
 
         priority = component->osc_query(win, base, size, disp_unit, comm, info, flavor);
 
+        opal_output_verbose( MCA_BASE_VERBOSE_DEBUG, ompi_osc_base_framework.framework_output,
+                             "select: osc: component %s priority %d\n",
+                             component->osc_version.mca_component_name, priority );
         if(priority < 0) {
             continue;
         }
@@ -71,10 +76,14 @@ ompi_osc_base_select(ompi_win_t *win,
         return OMPI_ERR_RMA_SHARED;
     }
 
-    if (NULL == best_component) return OMPI_ERR_NOT_SUPPORTED;
+    if (NULL == best_component){
+        opal_output_verbose(MCA_BASE_VERBOSE_COMPONENT, ompi_osc_base_framework.framework_output,
+                             "select: osc: Exit no components qualified\n");
+        return OMPI_ERR_NOT_SUPPORTED;
+    }
 
-    opal_output_verbose( 10, ompi_osc_base_framework.framework_output,
-                         "select: component %s selected",
+    opal_output_verbose( MCA_BASE_VERBOSE_COMPONENT, ompi_osc_base_framework.framework_output,
+                         "select: osc: component %s selected\n",
                          best_component->osc_version.mca_component_name );
 
     return best_component->osc_select(win, base, size, disp_unit, comm, info, flavor, model);

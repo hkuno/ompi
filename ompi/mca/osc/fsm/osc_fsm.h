@@ -37,6 +37,14 @@ typedef opal_atomic_uint32_t osc_fsm_post_atomic_type_t;
 
 #endif
 
+#define OSC_FSM_VERBOSE(x, s) do { \
+    OPAL_OUTPUT_VERBOSE((x, ompi_osc_base_framework.framework_output, "%s:%d: " s,__FILE__, __LINE__)); \
+} while (0)
+
+#define OSC_FSM_VERBOSE_F(x, s, ...) do { \
+    OPAL_OUTPUT_VERBOSE((x, ompi_osc_base_framework.framework_output, "%s:%d: " s,__FILE__, __LINE__ , ##__VA_ARGS__)); \
+} while (0)
+
 /* data shared across all peers */
 struct ompi_osc_fsm_global_state_t {
     int use_barrier_for_fence;
