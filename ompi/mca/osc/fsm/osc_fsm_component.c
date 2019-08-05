@@ -168,9 +168,6 @@ check_win_ok(ompi_communicator_t *comm, int flavor)
         return OMPI_ERR_NOT_SUPPORTED;
     }
 
-    if (ompi_group_have_local_peers (comm->c_local_group)) {
-        return OMPI_ERR_NOT_SUPPORTED;
-    }
 
     if (mca_common_ofi_get_ofi_info(NULL, NULL, NULL, NULL) != OPAL_SUCCESS) {
         OPAL_OUTPUT_VERBOSE((1, ompi_osc_base_framework.framework_output,
