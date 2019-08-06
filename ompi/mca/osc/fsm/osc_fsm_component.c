@@ -206,6 +206,7 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
 {
     ompi_osc_fsm_module_t *module = NULL;
     int comm_size = ompi_comm_size (comm);
+    int i;
 
     int ret = OMPI_ERROR;
 
@@ -226,6 +227,14 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
     /* fill in the function pointer part */
     memcpy(module, &ompi_osc_fsm_module_template,
            sizeof(ompi_osc_base_module_t));
+
+    module->mr = NULL;
+    module->bases = NULL;
+    module->mdesc = NULL;
+    module->my_segment_base = NULL;
+    module->node_states = NULL;
+    module->posts = NULL;
+    module->sizes = NULL;
 
     /* need our communicator for collectives in next phase */
     ret = ompi_comm_dup(comm, &module->comm);
@@ -253,11 +262,10 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
         if (NULL == module->posts) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
         module->posts[0] = (osc_fsm_post_atomic_type_t *) (module->posts + 1);
     } else {
-        unsigned long total, *rbuf;
-        int i;
+        unsigned long total, *rbuf = NULL;
         size_t pagesize;
         size_t state_size;
-        uint64_t* remote_keys;
+        uint64_t* remote_keys = NULL;
         size_t posts_size, post_amount = (comm_size + OSC_FSM_POST_MASK) / (OSC_FSM_POST_MASK + 1);
         struct fid_domain *ofi_domain = NULL;
         struct fid_fabric *ofi_fabric = NULL;
@@ -273,13 +281,25 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
         mca_common_ofi_get_ofi_info(&ofi_fabric, &ofi_domain, &ofi_av, &ofi_ep);
 
         rbuf = malloc(sizeof(rbuf[0]) * comm_size);
-        if (NULL == rbuf) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+        if (NULL == rbuf) {
+            ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+            goto errorAlloc;
+        }
         remote_keys = malloc(sizeof(remote_keys[0]) * comm_size);
-        if (NULL == remote_keys) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+        if (NULL == remote_keys) {
+            ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+            goto errorAlloc;
+        }
         module->mdesc = malloc(sizeof(module->mdesc[0]) * comm_size);
-        if (NULL == module->mdesc) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+        if (NULL == module->mdesc) {
+            ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+            goto errorAlloc;
+        }
+        for(i = 0; i < comm_size; i++) {
+            module->mdesc[i] = NULL;
+        }
 
-        module->noncontig = false;
+        module->noncontig = true;
 
         // Expand size to page size
         total = ((size - 1) / pagesize + 1) * pagesize;
@@ -304,13 +324,13 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
             } else if(ENOMEM == ret){
                 ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
             }
-            goto error;
+            goto errorAlloc;
         }
 
         ret = fi_mr_reg(ofi_domain, module->my_segment_base, total, access_flags, 0, 0, 0, &module->mr, NULL);
 
         if(ret) {
-            goto error;
+            goto errorAlloc;
         }
 
         module->mr_key = fi_mr_key(module->mr);
@@ -321,7 +341,7 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
                                                   module->comm,
                                                   module->comm->c_coll->coll_allgather_module);
         if (OMPI_SUCCESS != ret) {
-            goto error;
+            goto errorAlloc;
         }
 
         ret = module->comm->c_coll->coll_allgather(&total, 1, MPI_UNSIGNED_LONG,
@@ -329,7 +349,7 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
                                                   module->comm,
                                                   module->comm->c_coll->coll_allgather_module);
         if (OMPI_SUCCESS != ret) {
-            goto error;
+            goto errorAlloc;
         }
         ret = fi_open_ops(&ofi_fabric->fid, FI_ZHPE_OPS_V1, 0,
                 (void **)&module->ext_ops, NULL);
@@ -350,7 +370,7 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
                         FI_ZHPE_MMAP_CACHE_WB, module->mdesc + i);
                 if(ret) {
                     //TODO cleanup
-                    goto error;
+                    goto errorAlloc;
                 }
             } else {
                 module->mdesc[i] = NULL;
@@ -360,17 +380,29 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
         /* FIXME: Is this needed? Wait for all processes to attach */
         ret = module->comm->c_coll->coll_barrier (module->comm, module->comm->c_coll->coll_barrier_module);
         if (OMPI_SUCCESS != ret) {
-            goto error;
+            goto errorAlloc;
         }
 
         module->sizes = malloc(sizeof(size_t) * comm_size);
-        if (NULL == module->sizes) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+        if (NULL == module->sizes) {
+            ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+            goto errorAlloc;
+        }
         module->bases = malloc(sizeof(void*) * comm_size);
-        if (NULL == module->bases) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+        if (NULL == module->bases) {
+            ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+            goto errorAlloc;
+        }
         module->posts = calloc (comm_size, sizeof (module->posts[0]));
-        if (NULL == module->posts) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+        if (NULL == module->posts) {
+            ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+            goto errorAlloc;
+        }
         module->node_states = calloc (comm_size, sizeof (module->node_states[0]));
-        if (NULL == module->node_states) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+        if (NULL == module->node_states) {
+            ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+            goto errorAlloc;
+        }
 
         for(i = 0; i < comm_size; i++) {
             void * base;
@@ -391,8 +423,12 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
             module->sizes[i] = rbuf[i];
         }
 
+errorAlloc:
         free(rbuf);
         free(remote_keys);
+        if(ret) {
+            goto error;
+        }
     }
 
     /* initialize my state shared */
@@ -478,10 +514,7 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
     return OMPI_SUCCESS;
 
  error:
-
-    //TODO: Free; look at ompi_osc_fsm_free(struct ompi_win_t *win)
     ompi_osc_fsm_free (win);
-
     return ret;
 }
 
@@ -537,6 +570,7 @@ int
 ompi_osc_fsm_detach(struct ompi_win_t *win, const void *base)
 {
     ompi_osc_fsm_module_t *module =
+        // TODO cleanup opal_shmem_segment_detach (&module->seg_ds);
         (ompi_osc_fsm_module_t*) win->w_osc_module;
 
     if (module->flavor != MPI_WIN_FLAVOR_DYNAMIC) {
@@ -549,18 +583,30 @@ ompi_osc_fsm_detach(struct ompi_win_t *win, const void *base)
 int
 ompi_osc_fsm_free(struct ompi_win_t *win)
 {
-    //TODO rework
+    OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_TRACE, "Entering ompi_osc_fsm_free.\n");
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
 
     /* free memory */
     if (NULL != module->my_segment_base) {
+        OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_TRACE, "Assuming that memory for window was mapped and allocated.\n");
+        for (int i = 0; i < ompi_comm_size(module->comm); i++){
+            if(NULL != module->mdesc[i]) {
+                int ret = module->ext_ops->munmap(module->mdesc[i]);
+                if(ret < 0) {
+                    OSC_FSM_VERBOSE_F(MCA_BASE_VERBOSE_ERROR, "Error while unmapping remote region: %d\n", ret);
+                    return OMPI_ERR_FATAL;
+                }
+            }
+        }
         /* synchronize */
         module->comm->c_coll->coll_barrier(module->comm,
                                           module->comm->c_coll->coll_barrier_module);
 
-        // TODO cleanup opal_shmem_segment_detach (&module->seg_ds);
-    } else {
+        fi_close(&module->mr->fid);
+        free(module->my_segment_base);
+    } else if(1 == ompi_comm_size(module->comm)) {
+        OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_TRACE, "Only cleanup for one rank\n");
         free(module->node_states);
         free(module->global_state);
         if (NULL != module->bases) {
@@ -571,6 +617,7 @@ ompi_osc_fsm_free(struct ompi_win_t *win)
     free(module->outstanding_locks);
     free(module->sizes);
     free(module->bases);
+    free(module->node_states);
 
     free (module->posts);
 
@@ -581,6 +628,7 @@ ompi_osc_fsm_free(struct ompi_win_t *win)
 
     free(module);
 
+    OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_TRACE, "Successful ompi_osc_fsm_free.\n");
     return OMPI_SUCCESS;
 }
 
