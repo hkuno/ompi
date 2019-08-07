@@ -50,6 +50,7 @@ fsm_atomic_unlock(osc_fsm_aligned_atomic_type_t *lock, int target_rank, struct o
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
     *lock = OPAL_ATOMIC_LOCK_UNLOCKED;
+    osc_fsm_flush(module, target_rank, lock, OPAL_ALIGN_PAD_AMOUNT(sizeof(lock), CACHELINE_SZ), true);
 }
 
 int

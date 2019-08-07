@@ -181,6 +181,14 @@ ompi_osc_fsm_lock(int lock_type,
         module->outstanding_locks[target] = lock_nocheck;
         ret = OMPI_SUCCESS;
     }
+    int comm_size = ompi_comm_size(module->comm);
+    int i;
+    for (i = 0; i < comm_size; i++) {
+        if (module->bases[i]) {
+            osc_fsm_invalidate_window(module, i, true);
+        }
+    }
+
 
     return ret;
 }
@@ -206,6 +214,7 @@ ompi_osc_fsm_unlock(int target,
         break;
 
     case lock_exclusive:
+        osc_fsm_flush_window(module, target, true);
         ret = end_exclusive(module, target);
         break;
 
@@ -272,6 +281,17 @@ int
 ompi_osc_fsm_sync(struct ompi_win_t *win)
 {
     opal_atomic_mb();
+    ompi_osc_fsm_module_t *module =
+        (ompi_osc_fsm_module_t*) win->w_osc_module;
+
+    int my_rank = ompi_comm_rank(module->comm);
+    osc_fsm_flush_window(module, my_rank, true);
+
+    int comm_size = ompi_comm_size(module->comm);
+    for (int i = 0 ; i < comm_size ; ++i) {
+        osc_fsm_invalidate_window(module, i, true);
+    }
+
 
     return OMPI_SUCCESS;
 }
@@ -282,7 +302,10 @@ ompi_osc_fsm_flush(int target,
                         struct ompi_win_t *win)
 {
     opal_atomic_mb();
+    ompi_osc_fsm_module_t *module =
+        (ompi_osc_fsm_module_t*) win->w_osc_module;
 
+    osc_fsm_flush_window(module, target, true);
     return OMPI_SUCCESS;
 }
 
@@ -292,6 +315,11 @@ ompi_osc_fsm_flush_all(struct ompi_win_t *win)
 {
     opal_atomic_mb();
 
+    ompi_osc_fsm_module_t *module =
+        (ompi_osc_fsm_module_t*) win->w_osc_module;
+    for(int i = 0; i < ompi_comm_size(module->comm); i++) {
+        ompi_osc_fsm_flush(i, win);
+    }
     return OMPI_SUCCESS;
 }
 
@@ -302,6 +330,11 @@ ompi_osc_fsm_flush_local(int target,
 {
     opal_atomic_mb();
 
+    ompi_osc_fsm_module_t *module =
+        (ompi_osc_fsm_module_t*) win->w_osc_module;
+    for(int i = 0; i < ompi_comm_size(module->comm); i++) {
+        ompi_osc_fsm_flush(i, win);
+    }
     return OMPI_SUCCESS;
 }
 
@@ -311,5 +344,10 @@ ompi_osc_fsm_flush_local_all(struct ompi_win_t *win)
 {
     opal_atomic_mb();
 
+    ompi_osc_fsm_module_t *module =
+        (ompi_osc_fsm_module_t*) win->w_osc_module;
+    for(int i = 0; i < ompi_comm_size(module->comm); i++) {
+        ompi_osc_fsm_flush(i, win);
+    }
     return OMPI_SUCCESS;
 }

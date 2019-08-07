@@ -18,6 +18,7 @@
 #define OSC_FSM_FSM_H
 
 #include "opal/mca/shmem/base/base.h"
+#include "ompi/communicator/communicator.h"
 #include <pthread.h>
 #include <rdma/fabric.h>
 #include <rdma/fi_domain.h>
@@ -147,6 +148,38 @@ struct ompi_osc_fsm_module_t {
     opal_mutex_t lock;
 };
 typedef struct ompi_osc_fsm_module_t ompi_osc_fsm_module_t;
+
+static inline void osc_fsm_flush(ompi_osc_fsm_module_t * module, int target, void * addr, size_t len, bool fence) {
+    if(ompi_comm_rank(module->comm) == target){
+        //TODO
+    } else {
+        module->ext_ops->commit(module->mdesc[target], addr, len, fence);
+    }
+}
+
+static inline void osc_fsm_flush_window(ompi_osc_fsm_module_t * module, int target, bool fence) {
+    if(ompi_comm_rank(module->comm) == target){
+        //TODO
+    } else {
+        osc_fsm_flush(module, target, module->bases[target], module->sizes[target], fence);
+    }
+}
+
+static inline void osc_fsm_invalidate(ompi_osc_fsm_module_t * module, int target, void * addr, size_t len, bool fence) {
+    if(ompi_comm_rank(module->comm) == target){
+        //TODO
+    } else {
+        //TODO
+    }
+}
+
+static inline void osc_fsm_invalidate_window(ompi_osc_fsm_module_t * module, int target, bool fence) {
+    if(ompi_comm_rank(module->comm) == target){
+        //TODO
+    } else {
+        //TODO
+    }
+}
 
 int ompi_osc_fsm_shared_query(struct ompi_win_t *win, int rank, size_t *size, int *disp_unit, void *baseptr);
 

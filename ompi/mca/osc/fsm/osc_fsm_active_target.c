@@ -101,27 +101,32 @@ ompi_osc_fsm_fence(int assert, struct ompi_win_t *win)
     /* ensure all memory operations have completed */
     opal_atomic_mb();
 
-    if (module->global_state->use_barrier_for_fence) {
-        return module->comm->c_coll->coll_barrier(module->comm,
-                                                 module->comm->c_coll->coll_barrier_module);
-    } else {
-        module->my_sense = !module->my_sense;
-        pthread_mutex_lock(&module->global_state->mtx);
-        module->global_state->count--;
-        if (module->global_state->count == 0) {
-            module->global_state->count = ompi_comm_size(module->comm);
-            module->global_state->sense = module->my_sense;
-            pthread_cond_broadcast(&module->global_state->cond);
-        } else {
-            while (module->global_state->sense != module->my_sense) {
-                pthread_cond_wait(&module->global_state->cond, &module->global_state->mtx);
-            }
-        }
-        pthread_mutex_unlock(&module->global_state->mtx);
+    int comm_size = ompi_comm_size(module->comm);
+    int i;
 
-        return OMPI_SUCCESS;
+    /* To be conservative, we flush all data.
+       If we could tracked which buffers are actually dirty, we could avoid
+       unnecessary flushes. The problem is that there is no way of tracking
+       load/stores done on the window*/
+    for (i = 0; i < comm_size; i++) {
+        if (module->bases[i]) {
+            osc_fsm_flush_window(module, i, true);
+        }
     }
+
+    int res = module->comm->c_coll->coll_barrier(module->comm,
+                                           module->comm->c_coll->coll_barrier_module);
+
+    /* We need to invalidate everything so we can see changes made on other nodes. */
+    for (i = 0; i < comm_size; i++) {
+        if (module->bases[i]) {
+            osc_fsm_invalidate_window(module, i, true);
+        }
+    }
+       return res;
 }
+
+
 
 int
 ompi_osc_fsm_start(struct ompi_group_t *group,
