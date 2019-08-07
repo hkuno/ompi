@@ -258,7 +258,7 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
         if (NULL == module->posts) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
         module->posts[0] = (osc_aligned_fsm_post_type_t *) (module->posts + 1);
     } else {
-        unsigned long total, *rbuf = NULL;
+        unsigned long total, *rbuf = NULL, *sizeBuf = NULL;
         size_t pagesize;
         size_t state_size;
         uint64_t* remote_keys = NULL;
@@ -281,6 +281,11 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
             ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
             goto errorAlloc;
         }
+        sizeBuf = malloc(sizeof(sizeBuf[0]) * comm_size);
+        if (NULL == sizeBuf) {
+            ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+            goto errorAlloc;
+        }
         remote_keys = malloc(sizeof(remote_keys[0]) * comm_size);
         if (NULL == remote_keys) {
             ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
@@ -297,21 +302,23 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
 
         module->noncontig = true;
 
-        // Expand size to page size
-        total = ((size - 1) / pagesize + 1) * pagesize;
-
         if (0 == ompi_comm_rank (module->comm)) {
             state_size = sizeof(ompi_osc_fsm_global_state_t) + sizeof(ompi_osc_fsm_node_state_t);
         } else {
             state_size = sizeof(ompi_osc_fsm_node_state_t);
         }
+
         state_size += OPAL_ALIGN_PAD_AMOUNT(state_size, CACHELINE_SZ);
         /* TODO: Find out if only one post integer per cache line is needed */
         posts_size = post_amount * sizeof (module->posts[0][0]);
         posts_size += OPAL_ALIGN_PAD_AMOUNT(posts_size, CACHELINE_SZ);
 
+        total = size + posts_size + state_size;
+        // Expand size to page size
+        total = ((total - 1) / pagesize + 1) * pagesize;
+
         //TODO segment create and get magic number
-        ret = posix_memalign(&module->my_segment_base, pagesize, total + posts_size + state_size);
+        ret = posix_memalign(&module->my_segment_base, pagesize, total);
         if(ret) {
             if(EINVAL == ret) {
                 OPAL_OUTPUT_VERBOSE((1, ompi_osc_base_framework.framework_output,
@@ -342,6 +349,14 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
 
         ret = module->comm->c_coll->coll_allgather(&total, 1, MPI_UNSIGNED_LONG,
                                                   rbuf, 1, MPI_UNSIGNED_LONG,
+                                                  module->comm,
+                                                  module->comm->c_coll->coll_allgather_module);
+
+        if (OMPI_SUCCESS != ret) {
+            goto errorAlloc;
+        }
+        ret = module->comm->c_coll->coll_allgather(&size, 1, MPI_UNSIGNED_LONG,
+                                                  sizeBuf, 1, MPI_UNSIGNED_LONG,
                                                   module->comm,
                                                   module->comm->c_coll->coll_allgather_module);
         if (OMPI_SUCCESS != ret) {
@@ -416,11 +431,12 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
             }
             module->node_states[i] = base;
             module->bases[i] = OPAL_ALIGN_PTR((uintptr_t) module->node_states[i] + 1, CACHELINE_SZ, void *);
-            module->sizes[i] = rbuf[i];
+            module->sizes[i] = sizeBuf[i];
         }
 
 errorAlloc:
         free(rbuf);
+        free(sizeBuf);
         free(remote_keys);
         if(ret) {
             goto error;
