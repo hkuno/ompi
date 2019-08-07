@@ -202,7 +202,12 @@ ompi_osc_fsm_complete(struct ompi_win_t *win)
 
     gsize = ompi_group_size(group);
     for (int i = 0 ; i < gsize ; ++i) {
+
+#if OPAL_HAVE_ATOMIC_MATH_64
+        (void) opal_atomic_add_fetch_64(&module->node_states[ranks[i]]->complete_count, 1);
+#else
         (void) opal_atomic_add_fetch_32(&module->node_states[ranks[i]]->complete_count, 1);
+#endif
     }
 
     free (ranks);

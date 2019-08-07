@@ -36,10 +36,6 @@
 
 #include "osc_fsm.h"
 #include <sys/mman.h>
-#include <rdma/fabric.h>
-#include <rdma/fi_domain.h>
-#include <rdma/fi_endpoint.h>
-#include <rdma/fi_ext_zhpe.h>
 
 static int component_open(void);
 static int component_init(bool enable_progress_threads, bool enable_mpi_threads);
@@ -260,7 +256,7 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
         if (NULL == module->node_states) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
         module->posts = calloc (1, sizeof(module->posts[0]) + sizeof (module->posts[0][0]));
         if (NULL == module->posts) return OMPI_ERR_TEMP_OUT_OF_RESOURCE;
-        module->posts[0] = (osc_fsm_post_atomic_type_t *) (module->posts + 1);
+        module->posts[0] = (osc_aligned_fsm_post_type_t *) (module->posts + 1);
     } else {
         unsigned long total, *rbuf = NULL;
         size_t pagesize;
@@ -413,13 +409,13 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
             }
 
             module->posts[i] = base;
-            base = module->posts[i] + posts_size;
+            base = OPAL_ALIGN_PTR((uintptr_t) module->posts[i] + posts_size, CACHELINE_SZ, void *);
             if(0 == i) {
                 module->global_state = base;
-                base = module->global_state + 1;
+                base = OPAL_ALIGN_PTR((uintptr_t) module->global_state + 1, CACHELINE_SZ, void *);
             }
             module->node_states[i] = base;
-            module->bases[i] = module->node_states[i] + 1;
+            module->bases[i] = OPAL_ALIGN_PTR((uintptr_t) module->node_states[i] + 1, CACHELINE_SZ, void *);
             module->sizes[i] = rbuf[i];
         }
 
@@ -437,7 +433,7 @@ errorAlloc:
 
     *base = module->bases[ompi_comm_rank(module->comm)];
 
-    opal_atomic_lock_init(&module->my_node_state->accumulate_lock, OPAL_ATOMIC_LOCK_UNLOCKED);
+    module->my_node_state->accumulate_lock = OPAL_ATOMIC_LOCK_UNLOCKED;
 
     /* share everyone's displacement units. */
     module->disp_units = malloc(sizeof(int) * comm_size);

@@ -18,20 +18,46 @@
 #define OSC_FSM_FSM_H
 
 #include "opal/mca/shmem/base/base.h"
+#include <pthread.h>
+#include <rdma/fabric.h>
+#include <rdma/fi_domain.h>
+#include <rdma/fi_endpoint.h>
+#include <rdma/fi_ext_zhpe.h>
 
 #define CACHELINE_SZ 64
 
+#ifdef __aarch64__
+static inline void smp_wmb(void)
+{
+    asm volatile("dsb st":::"memory");
+}
+#endif
+
+#ifdef __x86_64__
+static inline void smp_wmb(void)
+{
+    asm volatile("sfence":::"memory");
+}
+#endif
+
+typedef uint64_t __attribute__((aligned(CACHELINE_SZ))) aligned_uint64_t;
+typedef uint32_t __attribute__((aligned(CACHELINE_SZ))) aligned_uint32_t;
+
 #if OPAL_HAVE_ATOMIC_MATH_64
 
+typedef uint64_t __attribute__((aligned(CACHELINE_SZ))) osc_aligned_fsm_post_type_t;
 typedef uint64_t osc_fsm_post_type_t;
-typedef opal_atomic_uint64_t osc_fsm_post_atomic_type_t;
+typedef opal_atomic_int64_t osc_fsm_atomic_type_t;
+typedef opal_atomic_int64_t __attribute__((aligned(CACHELINE_SZ))) osc_fsm_aligned_atomic_type_t;
 #define OSC_FSM_POST_BITS 6
 #define OSC_FSM_POST_MASK 0x3f
 
 #else
 
+typedef uint32_t __attribute__((aligned(CACHELINE_SZ))) osc_aligned_fsm_post_type_t;
 typedef uint32_t osc_fsm_post_type_t;
-typedef opal_atomic_uint32_t osc_fsm_post_atomic_type_t;
+typedef opal_atomic_uint32_t osc_fsm_atomic_type_t;
+typedef opal_atomic_uint32_t __attribute__((aligned(CACHELINE_SZ))) osc_aligned_fsm_atomic_type_t;
 #define OSC_FSM_POST_BITS 5
 #define OSC_FSM_POST_MASK 0x1f
 
@@ -54,23 +80,23 @@ struct ompi_osc_fsm_global_state_t {
 
     int sense;
     int32_t count;
-};
+} __attribute__((aligned(CACHELINE_SZ)));
 typedef struct ompi_osc_fsm_global_state_t ompi_osc_fsm_global_state_t;
 
 /* this is data exposed to remote nodes */
 struct ompi_osc_fsm_lock_t {
-    uint32_t counter;
-    uint32_t write;
-    uint32_t read;
-};
+    osc_fsm_aligned_atomic_type_t counter;
+    osc_fsm_aligned_atomic_type_t write;
+    osc_fsm_aligned_atomic_type_t read;
+} __attribute__((aligned(CACHELINE_SZ)));
 typedef struct ompi_osc_fsm_lock_t ompi_osc_fsm_lock_t;
 
 struct ompi_osc_fsm_node_state_t {
-    opal_atomic_int32_t complete_count;
+    osc_fsm_aligned_atomic_type_t complete_count;
     ompi_osc_fsm_lock_t lock;
-    opal_atomic_lock_t accumulate_lock;
-};
-typedef struct ompi_osc_fsm_node_state_t ompi_osc_fsm_node_state_t;
+    osc_fsm_aligned_atomic_type_t accumulate_lock;
+} __attribute__((aligned(CACHELINE_SZ)));
+typedef struct ompi_osc_fsm_node_state_t ompi_osc_fsm_node_state_t __attribute__((aligned(CACHELINE_SZ)));
 
 struct ompi_osc_fsm_component_t {
     ompi_osc_base_component_t super;
@@ -116,7 +142,7 @@ struct ompi_osc_fsm_module_t {
     ompi_osc_fsm_node_state_t *my_node_state;
     ompi_osc_fsm_node_state_t **node_states;
 
-    osc_fsm_post_atomic_type_t **posts;
+    osc_aligned_fsm_post_type_t **posts;
 
     opal_mutex_t lock;
 };

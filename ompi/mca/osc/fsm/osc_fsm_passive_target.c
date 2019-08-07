@@ -20,6 +20,52 @@
 
 #include "osc_fsm.h"
 
+#if OPAL_HAVE_ATOMIC_MATH_64
+
+#define lk_fetch_add(a, b, c, d) lk_fetch_add64(a, b, c, d)
+#define lk_add(a, b, c, d) lk_add64(a, b, c, d)
+#define lk_fetch(a, b, c) lk_fetch64(a, b, c)
+
+#else
+
+#define lk_fetch_add(a, b, c, d) lk_fetch_add32(a, b, c, d)
+#define lk_add(a, b, c, d) lk_add32(a, b, c, d)
+#define lk_fetch(a, b, c) lk_fetch32(a, b, c)
+
+#endif
+
+static inline int64_t
+lk_fetch_add64(ompi_osc_fsm_module_t *module,
+               int target,
+               size_t offset,
+               uint64_t delta)
+{
+    /* opal_atomic_add_fetch_32 is an add then fetch so delta needs to be subtracted out to get the
+     * old value */
+    return opal_atomic_add_fetch_64((opal_atomic_int64_t *) ((char*) &module->node_states[target]->lock + offset),
+                              delta) - delta;
+}
+
+
+static inline void
+lk_add64(ompi_osc_fsm_module_t *module,
+         int target,
+         size_t offset,
+         uint64_t delta)
+{
+    opal_atomic_add_fetch_64((opal_atomic_int64_t *) ((char*) &module->node_states[target]->lock + offset),
+                       delta);
+}
+
+
+static inline int64_t
+lk_fetch64(ompi_osc_fsm_module_t *module,
+           int target,
+           size_t offset)
+{
+    opal_atomic_mb ();
+    return *((uint64_t *)((char*) &module->node_states[target]->lock + offset));
+}
 
 static inline uint32_t
 lk_fetch_add32(ompi_osc_fsm_module_t *module,
@@ -59,11 +105,11 @@ static inline int
 start_exclusive(ompi_osc_fsm_module_t *module,
                 int target)
 {
-    uint32_t me = lk_fetch_add32(module, target,
+    smp_wmb();
+    osc_fsm_atomic_type_t me = lk_fetch_add(module, target,
                                  offsetof(ompi_osc_fsm_lock_t, counter), 1);
 
-    while (me != lk_fetch32(module, target,
-                            offsetof(ompi_osc_fsm_lock_t, write))) {
+    while (me != lk_fetch(module, target, offsetof(ompi_osc_fsm_lock_t, write))) {
         opal_progress();
     }
 
@@ -75,8 +121,8 @@ static inline int
 end_exclusive(ompi_osc_fsm_module_t *module,
               int target)
 {
-    lk_add32(module, target, offsetof(ompi_osc_fsm_lock_t, write), 1);
-    lk_add32(module, target, offsetof(ompi_osc_fsm_lock_t, read), 1);
+    lk_add(module, target, offsetof(ompi_osc_fsm_lock_t, write), 1);
+    lk_add(module, target, offsetof(ompi_osc_fsm_lock_t, read), 1);
 
     return OMPI_SUCCESS;
 }
@@ -86,15 +132,14 @@ static inline int
 start_shared(ompi_osc_fsm_module_t *module,
              int target)
 {
-    uint32_t me = lk_fetch_add32(module, target,
+    osc_fsm_atomic_type_t me = lk_fetch_add(module, target,
                                  offsetof(ompi_osc_fsm_lock_t, counter), 1);
 
-    while (me != lk_fetch32(module, target,
-                            offsetof(ompi_osc_fsm_lock_t, read))) {
+    while (me != lk_fetch(module, target, offsetof(ompi_osc_fsm_lock_t, read))) {
         opal_progress();
     }
 
-    lk_add32(module, target, offsetof(ompi_osc_fsm_lock_t, read), 1);
+    lk_add(module, target, offsetof(ompi_osc_fsm_lock_t, read), 1);
 
     return OMPI_SUCCESS;
 }
@@ -104,7 +149,7 @@ static inline int
 end_shared(ompi_osc_fsm_module_t *module,
            int target)
 {
-    lk_add32(module, target, offsetof(ompi_osc_fsm_lock_t, write), 1);
+    lk_add(module, target, offsetof(ompi_osc_fsm_lock_t, write), 1);
 
     return OMPI_SUCCESS;
 }
