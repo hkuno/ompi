@@ -21,6 +21,7 @@
 #include "common_ofi.h"
 
 static bool mca_common_ofi_set = false;
+static struct fi_info *mca_common_ofi_prov = NULL;
 static struct fid_fabric *mca_common_ofi_fabric = NULL;
 static struct fid_domain *mca_common_ofi_domain = NULL;
 static struct fid_av *mca_common_ofi_av = NULL;
@@ -31,7 +32,8 @@ int mca_common_ofi_register_mca_variables(void)
     return OPAL_SUCCESS;
 }
 
-int mca_common_ofi_get_ofi_info(struct fid_fabric **fabric,
+int mca_common_ofi_get_ofi_info(struct fi_info **prov,
+                                struct fid_fabric **fabric,
                                 struct fid_domain **domain,
                                 struct fid_av **av,
                                 struct fid_ep **ep)
@@ -39,6 +41,9 @@ int mca_common_ofi_get_ofi_info(struct fid_fabric **fabric,
     if ( ! mca_common_ofi_set) {
         return OPAL_ERR_NOT_AVAILABLE;
     } else {
+        if (prov) {
+            *prov = mca_common_ofi_prov;
+        }
         if (fabric) {
             *fabric = mca_common_ofi_fabric;
         }
@@ -56,11 +61,16 @@ int mca_common_ofi_get_ofi_info(struct fid_fabric **fabric,
     return OPAL_SUCCESS;
 }
 
-int mca_common_ofi_set_ofi_info(struct fid_fabric *fabric,
+int mca_common_ofi_set_ofi_info(struct fi_info *prov,
+                                struct fid_fabric *fabric,
                                 struct fid_domain *domain,
                                 struct fid_av *av,
                                 struct fid_ep *ep)
 {
+    if (prov) {
+        mca_common_ofi_prov = prov;
+    }
+
     if (fabric) {
         mca_common_ofi_fabric = fabric;
     }

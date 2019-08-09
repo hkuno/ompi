@@ -123,12 +123,16 @@ struct ompi_osc_fsm_module_t {
     uint64_t mr_key;
     bool noncontig;
 
+    struct fid_ep *fi_ep;
     /* FIXME: ZHPE related */
     struct fi_zhpe_mmap_desc **mdesc;
     struct fi_zhpe_ext_ops_v1 *ext_ops;
 
     size_t *sizes;
     void **bases;
+    u_int64_t *remote_keys;
+    fi_addr_t *fi_addrs;
+    uintptr_t* remote_vaddr_bases;
     int *disp_units;
 
     ompi_group_t *start_group;

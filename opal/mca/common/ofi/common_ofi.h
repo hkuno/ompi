@@ -26,12 +26,14 @@ BEGIN_C_DECLS
 
 OPAL_DECLSPEC int mca_common_ofi_register_mca_variables(void);
 
-OPAL_DECLSPEC int mca_common_ofi_get_ofi_info(struct fid_fabric **fabric,
+OPAL_DECLSPEC int mca_common_ofi_get_ofi_info(struct fi_info **prov,
+                                              struct fid_fabric **fabric,
                                               struct fid_domain **domain,
                                               struct fid_av **av,
                                               struct fid_ep **ep);
 
-OPAL_DECLSPEC int mca_common_ofi_set_ofi_info(struct fid_fabric *fabric,
+OPAL_DECLSPEC int mca_common_ofi_set_ofi_info(struct fi_info *prov,
+                                              struct fid_fabric *fabric,
                                               struct fid_domain *domain,
                                               struct fid_av *av,
                                               struct fid_ep *ep);

@@ -166,7 +166,7 @@ check_win_ok(ompi_communicator_t *comm, int flavor)
         return OMPI_ERR_NOT_SUPPORTED;
     }
 
-    if (mca_common_ofi_get_ofi_info(NULL, NULL, NULL, NULL) != OPAL_SUCCESS) {
+    if (mca_common_ofi_get_ofi_info(NULL, NULL, NULL, NULL, NULL) != OPAL_SUCCESS) {
         OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_COMPONENT, "No ofi endpoint found; disqualifying myself\n");
         return OMPI_ERR_NOT_AVAILABLE;
     }
@@ -261,12 +261,11 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
         unsigned long total, *rbuf = NULL, *sizeBuf = NULL;
         size_t pagesize;
         size_t state_size;
-        uint64_t* remote_keys = NULL;
         size_t posts_size, post_amount = (comm_size + OSC_FSM_POST_MASK) / (OSC_FSM_POST_MASK + 1);
+        struct fi_info *prov = NULL;
         struct fid_domain *ofi_domain = NULL;
         struct fid_fabric *ofi_fabric = NULL;
         struct fid_av *ofi_av = NULL;
-        struct fid_ep *ofi_ep = NULL;
         uint64_t access_flags = FI_REMOTE_WRITE | FI_REMOTE_READ | FI_READ | FI_WRITE;
 
 
@@ -274,7 +273,7 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
                             comm_size, (long) size);
 
         pagesize = opal_getpagesize();
-        mca_common_ofi_get_ofi_info(&ofi_fabric, &ofi_domain, &ofi_av, &ofi_ep);
+        mca_common_ofi_get_ofi_info(&prov, &ofi_fabric, &ofi_domain, &ofi_av, &module->fi_ep);
 
         rbuf = malloc(sizeof(rbuf[0]) * comm_size);
         if (NULL == rbuf) {
@@ -286,8 +285,18 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
             ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
             goto errorAlloc;
         }
-        remote_keys = malloc(sizeof(remote_keys[0]) * comm_size);
-        if (NULL == remote_keys) {
+        module->remote_vaddr_bases = malloc(sizeof(module->remote_vaddr_bases[0]) * comm_size);
+        if (NULL == module->remote_vaddr_bases) {
+            ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+            goto errorAlloc;
+        }
+        module->remote_keys = malloc(sizeof(module->remote_keys[0]) * comm_size);
+        if (NULL == module->remote_keys) {
+            ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
+            goto errorAlloc;
+        }
+        module->fi_addrs = malloc(sizeof(module->remote_keys[0]) * comm_size);
+        if (NULL == module->remote_keys) {
             ret = OMPI_ERR_TEMP_OUT_OF_RESOURCE;
             goto errorAlloc;
         }
@@ -340,9 +349,26 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
 
         // FIXME properly move every communication into one buffer (Only one all gather needed...)
         ret = module->comm->c_coll->coll_allgather(&module->mr_key, 1, MPI_UINT64_T,
-                                                  remote_keys, 1, MPI_UINT64_T,
+                                                  module->remote_keys, 1, MPI_UINT64_T,
                                                   module->comm,
                                                   module->comm->c_coll->coll_allgather_module);
+        if (OMPI_SUCCESS != ret) {
+            goto errorAlloc;
+        }
+
+        // if this flag is set then we use the remote vaddr to address memory on the other side
+        if(prov->domain_attr->mr_mode & FI_MR_VIRT_ADDR) {
+            ret = module->comm->c_coll->coll_allgather(&module->my_segment_base, 1, MPI_AINT,
+                                                      module->remote_vaddr_bases, 1, MPI_AINT,
+                                                      module->comm,
+                                                      module->comm->c_coll->coll_allgather_module);
+        } else {
+            void * null = 0;
+            ret = module->comm->c_coll->coll_allgather(&null, 1, MPI_AINT,
+                                                      module->remote_vaddr_bases, 1, MPI_AINT,
+                                                      module->comm,
+                                                      module->comm->c_coll->coll_allgather_module);
+        }
         if (OMPI_SUCCESS != ret) {
             goto errorAlloc;
         }
@@ -377,18 +403,19 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
                 ompi_proc = ompi_comm_peer_lookup(comm, i);
                 //FIXME: This should be done in a common component. If is just a coincident that ompi_mtl_ofi_get_endpoint doesn't need the module
                 endpoint = ompi_mtl_ofi_get_endpoint(NULL, ompi_proc);
+                module->fi_addrs[i] = endpoint->peer_fiaddr;
 
                 /*FIXME: For Scalable Endpoints, gather target receive context */
                 //sep_peer_fiaddr = fi_rx_addr(endpoint->peer_fiaddr, ctxt_id, ompi_mtl_ofi.rx_ctx_bits);
                 ret = module->ext_ops->mmap(NULL, rbuf[i], PROT_READ | PROT_WRITE,
-                        MAP_SHARED, 0, ofi_ep, endpoint->peer_fiaddr, remote_keys[i],
+                        MAP_SHARED, 0, module->fi_ep, module->fi_addrs[i], module->remote_keys[i],
                         FI_ZHPE_MMAP_CACHE_WB, module->mdesc + i);
                 if(ret) {
-                    //TODO cleanup
                     goto errorAlloc;
                 }
             } else {
                 module->mdesc[i] = NULL;
+                module->fi_addrs[i] = FI_ADDR_NOTAVAIL;
             }
         }
 
@@ -441,7 +468,6 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
 errorAlloc:
         free(rbuf);
         free(sizeBuf);
-        free(remote_keys);
         if(ret) {
             goto error;
         }
@@ -637,6 +663,9 @@ ompi_osc_fsm_free(struct ompi_win_t *win)
     free(module->outstanding_locks);
     free(module->sizes);
     free(module->bases);
+    free(module->remote_keys);
+    free(module->remote_vaddr_bases);
+    free(module->fi_addrs);
     free(module->node_states);
 
     free (module->posts);

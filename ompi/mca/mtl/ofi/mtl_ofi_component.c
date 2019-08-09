@@ -1023,7 +1023,8 @@ ompi_mtl_ofi_component_init(bool enable_progress_threads,
      */
     ompi_mtl_ofi.any_addr = FI_ADDR_UNSPEC;
 
-    mca_common_ofi_set_ofi_info(ompi_mtl_ofi.fabric,
+    mca_common_ofi_set_ofi_info(prov,
+                                ompi_mtl_ofi.fabric,
                                 ompi_mtl_ofi.domain,
                                 ompi_mtl_ofi.av,
                                 ompi_mtl_ofi.sep);
