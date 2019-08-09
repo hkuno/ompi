@@ -20,86 +20,123 @@
 
 #include "osc_fsm.h"
 
-#if OPAL_HAVE_ATOMIC_MATH_64
-
-#define lk_fetch_add(a, b, c, d) lk_fetch_add64(a, b, c, d)
-#define lk_add(a, b, c, d) lk_add64(a, b, c, d)
-#define lk_fetch(a, b, c) lk_fetch64(a, b, c)
-
-#else
-
-#define lk_fetch_add(a, b, c, d) lk_fetch_add32(a, b, c, d)
-#define lk_add(a, b, c, d) lk_add32(a, b, c, d)
-#define lk_fetch(a, b, c) lk_fetch32(a, b, c)
-
-#endif
-
 static inline int64_t
-lk_fetch_add64(ompi_osc_fsm_module_t *module,
+lk_fetch_add(ompi_osc_fsm_module_t *module,
                int target,
                size_t offset,
-               uint64_t delta)
+#if OPAL_HAVE_ATOMIC_MATH_64
+         uint64_t delta
+#else
+         uint32_t delta
+#endif
+      )
 {
+    if(target == ompi_comm_rank(module->comm)) {
     /* opal_atomic_add_fetch_32 is an add then fetch so delta needs to be subtracted out to get the
      * old value */
+#if OPAL_HAVE_ATOMIC_MATH_64
     return opal_atomic_add_fetch_64((opal_atomic_int64_t *) ((char*) &module->node_states[target]->lock + offset),
                               delta) - delta;
-}
-
-
-static inline void
-lk_add64(ompi_osc_fsm_module_t *module,
-         int target,
-         size_t offset,
-         uint64_t delta)
-{
-    opal_atomic_add_fetch_64((opal_atomic_int64_t *) ((char*) &module->node_states[target]->lock + offset),
-                       delta);
-}
-
-
-static inline int64_t
-lk_fetch64(ompi_osc_fsm_module_t *module,
-           int target,
-           size_t offset)
-{
-    opal_atomic_mb ();
-    return *((uint64_t *)((char*) &module->node_states[target]->lock + offset));
-}
-
-static inline uint32_t
-lk_fetch_add32(ompi_osc_fsm_module_t *module,
-               int target,
-               size_t offset,
-               uint32_t delta)
-{
-    /* opal_atomic_add_fetch_32 is an add then fetch so delta needs to be subtracted out to get the
-     * old value */
+#else
     return opal_atomic_add_fetch_32((opal_atomic_int32_t *) ((char*) &module->node_states[target]->lock + offset),
                               delta) - delta;
+#endif
+    } else {
+#if OPAL_HAVE_ATOMIC_MATH_64
+         uint64_t returnValue;
+#else
+         uint32_t returnValue;
+#endif
+        void *context;
+        uintptr_t remote_vaddr = module->remote_vaddr_bases[target]
+                               + (((uintptr_t) &module->node_states[target]->lock) - ((uintptr_t) module->mdesc[target]->addr))
+                               + offset;
+        OSC_FSM_FI_ATOMIC(fi_fetch_atomic(module->fi_ep,
+                          &delta, 1, NULL,
+                          &returnValue, NULL,
+                          module->fi_addrs[target], remote_vaddr, module->remote_keys[target],
+                          OSC_FSM_FI_ATOMIC_TYPE,
+                          FI_SUM, context), context);
+        return returnValue;
+    }
 }
 
 
 static inline void
-lk_add32(ompi_osc_fsm_module_t *module,
+lk_add(ompi_osc_fsm_module_t *module,
          int target,
          size_t offset,
-         uint32_t delta)
+#if OPAL_HAVE_ATOMIC_MATH_64
+         uint64_t delta
+#else
+         uint32_t delta
+#endif
+      )
 {
+    if(target == ompi_comm_rank(module->comm)) {
+#if OPAL_HAVE_ATOMIC_MATH_64
+    opal_atomic_add_fetch_64((opal_atomic_int64_t *) ((char*) &module->node_states[target]->lock + offset),
+                       delta);
+#else
     opal_atomic_add_fetch_32((opal_atomic_int32_t *) ((char*) &module->node_states[target]->lock + offset),
                        delta);
+#endif
+    } else {
+        ssize_t ret;
+        uintptr_t remote_vaddr = module->remote_vaddr_bases[target]
+                               + (((uintptr_t) &module->node_states[target]->lock) - ((uintptr_t) module->mdesc[target]->addr))
+                               + offset;
+        MTL_OFI_RETRY_UNTIL_DONE(fi_inject_atomic(module->fi_ep,
+                          &delta, 1,
+                          module->fi_addrs[target], remote_vaddr, module->remote_keys[target],
+                          OSC_FSM_FI_ATOMIC_TYPE,
+                          FI_SUM), ret);
+        if (OPAL_UNLIKELY(0 > ret)) {
+            OSC_FSM_VERBOSE_F(MCA_BASE_VERBOSE_ERROR, "fi_atomic failed%ld\n", ret);
+            abort();
+        }
+
+    }
 }
 
 
+#if OPAL_HAVE_ATOMIC_MATH_64
+static inline int64_t
+#else
 static inline uint32_t
-lk_fetch32(ompi_osc_fsm_module_t *module,
+#endif
+lk_fetch(ompi_osc_fsm_module_t *module,
            int target,
            size_t offset)
 {
+    if(target == ompi_comm_rank(module->comm)) {
     opal_atomic_mb ();
+    //TODO add fi_atomic barrier here
+#if OPAL_HAVE_ATOMIC_MATH_64
+    return *((uint64_t *)((char*) &module->node_states[target]->lock + offset));
+#else
     return *((uint32_t *)((char*) &module->node_states[target]->lock + offset));
-}
+#endif
+    } else {
 
+#if OPAL_HAVE_ATOMIC_MATH_64
+         uint64_t returnValue;
+#else
+         uint32_t returnValue;
+#endif
+        void *context;
+        uintptr_t remote_vaddr = module->remote_vaddr_bases[target]
+                               + (((uintptr_t) &module->node_states[target]->lock) - ((uintptr_t) module->mdesc[target]->addr))
+                               + offset;
+        OSC_FSM_FI_ATOMIC(fi_fetch_atomic(module->fi_ep,
+                          NULL, 1, NULL,
+                          &returnValue, NULL,
+                          module->fi_addrs[target], remote_vaddr, module->remote_keys[target],
+                          OSC_FSM_FI_ATOMIC_TYPE,
+                          FI_ATOMIC_READ, context), context);
+        return returnValue;
+    }
+}
 
 static inline int
 start_exclusive(ompi_osc_fsm_module_t *module,

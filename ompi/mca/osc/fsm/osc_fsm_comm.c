@@ -23,23 +23,52 @@
 #include "osc_fsm.h"
 
 static inline int
-fsm_atomic_trylock(osc_fsm_aligned_atomic_type_t *lock)
+fsm_atomic_trylock(osc_fsm_aligned_atomic_type_t *lock, int target_rank, ompi_osc_fsm_module_t *module)
 {
-    int64_t unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
+    if(target_rank == ompi_comm_rank (module->comm)) {
 #if OPAL_HAVE_ATOMIC_MATH_64
-    bool ret = opal_atomic_compare_exchange_strong_acq_64 (lock, &unlocked, OPAL_ATOMIC_LOCK_LOCKED);
+        int64_t unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
+        bool ret = opal_atomic_compare_exchange_strong_acq_64 (lock, &unlocked, OPAL_ATOMIC_LOCK_LOCKED);
 #else
-    bool ret = opal_atomic_compare_exchange_strong_acq_32 (lock, &unlocked, OPAL_ATOMIC_LOCK_LOCKED);
+        uint32_t unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
+        bool ret = opal_atomic_compare_exchange_strong_acq_32 (lock, &unlocked, OPAL_ATOMIC_LOCK_LOCKED);
 #endif
-    return (ret == false) ? 1 : 0;
+        return (ret == false) ? 1 : 0;
+    } else {
+        uintptr_t remote_vaddr = module->remote_vaddr_bases[target_rank] + (((uintptr_t) lock) - ((uintptr_t) module->mdesc[target_rank]->addr));
+#if OPAL_HAVE_ATOMIC_MATH_64
+        int64_t unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
+        int64_t locked = OPAL_ATOMIC_LOCK_LOCKED;
+        int64_t result = 0;
+#else
+        uint32_t unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
+        uint32_t locked = OPAL_ATOMIC_LOCK_LOCKED;
+        uint32_t result = 0;
+#endif
+        void *context;
+        OSC_FSM_FI_ATOMIC(fi_compare_atomic(module->fi_ep,
+                          &locked, 1, NULL,
+                          &unlocked, NULL,
+                          &result, NULL,
+                          module->fi_addrs[target_rank], remote_vaddr, module->remote_keys[target_rank],
+                          OSC_FSM_FI_ATOMIC_TYPE,
+                          FI_CSWAP, context), context);
+
+        return (result);
+    }
 }
 
 static inline void
-fsm_atomic_lock(osc_fsm_aligned_atomic_type_t *lock)
+fsm_atomic_lock(osc_fsm_aligned_atomic_type_t *lock, int target_rank, struct ompi_win_t* win)
 {
-    while (fsm_atomic_trylock (lock)) {
+    ompi_osc_fsm_module_t *module =
+        (ompi_osc_fsm_module_t*) win->w_osc_module;
+
+    while (fsm_atomic_trylock (lock, target_rank, module)) {
+        //FIXME: possible to use fi_fetch_atomic here (and do only spin whitout invalidate when on own node)
         while (*lock == OPAL_ATOMIC_LOCK_LOCKED) {
-            /*spin*/;
+            osc_fsm_invalidate(module, target_rank, lock, OPAL_ALIGN_PAD_AMOUNT(sizeof(lock), CACHELINE_SZ), true);
+            opal_progress();
         }
     }
 }
@@ -49,8 +78,30 @@ fsm_atomic_unlock(osc_fsm_aligned_atomic_type_t *lock, int target_rank, struct o
 {
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
-    *lock = OPAL_ATOMIC_LOCK_UNLOCKED;
-    osc_fsm_flush(module, target_rank, lock, OPAL_ALIGN_PAD_AMOUNT(sizeof(lock), CACHELINE_SZ), true);
+    if(target_rank == ompi_comm_rank (module->comm)) {
+#if OPAL_HAVE_ATOMIC_MATH_64
+        int64_t unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
+        opal_atomic_swap_64(lock, unlocked);
+#else
+        uint32_t unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
+        opal_atomic_swap_32(lock, unlocked);
+#endif
+    } else {
+        uintptr_t remote_vaddr = module->remote_vaddr_bases[target_rank] + (((uintptr_t) lock) - ((uintptr_t) module->mdesc[target_rank]->addr));
+#if OPAL_HAVE_ATOMIC_MATH_64
+        int64_t unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
+#else
+        uint32_t unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
+#endif
+        ssize_t ret;
+        MTL_OFI_RETRY_UNTIL_DONE(
+        fi_inject_atomic(module->fi_ep,
+                         &unlocked, 1,
+                         module->fi_addrs[target_rank], remote_vaddr, module->remote_keys[target_rank],
+                         OSC_FSM_FI_ATOMIC_TYPE,
+                         FI_ATOMIC_WRITE), ret);
+        //FIXME: Probably unwise to ignore return value
+    }
 }
 
 int
@@ -160,7 +211,7 @@ ompi_osc_fsm_raccumulate(const void *origin_addr,
 
     remote_address = ((char*) (module->bases[target])) + module->disp_units[target] * target_disp;
 
-    fsm_atomic_lock(&module->node_states[target]->accumulate_lock);
+    fsm_atomic_lock(&module->node_states[target]->accumulate_lock, target, win);
     if (op == &ompi_mpi_op_replace.op) {
         ret = ompi_datatype_sndrcv((void *)origin_addr, origin_count, origin_dt,
                                     remote_address, target_count, target_dt);
@@ -211,7 +262,7 @@ ompi_osc_fsm_rget_accumulate(const void *origin_addr,
 
     remote_address = ((char*) (module->bases[target])) + module->disp_units[target] * target_disp;
 
-    fsm_atomic_lock(&module->node_states[target]->accumulate_lock);
+    fsm_atomic_lock(&module->node_states[target]->accumulate_lock, target, win);
 
     ret = ompi_datatype_sndrcv(remote_address, target_count, target_dt,
                                result_addr, result_count, result_dt);
@@ -326,7 +377,7 @@ ompi_osc_fsm_accumulate(const void *origin_addr,
 
     remote_address = ((char*) (module->bases[target])) + module->disp_units[target] * target_disp;
 
-    fsm_atomic_lock(&module->node_states[target]->accumulate_lock);
+    fsm_atomic_lock(&module->node_states[target]->accumulate_lock, target, win);
     if (op == &ompi_mpi_op_replace.op) {
         ret = ompi_datatype_sndrcv((void *)origin_addr, origin_count, origin_dt,
                                     remote_address, target_count, target_dt);
@@ -370,7 +421,7 @@ ompi_osc_fsm_get_accumulate(const void *origin_addr,
 
     remote_address = ((char*) (module->bases[target])) + module->disp_units[target] * target_disp;
 
-    fsm_atomic_lock(&module->node_states[target]->accumulate_lock);
+    fsm_atomic_lock(&module->node_states[target]->accumulate_lock, target, win);
 
     ret = ompi_datatype_sndrcv(remote_address, target_count, target_dt,
                                result_addr, result_count, result_dt);
@@ -416,7 +467,7 @@ ompi_osc_fsm_compare_and_swap(const void *origin_addr,
 
     ompi_datatype_type_size(dt, &size);
 
-    fsm_atomic_lock(&module->node_states[target]->accumulate_lock);
+    fsm_atomic_lock(&module->node_states[target]->accumulate_lock, target, win);
 
     /* fetch */
     ompi_datatype_copy_content_same_ddt(dt, 1, (char*) result_addr, (char*) remote_address);
@@ -454,7 +505,7 @@ ompi_osc_fsm_fetch_and_op(const void *origin_addr,
 
     remote_address = ((char*) (module->bases[target])) + module->disp_units[target] * target_disp;
 
-    fsm_atomic_lock(&module->node_states[target]->accumulate_lock);
+    fsm_atomic_lock(&module->node_states[target]->accumulate_lock, target, win);
 
     /* fetch */
     ompi_datatype_copy_content_same_ddt(dt, 1, (char*) result_addr, (char*) remote_address);

@@ -161,6 +161,7 @@ ompi_osc_fsm_start(struct ompi_group_t *group,
 
             /* wait for rank to post */
             while (!(module->posts[my_rank][rank_byte] & rank_bit)) {
+                //Assuming that fi_atomics are actually invalidating the local copy of posts in cache
                 opal_progress();
                 opal_atomic_mb();
             }
@@ -208,11 +209,31 @@ ompi_osc_fsm_complete(struct ompi_win_t *win)
     gsize = ompi_group_size(group);
     for (int i = 0 ; i < gsize ; ++i) {
 
+        if(i == ompi_group_rank (group)) {
 #if OPAL_HAVE_ATOMIC_MATH_64
-        (void) opal_atomic_add_fetch_64(&module->node_states[ranks[i]]->complete_count, 1);
+            (void) opal_atomic_add_fetch_64(&module->node_states[ranks[i]]->complete_count, 1);
 #else
-        (void) opal_atomic_add_fetch_32(&module->node_states[ranks[i]]->complete_count, 1);
+            (void) opal_atomic_add_fetch_32(&module->node_states[ranks[i]]->complete_count, 1);
 #endif
+        } else {
+#if OPAL_HAVE_ATOMIC_MATH_64
+            int64_t one = 1;
+#else
+            uint32_t one = 1;
+#endif
+            uintptr_t remote_vaddr = module->remote_vaddr_bases[i]
+                                     + (((uintptr_t) &module->node_states[ranks[i]]->complete_count) - ((uintptr_t) module->mdesc[i]->addr));
+            ssize_t ret;
+            MTL_OFI_RETRY_UNTIL_DONE(fi_inject_atomic(module->fi_ep,
+                              &one, 1,
+                              module->fi_addrs[i], remote_vaddr, module->remote_keys[i],
+                              OSC_FSM_FI_ATOMIC_TYPE,
+                              FI_SUM), ret);
+            if (OPAL_UNLIKELY(0 > ret)) {
+                OSC_FSM_VERBOSE_F(MCA_BASE_VERBOSE_ERROR, "fi_atomic failed%ld\n", ret);
+                abort();
+            }
+        }
     }
 
     free (ranks);
@@ -258,11 +279,26 @@ ompi_osc_fsm_post(struct ompi_group_t *group,
 
         gsize = ompi_group_size(module->post_group);
         for (int i = 0 ; i < gsize ; ++i) {
+            if(i == ompi_group_rank (module->post_group)) {
 #if OPAL_HAVE_ATOMIC_MATH_64
-            (void) opal_atomic_fetch_add_64 ((opal_atomic_int64_t *) module->posts[ranks[i]] + my_byte, my_bit);
+                (void) opal_atomic_fetch_add_64 ((opal_atomic_int64_t *) module->posts[ranks[i]] + my_byte, my_bit);
 #else
-            (void) opal_atomic_fetch_add_32 ((opal_atomic_int32_t *) module->posts[ranks[i]] + my_byte, my_bit);
+                (void) opal_atomic_fetch_add_32 ((opal_atomic_int32_t *) module->posts[ranks[i]] + my_byte, my_bit);
 #endif
+            } else {
+                uintptr_t remote_vaddr = module->remote_vaddr_bases[i]
+                                         + (((uintptr_t) (module->posts[ranks[i]] + my_byte)) - ((uintptr_t) module->mdesc[i]->addr));
+                ssize_t ret;
+                MTL_OFI_RETRY_UNTIL_DONE(fi_inject_atomic(module->fi_ep,
+                                  &my_byte, 1,
+                                  module->fi_addrs[i], remote_vaddr, module->remote_keys[i],
+                                  OSC_FSM_FI_ATOMIC_TYPE,
+                                  FI_SUM), ret);
+                if (OPAL_UNLIKELY(0 > ret)) {
+                    OSC_FSM_VERBOSE_F(MCA_BASE_VERBOSE_ERROR, "fi_atomic failed%ld\n", ret);
+                    abort();
+                }
+            }
         }
 
         opal_atomic_wmb ();

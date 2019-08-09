@@ -19,11 +19,13 @@
 
 #include "opal/mca/shmem/base/base.h"
 #include "ompi/communicator/communicator.h"
+#include "ompi/mca/mtl/ofi/mtl_ofi.h"
 #include <pthread.h>
 #include <rdma/fabric.h>
 #include <rdma/fi_domain.h>
 #include <rdma/fi_endpoint.h>
 #include <rdma/fi_ext_zhpe.h>
+#include <rdma/fi_atomic.h>
 
 #define CACHELINE_SZ 64
 
@@ -52,6 +54,7 @@ typedef opal_atomic_int64_t osc_fsm_atomic_type_t;
 typedef opal_atomic_int64_t __attribute__((aligned(CACHELINE_SZ))) osc_fsm_aligned_atomic_type_t;
 #define OSC_FSM_POST_BITS 6
 #define OSC_FSM_POST_MASK 0x3f
+#define OSC_FSM_FI_ATOMIC_TYPE FI_INT64
 
 #else
 
@@ -61,6 +64,7 @@ typedef opal_atomic_uint32_t osc_fsm_atomic_type_t;
 typedef opal_atomic_uint32_t __attribute__((aligned(CACHELINE_SZ))) osc_aligned_fsm_atomic_type_t;
 #define OSC_FSM_POST_BITS 5
 #define OSC_FSM_POST_MASK 0x1f
+#define OSC_FSM_FI_ATOMIC_TYPE FI_UINT32
 
 #endif
 
@@ -70,6 +74,57 @@ typedef opal_atomic_uint32_t __attribute__((aligned(CACHELINE_SZ))) osc_aligned_
 
 #define OSC_FSM_VERBOSE_F(x, s, ...) do { \
     OPAL_OUTPUT_VERBOSE((x, ompi_osc_base_framework.framework_output, "%s:%d: " s,__FILE__, __LINE__ , ##__VA_ARGS__)); \
+} while (0)
+
+/**
+ * Called when a ofi (mostly atomic) request completes.
+ */
+__opal_attribute_always_inline__ static inline int
+ompi_osc_fsm_ofi_callback(struct fi_cq_tagged_entry *wc,
+                            ompi_mtl_ofi_request_t *ofi_req)
+{
+    ofi_req->status.MPI_ERROR = MPI_SUCCESS;
+    ofi_req->completion_count--;
+    return OMPI_SUCCESS;
+}
+
+/**
+ * Called when a ofi (mostly atomic) request encounters an error.
+ */
+__opal_attribute_always_inline__ static inline int
+ompi_osc_fsm_ofi_error_callback(struct fi_cq_err_entry *error,
+                                  ompi_mtl_ofi_request_t *ofi_req)
+{
+    ofi_req->status.MPI_ERROR = MPI_ERR_INTERN;
+    ofi_req->completion_count--;
+
+    return OMPI_SUCCESS;
+}
+/*
+ * This is a wrapper for all atomics that needed to be waited on.
+ * It is very crude but it works
+ */
+#define OSC_FSM_FI_ATOMIC(atomic, context) do {                 \
+    struct ompi_mtl_ofi_request_t ofi_req;                      \
+    ssize_t ret;                                                \
+    ofi_req.type = OMPI_MTL_OFI_PROBE;                          \
+    ofi_req.event_callback = ompi_osc_fsm_ofi_callback;         \
+    ofi_req.error_callback = ompi_osc_fsm_ofi_error_callback;   \
+    ofi_req.completion_count = 1;                               \
+    ofi_req.match_state = 0;                                    \
+    context = &ofi_req.ctx;                                      \
+    MTL_OFI_RETRY_UNTIL_DONE(atomic, ret);                      \
+    if (OPAL_UNLIKELY(0 > ret)) {                               \
+        OSC_FSM_VERBOSE_F(MCA_BASE_VERBOSE_ERROR, "fi_atomic failed%ld\n", ret);\
+        abort();                                                \
+    }                                                           \
+    while (0 < ofi_req.completion_count) {                      \
+        opal_progress();                                        \
+    }                                                           \
+    if(OPAL_UNLIKELY(MPI_SUCCESS != ofi_req.status.MPI_ERROR)) {\
+        OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_ERROR, "fi_atomic returned with error\n");\
+        abort();                                                \
+    }                                                           \
 } while (0)
 
 /* data shared across all peers */
@@ -154,35 +209,19 @@ struct ompi_osc_fsm_module_t {
 typedef struct ompi_osc_fsm_module_t ompi_osc_fsm_module_t;
 
 static inline void osc_fsm_flush(ompi_osc_fsm_module_t * module, int target, void * addr, size_t len, bool fence) {
-    if(ompi_comm_rank(module->comm) == target){
-        //TODO
-    } else {
-        module->ext_ops->commit(module->mdesc[target], addr, len, fence);
-    }
+    module->ext_ops->commit(module->mdesc[target], addr, len, fence, false);
 }
 
 static inline void osc_fsm_flush_window(ompi_osc_fsm_module_t * module, int target, bool fence) {
-    if(ompi_comm_rank(module->comm) == target){
-        //TODO
-    } else {
-        osc_fsm_flush(module, target, module->bases[target], module->sizes[target], fence);
-    }
+    osc_fsm_flush(module, target, module->bases[target], module->sizes[target], fence);
 }
 
 static inline void osc_fsm_invalidate(ompi_osc_fsm_module_t * module, int target, void * addr, size_t len, bool fence) {
-    if(ompi_comm_rank(module->comm) == target){
-        //TODO
-    } else {
-        //TODO
-    }
+    module->ext_ops->commit(module->mdesc[target], addr, len, fence, true);
 }
 
 static inline void osc_fsm_invalidate_window(ompi_osc_fsm_module_t * module, int target, bool fence) {
-    if(ompi_comm_rank(module->comm) == target){
-        //TODO
-    } else {
-        //TODO
-    }
+    osc_fsm_invalidate(module, target, module->bases[target], module->sizes[target], fence);
 }
 
 int ompi_osc_fsm_shared_query(struct ompi_win_t *win, int rank, size_t *size, int *disp_unit, void *baseptr);
