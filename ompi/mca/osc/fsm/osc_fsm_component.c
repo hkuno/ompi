@@ -302,13 +302,14 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
 
         module->noncontig = true;
 
+        state_size = 0;
         if (0 == ompi_comm_rank (module->comm)) {
-            state_size = sizeof(ompi_osc_fsm_global_state_t) + sizeof(ompi_osc_fsm_node_state_t);
-        } else {
-            state_size = sizeof(ompi_osc_fsm_node_state_t);
+            state_size = sizeof(ompi_osc_fsm_global_state_t);
+            state_size += OPAL_ALIGN_PAD_AMOUNT(state_size, CACHELINE_SZ);
         }
-
+        state_size += sizeof(ompi_osc_fsm_node_state_t);
         state_size += OPAL_ALIGN_PAD_AMOUNT(state_size, CACHELINE_SZ);
+
         /* TODO: Find out if only one post integer per cache line is needed */
         posts_size = post_amount * sizeof (module->posts[0][0]);
         posts_size += OPAL_ALIGN_PAD_AMOUNT(posts_size, CACHELINE_SZ);
@@ -317,7 +318,6 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
         // Expand size to page size
         total = ((total - 1) / pagesize + 1) * pagesize;
 
-        //TODO segment create and get magic number
         ret = posix_memalign(&module->my_segment_base, pagesize, total);
         if(ret) {
             if(EINVAL == ret) {
@@ -364,6 +364,10 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
         }
         ret = fi_open_ops(&ofi_fabric->fid, FI_ZHPE_OPS_V1, 0,
                 (void **)&module->ext_ops, NULL);
+        if (OMPI_SUCCESS != ret) {
+            OSC_FSM_VERBOSE_F(1, "Are you sure you are using the zhpe provider because we couldn't get the ext_ops for the provider: %d\n", ret);
+            goto errorAlloc;
+        }
 
         for(i = 0; i < comm_size; i++) {
             if(i != ompi_comm_rank(module->comm)) {
@@ -617,7 +621,9 @@ ompi_osc_fsm_free(struct ompi_win_t *win)
         module->comm->c_coll->coll_barrier(module->comm,
                                           module->comm->c_coll->coll_barrier_module);
 
-        fi_close(&module->mr->fid);
+        if(module->mr) {
+            fi_close(&module->mr->fid);
+        }
         free(module->my_segment_base);
     } else if(1 == ompi_comm_size(module->comm)) {
         OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_TRACE, "Only cleanup for one rank\n");
