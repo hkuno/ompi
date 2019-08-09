@@ -25,8 +25,8 @@ AC_DEFUN([MCA_opal_common_ofi_CONFIG],[
     # successfully.
     AS_IF([test "$opal_ofi_happy" = "yes"],
           [opal_common_ofi_happy=yes
-           common_ofi_WRAPPER_EXTRA_LDFLAGS=$opal_common_ofi_LDFLAGS
-           common_ofi_WRAPPER_EXTRA_LIBS=$opal_common_ofi_LIBS
+           common_ofi_WRAPPER_EXTRA_LDFLAGS=$opal_ofi_LDFLAGS
+           common_ofi_WRAPPER_EXTRA_LIBS=$opal_ofi_LIBS
            $1],
           [opal_common_ofi_happy=no
            $2])
