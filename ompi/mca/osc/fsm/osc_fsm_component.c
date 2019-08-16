@@ -345,10 +345,10 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
             goto errorAlloc;
         }
 
-        module->mr_key = fi_mr_key(module->mr);
+        uint64_t mr_key = fi_mr_key(module->mr);
 
         // FIXME properly move every communication into one buffer (Only one all gather needed...)
-        ret = module->comm->c_coll->coll_allgather(&module->mr_key, 1, MPI_UINT64_T,
+        ret = module->comm->c_coll->coll_allgather(&mr_key, 1, MPI_UINT64_T,
                                                   module->remote_keys, 1, MPI_UINT64_T,
                                                   module->comm,
                                                   module->comm->c_coll->coll_allgather_module);

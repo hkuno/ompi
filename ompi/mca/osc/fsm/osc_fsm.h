@@ -107,11 +107,9 @@ ompi_osc_fsm_ofi_error_callback(struct fi_cq_err_entry *error,
 #define OSC_FSM_FI_ATOMIC(atomic, context) do {                 \
     struct ompi_mtl_ofi_request_t ofi_req;                      \
     ssize_t ret;                                                \
-    ofi_req.type = OMPI_MTL_OFI_PROBE;                          \
     ofi_req.event_callback = ompi_osc_fsm_ofi_callback;         \
     ofi_req.error_callback = ompi_osc_fsm_ofi_error_callback;   \
     ofi_req.completion_count = 1;                               \
-    ofi_req.match_state = 0;                                    \
     context = &ofi_req.ctx;                                      \
     MTL_OFI_RETRY_UNTIL_DONE(atomic, ret);                      \
     if (OPAL_UNLIKELY(0 > ret)) {                               \
@@ -175,7 +173,6 @@ struct ompi_osc_fsm_module_t {
     int flavor;
     void *my_segment_base;
     struct fid_mr *mr;
-    uint64_t mr_key;
     bool noncontig;
 
     struct fid_ep *fi_ep;

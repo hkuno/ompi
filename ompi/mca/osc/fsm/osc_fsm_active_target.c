@@ -123,7 +123,7 @@ ompi_osc_fsm_fence(int assert, struct ompi_win_t *win)
             osc_fsm_invalidate_window(module, i, true);
         }
     }
-       return res;
+    return res; // TODO implement that with using the value of use_barrier_for_fence or similar
 }
 
 
@@ -178,7 +178,7 @@ ompi_osc_fsm_start(struct ompi_group_t *group,
         free (ranks);
     }
 
-    opal_atomic_mb();
+    opal_atomic_mb(); //TODO add memory fence/flush/invalidate here and on the other active synchronisation parts.
     return OMPI_SUCCESS;
 }
 
