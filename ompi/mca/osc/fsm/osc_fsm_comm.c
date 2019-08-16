@@ -21,11 +21,20 @@
 #include "opal/include/opal/align.h"
 
 #include "osc_fsm.h"
+#define OSC_FSM_USE_SWAP_INSTEAD_OF_CSWAP 1
 
 static inline int
 fsm_atomic_trylock(osc_fsm_aligned_atomic_type_t *lock, int target_rank, ompi_osc_fsm_module_t *module)
 {
     if(target_rank == ompi_comm_rank (module->comm)) {
+#if OSC_FSM_USE_SWAP_INSTEAD_OF_CSWAP
+#if OPAL_HAVE_ATOMIC_MATH_64
+        int64_t prev = opal_atomic_swap_64(lock, OPAL_ATOMIC_LOCK_LOCKED);
+#else
+        int32_t prev = opal_atomic_swap_32(lock, OPAL_ATOMIC_LOCK_LOCKED);
+#endif
+        return (prev == OPAL_ATOMIC_LOCK_UNLOCKED);
+#else
 #if OPAL_HAVE_ATOMIC_MATH_64
         int64_t unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
         bool ret = opal_atomic_compare_exchange_strong_acq_64 (lock, &unlocked, OPAL_ATOMIC_LOCK_LOCKED);
@@ -34,6 +43,7 @@ fsm_atomic_trylock(osc_fsm_aligned_atomic_type_t *lock, int target_rank, ompi_os
         bool ret = opal_atomic_compare_exchange_strong_acq_32 (lock, &unlocked, OPAL_ATOMIC_LOCK_LOCKED);
 #endif
         return (ret == false) ? 1 : 0;
+#endif
     } else {
         uintptr_t remote_vaddr = module->remote_vaddr_bases[target_rank] + (((uintptr_t) lock) - ((uintptr_t) module->mdesc[target_rank]->addr));
 #if OPAL_HAVE_ATOMIC_MATH_64
@@ -46,6 +56,15 @@ fsm_atomic_trylock(osc_fsm_aligned_atomic_type_t *lock, int target_rank, ompi_os
         uint32_t result = 0;
 #endif
         void *context;
+        //FIXME: Probably could just use a simple swap operation here
+#if OSC_FSM_USE_SWAP_INSTEAD_OF_CSWAP
+        OSC_FSM_FI_ATOMIC(fi_fetch_atomic(module->fi_ep,
+                          &locked, 1, NULL,
+                          &result, NULL,
+                          module->fi_addrs[target_rank], remote_vaddr, module->remote_keys[target_rank],
+                          OSC_FSM_FI_ATOMIC_TYPE,
+                          FI_ATOMIC_WRITE, context), context);
+#else
         OSC_FSM_FI_ATOMIC(fi_compare_atomic(module->fi_ep,
                           &locked, 1, NULL,
                           &unlocked, NULL,
@@ -53,8 +72,8 @@ fsm_atomic_trylock(osc_fsm_aligned_atomic_type_t *lock, int target_rank, ompi_os
                           module->fi_addrs[target_rank], remote_vaddr, module->remote_keys[target_rank],
                           OSC_FSM_FI_ATOMIC_TYPE,
                           FI_CSWAP, context), context);
-
-        return (result);
+#endif
+        return (result == OPAL_ATOMIC_LOCK_UNLOCKED);
     }
 }
 
