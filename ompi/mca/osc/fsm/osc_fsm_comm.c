@@ -90,6 +90,7 @@ fsm_atomic_lock(osc_fsm_aligned_atomic_type_t *lock, int target_rank, struct omp
             opal_progress();
         }
     }
+    //No memory barriers needed here as we will flush/invalidate the important regions with a fence anyway
 }
 
 static inline void
@@ -219,6 +220,7 @@ ompi_osc_fsm_raccumulate(const void *origin_addr,
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
     void *remote_address;
+    size_t size;
 
     OPAL_OUTPUT_VERBOSE((50, ompi_osc_base_framework.framework_output,
                          "raccumulate: 0x%lx, %d, %s, %d, %d, %d, %s, %s, 0x%lx",
@@ -232,12 +234,20 @@ ompi_osc_fsm_raccumulate(const void *origin_addr,
 
     fsm_atomic_lock(&module->node_states[target]->accumulate_lock, target, win);
     if (op == &ompi_mpi_op_replace.op) {
+        //No need to invalidate if we are just replacing the value
         ret = ompi_datatype_sndrcv((void *)origin_addr, origin_count, origin_dt,
                                     remote_address, target_count, target_dt);
     } else {
+        ompi_datatype_type_size(origin_dt, &size);
+        osc_fsm_invalidate(module, target, remote_address, size * origin_count, true);
         ret = ompi_osc_base_sndrcv_op(origin_addr, origin_count, origin_dt,
                                       remote_address, target_count, target_dt,
                                       op);
+    }
+    //No need to flush when we didn't touch the remote
+    if (OPAL_LIKELY(op != &ompi_mpi_op_no_op.op)) {
+        ompi_datatype_type_size(target_dt, &size);
+        osc_fsm_flush(module, target, remote_address, size * target_count, true);
     }
     fsm_atomic_unlock(&module->node_states[target]->accumulate_lock, target, win);
 
@@ -270,6 +280,7 @@ ompi_osc_fsm_rget_accumulate(const void *origin_addr,
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
     void *remote_address;
+    size_t size;
 
     OPAL_OUTPUT_VERBOSE((50, ompi_osc_base_framework.framework_output,
                          "rget_accumulate: 0x%lx, %d, %s, %d, %d, %d, %s, %s, 0x%lx",
@@ -288,14 +299,20 @@ ompi_osc_fsm_rget_accumulate(const void *origin_addr,
     if (OMPI_SUCCESS != ret || op == &ompi_mpi_op_no_op.op) goto done;
 
     if (op == &ompi_mpi_op_replace.op) {
+        //No need to invalidate if we are just replacing the value
         ret = ompi_datatype_sndrcv((void *)origin_addr, origin_count, origin_dt,
                                    remote_address, target_count, target_dt);
     } else {
+        ompi_datatype_type_size(origin_dt, &size);
+        osc_fsm_invalidate(module, target, remote_address, size * origin_count, true);
         ret = ompi_osc_base_sndrcv_op(origin_addr, origin_count, origin_dt,
                                       remote_address, target_count, target_dt,
                                       op);
     }
 
+    //No need to flush when we didn't touch the remote
+    ompi_datatype_type_size(target_dt, &size);
+    osc_fsm_flush(module, target, remote_address, size * target_count, true);
  done:
     fsm_atomic_unlock(&module->node_states[target]->accumulate_lock, target, win);
 
@@ -385,6 +402,7 @@ ompi_osc_fsm_accumulate(const void *origin_addr,
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
     void *remote_address;
+    size_t size;
 
     OPAL_OUTPUT_VERBOSE((50, ompi_osc_base_framework.framework_output,
                          "accumulate: 0x%lx, %d, %s, %d, %d, %d, %s, %s, 0x%lx",
@@ -398,12 +416,19 @@ ompi_osc_fsm_accumulate(const void *origin_addr,
 
     fsm_atomic_lock(&module->node_states[target]->accumulate_lock, target, win);
     if (op == &ompi_mpi_op_replace.op) {
+        //No need to invalidate if we are just replacing the value
         ret = ompi_datatype_sndrcv((void *)origin_addr, origin_count, origin_dt,
                                     remote_address, target_count, target_dt);
     } else {
+        ompi_datatype_type_size(origin_dt, &size);
+        osc_fsm_invalidate(module, target, remote_address, size * origin_count, true);
         ret = ompi_osc_base_sndrcv_op(origin_addr, origin_count, origin_dt,
                                       remote_address, target_count, target_dt,
                                       op);
+    }
+    if (OPAL_LIKELY(op != &ompi_mpi_op_no_op.op)) {
+        ompi_datatype_type_size(target_dt, &size);
+        osc_fsm_flush(module, target, remote_address, size * target_count, true);
     }
     fsm_atomic_unlock(&module->node_states[target]->accumulate_lock, target, win);
 
@@ -429,6 +454,7 @@ ompi_osc_fsm_get_accumulate(const void *origin_addr,
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
     void *remote_address;
+    size_t size;
 
     OPAL_OUTPUT_VERBOSE((50, ompi_osc_base_framework.framework_output,
                          "get_accumulate: 0x%lx, %d, %s, %d, %d, %d, %s, %s, 0x%lx",
@@ -442,6 +468,9 @@ ompi_osc_fsm_get_accumulate(const void *origin_addr,
 
     fsm_atomic_lock(&module->node_states[target]->accumulate_lock, target, win);
 
+    ompi_datatype_type_size(origin_dt, &size);
+    osc_fsm_invalidate(module, target, remote_address, size * origin_count, true);
+
     ret = ompi_datatype_sndrcv(remote_address, target_count, target_dt,
                                result_addr, result_count, result_dt);
     if (OMPI_SUCCESS != ret || op == &ompi_mpi_op_no_op.op) goto done;
@@ -454,7 +483,9 @@ ompi_osc_fsm_get_accumulate(const void *origin_addr,
                                       remote_address, target_count, target_dt,
                                       op);
     }
-
+    //only flush if no_op
+    ompi_datatype_type_size(target_dt, &size);
+    osc_fsm_flush(module, target, remote_address, size * target_count, true);
  done:
     fsm_atomic_unlock(&module->node_states[target]->accumulate_lock, target, win);
 
@@ -487,6 +518,7 @@ ompi_osc_fsm_compare_and_swap(const void *origin_addr,
     ompi_datatype_type_size(dt, &size);
 
     fsm_atomic_lock(&module->node_states[target]->accumulate_lock, target, win);
+    osc_fsm_invalidate(module, target, remote_address, size, true);
 
     /* fetch */
     ompi_datatype_copy_content_same_ddt(dt, 1, (char*) result_addr, (char*) remote_address);
@@ -494,6 +526,8 @@ ompi_osc_fsm_compare_and_swap(const void *origin_addr,
     if (0 == memcmp(result_addr, compare_addr, size)) {
         /* set */
         ompi_datatype_copy_content_same_ddt(dt, 1, (char*) remote_address, (char*) origin_addr);
+        osc_fsm_flush(module, target, remote_address, size, true);
+        //No need to flush if we didn't change anything
     }
 
     fsm_atomic_unlock(&module->node_states[target]->accumulate_lock, target, win);
@@ -514,6 +548,8 @@ ompi_osc_fsm_fetch_and_op(const void *origin_addr,
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
     void *remote_address;
+    size_t size;
+    ompi_datatype_type_size(dt, &size);
 
     OPAL_OUTPUT_VERBOSE((50, ompi_osc_base_framework.framework_output,
                          "fetch_and_op: 0x%lx, %s, %d, %d, %s, 0x%lx",
@@ -525,6 +561,7 @@ ompi_osc_fsm_fetch_and_op(const void *origin_addr,
     remote_address = ((char*) (module->bases[target])) + module->disp_units[target] * target_disp;
 
     fsm_atomic_lock(&module->node_states[target]->accumulate_lock, target, win);
+    osc_fsm_invalidate(module, target, remote_address, size, true);
 
     /* fetch */
     ompi_datatype_copy_content_same_ddt(dt, 1, (char*) result_addr, (char*) remote_address);
@@ -536,6 +573,8 @@ ompi_osc_fsm_fetch_and_op(const void *origin_addr,
     } else {
         ompi_op_reduce(op, (void *)origin_addr, remote_address, 1, dt);
     }
+    //No need to flush if we no_op
+    osc_fsm_flush(module, target, remote_address, size, true);
 
  done:
     fsm_atomic_unlock(&module->node_states[target]->accumulate_lock, target, win);
