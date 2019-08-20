@@ -108,9 +108,17 @@ ompi_osc_fsm_fence(int assert, struct ompi_win_t *win)
        If we could tracked which buffers are actually dirty, we could avoid
        unnecessary flushes. The problem is that there is no way of tracking
        load/stores done on the window*/
-    for (i = 0; i < comm_size; i++) {
-        if (module->bases[i]) {
-            osc_fsm_commit_window(module, i, true);
+    if(0 == (module->previousFenceAssert & MPI_MODE_NOSUCCEED) && 0 == (assert & MPI_MODE_NOPRECEDE)) {
+        for (i = 0; i < comm_size; i++) {
+            if (module->mdesc[i]) {
+                osc_fsm_commit_window(module, i, true);
+            } else if(i == ompi_comm_rank(module->comm) && (0 == (assert & MPI_MODE_NOSTORE))){
+                osc_fsm_commit_window(module, i, true);
+            }
+        }
+    } else {
+        if((0 == (assert & MPI_MODE_NOSTORE)) && (0 == (assert & MPI_MODE_NOSUCCEED))){
+            osc_fsm_commit_window(module, ompi_comm_rank(module->comm), true);
         }
     }
 
@@ -118,11 +126,20 @@ ompi_osc_fsm_fence(int assert, struct ompi_win_t *win)
                                            module->comm->c_coll->coll_barrier_module);
 
     /* We need to invalidate everything so we can see changes made on other nodes. */
-    for (i = 0; i < comm_size; i++) {
-        if (module->bases[i]) {
-            osc_fsm_invalidate_window(module, i, true);
+    if(0 == (assert & MPI_MODE_NOSUCCEED)) {
+        for (i = 0; i < comm_size; i++) {
+            if (module->mdesc[i]) {
+                osc_fsm_invalidate_window(module, i, true);
+            } else if(i == ompi_comm_rank(module->comm) && (0 == (module->previousFenceAssert & MPI_MODE_NOPUT))) {
+                osc_fsm_invalidate_window(module, i, true);
+            }
+        }
+    } else {
+        if(0 == (module->previousFenceAssert & MPI_MODE_NOSUCCEED) && 0 == (assert & MPI_MODE_NOPRECEDE)) {
+            osc_fsm_invalidate_window(module, ompi_comm_rank(module->comm), true);
         }
     }
+    module->previousFenceAssert = assert;
     return res; // TODO implement that with using the value of use_barrier_for_fence or similar
 }
 
@@ -145,15 +162,15 @@ ompi_osc_fsm_start(struct ompi_group_t *group,
         return OMPI_ERR_RMA_SYNC;
     }
 
+    int *ranks = ompi_osc_fsm_group_ranks (module->comm->c_local_group, group);
+    if (NULL == ranks) {
+        return OMPI_ERR_OUT_OF_RESOURCE;
+    }
+    int size;
+    size = ompi_group_size(module->start_group);
     if (0 == (assert & MPI_MODE_NOCHECK)) {
-        int size;
 
-        int *ranks = ompi_osc_fsm_group_ranks (module->comm->c_local_group, group);
-        if (NULL == ranks) {
-            return OMPI_ERR_OUT_OF_RESOURCE;
-        }
 
-        size = ompi_group_size(module->start_group);
 
         for (int i = 0 ; i < size ; ++i) {
             int rank_byte = ranks[i] >> OSC_FSM_POST_BITS;
@@ -175,10 +192,12 @@ ompi_osc_fsm_start(struct ompi_group_t *group,
 #endif
        }
 
-        free (ranks);
     }
-
-    opal_atomic_mb(); //TODO add memory fence/flush/invalidate here and on the other active synchronisation parts.
+    for (int i = 0 ; i < size ; ++i) {
+        osc_fsm_invalidate_window(module, ranks[i], true);
+    }
+    module->previousFenceAssert = 0;
+    free (ranks);
     return OMPI_SUCCESS;
 }
 
@@ -208,6 +227,7 @@ ompi_osc_fsm_complete(struct ompi_win_t *win)
 
     gsize = ompi_group_size(group);
     for (int i = 0 ; i < gsize ; ++i) {
+        osc_fsm_commit_window(module, ranks[i], true);
 
         if(i == ompi_group_rank (group)) {
 #if OPAL_HAVE_ATOMIC_MATH_64
@@ -228,7 +248,7 @@ ompi_osc_fsm_complete(struct ompi_win_t *win)
                               &one, 1,
                               module->fi_addrs[i], remote_vaddr, module->remote_keys[i],
                               OSC_FSM_FI_ATOMIC_TYPE,
-                              FI_SUM), ret);
+                              FI_SUM), ret); //TODO replace with atomic that can be waited on in global object (needs to be completed before win free)
             if (OPAL_UNLIKELY(0 > ret)) {
                 OSC_FSM_VERBOSE_F(MCA_BASE_VERBOSE_ERROR, "fi_atomic failed%ld\n", ret);
                 abort();
@@ -267,6 +287,12 @@ ompi_osc_fsm_post(struct ompi_group_t *group,
     module->post_group = group;
 
     OBJ_RETAIN(group);
+
+    if(0 == (assert & MPI_MODE_NOSTORE)) {
+        osc_fsm_commit_window(module, ompi_comm_rank(module->comm), true);
+    }
+    module->previousFenceAssert = 0;
+    module->previousPostAssert = assert;
 
     if (0 == (assert & MPI_MODE_NOCHECK)) {
         int *ranks = ompi_osc_fsm_group_ranks (module->comm->c_local_group, group);
@@ -336,6 +362,9 @@ ompi_osc_fsm_wait(struct ompi_win_t *win)
         opal_progress();
         opal_atomic_mb();
     }
+    if(0 == (module->previousPostAssert & MPI_MODE_NOPUT)) {
+        osc_fsm_invalidate_window(module, ompi_comm_rank(module->comm), true);
+    }
 
     OBJ_RELEASE(group);
     module->post_group = NULL;
@@ -368,6 +397,9 @@ ompi_osc_fsm_test(struct ompi_win_t *win,
     if (module->my_node_state->complete_count == size) {
         OBJ_RELEASE(module->post_group);
         module->post_group = NULL;
+        if(0 == (module->previousPostAssert & MPI_MODE_NOPUT)) {
+            osc_fsm_invalidate_window(module, ompi_comm_rank(module->comm), true);
+        }
         *flag = 1;
     } else {
         *flag = 0;

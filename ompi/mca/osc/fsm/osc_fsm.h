@@ -189,6 +189,8 @@ struct ompi_osc_fsm_module_t {
 
     ompi_group_t *start_group;
     ompi_group_t *post_group;
+    int previousFenceAssert;
+    int previousPostAssert;
 
     int my_sense;
 
