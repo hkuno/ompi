@@ -110,7 +110,7 @@ ompi_osc_fsm_fence(int assert, struct ompi_win_t *win)
        load/stores done on the window*/
     for (i = 0; i < comm_size; i++) {
         if (module->bases[i]) {
-            osc_fsm_flush_window(module, i, true);
+            osc_fsm_commit_window(module, i, true);
         }
     }
 

@@ -548,7 +548,7 @@ errorAlloc:
 
     if (OPAL_SUCCESS != ret) goto error;
 
-    osc_fsm_flush(module, my_rank, module->my_segment_base, ((char *) module->bases[my_rank] + module->sizes[my_rank]) - ((char *) module->my_segment_base), true);
+    osc_fsm_commit(module, my_rank, module->my_segment_base, ((char *) module->bases[my_rank] + module->sizes[my_rank]) - ((char *) module->my_segment_base), true);
     ret = module->comm->c_coll->coll_barrier(module->comm,
                                             module->comm->c_coll->coll_barrier_module);
     if (OMPI_SUCCESS != ret) goto error;

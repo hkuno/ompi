@@ -247,7 +247,7 @@ ompi_osc_fsm_raccumulate(const void *origin_addr,
     //No need to flush when we didn't touch the remote
     if (OPAL_LIKELY(op != &ompi_mpi_op_no_op.op)) {
         ompi_datatype_type_size(target_dt, &size);
-        osc_fsm_flush(module, target, remote_address, size * target_count, true);
+        osc_fsm_commit(module, target, remote_address, size * target_count, true);
     }
     fsm_atomic_unlock(&module->node_states[target]->accumulate_lock, target, win);
 
@@ -312,7 +312,7 @@ ompi_osc_fsm_rget_accumulate(const void *origin_addr,
 
     //No need to flush when we didn't touch the remote
     ompi_datatype_type_size(target_dt, &size);
-    osc_fsm_flush(module, target, remote_address, size * target_count, true);
+    osc_fsm_commit(module, target, remote_address, size * target_count, true);
  done:
     fsm_atomic_unlock(&module->node_states[target]->accumulate_lock, target, win);
 
@@ -428,7 +428,7 @@ ompi_osc_fsm_accumulate(const void *origin_addr,
     }
     if (OPAL_LIKELY(op != &ompi_mpi_op_no_op.op)) {
         ompi_datatype_type_size(target_dt, &size);
-        osc_fsm_flush(module, target, remote_address, size * target_count, true);
+        osc_fsm_commit(module, target, remote_address, size * target_count, true);
     }
     fsm_atomic_unlock(&module->node_states[target]->accumulate_lock, target, win);
 
@@ -485,7 +485,7 @@ ompi_osc_fsm_get_accumulate(const void *origin_addr,
     }
     //only flush if no_op
     ompi_datatype_type_size(target_dt, &size);
-    osc_fsm_flush(module, target, remote_address, size * target_count, true);
+    osc_fsm_commit(module, target, remote_address, size * target_count, true);
  done:
     fsm_atomic_unlock(&module->node_states[target]->accumulate_lock, target, win);
 
@@ -526,7 +526,7 @@ ompi_osc_fsm_compare_and_swap(const void *origin_addr,
     if (0 == memcmp(result_addr, compare_addr, size)) {
         /* set */
         ompi_datatype_copy_content_same_ddt(dt, 1, (char*) remote_address, (char*) origin_addr);
-        osc_fsm_flush(module, target, remote_address, size, true);
+        osc_fsm_commit(module, target, remote_address, size, true);
         //No need to flush if we didn't change anything
     }
 
@@ -574,7 +574,7 @@ ompi_osc_fsm_fetch_and_op(const void *origin_addr,
         ompi_op_reduce(op, (void *)origin_addr, remote_address, 1, dt);
     }
     //No need to flush if we no_op
-    osc_fsm_flush(module, target, remote_address, size, true);
+    osc_fsm_commit(module, target, remote_address, size, true);
 
  done:
     fsm_atomic_unlock(&module->node_states[target]->accumulate_lock, target, win);

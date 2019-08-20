@@ -251,7 +251,7 @@ ompi_osc_fsm_unlock(int target,
         break;
 
     case lock_exclusive:
-        osc_fsm_flush_window(module, target, true);
+        osc_fsm_commit_window(module, target, true);
         ret = end_exclusive(module, target);
         break;
 
@@ -322,7 +322,7 @@ ompi_osc_fsm_sync(struct ompi_win_t *win)
         (ompi_osc_fsm_module_t*) win->w_osc_module;
 
     int my_rank = ompi_comm_rank(module->comm);
-    osc_fsm_flush_window(module, my_rank, true);
+    osc_fsm_commit_window(module, my_rank, true);
 
     int comm_size = ompi_comm_size(module->comm);
     for (int i = 0 ; i < comm_size ; ++i) {
@@ -342,7 +342,7 @@ ompi_osc_fsm_flush(int target,
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
 
-    osc_fsm_flush_window(module, target, true);
+    osc_fsm_commit_window(module, target, true);
     return OMPI_SUCCESS;
 }
 

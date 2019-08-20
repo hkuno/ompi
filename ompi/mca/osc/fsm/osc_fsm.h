@@ -205,16 +205,25 @@ struct ompi_osc_fsm_module_t {
 };
 typedef struct ompi_osc_fsm_module_t ompi_osc_fsm_module_t;
 
+/* FIXME: flush/invalidate shouldn't be done by a libfabric ext opt */
 static inline void osc_fsm_flush(ompi_osc_fsm_module_t * module, int target, void * addr, size_t len, bool fence) {
-    module->ext_ops->commit(module->mdesc[target], addr, len, fence, false);
+    module->ext_ops->commit(module->mdesc[target], addr, len, fence, false, false);
 }
 
 static inline void osc_fsm_flush_window(ompi_osc_fsm_module_t * module, int target, bool fence) {
     osc_fsm_flush(module, target, module->bases[target], module->sizes[target], fence);
 }
 
+static inline void osc_fsm_commit(ompi_osc_fsm_module_t * module, int target, void * addr, size_t len, bool fence) {
+    module->ext_ops->commit(module->mdesc[target], addr, len, fence, false, true);
+}
+
+static inline void osc_fsm_commit_window(ompi_osc_fsm_module_t * module, int target, bool fence) {
+    osc_fsm_commit(module, target, module->bases[target], module->sizes[target], fence);
+}
+
 static inline void osc_fsm_invalidate(ompi_osc_fsm_module_t * module, int target, void * addr, size_t len, bool fence) {
-    module->ext_ops->commit(module->mdesc[target], addr, len, fence, true);
+    module->ext_ops->commit(module->mdesc[target], addr, len, fence, true, true);
 }
 
 static inline void osc_fsm_invalidate_window(ompi_osc_fsm_module_t * module, int target, bool fence) {
