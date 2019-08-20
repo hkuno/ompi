@@ -90,7 +90,7 @@ lk_add(ompi_osc_fsm_module_t *module,
                           &delta, 1,
                           module->fi_addrs[target], remote_vaddr, module->remote_keys[target],
                           OSC_FSM_FI_ATOMIC_TYPE,
-                          FI_SUM), ret);
+                          FI_SUM), ret); // TODO Needs to be waited on in Win_free
         if (OPAL_UNLIKELY(0 > ret)) {
             OSC_FSM_VERBOSE_F(MCA_BASE_VERBOSE_ERROR, "fi_atomic failed%ld\n", ret);
             abort();
@@ -218,14 +218,8 @@ ompi_osc_fsm_lock(int lock_type,
         module->outstanding_locks[target] = lock_nocheck;
         ret = OMPI_SUCCESS;
     }
-    int comm_size = ompi_comm_size(module->comm);
-    int i;
-    for (i = 0; i < comm_size; i++) {
-        if (module->bases[i]) {
-            osc_fsm_invalidate_window(module, i, true);
-        }
-    }
 
+    osc_fsm_invalidate_window(module, target, true);
 
     return ret;
 }
@@ -251,7 +245,6 @@ ompi_osc_fsm_unlock(int target,
         break;
 
     case lock_exclusive:
-        osc_fsm_commit_window(module, target, true);
         ret = end_exclusive(module, target);
         break;
 
@@ -272,6 +265,7 @@ ompi_osc_fsm_unlock(int target,
         ret = OMPI_ERR_BAD_PARAM;
         break;
     }
+    osc_fsm_commit_window(module, target, true);
 
     module->outstanding_locks[target] = lock_none;
 
@@ -280,8 +274,7 @@ ompi_osc_fsm_unlock(int target,
 
 
 int
-ompi_osc_fsm_lock_all(int assert,
-                           struct ompi_win_t *win)
+ompi_osc_fsm_lock_all(int assert, struct ompi_win_t *win)
 {
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
@@ -317,15 +310,13 @@ ompi_osc_fsm_unlock_all(struct ompi_win_t *win)
 int
 ompi_osc_fsm_sync(struct ompi_win_t *win)
 {
-    opal_atomic_mb();
+    //no need to have a memory barrier as it is included in the commit and invalidate
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
 
-    int my_rank = ompi_comm_rank(module->comm);
-    osc_fsm_commit_window(module, my_rank, true);
-
     int comm_size = ompi_comm_size(module->comm);
     for (int i = 0 ; i < comm_size ; ++i) {
+        osc_fsm_commit_window(module, i, true);
         osc_fsm_invalidate_window(module, i, true);
     }
 
@@ -335,10 +326,8 @@ ompi_osc_fsm_sync(struct ompi_win_t *win)
 
 
 int
-ompi_osc_fsm_flush(int target,
-                        struct ompi_win_t *win)
+ompi_osc_fsm_flush(int target, struct ompi_win_t *win)
 {
-    opal_atomic_mb();
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
 
@@ -350,8 +339,6 @@ ompi_osc_fsm_flush(int target,
 int
 ompi_osc_fsm_flush_all(struct ompi_win_t *win)
 {
-    opal_atomic_mb();
-
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
     for(int i = 0; i < ompi_comm_size(module->comm); i++) {
@@ -362,11 +349,8 @@ ompi_osc_fsm_flush_all(struct ompi_win_t *win)
 
 
 int
-ompi_osc_fsm_flush_local(int target,
-                              struct ompi_win_t *win)
+ompi_osc_fsm_flush_local(int target, struct ompi_win_t *win)
 {
-    opal_atomic_mb();
-
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
     for(int i = 0; i < ompi_comm_size(module->comm); i++) {
@@ -379,8 +363,6 @@ ompi_osc_fsm_flush_local(int target,
 int
 ompi_osc_fsm_flush_local_all(struct ompi_win_t *win)
 {
-    opal_atomic_mb();
-
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
     for(int i = 0; i < ompi_comm_size(module->comm); i++) {
