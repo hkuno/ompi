@@ -22,6 +22,11 @@
 
 #include "osc_fsm.h"
 #define OSC_FSM_USE_SWAP_INSTEAD_OF_CSWAP 1
+#if OPAL_HAVE_ATOMIC_MATH_64
+static int64_t fsm_unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
+#else
+static uint32_t fsm_unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
+#endif
 
 static inline int
 fsm_atomic_trylock(osc_fsm_aligned_atomic_type_t *lock, int target_rank, ompi_osc_fsm_module_t *module)
@@ -108,19 +113,12 @@ fsm_atomic_unlock(osc_fsm_aligned_atomic_type_t *lock, int target_rank, struct o
 #endif
     } else {
         uintptr_t remote_vaddr = module->remote_vaddr_bases[target_rank] + (((uintptr_t) lock) - ((uintptr_t) module->mdesc[target_rank]->addr));
-#if OPAL_HAVE_ATOMIC_MATH_64
-        int64_t unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
-#else
-        uint32_t unlocked = OPAL_ATOMIC_LOCK_UNLOCKED;
-#endif
-        ssize_t ret;
-        MTL_OFI_RETRY_UNTIL_DONE(
-        fi_inject_atomic(module->fi_ep,
-                         &unlocked, 1,
-                         module->fi_addrs[target_rank], remote_vaddr, module->remote_keys[target_rank],
-                         OSC_FSM_FI_ATOMIC_TYPE,
-                         FI_ATOMIC_WRITE), ret);
-        //FIXME: Probably unwise to ignore return value
+        void * context;
+        OSC_FSM_FI_INJECT_ATOMIC(fi_atomic(module->fi_ep,
+                          &fsm_unlocked, 1, NULL,
+                          module->fi_addrs[target_rank], remote_vaddr, module->remote_keys[target_rank],
+                          OSC_FSM_FI_ATOMIC_TYPE,
+                          FI_ATOMIC_WRITE, context), context, module, NULL);
     }
 }
 

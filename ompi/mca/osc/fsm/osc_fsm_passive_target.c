@@ -20,6 +20,12 @@
 
 #include "osc_fsm.h"
 
+#if OPAL_HAVE_ATOMIC_MATH_64
+static uint64_t fsm_one = 1;
+#else
+static uint32_t fsm_one = 1;
+#endif
+
 static inline int64_t
 lk_fetch_add(ompi_osc_fsm_module_t *module,
                int target,
@@ -67,35 +73,30 @@ lk_add(ompi_osc_fsm_module_t *module,
          int target,
          size_t offset,
 #if OPAL_HAVE_ATOMIC_MATH_64
-         uint64_t delta
+         uint64_t * delta
 #else
-         uint32_t delta
+         uint32_t * delta
 #endif
       )
 {
     if(target == ompi_comm_rank(module->comm)) {
 #if OPAL_HAVE_ATOMIC_MATH_64
     opal_atomic_add_fetch_64((opal_atomic_int64_t *) ((char*) &module->node_states[target]->lock + offset),
-                       delta);
+                       *delta);
 #else
     opal_atomic_add_fetch_32((opal_atomic_int32_t *) ((char*) &module->node_states[target]->lock + offset),
-                       delta);
+                       *delta);
 #endif
     } else {
-        ssize_t ret;
+        void *context;
         uintptr_t remote_vaddr = module->remote_vaddr_bases[target]
                                + (((uintptr_t) &module->node_states[target]->lock) - ((uintptr_t) module->mdesc[target]->addr))
                                + offset;
-        MTL_OFI_RETRY_UNTIL_DONE(fi_inject_atomic(module->fi_ep,
-                          &delta, 1,
+        OSC_FSM_FI_INJECT_ATOMIC(fi_atomic(module->fi_ep,
+                          delta, 1, NULL,
                           module->fi_addrs[target], remote_vaddr, module->remote_keys[target],
                           OSC_FSM_FI_ATOMIC_TYPE,
-                          FI_SUM), ret); // TODO Needs to be waited on in Win_free
-        if (OPAL_UNLIKELY(0 > ret)) {
-            OSC_FSM_VERBOSE_F(MCA_BASE_VERBOSE_ERROR, "fi_atomic failed%ld\n", ret);
-            abort();
-        }
-
+                          FI_SUM, context), context, module, NULL);
     }
 }
 
@@ -158,8 +159,8 @@ static inline int
 end_exclusive(ompi_osc_fsm_module_t *module,
               int target)
 {
-    lk_add(module, target, offsetof(ompi_osc_fsm_lock_t, write), 1);
-    lk_add(module, target, offsetof(ompi_osc_fsm_lock_t, read), 1);
+    lk_add(module, target, offsetof(ompi_osc_fsm_lock_t, write), &fsm_one);
+    lk_add(module, target, offsetof(ompi_osc_fsm_lock_t, read), &fsm_one);
 
     return OMPI_SUCCESS;
 }
@@ -176,7 +177,7 @@ start_shared(ompi_osc_fsm_module_t *module,
         opal_progress();
     }
 
-    lk_add(module, target, offsetof(ompi_osc_fsm_lock_t, read), 1);
+    lk_add(module, target, offsetof(ompi_osc_fsm_lock_t, read), &fsm_one);
 
     return OMPI_SUCCESS;
 }
@@ -186,7 +187,7 @@ static inline int
 end_shared(ompi_osc_fsm_module_t *module,
            int target)
 {
-    lk_add(module, target, offsetof(ompi_osc_fsm_lock_t, write), 1);
+    lk_add(module, target, offsetof(ompi_osc_fsm_lock_t, write), &fsm_one);
 
     return OMPI_SUCCESS;
 }

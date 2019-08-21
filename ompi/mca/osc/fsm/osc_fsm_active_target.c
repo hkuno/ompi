@@ -23,6 +23,12 @@
 
 #include "osc_fsm.h"
 
+#if OPAL_HAVE_ATOMIC_MATH_64
+static int64_t fsm_one = 1;
+#else
+static uint32_t fsm_one = 1;
+#endif
+
 /**
  * compare_ranks:
  *
@@ -236,23 +242,14 @@ ompi_osc_fsm_complete(struct ompi_win_t *win)
             (void) opal_atomic_add_fetch_32(&module->node_states[ranks[i]]->complete_count, 1);
 #endif
         } else {
-#if OPAL_HAVE_ATOMIC_MATH_64
-            int64_t one = 1;
-#else
-            uint32_t one = 1;
-#endif
             uintptr_t remote_vaddr = module->remote_vaddr_bases[i]
                                      + (((uintptr_t) &module->node_states[ranks[i]]->complete_count) - ((uintptr_t) module->mdesc[i]->addr));
-            ssize_t ret;
-            MTL_OFI_RETRY_UNTIL_DONE(fi_inject_atomic(module->fi_ep,
-                              &one, 1,
+            void * context;
+            OSC_FSM_FI_INJECT_ATOMIC(fi_atomic(module->fi_ep,
+                              &fsm_one, 1, NULL,
                               module->fi_addrs[i], remote_vaddr, module->remote_keys[i],
                               OSC_FSM_FI_ATOMIC_TYPE,
-                              FI_SUM), ret); //TODO replace with atomic that can be waited on in global object (needs to be completed before win free)
-            if (OPAL_UNLIKELY(0 > ret)) {
-                OSC_FSM_VERBOSE_F(MCA_BASE_VERBOSE_ERROR, "fi_atomic failed%ld\n", ret);
-                abort();
-            }
+                              FI_SUM, context), context, module, NULL);
         }
     }
 

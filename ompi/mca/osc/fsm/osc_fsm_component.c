@@ -631,6 +631,11 @@ ompi_osc_fsm_free(struct ompi_win_t *win)
     ompi_osc_fsm_module_t *module =
         (ompi_osc_fsm_module_t*) win->w_osc_module;
 
+    //Wait on all pending atomics to finish before closing the window
+    while(0 < module->atomic_completion_count) {
+        opal_progress();
+    }
+
     /* free memory */
     if (NULL != module->my_segment_base) {
         OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_TRACE, "Assuming that memory for window was mapped and allocated.\n");

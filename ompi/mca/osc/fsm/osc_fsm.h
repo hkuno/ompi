@@ -20,6 +20,7 @@
 #include "opal/mca/shmem/base/base.h"
 #include "ompi/communicator/communicator.h"
 #include "ompi/mca/mtl/ofi/mtl_ofi.h"
+#include "ompi/mca/osc/base/base.h"
 #include <pthread.h>
 #include <rdma/fabric.h>
 #include <rdma/fi_domain.h>
@@ -76,54 +77,6 @@ typedef opal_atomic_uint32_t __attribute__((aligned(CACHELINE_SZ))) osc_aligned_
     OPAL_OUTPUT_VERBOSE((x, ompi_osc_base_framework.framework_output, "%s:%d: " s,__FILE__, __LINE__ , ##__VA_ARGS__)); \
 } while (0)
 
-/**
- * Called when a ofi (mostly atomic) request completes.
- */
-__opal_attribute_always_inline__ static inline int
-ompi_osc_fsm_ofi_callback(struct fi_cq_tagged_entry *wc,
-                            ompi_mtl_ofi_request_t *ofi_req)
-{
-    ofi_req->status.MPI_ERROR = MPI_SUCCESS;
-    ofi_req->completion_count--;
-    return OMPI_SUCCESS;
-}
-
-/**
- * Called when a ofi (mostly atomic) request encounters an error.
- */
-__opal_attribute_always_inline__ static inline int
-ompi_osc_fsm_ofi_error_callback(struct fi_cq_err_entry *error,
-                                  ompi_mtl_ofi_request_t *ofi_req)
-{
-    ofi_req->status.MPI_ERROR = MPI_ERR_INTERN;
-    ofi_req->completion_count--;
-
-    return OMPI_SUCCESS;
-}
-/*
- * This is a wrapper for all atomics that needed to be waited on.
- * It is very crude but it works
- */
-#define OSC_FSM_FI_ATOMIC(atomic, context) do {                 \
-    struct ompi_mtl_ofi_request_t ofi_req;                      \
-    ssize_t ret;                                                \
-    ofi_req.event_callback = ompi_osc_fsm_ofi_callback;         \
-    ofi_req.error_callback = ompi_osc_fsm_ofi_error_callback;   \
-    ofi_req.completion_count = 1;                               \
-    context = &ofi_req.ctx;                                      \
-    MTL_OFI_RETRY_UNTIL_DONE(atomic, ret);                      \
-    if (OPAL_UNLIKELY(0 > ret)) {                               \
-        OSC_FSM_VERBOSE_F(MCA_BASE_VERBOSE_ERROR, "fi_atomic failed%ld\n", ret);\
-        abort();                                                \
-    }                                                           \
-    while (0 < ofi_req.completion_count) {                      \
-        opal_progress();                                        \
-    }                                                           \
-    if(OPAL_UNLIKELY(MPI_SUCCESS != ofi_req.status.MPI_ERROR)) {\
-        OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_ERROR, "fi_atomic returned with error\n");\
-        abort();                                                \
-    }                                                           \
-} while (0)
 
 /* data shared across all peers */
 struct ompi_osc_fsm_global_state_t {
@@ -195,6 +148,7 @@ struct ompi_osc_fsm_module_t {
     int my_sense;
 
     enum ompi_osc_fsm_locktype_t *outstanding_locks;
+    opal_atomic_int32_t atomic_completion_count;
 
     /* exposed data */
     ompi_osc_fsm_global_state_t *global_state;
@@ -383,5 +337,108 @@ int ompi_osc_fsm_flush_local_all(struct ompi_win_t *win);
 
 int ompi_osc_fsm_set_info(struct ompi_win_t *win, struct opal_info_t *info);
 int ompi_osc_fsm_get_info(struct ompi_win_t *win, struct opal_info_t **info_used);
+
+/**
+ * Called when a ofi (mostly atomic) request completes.
+ */
+__opal_attribute_always_inline__ static inline int
+ompi_osc_fsm_ofi_callback(struct fi_cq_tagged_entry *wc,
+                            ompi_mtl_ofi_request_t *ofi_req)
+{
+    ofi_req->status.MPI_ERROR = MPI_SUCCESS;
+    ofi_req->completion_count--;
+    return OMPI_SUCCESS;
+}
+
+/**
+ * Called when a ofi (mostly atomic) request encounters an error.
+ */
+__opal_attribute_always_inline__ static inline int
+ompi_osc_fsm_ofi_error_callback(struct fi_cq_err_entry *error,
+                                  ompi_mtl_ofi_request_t *ofi_req)
+{
+    ofi_req->status.MPI_ERROR = MPI_ERR_INTERN;
+    ofi_req->completion_count--;
+
+    return OMPI_SUCCESS;
+}
+/**
+ * Called when a ofi (mostly inject atomic) request completes.
+ */
+__opal_attribute_always_inline__ static inline int
+ompi_osc_fsm_ofi_inject_callback(struct fi_cq_tagged_entry *wc,
+                            ompi_mtl_ofi_request_t *ofi_req)
+{
+    struct ompi_osc_fsm_module_t* module = (ompi_osc_fsm_module_t*) ofi_req->mtl;
+    opal_atomic_add_fetch_32(&module->atomic_completion_count, -1);
+    free(ofi_req->buffer);
+    free(ofi_req);
+    return OMPI_SUCCESS;
+}
+
+/**
+ * Called when a ofi (mostly inject atomic) request encounters an error.
+ */
+__opal_attribute_always_inline__ static inline int
+ompi_osc_fsm_ofi_inject_error_callback(struct fi_cq_err_entry *error,
+                                  ompi_mtl_ofi_request_t *ofi_req)
+{
+    struct ompi_osc_fsm_module_t* module = (ompi_osc_fsm_module_t*) ofi_req->mtl;
+    opal_atomic_add_fetch_32(&module->atomic_completion_count, -1);
+    if(ofi_req->buffer){
+        free(ofi_req->buffer);
+    }
+    free(ofi_req);
+    OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_ERROR, "fi_inject_atomic failed. I have no clue why\n");
+    abort(); //FIXME abort shouldn't be called here
+    return OMPI_SUCCESS;
+}
+
+/*
+ * This is a wrapper for all atomics that needed to be waited on.
+ * It is very crude but it works
+ * FIXME don't use abort in wrappers
+ */
+#define OSC_FSM_FI_ATOMIC(atomic, context) do {                 \
+    struct ompi_mtl_ofi_request_t ofi_req;                      \
+    ssize_t ret;                                                \
+    ofi_req.event_callback = ompi_osc_fsm_ofi_callback;         \
+    ofi_req.error_callback = ompi_osc_fsm_ofi_error_callback;   \
+    ofi_req.completion_count = 1;                               \
+    context = &ofi_req.ctx;                                     \
+    MTL_OFI_RETRY_UNTIL_DONE(atomic, ret);                      \
+    if (OPAL_UNLIKELY(0 > ret)) {                               \
+        OSC_FSM_VERBOSE_F(MCA_BASE_VERBOSE_ERROR, "fi_atomic failed%ld\n", ret);\
+        abort();                                                \
+    }                                                           \
+    while (0 < ofi_req.completion_count) {                      \
+        opal_progress();                                        \
+    }                                                           \
+    if(OPAL_UNLIKELY(MPI_SUCCESS != ofi_req.status.MPI_ERROR)) {\
+        OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_ERROR, "fi_atomic returned with error\n");\
+        abort();                                                \
+    }                                                           \
+} while (0)
+
+/*
+ * This is a wrapper for all atomics that do not need to be waited on.
+ * It is even cruder but it works
+ * FIXME don't use abort in wrappers
+ */
+#define OSC_FSM_FI_INJECT_ATOMIC(atomic, context, module, bufferPointer) do {  \
+    ssize_t ret;                                                \
+    struct ompi_mtl_ofi_request_t *ofi_req = malloc(sizeof(struct ompi_mtl_ofi_request_t));\
+    ofi_req->mtl = (struct mca_mtl_base_module_t*) module;      \
+    ofi_req->buffer = bufferPointer;                            \
+    ofi_req->event_callback = ompi_osc_fsm_ofi_inject_callback; \
+    ofi_req->error_callback = ompi_osc_fsm_ofi_inject_error_callback;\
+    opal_atomic_add_fetch_32((opal_atomic_int32_t *) &module->atomic_completion_count, 1);\
+    context = &ofi_req->ctx;                                    \
+    MTL_OFI_RETRY_UNTIL_DONE(atomic, ret);                      \
+    if (OPAL_UNLIKELY(0 > ret)) {                               \
+        OSC_FSM_VERBOSE_F(MCA_BASE_VERBOSE_ERROR, "fi_atomic failed%ld\n", ret);\
+        abort();                                                \
+    }                                                           \
+} while (0)
 
 #endif
