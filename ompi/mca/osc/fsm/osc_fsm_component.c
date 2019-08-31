@@ -632,7 +632,12 @@ ompi_osc_fsm_free(struct ompi_win_t *win)
         (ompi_osc_fsm_module_t*) win->w_osc_module;
 
     //Wait on all pending atomics to finish before closing the window
+    bool statedDebug = false;
     while(0 < module->atomic_completion_count) {
+        if(!statedDebug) {
+            OSC_FSM_VERBOSE_F(MCA_BASE_VERBOSE_DEBUG, "Waiting on dangling atomics. %d", module->atomic_completion_count);
+            statedDebug = true;
+        }
         opal_progress();
     }
 

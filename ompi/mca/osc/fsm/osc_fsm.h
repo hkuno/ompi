@@ -369,6 +369,7 @@ __opal_attribute_always_inline__ static inline int
 ompi_osc_fsm_ofi_inject_callback(struct fi_cq_tagged_entry *wc,
                             ompi_mtl_ofi_request_t *ofi_req)
 {
+    OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_ERROR, "inject atomic got completed.");
     struct ompi_osc_fsm_module_t* module = (ompi_osc_fsm_module_t*) ofi_req->mtl;
     opal_atomic_add_fetch_32(&module->atomic_completion_count, -1);
     free(ofi_req->buffer);
@@ -400,6 +401,7 @@ ompi_osc_fsm_ofi_inject_error_callback(struct fi_cq_err_entry *error,
  * FIXME don't use abort in wrappers
  */
 #define OSC_FSM_FI_ATOMIC(atomic, context) do {                 \
+    OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_DEBUG, "atomic got issued.");\
     struct ompi_mtl_ofi_request_t ofi_req;                      \
     ssize_t ret;                                                \
     ofi_req.event_callback = ompi_osc_fsm_ofi_callback;         \
@@ -426,6 +428,7 @@ ompi_osc_fsm_ofi_inject_error_callback(struct fi_cq_err_entry *error,
  * FIXME don't use abort in wrappers
  */
 #define OSC_FSM_FI_INJECT_ATOMIC(atomic, context, module, bufferPointer) do {  \
+    OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_DEBUG, "inject atomic got issued.");\
     ssize_t ret;                                                \
     struct ompi_mtl_ofi_request_t *ofi_req = malloc(sizeof(struct ompi_mtl_ofi_request_t));\
     ofi_req->mtl = (struct mca_mtl_base_module_t*) module;      \
