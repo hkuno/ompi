@@ -553,7 +553,7 @@ errorAlloc:
                                             module->comm->c_coll->coll_barrier_module);
     if (OMPI_SUCCESS != ret) goto error;
 
-    *model = MPI_WIN_UNIFIED;
+    *model = MPI_WIN_SEPARATE;
 
     return OMPI_SUCCESS;
 
