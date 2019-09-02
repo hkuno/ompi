@@ -359,14 +359,14 @@ component_select(struct ompi_win_t *win, void **base, size_t size, int disp_unit
 
         // if this flag is not set then we use the remote vaddr to address memory on the other side
         if(prov->domain_attr->mr_mode & FI_MR_VIRT_ADDR) {
-            OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_DEBUG,"module->remote_vaddr_bases set FI_MR_VIRT_ADDR is true\n"); 
+            OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_DEBUG,"module->remote_vaddr_bases set FI_MR_VIRT_ADDR is true\n");
             ret = module->comm->c_coll->coll_allgather(&module->my_segment_base, 1, MPI_AINT,
                                                       module->remote_vaddr_bases, 1, MPI_AINT,
                                                       module->comm,
                                                       module->comm->c_coll->coll_allgather_module);
         } else {
             /* void * null = 0; */
-            OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_DEBUG,"Set module->remote_vaddr_bases although FI_MR_VIRT_ADDR is false\n"); 
+            OSC_FSM_VERBOSE(MCA_BASE_VERBOSE_DEBUG,"Set module->remote_vaddr_bases although FI_MR_VIRT_ADDR is false\n");
             ret = module->comm->c_coll->coll_allgather(&module->my_segment_base, 1, MPI_AINT,
                                                       module->remote_vaddr_bases, 1, MPI_AINT,
                                                       module->comm,
