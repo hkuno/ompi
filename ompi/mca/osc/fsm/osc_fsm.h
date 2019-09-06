@@ -109,6 +109,8 @@ struct ompi_osc_fsm_component_t {
     ompi_osc_base_component_t super;
 
     char *backing_directory;
+    /** Priority of the osc/fsm component */
+    unsigned int priority;
 };
 typedef struct ompi_osc_fsm_component_t ompi_osc_fsm_component_t;
 OMPI_DECLSPEC extern ompi_osc_fsm_component_t mca_osc_fsm_component;

@@ -339,7 +339,7 @@ ompi_osc_fsm_put(const void *origin_addr,
     void *remote_address;
 
     OPAL_OUTPUT_VERBOSE((50, ompi_osc_base_framework.framework_output,
-                         "put: 0x%lx, %d, %s, %d, %d, %d, %s, 0x%lx",
+                         "ompi_osc_fsm_put: 0x%lx, %d, %s, %d, %d, %d, %s, 0x%lx",
                          (unsigned long) origin_addr, origin_count,
                          origin_dt->name, target, (int) target_disp,
                          target_count, target_dt->name,
@@ -370,7 +370,7 @@ ompi_osc_fsm_get(void *origin_addr,
     void *remote_address;
 
     OPAL_OUTPUT_VERBOSE((50, ompi_osc_base_framework.framework_output,
-                         "get: 0x%lx, %d, %s, %d, %d, %d, %s, 0x%lx",
+                         "ompi_osc_fsm_get: 0x%lx, %d, %s, %d, %d, %d, %s, 0x%lx",
                          (unsigned long) origin_addr, origin_count,
                          origin_dt->name, target, (int) target_disp,
                          target_count, target_dt->name,
