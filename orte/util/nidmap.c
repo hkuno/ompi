@@ -603,7 +603,7 @@ int orte_util_pass_node_info(opal_buffer_t *buffer)
         } else {
             /* mark that this was not compressed */
             compressed = false;
-            bo.bytes = bucket.base_ptr;
+            bo.bytes = (uint8_t*)bucket.base_ptr;
             bo.size = bucket.bytes_used;
         }
         /* indicate compression */
@@ -1123,7 +1123,7 @@ int orte_util_decode_ppn(orte_job_t *jdata,
 {
     orte_std_cntr_t index;
     orte_app_idx_t n;
-    int cnt, rc, m;
+    int cnt, rc=0, m;
     opal_byte_object_t *boptr;
     bool compressed;
     uint8_t *bytes;

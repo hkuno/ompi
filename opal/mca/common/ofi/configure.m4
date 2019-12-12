@@ -8,6 +8,7 @@
 # Copyright (c) 2015 Cisco Systems, Inc.  All rights reserved.
 # Copyright (c) 2017       Los Alamos National Security, LLC.  All rights
 #                         reserved.
+# Copyright (c) 2019      Hewlett Packard Enterprise. All rights reserved.
 # $COPYRIGHT$
 #
 # Additional copyrights may follow
