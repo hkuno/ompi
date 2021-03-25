@@ -1,0 +1,50 @@
+NAME
+----
+
+shmem_fence - Provides a separate ordering on the sequence of puts
+issued by this PE to each destination PE.
+
+SYNOPSIS
+--------
+
+C or C++:
+.. code-block:: FOOBAR_ERROR
+   :linenos:
+
+   #include <mpp/shmem.h>
+
+   void shmem_fence(void);
+
+Fortran:
+.. code-block:: FOOBAR_ERROR
+   :linenos:
+
+   INCLUDE "mpp/shmem.fh"
+
+   CALL SHMEM_FENCE
+
+DESCRIPTION
+-----------
+
+The *``*shmem``_fence()** routine provides an ordering on the put operations
+issued by the calling PE prior to the call to *``*shmem``_fence()** relative
+to the put operations issued by the calling PE following the call to
+*``*shmem``_fence()**. It guarantees that all such prior put operations
+issued to a particular destination PE are fully written to the symmetric
+memory of that destination PE, before any such following put operations
+to that same destination PE are written to the symmetric memory of that
+destination PE. Note that the ordering is provided separately on the
+sequences of puts from the calling PE to each distinct destination PE.
+The *``*shmem``_quiet()** routine should be used instead if ordering of puts
+is required when multiple destination PEs are involved.
+
+NOTES
+-----
+
+The shmem_quiet function should be called if ordering of puts is desired
+when multiple remote PEs are involved.
+
+SEE ALSO
+--------
+
+*intro_shmem*\ (3)

@@ -1,0 +1,81 @@
+NAME
+----
+
+``MPI_Open_port`` - Establishes a network address for a server to accept
+connections from clients.
+
+SYNTAX
+------
+
+C Syntax
+~~~~~~~~
+.. code-block:: c
+   :linenos:
+
+   #include <mpi.h>
+   int MPI_Open_port(MPI_Info info, char *port_name)
+
+Fortran Syntax
+~~~~~~~~~~~~~~
+.. code-block:: fortran
+   :linenos:
+
+   USE MPI
+   ! or the older form: INCLUDE 'mpif.h'
+   MPI_OPEN_PORT(INFO, PORT_NAME, IERROR)
+   	CHARACTER*(*)	PORT_NAME
+   	INTEGER		INFO, IERROR
+
+Fortran 2008 Syntax
+~~~~~~~~~~~~~~~~~~~
+.. code-block:: fortran
+   :linenos:
+
+   USE mpi_f08
+   MPI_Open_port(info, port_name, ierror)
+   	TYPE(MPI_Info), INTENT(IN) :: info
+   	CHARACTER(LEN=MPI_MAX_PORT_NAME), INTENT(OUT) :: port_name
+   	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
+
+INPUT PARAMETER
+---------------
+* ``info``: Options on how to establish an address (handle). No options currently
+* ````: OUTPUT PARAMETERS
+OUTPUT PARAMETERS
+-----------------
+* ``Newlyestablishedport(string).``: 
+* ``Fortranonly:Errorstatus(integer).``: 
+DESCRIPTION
+-----------
+
+``MPI_Open_port`` establishes a network address, encoded in the ``*port``_name*
+string, at which the server will be able to accept connections from
+clients. ``*port``_name* is supplied by the system.
+
+MPI copies a system-supplied port name into ``*port``_name*. ``*port``_name*
+identifies the newly opened port and can be used by a client to contact
+the server. The maximum size string that may be supplied by the system
+is ``MPI_MAX_PORT_NAME``.
+
+SUPPORTED INFO KEYS
+-------------------
+
+None.
+
+ERRORS
+------
+
+Almost all MPI routines return an error value; C routines as the value
+of the function and Fortran routines in the last argument.
+
+Before the error value is returned, the current MPI error handler is
+called. By default, this error handler aborts the MPI job, except for
+I/O function errors. The error handler may be changed with
+``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+may be used to cause error values to be returned. Note that MPI does not
+guarantee that an MPI program can continue past an error.
+
+SEE ALSO
+--------
+
+| MPI_Comm_accept MPI_Comm_connect

@@ -1,0 +1,78 @@
+NAME
+----
+
+``*shmem``_quiet*\ (3) - Waits for completion of all outstanding remote
+writes issued by a processing element (PE).
+
+SYNOPSIS
+--------
+
+C or C++:
+.. code-block:: FOOBAR_ERROR
+   :linenos:
+
+   #include <mpp/shmem.h>
+
+   void shmem_quiet(void);
+
+Fortran:
+.. code-block:: FOOBAR_ERROR
+   :linenos:
+
+   CALL SHMEM_QUIET
+
+DESCRIPTION
+-----------
+
+shmem_quiet ensures ordering of put (remote write) operations. All put
+operations issued to any processing element (PE) prior to the call to
+shmem_quiet are guaranteed to be visible to all other PEs no later than
+any subsequent memory load or store, remote put or get, or
+synchronization operations that follow the call to shmem_quiet.
+
+NOTES
+-----
+
+| shmem_quiet is most useful as a way of ensuring ordering of delivery
+  of several put operations. For example, you might use shmem_quiet to
+  await delivery of a block of data before issuing another put, which
+  sets a completion flag on another PE.
+| shmem_quiet is not usually needed if ``*shmem``_barrier_all*\ (3) or
+  ``*shmem``_barrier*\ (3) are called. The barrier routines all wait for the
+  completion of outstanding remote writes (puts).
+
+EXAMPLES
+--------
+.. code-block:: FOOBAR_ERROR
+   :linenos:
+
+   PROGRAM COMPFLAG
+     INCLUDE "mpp/shmem.fh"
+
+     INTEGER FLAG_VAR, ARRAY(100), RECEIVER, SENDER
+     COMMON/FLAG/FLAG_VAR
+     COMMON/DATA/ARRAY
+     INTRINSIC MY_PE
+
+     FLAG_VAR = 0
+     CALL SHMEM_BARRIER_ALL ! wait for FLAG_VAR to be initialized
+     SENDER = 0                        ! PE 0 sends the data
+     RECEIVER = 1                      ! PE 1 receives the data
+
+     IF (MY_PE() .EQ. 0) THEN
+       ARRAY = 33
+       CALL SHMEM_PUT(ARRAY, ARRAY, 100, RECEIVER) ! start sending data
+       CALL SHMEM_QUIET                ! wait for delivery
+       CALL SHMEM_PUT(FLAG_VAR, 1, 1, RECEIVER) ! send completion flag
+     ELSE IF (MY_PE() .EQ. RECEIVER) THEN
+       CALL SHMEM_UDCFLUSH
+       CALL SHMEM_WAIT(FLAG_VAR, 0)
+       PRINT *,ARRAY                       ! ARRAY has been delivered
+     ENDIF
+   END
+
+SEE ALSO
+--------
+
+``*intro``_shmem*\ (3), ``*shmem``_barrier*\ (3), ``*shmem``_barrier_all*\ (3),
+*shmem_fence*\ (3), *shmem_put*\ (3), *shmem_wait*\ (3)
