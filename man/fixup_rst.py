@@ -83,7 +83,7 @@ for i in range(len(foo_lines)):
             print(foo_lines[i-1], end='')
           else:
             prevline = re.sub(r'[\*]*MPI_[A-Z][A-Za-z_]*[\*]*',mpicmdrepl,foo_lines[i-1])
-            prevline = re.sub(r'\*[a-z]*',cmdrepl,prevline)
+            prevline = re.sub(r'\*[a-z][a-z]*',cmdrepl,prevline)
             print(prevline,end='')
       else: SKIP-=1
 
