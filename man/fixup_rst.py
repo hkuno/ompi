@@ -16,14 +16,23 @@ with open(fname) as fp:
 
 # PATTERNS
 
-# heading delimiter (occurs after the heading text)
+# delimiter line (occurs after the heading text)
 dline=re.compile("^[=]+")
 
-# patterns that can come before dline (indicate heading level/type)
+# Heading patterns
+
+# heading1 does NOT contain lowercase letters
 lowercase=re.compile(".*[a-z]")
+
+# heading2 may contain lowercase letters
 head2cand=re.compile("^[A-Z][A-Za-z]*")
+
+# Syntax heading2 indicates language
 Syntaxcand=re.compile(".*Syntax$")
+
+# Indicates parameters in body
 paramcand=re.compile(".*PARAMETER")
+
 
 # codeblock pattern
 codeblock=re.compile("^::")
@@ -38,10 +47,17 @@ def cmdrepl(match):
     match = match.group()
     return ('``' + match + '``')
 
+# for labeling codeblocks
 LANGUAGE="FOOBAR_ERROR"
+
+# for keeping track of state
 PARAM=False
 CODEBLOCK=False
+
+# for tracking combined lines
 SKIP=0
+
+# We walk through all the lines, looking ahead one or two lines
 for i in range(len(foo_lines)):
   if (i > 0):
     if dline.match(foo_lines[i]):
@@ -53,14 +69,14 @@ for i in range(len(foo_lines)):
         PARAM=False
       if not lowercase.match(foo_lines[i-1]):
         # level 1 heading
-        print("{}{}".format(foo_lines[i-1],re.sub('=','-',foo_lines[i])), end='')
+        print(f"{foo_lines[i-1]}{re.sub('=','-',foo_lines[i])}", end='')
       elif Syntaxcand.match(foo_lines[i-1]):
         # level 2 heading
-        print("{}{}".format(foo_lines[i-1],re.sub('=','~',foo_lines[i])), end='')
+        print(f"{foo_lines[i-1]}{re.sub('=','~',foo_lines[i])}", end='')
         LANGUAGE=(re.split(' ',foo_lines[i-1])[0]).lower()
       elif head2cand.match(foo_lines[i-1]):
         # level 2 heading
-        print("{}{}".format(foo_lines[i-1],re.sub('=','~',foo_lines[i])), end='')
+        print(f"{foo_lines[i-1]}{re.sub('=','~',foo_lines[i])}", end='')
     elif codeblock.match(foo_lines[i]):
       # codeblock
       print(f".. code-block:: {LANGUAGE}\n   :linenos:")
@@ -75,7 +91,6 @@ for i in range(len(foo_lines)):
           curline = re.sub('[ ]*','',curline)
           nextline = re.sub('^[ ]*','',foo_lines[i+1])
           print(f"* ``{curline}``: {nextline}",end='')
-#          print("* ``{}``: {}".format(re.sub('\n','',foo_lines[i]),foo_lines[i+1]), end='')
           SKIP+=2
         else:
           # body text
@@ -87,4 +102,5 @@ for i in range(len(foo_lines)):
             print(prevline,end='')
       else: SKIP-=1
 
+# print out last line
 print(foo_lines[len(foo_lines)-1],end='')
