@@ -23,6 +23,7 @@ dline=re.compile("^[=]+")
 
 # heading1 does NOT contain lowercase letters
 lowercase=re.compile(".*[a-z]")
+alpha=re.compile(".*[a-zA-Z]")
 
 # heading2 may contain lowercase letters
 head2cand=re.compile("^[A-Z][A-Za-z]*")
@@ -69,38 +70,43 @@ for i in range(len(foo_lines)):
         PARAM=False
       if not lowercase.match(foo_lines[i-1]):
         # level 1 heading
-        print(f"{foo_lines[i-1]}{re.sub('=','-',foo_lines[i])}", end='')
+        print(f"{foo_lines[i-1]}{re.sub('=','-',foo_lines[i])}",end='')
       elif Syntaxcand.match(foo_lines[i-1]):
         # level 2 heading
-        print(f"{foo_lines[i-1]}{re.sub('=','~',foo_lines[i])}", end='')
+        print(f"{foo_lines[i-1]}{re.sub('=','~',foo_lines[i])}",end='')
         LANGUAGE=(re.split(' ',foo_lines[i-1])[0]).lower()
       elif head2cand.match(foo_lines[i-1]):
         # level 2 heading
-        print(f"{foo_lines[i-1]}{re.sub('=','~',foo_lines[i])}", end='')
+        print(f"{foo_lines[i-1]}{re.sub('=','~',foo_lines[i])}",end='')
     elif codeblock.match(foo_lines[i]):
       # codeblock
-      print(f".. code-block:: {LANGUAGE}\n   :linenos:")
+      print(f"\n.. code-block:: {LANGUAGE}\n   :linenos:")
       SKIP+=1
       CODEBLOCK=True
     else:
       if (SKIP == 0):
-        if PARAM and not dline.match(foo_lines[i+1]):
+        if PARAM:
           # parameter bullet-item
-          
-          curline = re.sub('\n','',foo_lines[i])
-          curline = re.sub('[ ]*','',curline)
-          nextline = re.sub('^[ ]*','',foo_lines[i+1])
-          print(f"* ``{curline}``: {nextline}",end='')
-          SKIP+=2
-        else:
-          # body text
-          if CODEBLOCK:
-            print(foo_lines[i-1], end='')
+          if (alpha.match(foo_lines[i-1])):
+            curline = re.sub('\n','',foo_lines[i-1])
+            curline = re.sub('^[ ]*','',curline)
+            nextline = re.sub('^[ ]*','',foo_lines[i])
+            print(f"* ``{curline}``: {nextline}",end='')
+            SKIP+=1
           else:
+            print(f"{foo_lines[i-1]}",end='')
+        elif CODEBLOCK:
+          # body text
+            print(foo_lines[i-1], end='')
+        else:
+            # e.g., turn **MPI_Abort** into MPI_Abort
             prevline = re.sub(r'[\*]*MPI_[A-Z][A-Za-z_]*[\*]*',mpicmdrepl,foo_lines[i-1])
+
+            # e.g., turn MPI_Abort into ``MPI_Abort``
             prevline = re.sub(r'\*[a-z][a-z]*',cmdrepl,prevline)
-            print(prevline,end='')
-      else: SKIP-=1
+            print(f"{prevline}",end='')
+      else: 
+          SKIP-=1
 
 # print out last line
 print(foo_lines[len(foo_lines)-1],end='')
