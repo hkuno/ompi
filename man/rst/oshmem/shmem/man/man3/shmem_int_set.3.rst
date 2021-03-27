@@ -10,6 +10,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -26,6 +27,7 @@ C or C++:
    void shmem_longlong_set(long long *target, long long value, int pe);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

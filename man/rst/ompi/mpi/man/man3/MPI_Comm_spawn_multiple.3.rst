@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -20,6 +21,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -34,6 +36,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -52,23 +55,33 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``count``: Number of commands (positive integer, significant to MPI only at
-* ````: array_of_commands
+* ``*root* -- see NOTES).``: 
+* ``array_of_commands``: Programs to be executed (array of strings, significant only at
 * ``*root*).``: 
-* ``Argumentsfor*commands*(arrayofarrayofstrings,significantonly``: at *root*).
+* ``array_of_argv``: Arguments for *commands* (array of array of strings, significant only
+* ``at *root*).``: 
 * ``array_of_maxprocs``: Maximum number of processes to start for each command (array of
-* ````: array_of_info
-* ``processes(arrayofhandles,significantonlyat*root*).``: 
-* ``Rankofprocessinwhichpreviousargumentsareexamined(integer).``: 
-* ``Intracommunicatorcontaininggroupofspawningprocesses(handle).``: 
+* ``integers, significant only at *root*).``: 
+* ``array_of_info``: Info objects telling the runtime system where and how to start
+* ``processes (array of handles, significant only at *root*).``: 
+* ``root``: Rank of process in which previous arguments are examined (integer).
+
+* ``comm``: Intracommunicator containing group of spawning processes (handle).
+
 OUTPUT PARAMETERS
 -----------------
+
 * ``intercomm``: Intercommunicator between original group and the newly spawned group
-* ````: array_of_errcodes
-* ````: IERROR
-* ````: DESCRIPTION
+* ``(handle).``: 
+* ``array_of_errcodes``: One code per process (array of integers).
+
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
+
 ``MPI_Comm_spawn_multiple`` is identical to ``MPI_Comm_spawn``(3) except that it
 can specify multiple executables. The first argument, ``*count``*, indicates
 the number of executables. The next three arguments are arrays of the
@@ -96,6 +109,7 @@ processes in the second command have ranks m1, m1+1, ..., m1+m2-1. The
 processes in the third have ranks m1+m2, m1+m2+1, ..., m1+m2+m3-1, etc.
 
 The ``*array``_of_errcodes* argument is 1-dimensional array of size
+
 .. code-block:: fortran
    :linenos:
 
@@ -105,6 +119,7 @@ The ``*array``_of_errcodes* argument is 1-dimensional array of size
 
 where i is the ith element of *array_of_maxprocs*. Command number *i*
 corresponds to the i contiguous slots in this array from element
+
 .. code-block:: fortran
    :linenos:
 
@@ -122,6 +137,7 @@ INFO ARGUMENTS
 The following keys for ``*info``* are recognized in "#PACKAGE_NAME#". (The
 reserved values mentioned in Section 5.3.4 of the MPI-2 standard are not
 implemented.)
+
 .. code-block:: fortran
    :linenos:
 
@@ -268,6 +284,7 @@ guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

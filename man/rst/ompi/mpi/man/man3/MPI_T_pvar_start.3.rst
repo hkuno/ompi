@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -19,7 +20,9 @@ C Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``session``: Performance experiment session.
+
 * ``handle``: Performance variable handle.
 
 DESCRIPTION
@@ -56,6 +59,7 @@ ERRORS
 
 SEE ALSO
 --------
+
 .. code-block:: c
    :linenos:
 

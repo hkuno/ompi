@@ -6,11 +6,13 @@ operations (collective).
 
 SYNTAX
 ------
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -19,6 +21,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -29,6 +32,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -40,12 +44,16 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``fh``: File handle (handle).
+
 * ``flag``: **true** to enable atomic mode, **false** to enable nonatomic mode
-* ````: OUTPUT PARAMETER
+* ``(boolean).``: 
 OUTPUT PARAMETER
 ----------------
-* ``Fortranonly:Errorstatus(integer).``: 
+
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
 

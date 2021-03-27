@@ -14,6 +14,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -53,6 +54,7 @@ C or C++:
      size_t len, int pe);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -168,6 +170,7 @@ EXAMPLES
 --------
 
 The following shmem_put example is for C/C++ programs:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

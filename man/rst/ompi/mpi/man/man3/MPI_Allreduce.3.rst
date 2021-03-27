@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -22,6 +23,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -37,6 +39,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -63,16 +66,24 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``sendbuf``: Starting address of send buffer (choice).
+
 * ``count``: Number of elements in send buffer (integer).
+
 * ``datatype``: Datatype of elements of send buffer (handle).
+
 * ``op``: Operation (handle).
+
 * ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``recvbuf``: Starting address of receive buffer (choice).
+
 * ``request``: Request (handle, non-blocking only).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -84,6 +95,7 @@ of all the group members.
 **Example 1:** A routine that computes the product of a vector and an
 array that are distributed across a group of processes and returns the
 answer at all nodes (compare with Example 2, with ``MPI_Reduce``, below).
+
 .. code-block:: fortran
    :linenos:
 
@@ -110,6 +122,7 @@ answer at all nodes (compare with Example 2, with ``MPI_Reduce``, below).
 **Example 2:** A routine that computes the product of a vector and an
 array that are distributed across a group of processes and returns the
 answer at node zero.
+
 .. code-block:: fortran
    :linenos:
 

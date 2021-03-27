@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -30,6 +32,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -43,15 +46,22 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``local_comm``: The communicator containing the process that initiates the
-* ````: local_leader
-* ````: peer_comm
-* ````: remote_leader
-* ``local_leader(integer).``: 
-* ``Messagetagusedtoidentifynewintercommunicator(integer).``: 
+* ``inter-communication (handle).``: 
+* ``local_leader``: Rank of local group leader in local_comm (integer).
+
+* ``peer_comm``: "Peer" communicator; significant only at the local_leader (handle).
+
+* ``remote_leader``: Rank of remote group leader in peer_comm; significant only at the
+* ``local_leader (integer).``: 
+* ``tag``: Message tag used to identify new intercommunicator (integer).
+
 OUTPUT PARAMETERS
 -----------------
+
 * ``newintercomm``: Created intercommunicator (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

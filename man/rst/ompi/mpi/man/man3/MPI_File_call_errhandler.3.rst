@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -38,11 +41,14 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``fh``: file with error handler (handle).
+
 * ``errorcode``: MPI error code (integer).
 
 OUTPUT PARAMETER
 ----------------
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -66,6 +72,7 @@ See the MPI man page for a full list of MPI error codes.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

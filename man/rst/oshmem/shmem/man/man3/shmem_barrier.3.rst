@@ -8,6 +8,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -17,6 +18,7 @@ C or C++:
      long *pSync);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -91,12 +93,14 @@ EXAMPLES
 --------
 
 C/C++ example:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
    shmem_barrier(PE_start, logPE_stride, size, pSync);
 
 Fortran example:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

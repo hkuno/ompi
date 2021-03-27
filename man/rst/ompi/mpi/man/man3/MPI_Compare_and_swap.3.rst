@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -31,6 +33,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -47,16 +50,24 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``origin_addr``: Initial address of buffer (choice).
+
 * ``compare_addr``: Initial address of compare buffer (choice).
+
 * ``result_addr``: Initial address of result buffer (choice).
+
 * ``datatype``: Data type of the entry in origin, result, and target buffers
-* ````: target_rank
-* ````: target_disp
-* ``(nonnegativeinteger).``: 
-* ``Windowobject(handle).``: 
+* ``(handle).``: 
+* ``target_rank``: Rank of target (nonnegative integer).
+
+* ``target_disp``: Displacement from start of window to beginning of target buffer
+* ``(nonnegative integer).``: 
+* ``win``: Window object (handle).
+
 OUTPUT PARAMETER
 ----------------
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -81,6 +92,7 @@ FORTRAN 77 NOTES
 The MPI standard prescribes portable Fortran syntax for the
 *TARGET_DISP* argument only for Fortran 90. FORTRAN 77 users may use the
 non-portable syntax
+
 .. code-block:: fortran
    :linenos:
 

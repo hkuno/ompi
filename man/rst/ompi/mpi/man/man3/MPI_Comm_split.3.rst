@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -39,13 +42,18 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``comm``: Communicator (handle).
+
 * ``color``: Control of subset assignment (nonnegative integer).
+
 * ``key``: Control of rank assignment (integer).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``newcomm``: New communicator (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

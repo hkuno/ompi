@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -23,6 +24,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -42,6 +44,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -67,25 +70,37 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``sendbuf``: Address of send buffer (choice, significant only at root).
+
 * ``sendcount``: Number of elements sent to each process (integer, significant only at
-* ````: sendtype
-* ````: recvcount
-* ````: recvtype
-* ````: root
-* ````: comm
-* ````: OUTPUT PARAMETERS
+* ``root).``: 
+* ``sendtype``: Datatype of send buffer elements (handle, significant only at root).
+
+* ``recvcount``: Number of elements in receive buffer (integer).
+
+* ``recvtype``: Datatype of receive buffer elements (handle).
+
+* ``root``: Rank of sending process (integer).
+
+* ``comm``: Communicator (handle).
+
 OUTPUT PARAMETERS
 -----------------
-* ``Addressofreceivebuffer(choice).``: 
-* ``Request(handle,non-blockingonly).``: 
-* ``Fortranonly:Errorstatus(integer).``: 
+
+* ``recvbuf``: Address of receive buffer (choice).
+
+* ``request``: Request (handle, non-blocking only).
+
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
 
 ``MPI_Scatter`` is the inverse operation to ``MPI_Gather``.
 
 The outcome is as if the root executed n send operations,
+
 .. code-block:: fortran
    :linenos:
 
@@ -93,6 +108,7 @@ The outcome is as if the root executed n send operations,
                 sendtype, i, ...)
 
 and each process executed a receive,
+
 .. code-block:: fortran
    :linenos:
 
@@ -126,6 +142,7 @@ to achieve symmetry with MPI_Gather, where the corresponding restriction
 
 **Example:** The reverse of Example 1 in the MPI_Gather manpage. Scatter
 sets of 100 ints from the root to each process in the group.
+
 .. code-block:: fortran
    :linenos:
 
@@ -183,6 +200,7 @@ guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

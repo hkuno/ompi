@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,6 +17,7 @@ C Syntax
 
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -39,15 +42,19 @@ Fortran 2008 Syntax
 
 INPUT/OUTPUT PARAMETER
 ----------------------
+
 * ``comm``: Communicator from which attribute will be attached (handle).
 
 INPUT PARAMETERS
 ----------------
+
 * ``comm_keyval``: Key value (integer).
+
 * ``attribute_val``: Attribute value.
 
 OUTPUT PARAMETER
 ----------------
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -72,6 +79,7 @@ FORTRAN 77 NOTES
 The MPI standard prescribes portable Fortran syntax for the
 *ATTRIBUTE_VAL* argument only for Fortran 90. Sun FORTRAN 77 users may
 use the non-portable syntax
+
 .. code-block:: fortran
    :linenos:
 

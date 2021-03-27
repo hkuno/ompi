@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -38,14 +41,17 @@ Fortran 2008 Syntax
 
 INPUT/OUTPUT PARAMETER
 ----------------------
+
 * ``file``: File (handle).
 
 INPUT PARAMETER
 ---------------
+
 * ``errhandler``: New error handler for file (handle).
 
 OUTPUT PARAMETER
 ----------------
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

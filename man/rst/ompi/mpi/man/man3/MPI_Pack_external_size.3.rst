@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -31,6 +33,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -44,13 +47,18 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``datarep``: Data representation (string).
+
 * ``incount``: Number of input data items (integer).
+
 * ``datatype``: Datatype of each input data item (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``size``: Upper bound on size of packed message, in bytes (integer).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -91,6 +99,7 @@ See the MPI man page for a full list of MPI error codes.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

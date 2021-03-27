@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -26,11 +28,14 @@ Fortran Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``datatype``: Datatype (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``displacement``: Displacement of lower bound from origin, in bytes (integer).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -51,12 +56,14 @@ affect the definition of the extent of a datatype and, therefore, affect
 the outcome of a replication of this datatype by a datatype constructor.
 
 In general, if
+
 .. code-block:: fortran
    :linenos:
 
        Typemap = {(type0, disp0), ..., (type(n-1), disp(n-1)}
 
 then the lower bound of Typemap is defined to be
+
 .. code-block:: fortran
    :linenos:
 
@@ -66,6 +73,7 @@ then the lower bound of Typemap is defined to be
                      (min(j) {disp(j) such that type(j) = lb} otherwise
 
 Similarly, the upper bound of Typemap is defined to be
+
 .. code-block:: fortran
    :linenos:
 

@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -19,6 +20,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -32,6 +34,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -44,9 +47,13 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``base``: Base address (integer).
+
 * ``disp``: Displacement (integer).
+
 * ``addr1``: Minuend address (integer).
+
 * ``addr2``: Subtrahend address (integer).
 
 DESCRIPTION
@@ -61,6 +68,7 @@ in the same object referenced by ``*base``*, as described in MPI-3.1 �
 4.1.12. The addition is performed in a manner that results in the
 correct ``MPI_Aint`` representation of the output address, as if the process
 that originally produced ``*base``* had called:
+
 .. code-block:: fortran
    :linenos:
 

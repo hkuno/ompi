@@ -5,11 +5,13 @@ NAME
 
 SYNTAX
 ------
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -20,6 +22,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -31,6 +34,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -45,14 +49,20 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``comm``: Communicator (handle).
+
 * ``filename``: Name of file to open (string).
+
 * ``amode``: File access mode (integer).
+
 * ``info``: Info object (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``fh``: New file handle (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

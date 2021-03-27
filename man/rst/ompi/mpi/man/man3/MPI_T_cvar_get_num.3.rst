@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,6 +17,7 @@ C Syntax
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``num_cvar``: Current number of control variables.
 
 DESCRIPTION

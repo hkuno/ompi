@@ -10,6 +10,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -34,6 +35,7 @@ C or C++:
      int PE_size, long *pSync);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -182,6 +184,7 @@ EXAMPLES
 --------
 
 C/C++ example:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

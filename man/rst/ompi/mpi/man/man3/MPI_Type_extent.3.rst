@@ -10,6 +10,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,11 +29,14 @@ Fortran Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``datatype``: Datatype (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``extent``: Datatype extent (integer).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -44,12 +49,14 @@ Note that use of this routine is ``*deprecated``* as of MPI-2. Please use
 between the upper and lower bounds of the data type.
 
 In general, if
+
 .. code-block:: fortran
    :linenos:
 
        Typemap = {(type(0), disp(0)), ..., (type(n-1), disp(n-1))}
 
 then the lower bound of Typemap is defined to be
+
 .. code-block:: fortran
    :linenos:
 
@@ -58,6 +65,7 @@ then the lower bound of Typemap is defined to be
                  (min(j) {disp(j) such that type(j) = lb} otherwise
 
 Similarly, the upper bound of Typemap is defined to be
+
 .. code-block:: fortran
    :linenos:
 
@@ -66,6 +74,7 @@ Similarly, the upper bound of Typemap is defined to be
                  (max(j) {disp(j) such that type(j) = ub} otherwise
 
 Then
+
 .. code-block:: fortran
    :linenos:
 

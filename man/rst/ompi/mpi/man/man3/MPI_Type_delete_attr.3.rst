@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -38,14 +41,17 @@ Fortran 2008 Syntax
 
 INPUT/OUTPUT PARAMETER
 ----------------------
+
 * ``type``: Data type from which the attribute is deleted (handle).n
 
 INPUT PARAMETER
 ---------------
+
 * ``type_keyval``: Key value (integer).
 
 OUTPUT PARAMETER
 ----------------
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

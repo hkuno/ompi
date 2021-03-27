@@ -11,6 +11,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -27,6 +28,7 @@ C or C++:
    float  shmem_float_fetch(float *target, int pe);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

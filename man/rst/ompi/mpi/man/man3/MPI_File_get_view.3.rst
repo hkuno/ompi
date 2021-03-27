@@ -5,11 +5,13 @@ NAME
 
 SYNTAX
 ------
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -20,6 +22,7 @@ C Syntax
 
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -33,6 +36,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -46,14 +50,20 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``fh``: File handle (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``disp``: Displacement (integer).
+
 * ``etype``: Elementary data type (handle).
+
 * ``filetype``: File type (handle). See Restrictions, below.
+
 * ``datarep``: Data representation (string).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -72,6 +82,7 @@ FORTRAN 77 NOTES
 The MPI standard prescribes portable Fortran syntax for the *DISP*
 argument only for Fortran 90. FORTRAN 77 users may use the non-portable
 syntax.
+
 .. code-block:: fortran
    :linenos:
 

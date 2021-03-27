@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -19,6 +20,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -32,6 +34,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -48,19 +51,28 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``comm_old``: Input communicator without topology (handle).
+
 * ``n``: Number of source nodes for which this process specifies edges
-* ````: sources
-* ``specifiesedges(arrayofnon-negativeintegers).``: 
-* ``Arrayspecifyingthenumberofdestinationsforeachsourcenodein``: the source node array (array of non-negative integers).
+* ``(non-negative integer).``: 
+* ``sources``: Array containing the *n* source nodes for which this process
+* ``specifies edges (array of non-negative integers).``: 
+* ``degrees``: Array specifying the number of destinations for each source node in
+* ``the source node array (array of non-negative integers).``: 
 * ``destinations``: Destination nodes for the source nodes in the source node array
-* ````: weights
+* ``(array of non-negative integers).``: 
+* ``weights``: Weights for source to destination edges (array of non-negative
 * ``integers).``: 
-* ``Hintsonoptimizationandinterpretationofweights(handle).``: 
-* ``Rankingmaybereordered(true)ornot(false)(logical).``: 
+* ``info``: Hints on optimization and interpretation of weights (handle).
+
+* ``reorder``: Ranking may be reordered (true) or not (false) (logical).
+
 OUTPUT PARAMETERS
 -----------------
+
 * ``comm_dist_graph``: Communicator with distributed graph topology added (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

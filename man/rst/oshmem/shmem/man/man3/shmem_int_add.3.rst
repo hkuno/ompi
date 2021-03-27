@@ -9,6 +9,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -20,6 +21,7 @@ C or C++:
      int pe);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

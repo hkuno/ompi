@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -23,6 +24,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -44,6 +46,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -71,17 +74,26 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``sendbuf``: Starting address of send buffer (choice).
+
 * ``sendcount``: Number of elements to send to each process (integer).
+
 * ``sendtype``: Datatype of send buffer elements (handle).
+
 * ``recvcount``: Number of elements to receive from each process (integer).
+
 * ``recvtype``: Datatype of receive buffer elements (handle).
+
 * ``comm``: Communicator over which data is to be exchanged (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``recvbuf``: Starting address of receive buffer (choice).
+
 * ``request``: Request (handle, non-blocking only).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -93,6 +105,7 @@ from each other. The operation of this routine can be represented as
 follows, where each process performs 2n (n being the number of processes
 in communicator ``*comm``*) independent point-to-point communications
 (including communication with itself).
+
 .. code-block:: fortran
    :linenos:
 
@@ -167,6 +180,7 @@ guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

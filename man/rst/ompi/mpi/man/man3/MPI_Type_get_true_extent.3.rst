@@ -10,6 +10,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -21,6 +22,7 @@ C Syntax
 
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -35,6 +37,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -50,12 +53,16 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``datatype``: Data type for which information is wanted (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``true_lb``: True lower bound of data type (integer).
+
 * ``true_extent``: True size of data type (integer).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -85,6 +92,7 @@ and *TRUE_EXTENT* arguments only for Fortran 90. FORTRAN 77 users may
 use the non-portable syntax
 
 ``MPI_Type_get_true_extent``:
+
 .. code-block:: fortran
    :linenos:
 
@@ -93,6 +101,7 @@ use the non-portable syntax
         INTEGER*MPI_ADDRESS_KIND TRUE_EXTENT
 
 MPI_Type_get_true_extent_x:
+
 .. code-block:: fortran
    :linenos:
 

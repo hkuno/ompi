@@ -6,11 +6,13 @@ absolute byte position.
 
 SYNTAX
 ------
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -20,6 +22,7 @@ C Syntax
 
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -31,6 +34,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -43,12 +47,16 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``fh``: File handle (handle).
+
 * ``offset``: Offset (integer).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``disp``: Absolute byte position of offset (integer).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -65,6 +73,7 @@ FORTRAN 77 NOTES
 The MPI standard prescribes portable Fortran syntax for the *OFFSET* and
 *DISP* arguments only for Fortran 90. Sun FORTRAN 77 users may use the
 non-portable syntax
+
 .. code-block:: fortran
    :linenos:
 

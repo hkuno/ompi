@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -38,15 +41,19 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``group``: Group (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``rank``: Rank of the calling process in group, or MPI_UNDEFINED if the process
-* ````: IERROR
-* ````: DESCRIPTION
+* ``is not a member (integer).``: 
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
+
 ``MPI_Group_rank`` returns as the output parameter ``*rank``* the rank of the
 calling process in group. If the process is not a member of group then
 ``MPI_UNDEFINED`` is returned.

@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,6 +17,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -25,6 +27,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -49,6 +52,7 @@ seconds to other units if they are preferred.
 This function is portable (it returns seconds, not "ticks"), it allows
 high resolution, and carries no unnecessary baggage. One would use it
 like this:
+
 .. code-block:: fortran
    :linenos:
 

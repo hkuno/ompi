@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -28,13 +30,18 @@ Fortran Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``copy_fn``: Copy callback function for keyval.
+
 * ``delete_fn``: Delete callback function for keyval.
+
 * ``extra_state``: Extra state for callback functions.
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``keyval``: Key value for future access (integer).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -51,6 +58,7 @@ them on any locally defined communicator.
 The copy_fn function is invoked when a communicator is duplicated by
 ``MPI_COMM_DUP``. copy_fn should be of type ``MPI_Copy_function``, which is
 defined as follows:
+
 .. code-block:: fortran
    :linenos:
 
@@ -59,6 +67,7 @@ defined as follows:
                                    void *attribute_val_out, int *flag)
 
 A Fortran declaration for such a function is as follows:
+
 .. code-block:: fortran
    :linenos:
 
@@ -112,6 +121,7 @@ follows. The delete_fn function is invoked when a communicator is
 deleted by ``MPI_Comm_free`` or when a call is made explicitly to
 ``MPI_Attr_delete``. delete_fn should be of type ``MPI_Delete_function``, which
 is defined as follows:
+
 .. code-block:: fortran
    :linenos:
 
@@ -119,6 +129,7 @@ is defined as follows:
          void *attribute_val, void *extra_state);
 
 A Fortran declaration for such a function is as follows:
+
 .. code-block:: fortran
    :linenos:
 

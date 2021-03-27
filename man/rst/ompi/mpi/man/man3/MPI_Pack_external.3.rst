@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -19,6 +20,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -34,6 +36,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -51,19 +54,27 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``datarep``: Data representation (string).
+
 * ``inbuf``: Input buffer start (choice).
+
 * ``incount``: Number of input data items (integer).
+
 * ``datatype``: Datatype of each input data item (handle).
+
 * ``outsize``: Output buffer size, in bytes (integer).
 
 INPUT/OUTPUT PARAMETER
 ----------------------
+
 * ``position``: Current position in buffer, in bytes (integer).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``outbuf``: Output buffer start (choice).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -86,6 +97,7 @@ in ``*outbuf``* following the packed message. This way it may be used as
 input to a subsequent call to ``MPI_Pack_external``.
 
 **Example:** An example using ``MPI_Pack_external``:
+
 .. code-block:: fortran
    :linenos:
 
@@ -177,6 +189,7 @@ See the MPI man page for a full list of MPI error codes.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

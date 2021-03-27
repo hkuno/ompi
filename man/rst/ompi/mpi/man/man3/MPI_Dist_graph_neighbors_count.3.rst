@@ -10,6 +10,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -19,6 +20,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -30,6 +32,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -42,17 +45,23 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``comm``: Communicator with distributed graph topology (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``indegree``: Number of edges into this process (non-negative integer).
+
 * ``outdegree``: Number of edges out of this process (non-negative integer).
+
 * ``weighted``: False if MPI_UNWEIGHTED was supplied during creation, true otherwise
-* ````: IERROR
-* ````: DESCRIPTION
+* ``(logical).``: 
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
+
 ``MPI_Dist_graph_neighbors_count`` and ``MPI_Graph_neighbors`` provide adjacency
 information for a distributed graph topology.
 ``MPI_Dist_graph_neighbors_count`` returns the number of sources and

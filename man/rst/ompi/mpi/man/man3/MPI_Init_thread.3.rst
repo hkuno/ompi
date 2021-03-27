@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -38,13 +41,18 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``argc``: C only: Pointer to the number of arguments.
+
 * ``argv``: C only: Argument vector.
+
 * ``required``: Desired level of thread support (integer).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``provided``: Available level of thread support (integer).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -84,6 +92,7 @@ Also note that calling ``MPI_Init_thread`` with a ``*required``* value of
 All MPI programs must contain a call to ``MPI_Init`` or ``MPI_Init_thread``.
 Open MPI accepts the C ``*argc``* and ``*argv``* arguments to main, but neither
 modifies, interprets, nor distributes them:
+
 .. code-block:: fortran
    :linenos:
 
@@ -116,6 +125,7 @@ MPI_THREAD_MULTIPLE Support
 ``MPI_THREAD_MULTIPLE`` support is included if the environment in which Open
 MPI was built supports threading. You can check the output of
 *``*ompi``_info**\ (1) to see if Open MPI has ``MPI_THREAD_MULTIPLE`` support:
+
 .. code-block:: fortran
    :linenos:
 
@@ -145,6 +155,7 @@ guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

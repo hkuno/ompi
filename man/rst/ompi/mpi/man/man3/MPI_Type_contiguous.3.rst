@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -39,12 +42,16 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``count``: Replication count (nonnegative integer).
+
 * ``oldtype``: Old datatype (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``newtype``: New datatype (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -60,6 +67,7 @@ size of the concatenated copies.
 **Example:** Let oldtype have type map {(double, 0), (char, 8)}, with
 extent 16, and let count = 3. The type map of the datatype returned by
 newtype is
+
 .. code-block:: fortran
    :linenos:
 
@@ -70,6 +78,7 @@ i.e., alternating double and char elements, with displacements 0, 8, 16,
 24, 32, 40.
 
 In general, assume that the type map of oldtype is
+
 .. code-block:: fortran
    :linenos:
 
@@ -77,6 +86,7 @@ In general, assume that the type map of oldtype is
 
 with extent ex. Then newtype has a type map with count times n entries
 defined by:
+
 .. code-block:: fortran
    :linenos:
 

@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -23,6 +24,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -42,6 +44,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -67,18 +70,28 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``sendbuf``: Starting address of send buffer (choice).
+
 * ``sendcount``: Number of elements in send buffer (integer).
+
 * ``sendtype``: Datatype of send buffer elements (handle).
+
 * ``recvbuf``: Starting address of recv buffer (choice).
+
 * ``recvcount``: Number of elements received from any process (integer).
+
 * ``recvtype``: Datatype of receive buffer elements (handle).
+
 * ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``recvbuf``: Address of receive buffer (choice).
+
 * ``request``: Request (handle, non-blocking only).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -95,6 +108,7 @@ any other process.
 
 The outcome of a call to ``MPI_Allgather``(...) is as if all processes
 executed n calls to
+
 .. code-block:: fortran
    :linenos:
 
@@ -107,6 +121,7 @@ are easily found from the corresponding rules for MPI_Gather.
 **Example:** The all-gather version of Example 1 in MPI_Gather. Using
 MPI_Allgather, we will gather 100 ints from every process in the group
 to every process.
+
 .. code-block:: fortran
    :linenos:
 
@@ -132,6 +147,7 @@ each process is assumed to be in the area where that process would
 receive its own contribution to the receive buffer. Specifically, the
 outcome of a call to ``MPI_Allgather`` that used the in-place option is
 identical to the case in which all processes executed ``*n``* calls to
+
 .. code-block:: fortran
    :linenos:
 

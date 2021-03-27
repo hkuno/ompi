@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -29,6 +31,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -41,14 +44,20 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``count``: Number of blocks (nonnegative integer).
+
 * ``blocklength``: Number of elements in each block (nonnegative integer).
+
 * ``stride``: Number of elements between start of each block (integer).
+
 * ``oldtype``: Old datatype (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``newtype``: New datatype (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -63,6 +72,7 @@ the extent of the old datatype.
 **Example 1:** Assume, again, that oldtype has type map {(double, 0),
 (char, 8)}, with extent 16. A call to ``MPI_Type_vector``(2, 3, 4, oldtype,
 newtype) will create the datatype with type map
+
 .. code-block:: fortran
    :linenos:
 
@@ -76,6 +86,7 @@ stride of 4 elements (4 x 16 bytes) between the blocks.
 
 **Example 2:** A call to MPI_Type_vector(3, 1, -2, oldtype, newtype)
 will create the datatype
+
 .. code-block:: fortran
    :linenos:
 
@@ -84,6 +95,7 @@ will create the datatype
        (double, -64), (char, -56)}
 
 In general, assume that oldtype has type map
+
 .. code-block:: fortran
    :linenos:
 
@@ -92,6 +104,7 @@ In general, assume that oldtype has type map
 
 with extent ex. Let bl be the blocklength. The newly created datatype
 has a type map with count x bl x n entries:
+
 .. code-block:: fortran
    :linenos:
 

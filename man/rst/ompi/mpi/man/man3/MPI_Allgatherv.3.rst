@@ -10,6 +10,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -25,6 +26,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -44,6 +46,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -70,19 +73,29 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``sendbuf``: Starting address of send buffer (choice).
+
 * ``sendcount``: Number of elements in send buffer (integer).
+
 * ``sendtype``: Datatype of send buffer elements (handle).
+
 * ``recvcount``: Integer array (of length group size) containing the number of
-* ````: displs
-* ``displacement(relativetorecvbuf)atwhichtoplacetheincoming``: data from process i.
+* ``elements that are received from each process.``: 
+* ``displs``: Integer array (of length group size). Entry i specifies the
+* ``displacement (relative to recvbuf) at which to place the incoming``: data from process i.
+
 * ``recvtype``: Datatype of receive buffer elements (handle).
+
 * ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``recvbuf``: Address of receive buffer (choice).
+
 * ``request``: Request (handle, non-blocking only).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -99,6 +112,7 @@ must be equal to the type signature associated with recvcounts[j],
 recvtype at any other process.
 
 The outcome is as if all processes executed calls to
+
 .. code-block:: fortran
    :linenos:
 
@@ -119,6 +133,7 @@ each process is assumed to be in the area where that process would
 receive its own contribution to the receive buffer. Specifically, the
 outcome of a call to ``MPI_Allgather`` that used the in-place option is
 identical to the case in which all processes executed ``*n``* calls to
+
 .. code-block:: fortran
    :linenos:
 

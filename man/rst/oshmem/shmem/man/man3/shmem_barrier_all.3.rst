@@ -8,6 +8,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -16,6 +17,7 @@ C or C++:
    void shmem_barrier_all(void);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -35,6 +37,7 @@ memory updates issued via SHMEM functions such as ``*shmem``_put32*\ (3).
 
 EXAMPLES
 --------
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

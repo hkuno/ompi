@@ -15,6 +15,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -63,6 +64,7 @@ C or C++:
      size_t nelems, int pe);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -136,6 +138,7 @@ EXAMPLES
 --------
 
 Consider this simple example for Fortran.
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

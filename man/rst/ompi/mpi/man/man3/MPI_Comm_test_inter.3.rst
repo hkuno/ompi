@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -28,6 +30,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -39,12 +42,15 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
-* ``flag(Logical.)``: 
-* ``Fortranonly:Errorstatus(integer).``: 
+
+* ``flag (Logical.)``: 
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
 
@@ -57,6 +63,7 @@ functions. When dealing with an intracommunicator (enables communication
 within a single group), the functions listed below return the expected
 values, group size, group, and rank. When dealing with an
 inter-communicator, however, they return the following values:
+
 .. code-block:: fortran
    :linenos:
 
@@ -96,6 +103,7 @@ guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

@@ -14,6 +14,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -52,6 +53,7 @@ C or C++:
      ptrdiff_t tst, ptrdiff_t sst, size_t len, int pe);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -176,6 +178,7 @@ EXAMPLES
 
 Consider the following simple shmem_long_iput example for C/C++
 programs.
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

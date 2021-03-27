@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,6 +17,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -26,6 +28,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -37,14 +40,17 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``count``: List length (integer).
 
 INPUT/OUTPUT PARAMETER
 ----------------------
+
 * ``array_of_requests``: Array of requests (array of handle).
 
 OUTPUT PARAMETER
 ----------------
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

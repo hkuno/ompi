@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -38,16 +41,21 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``nnodes``: Number of nodes in a grid (integer).
+
 * ``ndims``: Number of Cartesian dimensions (integer).
 
 IN/OUT PARAMETER
 ----------------
+
 * ``dims``: Integer array of size ndims specifying the number of nodes in each
-* ````: OUTPUT PARAMETER
+* ``dimension.``: 
 OUTPUT PARAMETER
 ----------------
-* ``Fortranonly:Errorstatus(integer).``: 
+
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
 
@@ -75,6 +83,7 @@ order. Array dims is suitable for use as input to routine
 ``MPI_Cart_create``. ``MPI_Dims_create`` is local.
 
 **Example:**
+
 .. code-block:: fortran
    :linenos:
 

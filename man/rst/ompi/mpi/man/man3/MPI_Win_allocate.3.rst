@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -29,6 +31,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -45,15 +48,22 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``size``: Size of window in bytes (nonnegative integer).
+
 * ``disp_unit``: Local unit size for displacements, in bytes (positive integer).
+
 * ``info``: Info argument (handle).
+
 * ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``baseptr``: Initial address of window.
+
 * ``win``: Window object returned by the call (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

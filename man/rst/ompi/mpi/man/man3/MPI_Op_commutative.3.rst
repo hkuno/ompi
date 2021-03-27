@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,6 +17,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -38,11 +41,14 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``op``: Operation (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``commute``: True if op is commutative, false otherwise (logical).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

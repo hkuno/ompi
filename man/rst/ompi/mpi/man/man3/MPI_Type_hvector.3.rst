@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -29,14 +31,20 @@ Fortran Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``count``: Number of blocks (nonnegative integer).
+
 * ``blocklength``: Number of elements in each block (nonnegative integer).
+
 * ``stride``: Number of bytes between start of each block (integer).
+
 * ``oldtype``: Old datatype (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``newtype``: New datatype (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -51,6 +59,7 @@ types of vector constructors is illustrated in the examples in Section
 3.12.7 of the MPI-1 Standard.
 
 Assume that oldtype has type map
+
 .. code-block:: fortran
    :linenos:
 
@@ -58,6 +67,7 @@ Assume that oldtype has type map
 
 with extent ex. Let bl be the blocklength. The newly created datatype
 has a type map with count \* bl \* n entries:
+
 .. code-block:: fortran
    :linenos:
 

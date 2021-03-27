@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,6 +17,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -26,6 +28,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -37,11 +40,14 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``request``: Request (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``status``: Status object (status).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -81,6 +87,7 @@ the stated goal of ``MPI_Cancel`` (always being able to free program space
 that was committed to the communication subsystem).
 
 Example: Simple usage of nonblocking operations and ``MPI_Wait``.
+
 .. code-block:: fortran
    :linenos:
 

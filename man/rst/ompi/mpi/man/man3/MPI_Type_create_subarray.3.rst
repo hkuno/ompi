@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -30,6 +32,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -44,17 +47,24 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``ndims``: Number of array dimensions (positive integer).
+
 * ``array_of_sizes``: Number of elements of type *oldtype* in each dimension of the full
-* ````: array_of_subsizes
-* ``subarray(arrayofpositiveintegers).``: 
-* ``Startingcoordinatesofthesubarrayineachdimension(arrayof``: nonnegative integers).
+* ``array (array of positive integers).``: 
+* ``array_of_subsizes``: Number of elements of type *oldtype* in each dimension of the
+* ``subarray (array of positive integers).``: 
+* ``array_of_starts``: Starting coordinates of the subarray in each dimension (array of
+* ``nonnegative integers).``: 
 * ``order``: Array storage order flag (state).
+
 * ``oldtype``: Array element data type (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``newtype``: New data type (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -86,12 +96,14 @@ dimension ``*i``*, it is erroneous to specify ``*array``_of_subsizes[i]* < 1 or
 The ``*array``_of_starts* contains the starting coordinates of each
 dimension of the subarray. Arrays are assumed to be indexed starting
 from zero. For any dimension ``*i``*, it is erroneous to specify
+
 .. code-block:: fortran
    :linenos:
 
    array_of_starts[i] < 0
 
 or
+
 .. code-block:: fortran
    :linenos:
 
@@ -107,6 +119,7 @@ column-major order)
 
 A *ndims*-dimensional subarray (*newtype*) with no extra padding can be
 defined by the function Subarray() as follows:
+
 .. code-block:: fortran
    :linenos:
 
@@ -118,6 +131,7 @@ defined by the function Subarray() as follows:
                       0       1             ndims-1
 
 Let the typemap of *oldtype* have the form:
+
 .. code-block:: fortran
    :linenos:
 

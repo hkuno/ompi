@@ -1,5 +1,6 @@
 NAME
 ----
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -10,6 +11,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +20,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -28,6 +31,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -39,12 +43,16 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``p``: Precision, in decimal digits (integer).
+
 * ``r``: Decimal exponent range (integer).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``newtype``: New data type (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -84,6 +92,7 @@ The interaction between the datatypes returned by this function and the
 external32 data representation - used by ``MPI_Pack_external``,
 ``MPI_Unpack_external`` and many ``MPI_File`` functions - is subtle. The
 external32 representation of returned datatypes is as follows.
+
 .. code-block:: fortran
    :linenos:
 
@@ -124,6 +133,7 @@ See the MPI man page for a full list of MPI error codes.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

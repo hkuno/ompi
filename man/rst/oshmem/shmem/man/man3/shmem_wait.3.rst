@@ -14,6 +14,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -42,6 +43,7 @@ C or C++:
    void shmem_wait_until(volatile long *ivar, int cmp, long value);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -145,6 +147,7 @@ EXAMPLES
 
 **Example 1:** The following call returns when variable ivar is not
 equal to 100:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -154,6 +157,7 @@ equal to 100:
 
 **Example 2:** The following call to SHMEM_INT8_WAIT_UNTIL is equivalent
 to the call to SHMEM_INT8_WAIT in example 1:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -163,6 +167,7 @@ to the call to SHMEM_INT8_WAIT in example 1:
 
 **Example 3:** The following C/C++ call waits until the sign bit in ivar
 is set by a transfer from a remote PE:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -172,6 +177,7 @@ is set by a transfer from a remote PE:
 
 **Example 4:** The following Fortran example is in the context of a
 subroutine:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

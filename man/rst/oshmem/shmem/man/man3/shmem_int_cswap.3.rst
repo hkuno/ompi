@@ -10,6 +10,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -24,6 +25,7 @@ C or C++:
      longlong cond, longlong value, int pe);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -106,6 +108,7 @@ EXAMPLES
 
 The following call ensures that the first PE to execute the conditional
 swap will successfully write its PE number to race_winner on PE 0.
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

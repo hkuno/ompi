@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -19,6 +20,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -34,6 +36,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -50,19 +53,30 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``size``: Size of process group (positive integer).
+
 * ``rank``: Rank in process group (nonnegative integer).
+
 * ``ndims``: Number of array dimensions as well as process grid dimensions
-* ````: array_of_gsizes
-* ``array(arrayofpositiveintegers).``: 
-* ``Distributionofarrayineachdimension(arrayofstate).``: 
-* ``Distributionargumentineachdimension(arrayofpositiveintegers).``: 
-* ``Sizeofprocessgridineachdimension(arrayofpositiveintegers).``: 
-* ``Arraystorageorderflag(state).``: 
-* ``Olddatatype(handle).``: 
+* ``(positive integer).``: 
+* ``array_of_gsizes``: Number of elements of type *oldtype* in each dimension of global
+* ``array (array of positive integers).``: 
+* ``array_of_distribs``: Distribution of array in each dimension (array of state).
+
+* ``array_of_dargs``: Distribution argument in each dimension (array of positive integers).
+
+* ``array_of_psizes``: Size of process grid in each dimension (array of positive integers).
+
+* ``order``: Array storage order flag (state).
+
+* ``oldtype``: Old data type (handle).
+
 OUTPUT PARAMETERS
 -----------------
+
 * ``newtype``: New data type (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -73,6 +87,7 @@ corresponding to the distribution of an ndims-dimensional array of
 ``*oldtype``* elements onto an ``*ndims``*-dimensional grid of logical
 processes. Unused dimensions of ``*array``_of_psizes* should be set to 1.
 For a call to ``MPI_Type_create_darray`` to be correct, the equation
+
 .. code-block:: fortran
    :linenos:
 
@@ -85,6 +100,7 @@ assumed to be row-major, as in the case of virtual Cartesian process
 topologies in MPI-1.
 
 Each dimension of the array can be distributed in one of three ways:
+
 .. code-block:: fortran
    :linenos:
 
@@ -120,6 +136,7 @@ MPI_DISTRIBUTE_CYCLIC case for dimension *i* as follows.
 MPI_DISTRIBUTE_BLOCK with *array_of_dargs[i]* equal to
 MPI_DISTRIBUTE_DFLT_DARG is equivalent to MPI_DISTRIBUTE_CYCLIC with
 *array_of_dargs[i]* set to
+
 .. code-block:: fortran
    :linenos:
 

@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -19,6 +20,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -35,6 +37,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -52,13 +55,18 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``win``: A window that was created with *MPI_Win_create_dynamic*
+
 * ``base``: Initial address of window (choice).
+
 * ``size``: Size of window in bytes (nonnegative integer).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``win``: Window object returned by the call (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

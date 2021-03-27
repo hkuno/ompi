@@ -6,11 +6,13 @@ file.
 
 SYNTAX
 ------
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -20,6 +22,7 @@ C Syntax
 
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -31,6 +34,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -43,12 +47,16 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``fh``: File handle (handle).
+
 * ``datatype``: Data type (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``extent``: Data type extent (integer).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -66,6 +74,7 @@ FORTRAN 77 NOTES
 The MPI standard prescribes portable Fortran syntax for the *EXTENT*
 argument only for Fortran 90. FORTRAN 77 users may use the non-portable
 syntax
+
 .. code-block:: fortran
    :linenos:
 

@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -28,6 +30,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -40,16 +43,21 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``type``: Data type whose name is to be returned (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``type_name``: The name previously stored on the data type, or an empty string if
-* ````: resultlen
-* ````: IERROR
-* ````: DESCRIPTION
+* ``not such name exists (string).``: 
+* ``resultlen``: Length of returned name (integer).
+
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
+
 ``MPI_Type_get_name`` returns the printable identifier associated with an
 MPI data type.
 

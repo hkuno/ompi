@@ -10,6 +10,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -25,6 +26,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -44,6 +46,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -70,19 +73,29 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``sendbuf``: Starting address of send buffer (choice).
+
 * ``sendcount``: Number of elements in send buffer (integer).
+
 * ``sendtype``: Datatype of send buffer elements (handle).
+
 * ``recvcount``: Integer array (of length group size) containing the number of
-* ````: displs
-* ``displacement(relativetorecvbuf)atwhichtoplacetheincoming``: data from neighbor i.
+* ``elements that are received from each neighbor.``: 
+* ``displs``: Integer array (of length group size). Entry i specifies the
+* ``displacement (relative to recvbuf) at which to place the incoming``: data from neighbor i.
+
 * ``recvtype``: Datatype of receive buffer elements (handle).
+
 * ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``recvbuf``: Address of receive buffer (choice).
+
 * ``request``: Request (handle, non-blocking only).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

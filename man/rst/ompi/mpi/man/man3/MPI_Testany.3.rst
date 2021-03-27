@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -30,6 +32,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -44,18 +47,25 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``count``: List length (integer).
+
 * ``array_of_requests``: Array of requests (array of handles).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``index``: Index of operation that completed, or MPI_UNDEFINED if none completed
-* ````: flag
-* ````: status
-* ````: IERROR
-* ````: DESCRIPTION
+* ``(integer).``: 
+* ``flag``: True if one of the operations is complete (logical).
+
+* ``status``: Status object (status).
+
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
+
 ``MPI_Testany`` tests for completion of either one or none of the operations
 associated with active handles. In the former case, it returns ``*flag``* =
 true, returns in ``*index``* the index of this request in the array, and

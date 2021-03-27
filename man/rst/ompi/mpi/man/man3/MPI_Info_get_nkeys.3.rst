@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -38,11 +41,14 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``info``: Info object (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``nkeys``: Number of defined keys (integer).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

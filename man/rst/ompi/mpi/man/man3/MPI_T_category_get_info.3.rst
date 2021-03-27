@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,23 +19,32 @@ C Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``cat_index``: Index of the category to be queried.
 
 INPUT/OUTPUT PARAMETERS
 -----------------------
+
 * ``name_len``: Length of the string and/or buffer for name.
+
 * ``desc_len``: Length of the string and/or buffer for desc.
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``name``: Buffer to return the string containing the name of the category.
+
 * ``desc``: Buffer to return the string containing the description of the
-* ````: num_cvars
-* ````: num_pvars
-* ````: num_categories
-* ````: DESCRIPTION
+* ``category.``: 
+* ``num_cvars``: Number of control variables in the category.
+
+* ``num_pvars``: Number of performance variables in the category.
+
+* ``num_categories``: Number of categories contained in the category.
+
 DESCRIPTION
 -----------
+
 ``MPI_T_category_get_info`` can be used to query information from a
 category. The function returns the number of control variables,
 performance variables, and sub-categories in the queried category in the

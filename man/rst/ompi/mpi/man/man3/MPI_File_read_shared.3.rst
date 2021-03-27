@@ -6,11 +6,13 @@ NAME
 
 SYNTAX
 ------
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -20,6 +22,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -32,6 +35,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -46,17 +50,23 @@ Fortran 2008 Syntax
 
 INPUT/OUTPUT PARAMETER
 ----------------------
+
 * ``fh``: File handle (handle).
 
 INPUT PARAMETERS
 ----------------
+
 * ``count``: Number of elements in buffer (integer)
+
 * ``datatype``: Data type of each buffer element (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``buf``: Initial address of buffer (choice).
+
 * ``status``: Status object (status).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

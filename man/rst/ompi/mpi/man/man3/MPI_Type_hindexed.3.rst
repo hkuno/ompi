@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -19,6 +20,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -31,14 +33,20 @@ Fortran Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``count``: Number of blocks -- also number of entries in array_of_displacements
-* ````: array_of_blocklengths
-* ````: array_of_displacements
-* ``arrayofinteger).``: 
-* ``Olddatatype(handle).``: 
+* ``and array_of_blocklengths (integer).``: 
+* ``array_of_blocklengths``: Number of elements in each block (array of nonnegative integers).
+
+* ``array_of_displacements``: Byte displacement of each block (C: array of *MPI_Aint*, Fortran:
+* ``array of integer).``: 
+* ``oldtype``: Old datatype (handle).
+
 OUTPUT PARAMETERS
 -----------------
+
 * ``newtype``: New datatype (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -52,6 +60,7 @@ displacements in array_of_displacements are specified in bytes, rather
 than in multiples of the oldtype extent.
 
 Assume that oldtype has type map
+
 .. code-block:: fortran
    :linenos:
 
@@ -59,6 +68,7 @@ Assume that oldtype has type map
 
 with extent ex. Let B be the array_of_blocklength argument and D be the
 array_of_displacements argument. The newly created datatype has
+
 .. code-block:: fortran
    :linenos:
 

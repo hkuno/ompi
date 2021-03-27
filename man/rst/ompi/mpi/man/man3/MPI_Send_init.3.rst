@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -30,6 +32,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -44,16 +47,24 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``buf``: Initial address of send buffer (choice).
+
 * ``count``: Number of elements to send (integer).
+
 * ``datatype``: Type of each element (handle).
+
 * ``dest``: Rank of destination (integer).
+
 * ``tag``: Message tag (integer).
+
 * ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``request``: Communication request (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

@@ -6,11 +6,13 @@ offsets; beginning part of a split collective routine (nonblocking).
 
 SYNTAX
 ------
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -21,6 +23,7 @@ C Syntax
 
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -34,6 +37,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -48,14 +52,20 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``fh``: File handle (handle).
+
 * ``offset``: File offset (integer).
+
 * ``count``: Number of elements in buffer (integer).
+
 * ``datatype``: Data type of each buffer element.
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``buf``: Initial address of buffer (choice).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -75,6 +85,7 @@ FORTRAN 77 NOTES
 The MPI standard prescribes portable Fortran syntax for the *OFFSET*
 argument only for Fortran 90. FORTRAN 77 users may use the non-portable
 syntax
+
 .. code-block:: fortran
    :linenos:
 

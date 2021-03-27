@@ -13,6 +13,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -47,6 +48,7 @@ C or C++:
      short *pWrk, long *pSync);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -200,6 +202,7 @@ EXAMPLES
 **Example 1:** This Fortran example statically initializes the pSync
 array and finds the maximum value of real variable FOO across all even
 PEs.
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -219,6 +222,7 @@ PEs.
    ENDIF
 
 **Example 2:** Consider the following C/C++ call:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -226,6 +230,7 @@ PEs.
 
 The preceding call is more efficient, but semantically equivalent to,
 the combination of the following calls:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

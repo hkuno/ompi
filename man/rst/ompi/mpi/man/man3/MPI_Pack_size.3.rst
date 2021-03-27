@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -28,6 +30,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -41,13 +44,18 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``incount``: Count argument to packing call (integer).
+
 * ``datatype``: Datatype argument to packing call (handle).
+
 * ``comm``: Communicator argument to packing call (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``size``: Upper bound on size of packed message, in bytes (integer).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

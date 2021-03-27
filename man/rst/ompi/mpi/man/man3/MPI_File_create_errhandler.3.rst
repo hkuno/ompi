@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -29,6 +31,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -48,11 +51,14 @@ names (indeed, the \_fn names are typedefs to the \_function names).
 
 INPUT PARAMETER
 ---------------
+
 * ``function``: User-defined error handling procedure (function).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``errhandler``: MPI error handler (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -63,6 +69,7 @@ Returns in errhandler a handle to the registered error handler.
 
 In the C language, the user routine ``*function``* should be a C function of
 type ``MPI_File_errhandler_function``, which is defined as
+
 .. code-block:: fortran
    :linenos:
 
@@ -73,6 +80,7 @@ The first argument to *function* is the file in use. The second is the
 error code to be returned by the MPI routine that raised the error.
 
 In the Fortran language, the user routine should be of the form:
+
 .. code-block:: fortran
    :linenos:
 

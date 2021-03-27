@@ -10,6 +10,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -26,6 +27,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -51,6 +53,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -82,22 +85,33 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``sendbuf``: Starting address of send buffer.
+
 * ``sendcounts``: Integer array, where entry i specifies the number of elements to send
-* ````: sdispls
-* ``offsetfrom*sendbuf*)fromwhichtosenddatatoneighbori.``: 
-* ``Datatypearray,whereentryispecifiesthedatatypetousewhen``: sending data to neighbor i.
+* ``to neighbor i.``: 
+* ``sdispls``: Integer array, where entry i specifies the displacement (in bytes,
+* ``offset from *sendbuf*) from which to send data to neighbor i.``: 
+* ``sendtypes``: Datatype array, where entry i specifies the datatype to use when
+* ``sending data to neighbor i.``: 
 * ``recvcounts``: Integer array, where entry j specifies the number of elements to
-* ````: rdispls
-* ``offsetfrom*recvbuf*)towhichdatafromneighborjshouldbe``: written.
+* ``receive from neighbor j.``: 
+* ``rdispls``: Integer array, where entry j specifies the displacement (in bytes,
+* ``offset from *recvbuf*) to which data from neighbor j should be``: written.
+
 * ``recvtypes``: Datatype array, where entry j specifies the datatype to use when
-* ````: comm
-* ````: OUTPUT PARAMETERS
+* ``receiving data from neighbor j.``: 
+* ``comm``: Communicator over which data is to be exchanged.
+
 OUTPUT PARAMETERS
 -----------------
-* ``Addressofreceivebuffer.``: 
-* ``Request(handle,non-blockingonly).``: 
-* ``Fortranonly:Errorstatus.``: 
+
+* ``recvbuf``: Address of receive buffer.
+
+* ``request``: Request (handle, non-blocking only).
+
+* ``IERROR``: Fortran only: Error status.
+
 DESCRIPTION
 -----------
 
@@ -110,6 +124,7 @@ where each process performs 2n (n being the number of neighbors in the
 topology of communicator ``*comm``*) independent point-to-point
 communications. The neighbors and buffer layout are determined by the
 topology of ``*comm``*.
+
 .. code-block:: fortran
    :linenos:
 
@@ -181,6 +196,7 @@ guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

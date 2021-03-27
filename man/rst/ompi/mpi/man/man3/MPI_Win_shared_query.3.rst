@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -28,6 +30,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -43,15 +46,22 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``win``: Shared memory window object (handle).
+
 * ``rank``: Rank in the group of window *win* (non-negative integer) or
-* ````: OUTPUT PARAMETERS
+* ``MPI_PROC_NULL.``: 
 OUTPUT PARAMETERS
 -----------------
-* ``Sizeofthewindowsegment(non-negativeinteger).``: 
-* ``Localunitsizefordisplacements,inbytes(positiveinteger).``: 
-* ``Addressforload/storeaccesstowindowsegment(choice).``: 
-* ``Fortranonly:Errorstatus(integer).``: 
+
+* ``size``: Size of the window segment (non-negative integer).
+
+* ``disp_unit``: Local unit size for displacements, in bytes (positive integer).
+
+* ``baseptr``: Address for load/store access to window segment (choice).
+
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
 

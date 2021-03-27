@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,16 +18,21 @@ C Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``enumtype``: Enumeration to be queried.
+
 * ``index``: Number of the value to be queried in this enumeration.
 
 INPUT/OUTPUT PARAMETERS
 -----------------------
+
 * ``name_len``: Length of the string and/or buffer for name.
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``value``: Variable value.
+
 * ``name``: Buffer to return the string containing the name of the category.
 
 DESCRIPTION

@@ -6,11 +6,13 @@ offsets; ending part of a split collective routine (blocking).
 
 SYNTAX
 ------
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -20,6 +22,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -31,6 +34,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -43,12 +47,16 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``fh``: File handle (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``buf``: Initial address of buffer (choice).
+
 * ``status``: Status object (status).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

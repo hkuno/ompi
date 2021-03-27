@@ -11,6 +11,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -33,6 +34,7 @@ C or C++:
      long *pSync);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -70,6 +72,7 @@ participating PEs, while the collect routines allow nelems to vary from
 PE to PE.
 
 The resulting target array is as follows:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -178,6 +181,7 @@ EXAMPLES
 --------
 
 C/C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -189,6 +193,7 @@ C/C++:
       pe_size, pSync);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

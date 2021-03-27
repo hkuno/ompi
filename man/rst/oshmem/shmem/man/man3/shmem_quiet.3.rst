@@ -8,6 +8,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -16,6 +17,7 @@ C or C++:
    void shmem_quiet(void);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -43,6 +45,7 @@ NOTES
 
 EXAMPLES
 --------
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

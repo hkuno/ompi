@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -20,6 +21,7 @@ C Syntax
 
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -34,6 +36,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -49,12 +52,16 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``datatype``: Data type (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``lb``: Lower bound of data type (integer).
+
 * ``extent``: Data type extent (integer).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -80,6 +87,7 @@ The MPI standard prescribes portable Fortran syntax for the *LB* and
 non-portable syntax
 
 ``MPI_Type_get_extent``:
+
 .. code-block:: fortran
    :linenos:
 
@@ -88,6 +96,7 @@ non-portable syntax
         INTEGER*MPI_ADDRESS_KIND EXTENT
 
 MPI_Type_get_extent_x:
+
 .. code-block:: fortran
    :linenos:
 

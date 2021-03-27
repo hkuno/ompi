@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -30,6 +32,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -43,15 +46,20 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``datatype``: Data type to access (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``num_integers``: Number of input integers used in the call constructing *combiner*
-* ````: num_addresses
-* ``(nonnegativeinteger).``: 
-* ``Numberofinputdatatypesusedinthecallconstructing*combiner*``: (nonnegative integer).
+* ``(nonnegative integer).``: 
+* ``num_addresses``: Number of input addresses used in the call constructing *combiner*
+* ``(nonnegative integer).``: 
+* ``num_datatypes``: Number of input data types used in the call constructing *combiner*
+* ``(nonnegative integer).``: 
 * ``combiner``: Combiner (state).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -70,6 +78,7 @@ NOTES
 
 These are the values that can be returned in ``*combiner``* and their
 associated calls:
+
 .. code-block:: fortran
    :linenos:
 

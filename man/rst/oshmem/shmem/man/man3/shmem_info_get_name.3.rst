@@ -8,6 +8,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -15,6 +16,7 @@ C or C++:
    void shmem_info_get_name(char *name);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

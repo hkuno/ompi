@@ -1,5 +1,6 @@
 NAME
 ----
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -10,6 +11,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +20,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -29,6 +32,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -40,12 +44,16 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``errorcode``: MPI error class, or an error code returned by an MPI routine
-* ````: string
-* ````: OUTPUT PARAMETER
+* ``(integer).``: 
+* ``string``: Text that corresponds to the error code or class (string).
+
 OUTPUT PARAMETER
 ----------------
-* ``Fortranonly:Errorstatus(integer).``: 
+
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
 
@@ -71,6 +79,7 @@ guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

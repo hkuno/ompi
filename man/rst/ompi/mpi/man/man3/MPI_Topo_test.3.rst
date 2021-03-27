@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -40,11 +43,14 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``top_type``: Topology type of communicator comm (choice).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -54,6 +60,7 @@ The function ``MPI_Topo_test`` returns the type of topology that is assigned
 to a communicator.
 
 The output value ``*top``_type* is one of the following:
+
 .. code-block:: fortran
    :linenos:
 

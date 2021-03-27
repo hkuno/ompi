@@ -879,6 +879,7 @@ Program using a wrapper script (*``*oshrun``** in this case):
 
 **\***
    C/C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -886,6 +887,7 @@ Program using a wrapper script (*``*oshrun``** in this case):
 
 **\***
    FORTRAN:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -894,6 +896,7 @@ Program using a wrapper script (*``*oshrun``** in this case):
 The following sample command line demonstrates running an OpenSHMEM
 Program assuming that the library provides a wrapper script for such
 purpose (named **oshrun** for this example):
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -904,6 +907,7 @@ EXAMPLES
 
 **Example 1**: The following Fortran OpenSHMEM program directs all PEs
 to sum simultaneously the numbers in the VALUES variable across all PEs:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -926,6 +930,7 @@ to sum simultaneously the numbers in the VALUES variable across all PEs:
 
 **Example 2**: The following C OpenSHMEM program transfers an array of
 10 longs from PE 0 to PE 1:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

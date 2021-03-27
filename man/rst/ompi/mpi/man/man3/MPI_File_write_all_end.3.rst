@@ -7,11 +7,13 @@ routine (blocking).
 
 SYNTAX
 ------
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -20,6 +22,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -31,6 +34,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -43,15 +47,19 @@ Fortran 2008 Syntax
 
 INPUT/OUTPUT PARAMETER
 ----------------------
+
 * ``fh``: File handle (handle).
 
 INPUT PARAMETER
 ---------------
+
 * ``buf``: Initial address of buffer (choice).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``status``: Status object (status).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

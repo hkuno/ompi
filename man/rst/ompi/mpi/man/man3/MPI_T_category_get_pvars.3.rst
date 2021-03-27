@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,15 +18,19 @@ C Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``cat_index``: Index of the category to be queried.
+
 * ``len``: The length of the indices array.
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``indices``: An integer array of size len, indicating performance variable
-* ````: DESCRIPTION
+* ``indices.``: 
 DESCRIPTION
 -----------
+
 ``MPI_T_category_get_pvars`` can be used to query which performance
 variables are contained in a particular category. A category contains
 zero or more performance variables.

@@ -8,6 +8,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -15,6 +16,7 @@ C or C++:
    void start_pes(int npes);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -49,6 +51,7 @@ EXAMPLES
 --------
 
 This is a simple program that calls ``*shmem``_integer_put*\ (3):
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

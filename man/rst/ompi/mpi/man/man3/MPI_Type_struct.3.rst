@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -19,6 +20,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -32,14 +34,20 @@ Fortran Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``count``: Number of blocks (integer) also number of entries in arrays
-* ````: array_of_blocklengths
-* ````: array_of_displacements
-* ````: array_of_types
+* ``array_of_types, array_of_displacements, and array_of_blocklengths.``: 
+* ``array_of_blocklengths``: Number of elements in each block (array).
+
+* ``array_of_displacements``: Byte displacement of each block (array).
+
+* ``array_of_types``: Type of elements in each block (array of handles to datatype
 * ``objects).``: 
 OUTPUT PARAMETERS
 -----------------
+
 * ``newtype``: New datatype (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -53,6 +61,7 @@ generalizes ``MPI_Type_hindexed`` in that it allows each block to consist of
 replications of different datatypes.
 
 **Example:** Let type1 have type map
+
 .. code-block:: fortran
    :linenos:
 
@@ -62,6 +71,7 @@ replications of different datatypes.
 with extent 16. Let B = (2, 1, 3), D = (0, 16, 26), and T = (MPI_FLOAT,
 type1, MPI_CHAR). Then a call to MPI_Type_struct(3, B, D, T, newtype)
 returns a datatype with type map
+
 .. code-block:: fortran
    :linenos:
 
@@ -85,12 +95,14 @@ The MPI-1 Standard originally made vague statements about padding and
 alignment; this was intended to allow the simple definition of
 structures that could be sent with a count greater than one. For
 example,
+
 .. code-block:: fortran
    :linenos:
 
        struct {int a; char b;} foo;
 
 may have
+
 .. code-block:: fortran
    :linenos:
 
@@ -104,6 +116,7 @@ epsilon zero. Thus, if you define a structure datatype and wish to send
 or receive multiple items, you should explicitly include an MPI_UB entry
 as the last member of the structure. For example, the following code can
 be used for the structure foo:
+
 .. code-block:: fortran
    :linenos:
 

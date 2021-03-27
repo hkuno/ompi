@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -26,12 +28,16 @@ Fortran Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``comm``: Communicator to which attribute will be attached (handle).
+
 * ``keyval``: Key value, as returned by MPI_KEYVAL_CREATE (integer).
+
 * ``attribute_val``: Attribute value.
 
 OUTPUT PARAMETER
 ----------------
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

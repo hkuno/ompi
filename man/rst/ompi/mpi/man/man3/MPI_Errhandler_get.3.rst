@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -26,11 +28,14 @@ Fortran Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``comm``: Communicator to get the error handler from (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``errhandler``: MPI error handler currently associated with communicator (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

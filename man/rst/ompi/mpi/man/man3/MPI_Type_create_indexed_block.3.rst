@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -19,6 +20,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -37,6 +39,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -60,14 +63,21 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``count``: Length of array of displacements (integer).
+
 * ``blocklength``: Size of block (integer).
+
 * ``array_of_displacements``: Array of displacements (array of integers). In units of the extent of
-* ``MPI_Type_create_hindexed_block.``: 
-* ``Olddatatype(handle).``: 
+* ``*oldtype* for MPI_Type_create_indexed_block and bytes for``: MPI_Type_create_hindexed_block.
+
+* ``oldtype``: Old data type (handle).
+
 OUTPUT PARAMETERS
 -----------------
+
 * ``newtype``: New data type (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

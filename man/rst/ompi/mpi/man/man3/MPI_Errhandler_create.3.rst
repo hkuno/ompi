@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -28,11 +30,14 @@ Fortran Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``function``: User-defined error handling procedure.
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``errhandler``: MPI error handler (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -46,6 +51,7 @@ Returns in errhandler a handle to the registered error handler.
 
 In the C language, the user routine should be a C function of type
 ``MPI_Handler_function``, which is defined as
+
 .. code-block:: fortran
    :linenos:
 

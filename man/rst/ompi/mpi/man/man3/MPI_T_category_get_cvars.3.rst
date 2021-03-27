@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,11 +18,14 @@ C Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``cat_index``: Index of the category to be queried.
+
 * ``len``: The length of the indices array.
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``indices``: An integer array of size len, indicating control variable indices.
 
 DESCRIPTION

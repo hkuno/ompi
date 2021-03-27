@@ -8,6 +8,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -16,6 +17,7 @@ C or C++:
    int shmem_n_pes (void);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

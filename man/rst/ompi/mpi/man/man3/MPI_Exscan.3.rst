@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -22,6 +23,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -37,6 +39,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -62,16 +65,24 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``sendbuf``: Send buffer (choice).
+
 * ``count``: Number of elements in input buffer (integer).
+
 * ``datatype``: Data type of elements of input buffer (handle).
+
 * ``op``: Operation (handle).
+
 * ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``recvbuf``: Receive buffer (choice).
+
 * ``request``: Request (handle, non-blocking only).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -149,6 +160,7 @@ See the MPI man page for a full list of MPI error codes.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

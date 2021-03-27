@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,6 +17,7 @@ C Syntax
 
 Fortran Syntax (see FORTRAN NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax (see FORTRAN NOTES)
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -40,12 +43,16 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``size``: Size of memory segment in bytes (nonnegative integer).
+
 * ``info``: Info argument (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``baseptr``: Pointer to beginning of memory segment allocated.
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -64,6 +71,7 @@ compilers.
 
 From FORTRAN 77, you can use the following non-standard declarations for
 the SIZE and BASEPTR arguments:
+
 .. code-block:: fortran
    :linenos:
 
@@ -73,6 +81,7 @@ the SIZE and BASEPTR arguments:
 From either FORTRAN 77 or Fortran 90, you can use "Cray pointers" for
 the BASEPTR argument. Cray pointers are described further in the Fortran
 User's Guide and are supported by many Fortran compilers. For example,
+
 .. code-block:: fortran
    :linenos:
 

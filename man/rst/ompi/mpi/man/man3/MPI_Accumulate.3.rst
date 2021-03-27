@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -26,6 +27,7 @@ C Syntax
 
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -47,6 +49,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -75,22 +78,34 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``origin_addr``: Initial address of buffer (choice).
+
 * ``origin_count``: Number of entries in buffer (nonnegative integer).
+
 * ``origin_datatype``: Data type of each buffer entry (handle).
+
 * ``target_rank``: Rank of target (nonnegative integer).
+
 * ``target_disp``: Displacement from start of window to beginning of target buffer
-* ````: target_count
-* ````: target_datatype
-* ````: op
-* ````: win
-* ````: OUTPUT PARAMETER
+* ``(nonnegative integer).``: 
+* ``target_count``: Number of entries in target buffer (nonnegative integer).
+
+* ``target_datatype``: Data type of each entry in target buffer (handle).
+
+* ``op``: Reduce operation (handle).
+
+* ``win``: Window object (handle).
+
 OUTPUT PARAMETER
 ----------------
-* ````: IERROR
-* ````: DESCRIPTION
+
+* ``MPI_Raccumulate: RMA request``: 
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
+
 ``MPI_Accumulate`` is a function used for one-sided MPI communication
 that adds the contents of the origin buffer (as defined by
 ``*origin``_addr*, ``*origin``_count*, and ``*origin``_datatype*) to the buffer
@@ -130,6 +145,7 @@ FORTRAN 77 NOTES
 The MPI standard prescribes portable Fortran syntax for the
 *TARGET_DISP* argument only for Fortran 90. FORTRAN 77 users may use the
 non-portable syntax
+
 .. code-block:: fortran
    :linenos:
 

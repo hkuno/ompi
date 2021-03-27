@@ -1,5 +1,6 @@
 NAME
 ----
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -10,6 +11,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -19,6 +21,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -30,6 +33,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -42,12 +46,16 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``service_name``: A service name (string).
+
 * ``info``: Options to the name service functions (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``port_name``: a port name (string).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -62,6 +70,7 @@ INFO ARGUMENTS
 --------------
 
 The following keys for ``*info``* are recognized:
+
 .. code-block:: fortran
    :linenos:
 
@@ -121,6 +130,7 @@ See the MPI man page for a full list of MPI error codes.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

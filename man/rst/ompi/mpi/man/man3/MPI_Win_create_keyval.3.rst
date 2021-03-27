@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -31,6 +33,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -45,13 +48,18 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``win_copy_attr_fn``: Copy callback function for *win_keyval* (function).
+
 * ``win_delete_attr_fn``: Delete callback function for *win_keyval* (function).
+
 * ``extra_state``: Extra state for callback functions.
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``win_keyval``: Key value for future access (integer).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -69,6 +77,7 @@ The argument ``*win``_delete_attr_fn* may be specified as
 is a function that serves only to return ``MPI_SUCCESS``.
 
 The C callback functions are:
+
 .. code-block:: fortran
    :linenos:
 
@@ -77,6 +86,7 @@ The C callback functions are:
                 void *attribute_val_out, int *flag);
 
 and
+
 .. code-block:: fortran
    :linenos:
 
@@ -84,6 +94,7 @@ and
                 void *attribute_val, void *extra_state);
 
 The Fortran callback functions are:
+
 .. code-block:: fortran
    :linenos:
 
@@ -95,6 +106,7 @@ The Fortran callback functions are:
    	LOGICAL FLAG
 
 and
+
 .. code-block:: fortran
    :linenos:
 
@@ -109,6 +121,7 @@ FORTRAN 77 NOTES
 The MPI standard prescribes portable Fortran syntax for the
 *EXTRA_STATE* argument only for Fortran 90. FORTRAN 77 users may use the
 non-portable syntax
+
 .. code-block:: fortran
    :linenos:
 

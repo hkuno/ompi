@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -31,6 +33,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -46,15 +49,21 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
-* ``count``: Number of blocks (integer) -- also number of entries in arrays
-* ``*array_of_blocklengths*.``: 
-* ``Numberofelementsineachblock(arrayofintegers).``: 
-* ``Bytedisplacementofeachblock(arrayofintegers).``: 
-* ``Typeofelementsineachblock(arrayofhandlestodata-type``: objects).
 
+* ``count``: Number of blocks (integer) -- also number of entries in arrays
+* ``*array_of_types*, *array_of_displacements*, and``: *array_of_blocklengths*.
+
+* ``array_of_blocklengths``: Number of elements in each block (array of integers).
+
+* ``array_of_displacements``: Byte displacement of each block (array of integers).
+
+* ``array_of_types``: Type of elements in each block (array of handles to data-type
+* ``objects).``: 
 OUTPUT PARAMETERS
 -----------------
+
 * ``newtype``: New data type (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -72,6 +81,7 @@ FORTRAN 77 NOTES
 The MPI standard prescribes portable Fortran syntax for the
 *ARRAY_OF_DISPLACEMENTS*\ (*) argument only for Fortran 90. FORTRAN 77
 users may use the non-portable syntax
+
 .. code-block:: fortran
    :linenos:
 

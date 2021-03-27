@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -28,6 +30,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -41,17 +44,23 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``count``: List length (integer).
+
 * ``array_of_requests``: Array of requests (array of handles).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``index``: Index of handle for operation that completed (integer). In the range
-* ````: status
-* ````: IERROR
-* ````: DESCRIPTION
+* ``0 to count-1. In Fortran, the range is 1 to count.``: 
+* ``status``: Status object (status).
+
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
+
 A call to ``MPI_Waitany`` can be used to wait for the completion of one out
 of several requests.
 
@@ -71,6 +80,7 @@ save resources by using the predefined constant ``MPI_STATUS_IGNORE`` as a
 special value for the ``*status``* argument.
 
 **Example:** Client-server code (starvation can occur).
+
 .. code-block:: fortran
    :linenos:
 

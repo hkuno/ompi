@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,23 +19,33 @@ C Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``cvar_index``: Index of the control variable to be queried.
 
 INPUT/OUTPUT PARAMETERS
 -----------------------
+
 * ``name_len``: Length of the string and/or buffer for name.
+
 * ``desc_len``: Length of the string and/or buffer for desc.
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``name``: Buffer to return the string containing the name of the control
-* ````: verbosity
-* ````: datatype
-* ````: enumtype
-* ````: desc
 * ``variable.``: 
-* ``TypeofMPIobjecttowhichthisvariablemustbebound.``: 
-* ``Scopeofwhenchangestothisvariablearepossible.``: 
+* ``verbosity``: Verbosity level of this variable.
+
+* ``datatype``: MPI datatype of the information stored in the control variable.
+
+* ``enumtype``: Optional descriptor for enumeration information.
+
+* ``desc``: Buffer to return the string containing the description of the control
+* ``variable.``: 
+* ``bind``: Type of MPI object to which this variable must be bound.
+
+* ``scope``: Scope of when changes to this variable are possible.
+
 DESCRIPTION
 -----------
 
@@ -151,6 +162,7 @@ ERRORS
 
 SEE ALSO
 --------
+
 .. code-block:: c
    :linenos:
 

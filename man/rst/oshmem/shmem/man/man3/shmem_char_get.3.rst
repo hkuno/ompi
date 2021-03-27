@@ -14,6 +14,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -53,6 +54,7 @@ C or C++:
      const short *source, size_t len, int pe);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -167,6 +169,7 @@ EXAMPLES
 --------
 
 Consider this simple example for Fortran.
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

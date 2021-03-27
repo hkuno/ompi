@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -38,15 +41,19 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``errorclass``: MPI error class (integer).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``errorcode``: Error code returned by an MPI routine or an MPI error class
-* ````: IERROR
-* ````: DESCRIPTION
+* ``(integer).``: 
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
+
 Creates a new error code associated with ``*errorclass``* and returns its
 value in ``*errorcode``*.
 
@@ -73,6 +80,7 @@ guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,11 +29,14 @@ Fortran Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``location``: Location in caller memory (choice).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``address``: Address of location (integer).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -44,6 +49,7 @@ The address of a location in memory can be found by invoking this
 function. Returns the (byte) address of location.
 
 Example: Using ``MPI_Address`` for an array.
+
 .. code-block:: fortran
    :linenos:
 

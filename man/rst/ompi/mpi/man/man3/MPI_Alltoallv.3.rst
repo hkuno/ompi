@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -26,6 +27,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -49,6 +51,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -78,20 +81,31 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``sendbuf``: Starting address of send buffer.
+
 * ``sendcounts``: Integer array, where entry i specifies the number of elements to send
-* ````: sdispls
-* ``*sendbuf*,inunitsof*sendtype*)fromwhichtosenddatatoranki.``: 
-* ``Datatypeofsendbufferelements.``: 
-* ``Integerarray,whereentryjspecifiesthenumberofelementsto``: receive from rank j.
+* ``to rank i.``: 
+* ``sdispls``: Integer array, where entry i specifies the displacement (offset from
+* ``*sendbuf*, in units of *sendtype*) from which to send data to rank i.``: 
+* ``sendtype``: Datatype of send buffer elements.
+
+* ``recvcounts``: Integer array, where entry j specifies the number of elements to
+* ``receive from rank j.``: 
 * ``rdispls``: Integer array, where entry j specifies the displacement (offset from
-* ``bewritten.``: 
-* ``Datatypeofreceivebufferelements.``: 
-* ``Communicatoroverwhichdataistobeexchanged.``: 
+* ``*recvbuf*, in units of *recvtype*) to which data from rank j should``: be written.
+
+* ``recvtype``: Datatype of receive buffer elements.
+
+* ``comm``: Communicator over which data is to be exchanged.
+
 OUTPUT PARAMETERS
 -----------------
+
 * ``recvbuf``: Address of receive buffer.
+
 * ``request``: Request (handle, non-blocking only).
+
 * ``IERROR``: Fortran only: Error status.
 
 DESCRIPTION
@@ -105,6 +119,7 @@ The operation of this routine can be thought of as follows, where each
 process performs 2n (n being the number of processes in communicator
 ``*comm``*) independent point-to-point communications (including
 communication with itself).
+
 .. code-block:: fortran
    :linenos:
 
@@ -183,6 +198,7 @@ guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

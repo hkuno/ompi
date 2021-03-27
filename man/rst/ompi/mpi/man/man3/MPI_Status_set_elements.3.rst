@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -32,6 +34,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -49,15 +52,19 @@ Fortran 2008 Syntax
 
 INPUT/OUTPUT PARAMETER
 ----------------------
+
 * ``status``: Status to associate with *count (status).*
 
 INPUT PARAMETERS
 ----------------
+
 * ``datatype``: Data type associated with *count (handle).*
+
 * ``count``: Number of elements to associate with *status (integer).*
 
 OUTPUT PARAMETER
 ----------------
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -105,6 +112,7 @@ FORTRAN 77 NOTES
 The MPI standard prescribes portable Fortran syntax for the *COUNT
 argument of ``MPI_Status_set_elements_x`` only for Fortran 90. FORTRAN 77
 users may use the non-portable syntax*
+
 .. code-block:: fortran
    :linenos:
 

@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,7 +17,9 @@ C Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``session``: Performance experiment session.
+
 * ``handle``: Performance variable handle or MPI_T_PVAR_ALL_HANDLES.
 
 DESCRIPTION
@@ -46,6 +49,7 @@ ERRORS
 
 SEE ALSO
 --------
+
 .. code-block:: c
    :linenos:
 

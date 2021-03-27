@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -28,6 +30,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -41,14 +44,20 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``comm``: Communicator (handle).
+
 * ``split_type``: Type of processes to be grouped together (integer).
+
 * ``key``: Control of rank assignment (integer).
+
 * ``info``: Info argument (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``newcomm``: New communicator (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

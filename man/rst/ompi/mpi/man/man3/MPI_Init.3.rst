@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,6 +17,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -26,6 +28,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -35,11 +38,14 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``argc``: C only: Pointer to the number of arguments.
+
 * ``argv``: C only: Argument vector.
 
 OUTPUT PARAMETER
 ----------------
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -53,6 +59,7 @@ subsequent calls to ``MPI_Init`` or ``MPI_Init_thread`` are erroneous.
 All MPI programs must contain a call to ``MPI_Init`` or ``MPI_Init_thread``.
 Open MPI accepts the C ``*argc``* and ``*argv``* arguments to main, but neither
 modifies, interprets, nor distributes them:
+
 .. code-block:: fortran
    :linenos:
 
@@ -93,6 +100,7 @@ See the MPI man page for a full list of MPI error codes.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

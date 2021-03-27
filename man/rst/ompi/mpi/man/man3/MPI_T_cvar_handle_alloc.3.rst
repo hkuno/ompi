@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -63,6 +64,7 @@ ERRORS
 
 SEE ALSO
 --------
+
 .. code-block:: c
    :linenos:
 

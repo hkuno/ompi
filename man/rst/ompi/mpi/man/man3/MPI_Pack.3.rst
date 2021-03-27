@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -29,6 +31,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -44,19 +47,27 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``inbuf``: Input buffer start (choice).
+
 * ``incount``: Number of input data items (integer).
+
 * ``datatype``: Datatype of each input data item (handle).
+
 * ``outsize``: Output buffer size, in bytes (integer).
+
 * ``comm``: Communicator for packed message (handle).
 
 INPUT/OUTPUT PARAMETER
 ----------------------
+
 * ``position``: Current position in buffer, in bytes (integer).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``outbuf``: Output buffer start (choice).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -78,6 +89,7 @@ message. The ``*comm``* argument is the communicator that will be
 subsequently used for sending the packed message.
 
 **Example:** An example using ``MPI_Pack``:
+
 .. code-block:: fortran
    :linenos:
 

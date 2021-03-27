@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -29,6 +31,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -41,12 +44,16 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``function``: User-defined function (function).
+
 * ``commute``: True if commutative; false otherwise.
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``op``: Operation (handle).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -67,6 +74,7 @@ commutativity and associativity.
 four arguments: invec, inoutvec, len, and datatype.
 
 The ANSI-C prototype for the function is the following:
+
 .. code-block:: fortran
    :linenos:
 
@@ -75,6 +83,7 @@ The ANSI-C prototype for the function is the following:
                                     MPI_Datatype *datatype);
 
 The Fortran declaration of the user-defined function appears below.
+
 .. code-block:: fortran
    :linenos:
 
@@ -130,6 +139,7 @@ that are shared by the user code and the library code.
 **Example:** Example of user-defined reduce:
 
 Compute the product of an array of complex numbers, in C.
+
 .. code-block:: fortran
    :linenos:
 
@@ -212,6 +222,7 @@ guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

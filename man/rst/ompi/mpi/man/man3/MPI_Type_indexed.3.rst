@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -24,6 +25,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -44,6 +46,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -67,16 +70,23 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``count``: Number of blocks -- also number of entries in array_of_displacements
-* ````: array_of_blocklengths
-* ````: array_of_displacements
-* ``MPI_Type_indexedandbytesforMPI_Type_create_hindexed(arrayof``: integer for **MPI_TYPE_INDEXED**, array of *MPI_Aint* for
-* ````: oldtype
-* ````: OUTPUT PARAMETERS
+* ``and array_of_blocklengths (nonnegative integer).``: 
+* ``array_of_blocklengths``: Number of elements per block (array of nonnegative integers).
+
+* ``array_of_displacements``: Displacement for each block, in multiples of oldtype extent for
+* ``MPI_Type_indexed and bytes for MPI_Type_create_hindexed (array of``: integer for **MPI_TYPE_INDEXED**, array of *MPI_Aint* for
+* ``**MPI_TYPE_CREATE_HINDEXED**).``: 
+* ``oldtype``: Old datatype (handle).
+
 OUTPUT PARAMETERS
 -----------------
-* ``Newdatatype(handle).``: 
-* ``Fortranonly:Errorstatus(integer).``: 
+
+* ``newtype``: New datatype (handle).
+
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
 
@@ -90,6 +100,7 @@ the old data type's extent.
 extent 16. Let B = (3, 1) and let D = (4, 0). A call to
 ``MPI_Type_indexed``(2, B, D, oldtype, newtype) returns a datatype with type
 map
+
 .. code-block:: fortran
    :linenos:
 
@@ -101,6 +112,7 @@ That is, three copies of the old type starting at displacement 4 x 16 =
 64, and one copy starting at displacement 0.
 
 In general, assume that oldtype has type map
+
 .. code-block:: fortran
    :linenos:
 
@@ -108,6 +120,7 @@ In general, assume that oldtype has type map
 
 | with extent ex. Let B be the array_of_blocklength argument and D be
   the array_of_displacements argument. The newly created datatype has
+
 .. code-block:: fortran
    :linenos:
 
@@ -126,6 +139,7 @@ In general, assume that oldtype has type map
 A call to MPI_Type_vector(count, blocklength, stride, oldtype, newtype)
 is equivalent to a call to MPI_Type_indexed(count, B, D, oldtype,
 newtype) where
+
 .. code-block:: fortran
    :linenos:
 

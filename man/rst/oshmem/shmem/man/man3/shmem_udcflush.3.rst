@@ -9,6 +9,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -22,6 +23,7 @@ C or C++:
    void shmem_udcflush_line(void *target);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

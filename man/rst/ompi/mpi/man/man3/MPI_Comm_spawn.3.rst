@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -32,6 +34,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -48,22 +51,31 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``command``: Name of program to be spawned (string, significant only at *root*).
+
 * ``argv``: Arguments to *command* (array of strings, significant only at
-* ````: maxprocs
 * ``*root*).``: 
-* ``Asetofkey-valuepairstellingtheruntimesystemwhereandhowto``: start the processes (handle, significant only at *root*).
+* ``maxprocs``: Maximum number of processes to start (integer, significant only at
+* ``*root*).``: 
+* ``info``: A set of key-value pairs telling the runtime system where and how to
+* ``start the processes (handle, significant only at *root*).``: 
 * ``root``: Rank of process in which previous arguments are examined (integer).
+
 * ``comm``: Intracommunicator containing group of spawning processes (handle).
 
 OUTPUT PARAMETER
 ----------------
+
 * ``intercomm``: Intercommunicator between original group and the newly spawned group
-* ````: array_of_errcodes
-* ````: IERROR
-* ````: DESCRIPTION
+* ``(handle).``: 
+* ``array_of_errcodes``: One code per process (array of integers).
+
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
+
 ``MPI_Comm_spawn`` tries to start ``*maxprocs``* identical copies of the MPI
 program specified by ``*command``*, establishing communication with them and
 returning an intercommunicator. The spawned processes are referred to as
@@ -148,6 +160,7 @@ locations should use ``MPI_INFO_NULL``.
 The following keys for ``*info``* are recognized in Open MPI. (The reserved
 values mentioned in Section 5.3.4 of the MPI-2 standard are not
 implemented.)
+
 .. code-block:: fortran
    :linenos:
 
@@ -271,6 +284,7 @@ guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

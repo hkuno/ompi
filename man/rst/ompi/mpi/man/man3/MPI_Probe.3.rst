@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,6 +17,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -26,6 +28,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -38,13 +41,18 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``source``: Source rank or MPI_ANY_SOURCE (integer).
+
 * ``tag``: Tag value or MPI_ANY_TAG (integer).
+
 * ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``status``: Status object (status).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -74,6 +82,7 @@ eventually return flag = true unless the message is received by another
 concurrent receive operation.
 
 **Example 1:** Use blocking probe to wait for an incoming message.
+
 .. code-block:: fortran
    :linenos:
 
@@ -98,6 +107,7 @@ Each message is received with the right type.
 
 **Example 2:** A program similar to the previous example, but with a
 problem.
+
 .. code-block:: fortran
    :linenos:
 

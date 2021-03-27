@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -21,6 +22,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -36,6 +38,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -61,16 +64,24 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``sendbuf``: Send buffer (choice).
+
 * ``count``: Number of elements in input buffer (integer).
+
 * ``datatype``: Data type of elements of input buffer (handle).
+
 * ``op``: Operation (handle).
+
 * ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``recvbuf``: Receive buffer (choice).
+
 * ``request``: Request (handle, non-blocking only).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -91,6 +102,7 @@ This example uses a user-defined operation to produce a segmented scan.
 A segmented scan takes, as input, a set of values and a set of logicals,
 where the logicals delineate the various segments of the scan. For
 example,
+
 .. code-block:: fortran
    :linenos:
 
@@ -101,6 +113,7 @@ example,
 The result for rank j is thus the sum v(i) + ... + v(j), where i is the
 lowest rank such that for all ranks n, i <= n <= j, logical(n) =
 logical(j). The operator that produces this effect is
+
 .. code-block:: fortran
    :linenos:
 
@@ -114,6 +127,7 @@ where
 
 Note that this is a noncommutative operator. C code that implements it
 is given below.
+
 .. code-block:: fortran
    :linenos:
 
@@ -148,6 +162,7 @@ Note that the inout argument to the user-defined function corresponds to
 the right-hand operand of the operator. When using this operator, we
 must be careful to specify that it is noncommutative, as in the
 following:
+
 .. code-block:: fortran
    :linenos:
 
@@ -216,6 +231,7 @@ See the MPI man page for a full list of MPI error codes.
 
 SEE ALSO
 --------
+
 .. code-block:: fortran
    :linenos:
 

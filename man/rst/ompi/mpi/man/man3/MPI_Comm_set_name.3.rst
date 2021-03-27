@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,6 +17,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -27,6 +29,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -38,15 +41,19 @@ Fortran 2008 Syntax
 
 INPUT/OUTPUT PARAMETER
 ----------------------
+
 * ``comm``: Communicator whose identifier is to be set (handle).
 
 INPUT PARAMETER
 ---------------
+
 * ``comm_name``: Character string to be used as the identifier for the communicator
-* ````: OUTPUT PARAMETER
+* ``(string).``: 
 OUTPUT PARAMETER
 ----------------
-* ``Fortranonly:Errorstatus(integer).``: 
+
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
 

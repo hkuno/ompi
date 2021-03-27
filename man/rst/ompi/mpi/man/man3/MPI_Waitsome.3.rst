@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -32,6 +34,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -46,18 +49,25 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``incount``: Length of array_of_requests (integer).
+
 * ``array_of_requests``: Array of requests (array of handles).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``outcount``: Number of completed requests (integer).
+
 * ``array_of_indices``: Array of indices of operations that completed (array of integers).
+
 * ``array_of_statuses``: Array of status objects for operations that completed (array of
-* ````: IERROR
-* ````: DESCRIPTION
+* ``status).``: 
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
+
 Waits until at least one of the operations associated with active
 handles in the list have completed. Returns in outcount the number of
 requests from the list array_of_requests that have completed. Returns in
@@ -91,6 +101,7 @@ field, you can save resources by using the predefined constant
 
 **Example:** Same code as the example in the ``MPI_Waitany`` man page, but
 using ``MPI_Waitsome``.
+
 .. code-block:: fortran
    :linenos:
 

@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -32,6 +34,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -49,17 +52,24 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``datatype``: Data type to access (handle).
+
 * ``max_integers``: Number of elements in *array_of_integers (nonnegative integer).*
+
 * ``max_addresses``: Number of elements in *array_of_addresses (nonnegative integer).*
+
 * ``max_datatypes``: Number of elements in *array_of_datatypes (nonnegative integer).*
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``array_of_integers``: Contains integer arguments used in constructing *datatype (array of
-* ````: array_of_addresses
 * ``integers).*``: 
-* ``Containsdata-typeargumentsusedinconstructing*datatype(arrayof``: integers).*
+* ``array_of_addresses``: Contains address arguments used in constructing *datatype (array of
+* ``integers).*``: 
+* ``array_of_datatypes``: Contains data-type arguments used in constructing *datatype (array of
+* ``integers).*``: 
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -116,6 +126,7 @@ FORTRAN 77 NOTES
 The MPI standard prescribes portable Fortran syntax for the
 *ARRAY_OF_ADDRESSES argument only for Fortran 90. FORTRAN 77* users may
 use the non-portable syntax
+
 .. code-block:: fortran
    :linenos:
 

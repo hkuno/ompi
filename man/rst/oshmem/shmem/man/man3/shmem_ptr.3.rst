@@ -8,6 +8,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -16,6 +17,7 @@ C or C++:
    void *shmem_ptr(const void *target, int pe);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -54,6 +56,7 @@ EXAMPLES
 
 This Fortran program calls shmem_ptr and then PE 0 writes to the BIGD
 array on PE 1:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -82,6 +85,7 @@ array on PE 1:
    END
 
 This is the equivalent program written in C:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

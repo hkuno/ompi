@@ -5,11 +5,13 @@ NAME
 
 SYNTAX
 ------
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -22,6 +24,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -37,6 +40,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -52,15 +56,20 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``datarep``: Data representation identifier (string).
+
 * ``read_conversion_fn``: Function invoked to convert from file representation to native
-* ````: write_conversion_fn
-* ``representation(function).``: 
-* ``Functioninvokedtogettheextentofadatatypeasrepresentedin``: the file (function).
+* ``representation (function).``: 
+* ``write_conversion_fn``: Function invoked to convert from native representation to file
+* ``representation (function).``: 
+* ``dtype_file_extent_fn``: Function invoked to get the extent of a data type as represented in
+* ``the file (function).``: 
 * ``extra_state``: Extra state.
 
 OUTPUT PARAMETER
 ----------------
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION

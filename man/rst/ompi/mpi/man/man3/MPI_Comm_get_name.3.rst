@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -28,6 +30,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -40,16 +43,21 @@ Fortran 2008 Syntax
 
 INPUT PARAMETER
 ---------------
+
 * ``comm``: Communicator the name of which is to be returned (handle).
 
 OUTPUT PARAMETER
 ----------------
+
 * ``comm_name``: Name previously stored on the communicator, or an empty string if no
-* ````: resultlen
-* ````: IERROR
-* ````: DESCRIPTION
+* ``such name exists (string).``: 
+* ``resultlen``: Length of returned name (integer).
+
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
+
 ``MPI_Comm_get_name`` returns the last name that was previously associated
 with the given communicator. The name may be set and retrieved from any
 language. The same name will be returned independent of the language

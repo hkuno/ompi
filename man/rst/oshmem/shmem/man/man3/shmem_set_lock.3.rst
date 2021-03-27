@@ -8,6 +8,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -20,6 +21,7 @@ C or C++:
    int shmem_test_lock(volatile long *lock);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

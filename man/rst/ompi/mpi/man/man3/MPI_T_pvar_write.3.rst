@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,8 +17,11 @@ C Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``session``: Performance experiment session.
+
 * ``handle``: Performance variable handle.
+
 * ``buf``: Initial address of storage location for variable value.
 
 DESCRIPTION
@@ -48,6 +52,7 @@ ERRORS
 
 SEE ALSO
 --------
+
 .. code-block:: c
    :linenos:
 

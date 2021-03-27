@@ -10,6 +10,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -24,6 +25,7 @@ C or C++:
      int PE_size, long *pSync);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -160,6 +162,7 @@ In the following examples, the call to shmem_broadcast64 copies source
 on PE 4 to target on PEs 5, 6, and 7.
 
 C/C++ example:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -170,6 +173,7 @@ C/C++ example:
    shmem_broadcast64(target, source, nelems, 0, 4, 0, 4, pSync);
 
 Fortran example:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

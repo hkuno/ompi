@@ -14,6 +14,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -49,6 +50,7 @@ C or C++:
      const short *source, ptrdiff_t tst, ptrdiff_t sst, size_t len, int pe);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -181,6 +183,7 @@ EXAMPLES
 
 The following simple example uses shmem_logical_iget in a Fortran
 program. Compile this example with the -lsma compiler option.
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

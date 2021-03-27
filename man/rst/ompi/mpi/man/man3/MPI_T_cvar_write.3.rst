@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,7 +17,9 @@ C Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``handle``: Handle of the control variable to be written.
+
 * ``buf``: Initial address of storage location for variable value.
 
 DESCRIPTION
@@ -48,6 +51,7 @@ ERRORS
 
 SEE ALSO
 --------
+
 .. code-block:: c
    :linenos:
 

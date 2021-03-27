@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -16,6 +17,7 @@ C Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``stamp``: A virtual time stamp to indicate the last change to the categories.
 
 DESCRIPTION

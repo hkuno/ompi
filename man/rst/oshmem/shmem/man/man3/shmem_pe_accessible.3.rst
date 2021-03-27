@@ -8,6 +8,7 @@ SYNOPSIS
 --------
 
 C:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -16,6 +17,7 @@ C:
    int shmem_pe_accessible(int pe);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

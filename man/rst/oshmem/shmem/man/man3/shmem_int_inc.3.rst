@@ -9,6 +9,7 @@ SYNOPSIS
 --------
 
 C or C++:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 
@@ -21,6 +22,7 @@ C or C++:
    long long shmem_longlong_inc(long long *target, int pe);
 
 Fortran:
+
 .. code-block:: FOOBAR_ERROR
    :linenos:
 

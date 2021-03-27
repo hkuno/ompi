@@ -9,6 +9,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -18,6 +19,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -29,6 +31,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -41,18 +44,25 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``group1``: First group (handle).
+
 * ``n``: Number of ranks in ranks1 and ranks2 arrays (integer).
+
 * ``ranks1``: Array of zero or more valid ranks in group1.
+
 * ``group2``: Second group (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``ranks2``: Array of corresponding ranks in group2, MPI_UNDEFINED when no
-* ````: IERROR
-* ````: DESCRIPTION
+* ``correspondence exists.``: 
+* ``IERROR``: Fortran only: Error status (integer).
+
 DESCRIPTION
 -----------
+
 This function is important for determining the relative numbering of the
 same processes in two different groups. For instance, if one knows the
 ranks of certain processes in the group of ``MPI_COMM_WORLD``, one might

@@ -8,6 +8,7 @@ SYNTAX
 
 C Syntax
 ~~~~~~~~
+
 .. code-block:: c
    :linenos:
 
@@ -17,6 +18,7 @@ C Syntax
 
 Fortran Syntax
 ~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -28,6 +30,7 @@ Fortran Syntax
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: fortran
    :linenos:
 
@@ -42,14 +45,20 @@ Fortran 2008 Syntax
 
 INPUT PARAMETERS
 ----------------
+
 * ``inbuf``: Address of input buffer (choice).
+
 * ``count``: Number of elements in input buffer (integer).
+
 * ``datatype``: Data type of elements of input buffer (handle).
+
 * ``op``: Reduce operation (handle).
 
 OUTPUT PARAMETERS
 -----------------
+
 * ``inoutbuf``: Address of in/out buffer (choice).
+
 * ``IERROR``: Fortran only: Error status (integer).
 
 DESCRIPTION
@@ -116,6 +125,7 @@ of the MPI Standard, "User-Defined Operations."
 The following predefined operations are supplied for ``MPI_Reduce_local``
 and related functions ``MPI_Allreduce``, ``MPI_Reduce_scatter``, and ``MPI_Scan``.
 These operations are invoked by placing the following in op:
+
 .. code-block:: fortran
    :linenos:
 
@@ -138,6 +148,7 @@ The two operations MPI_MINLOC and MPI_MAXLOC are discussed separately
 below (MINLOC and MAXLOC). For the other predefined operations, we
 enumerate below the allowed combinations of op and datatype arguments.
 First, define groups of MPI basic datatypes in the following way:
+
 .. code-block:: fortran
    :linenos:
 
@@ -152,6 +163,7 @@ First, define groups of MPI basic datatypes in the following way:
    	Byte:                 MPI_BYTE
 
 Now, the valid datatypes for each option is specified below.
+
 .. code-block:: fortran
    :linenos:
 
@@ -179,6 +191,7 @@ global minimum (maximum) and the rank of the process containing this
 value.
 
 The operation that defines ``MPI_MAXLOC`` is
+
 .. code-block:: fortran
    :linenos:
 
@@ -242,6 +255,7 @@ must provide a datatype argument that represents a pair (value and
 index). MPI provides nine such predefined datatypes. The operations
 MPI_MAXLOC and MPI_MINLOC can be used with each of the following
 datatypes:
+
 .. code-block:: fortran
    :linenos:
 
@@ -261,6 +275,7 @@ datatypes:
        MPI_LONG_DOUBLE_INT      long double and int
 
 The data type MPI_2REAL is equivalent to:
+
 .. code-block:: fortran
    :linenos:
 
@@ -271,6 +286,7 @@ MPI_2INT.
 
 The datatype MPI_FLOAT_INT is as if defined by the following sequence of
 instructions.
+
 .. code-block:: fortran
    :linenos:
 
