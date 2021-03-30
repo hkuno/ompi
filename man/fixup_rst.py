@@ -90,47 +90,48 @@ SKIP=0
 # Walk through all the lines, working on a section at a time
 for i in range(len(in_lines)):
   curline = in_lines[i].rstrip()
-  if (i < len(in_lines) - 1):
-    nextline = in_lines[i+1].rstrip()
   if (i > 0):
     prevline = in_lines[i-1].rstrip()
 
-  if dline.match(nextline):
-    CODEBLOCK=False
-    SKIP+=1
-    if paramsect.match(curline):
-      PARAM=True
-    else:
-      PARAM=False
-    if (curline.isupper()):
-      # level 1 heading
-      print(f"{curline}\n{re.sub('=','-',nextline)}")
-    else:
-      print(f"{curline}\n{re.sub('=','~',nextline)}")
-    if syntaxsect.match(curline):
-      LANGUAGE=(re.split(' ',curline)[0]).lower()
-  elif codeblock.match(curline):
-      print(f"\n.. code-block:: {LANGUAGE}\n   :linenos:")
-      CODEBLOCK=True
-      SKIP+=1
+  if (i == len(in_lines) - 1):
+    curline = re.sub(r'[\*]*MPI_[A-Z][A-Za-z_]*[\*]*',mpicmdrepl,curline)
+    print(f"{curline}")
   else:
-      if (SKIP == 0):
-        if CODEBLOCK:
-          print(in_lines[i-1])
-        elif PARAM:
-          # combine into parameter bullet-item (Note: check if multiline param)
-          paramline1 = re.sub('\n','',curline)
-          paramline1 = re.sub('^[ ]*','',paramline1)
-          paramline2 = nextline
-          while not nextline:
-            paramline2 += re.sub('^[ ]*','',nextline)
-            nextline = in_lines[i+1]
-            SKIP+=1
-
-          print(f"* ``{paramline1}``: {paramline2}")
-        else:
-            # e.g., turn **MPI_Abort** and *MPI_Abort* into ``MPI_Abort``
-            curline = re.sub(r'[\*]*MPI_[A-Z][A-Za-z_]*[\*]*',mpicmdrepl,curline)
-            print(f"{curline}")
-      else: 
-          SKIP-=1
+    nextline = in_lines[i+1].rstrip()
+    if dline.match(nextline):
+      CODEBLOCK=False
+      SKIP+=1
+      if paramsect.match(curline):
+        PARAM=True
+      else:
+        PARAM=False
+      if (curline.isupper()):
+        # level 1 heading
+        print(f"{curline}\n{re.sub('=','-',nextline)}")
+      else:
+        print(f"{curline}\n{re.sub('=','~',nextline)}")
+      if syntaxsect.match(curline):
+        LANGUAGE=(re.split(' ',curline)[0]).lower()
+    elif codeblock.match(curline):
+        print(f"\n.. code-block:: {LANGUAGE}\n   :linenos:")
+        CODEBLOCK=True
+        SKIP+=1
+    else:
+        if (SKIP == 0):
+          if CODEBLOCK:
+            print(in_lines[i-1])
+          elif PARAM:
+            # combine into parameter bullet-item (Note: check if multiline param)
+            if not curline:
+              print(f"{curline}") 
+            else:
+              paramline1 = re.sub('^[ ]*','',curline)
+              paramline2 = re.sub('^[ ]*','',nextline)
+              print(f"* ``{paramline1}``: {paramline2}")
+              SKIP+=1
+          else:
+              # e.g., turn **MPI_Abort** and *MPI_Abort* into ``MPI_Abort``
+              curline = re.sub(r'[\*]*MPI_[A-Z][A-Za-z_]*[\*]*',mpicmdrepl,curline)
+              print(f"{curline}")
+        else: 
+            SKIP-=1
