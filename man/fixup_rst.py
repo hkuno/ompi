@@ -1,39 +1,72 @@
 #!/usr/bin/env python3
 
-# Regular expression module
-# See https://docs.python.org/3/library/re.html
+# This script walks through a pandoc-generated rst file and improves its
+# formatting so that it looks more like:
+#      https://github.com/sphinx-doc/sphinx/tree/3.x/doc/man
+#
+# Headings 
+#  - First level headings are underlined with '='.
+#  - Second level headings are underlined with '~'.
+#
+# Highlighting
+#  - The first mention of program (e.g., MPI_Abort) is annotated like the following:
+#      :program:`MPI_Abort`
+#  - All MPI_* commands are listed verbatim, with no emphasis: ``MPI_Abort``
+#
+# Special sections (code blocks, parameter lists)
+#  - Put parameters are on a single line: * ``parameter``:  description
+#  - Prefix code blocks with:
+#      .. code-block:: [LANGUAGE]
+#         :linenos:
+#
+#  TODO
+#  - Add ".. :seelso::" for MPI commands that do not forward to this page
+#    (Note to self: verify that doing this would actually produce good output.)
+#  - Convert existing "SEE ALSO" sections into ".. :seelso::" 
+
 import re
 import sys
+import os
 
-fname=sys.argv[1]
+APPNAME=os.path.basename(__file__)
+DIRNAME=os.path.dirname(__file__)
 
-# Helpful for when learning python -- "prettyprint"
-from pprint import pprint
+def usage():
+    print(f"{APPNAME} <input_file> [<output_file>]\n")
 
-# Read in as an array of lines. 
-with open(fname) as fp:
-    foo_lines = fp.readlines()
+# Get input and optional output files
+in_fname = sys.argv[1]
+
+# TODO: optionally print to output file
+if (len(sys.argv) > 2):
+    out_fname=sys.argv[2]
+    with open(out_fname,'w') as outfile:
+        indname=os.path.dirname(in_fname)
+else:
+    outfile=sys.stdout
+
+# TODO: append to output_lines instead of printing lines
+output_lines = list()
+
+# Read input as an array of lines, then 
+# walk through the input, identifying sections by their headings.
+with open(in_fname) as fp:
+    in_lines = fp.readlines()
 
 # PATTERNS
-
 # delimiter line (occurs after the heading text)
 dline=re.compile("^[=]+")
 
 # Heading patterns
 
-# heading1 does NOT contain lowercase letters
-lowercase=re.compile(".*[a-z]")
-alpha=re.compile(".*[a-zA-Z]")
-
 # heading2 may contain lowercase letters
-head2cand=re.compile("^[A-Z][A-Za-z]*")
+heading2=re.compile("^[A-Z][A-Za-z]*")
 
 # Syntax heading2 indicates language
-Syntaxcand=re.compile(".*Syntax$")
+syntaxsect=re.compile(".*Syntax$")
 
 # Indicates parameters in body
-paramcand=re.compile(".*PARAMETER")
-
+paramsect=re.compile(".*PARAMETER")
 
 # codeblock pattern
 codeblock=re.compile("^::")
@@ -42,10 +75,6 @@ codeblock=re.compile("^::")
 def mpicmdrepl(match):
     match = match.group()
     match = match.replace('*','')
-    return ('``' + match + '``')
-
-def cmdrepl(match):
-    match = match.group()
     return ('``' + match + '``')
 
 # for labeling codeblocks
@@ -58,55 +87,50 @@ CODEBLOCK=False
 # for tracking combined lines
 SKIP=0
 
-# We walk through all the lines, looking ahead one or two lines
-for i in range(len(foo_lines)):
+# Walk through all the lines, working on a section at a time
+for i in range(len(in_lines)):
+  curline = in_lines[i].rstrip()
+  if (i < len(in_lines) - 1):
+    nextline = in_lines[i+1].rstrip()
   if (i > 0):
-    if dline.match(foo_lines[i]):
-      CODEBLOCK=False
-      SKIP+=1
-      if (not lowercase.match(foo_lines[i-1]) and paramcand.match(foo_lines[i-1])):
-        PARAM=True
-      else:
-        PARAM=False
-      if not lowercase.match(foo_lines[i-1]):
-        # level 1 heading
-        print(f"{foo_lines[i-1]}{re.sub('=','-',foo_lines[i])}",end='')
-      elif Syntaxcand.match(foo_lines[i-1]):
-        # level 2 heading
-        print(f"{foo_lines[i-1]}{re.sub('=','~',foo_lines[i])}",end='')
-        LANGUAGE=(re.split(' ',foo_lines[i-1])[0]).lower()
-      elif head2cand.match(foo_lines[i-1]):
-        # level 2 heading
-        print(f"{foo_lines[i-1]}{re.sub('=','~',foo_lines[i])}",end='')
-    elif codeblock.match(foo_lines[i]):
-      # codeblock
-      print(f"\n.. code-block:: {LANGUAGE}\n   :linenos:")
-      SKIP+=1
-      CODEBLOCK=True
-    else:
-      if (SKIP == 0):
-        if PARAM:
-          # parameter bullet-item
-          if (alpha.match(foo_lines[i-1])):
-            curline = re.sub('\n','',foo_lines[i-1])
-            curline = re.sub('^[ ]*','',curline)
-            nextline = re.sub('^[ ]*','',foo_lines[i])
-            print(f"* ``{curline}``: {nextline}",end='')
-            SKIP+=1
-          else:
-            print(f"{foo_lines[i-1]}",end='')
-        elif CODEBLOCK:
-          # body text
-            print(foo_lines[i-1], end='')
-        else:
-            # e.g., turn **MPI_Abort** into MPI_Abort
-            prevline = re.sub(r'[\*]*MPI_[A-Z][A-Za-z_]*[\*]*',mpicmdrepl,foo_lines[i-1])
+    prevline = in_lines[i-1].rstrip()
 
-            # e.g., turn MPI_Abort into ``MPI_Abort``
-            prevline = re.sub(r'\*[a-z][a-z]*',cmdrepl,prevline)
-            print(f"{prevline}",end='')
+  if dline.match(nextline):
+    CODEBLOCK=False
+    SKIP+=1
+    if paramsect.match(curline):
+      PARAM=True
+    else:
+      PARAM=False
+    if (curline.isupper()):
+      # level 1 heading
+      print(f"{curline}\n{re.sub('=','-',nextline)}")
+    else:
+      print(f"{curline}\n{re.sub('=','~',nextline)}")
+    if syntaxsect.match(curline):
+      LANGUAGE=(re.split(' ',curline)[0]).lower()
+  elif codeblock.match(curline):
+      print(f"\n.. code-block:: {LANGUAGE}\n   :linenos:")
+      CODEBLOCK=True
+      SKIP+=1
+  else:
+      if (SKIP == 0):
+        if CODEBLOCK:
+          print(in_lines[i-1])
+        elif PARAM:
+          # combine into parameter bullet-item (Note: check if multiline param)
+          paramline1 = re.sub('\n','',curline)
+          paramline1 = re.sub('^[ ]*','',paramline1)
+          paramline2 = nextline
+          while not nextline:
+            paramline2 += re.sub('^[ ]*','',nextline)
+            nextline = in_lines[i+1]
+            SKIP+=1
+
+          print(f"* ``{paramline1}``: {paramline2}")
+        else:
+            # e.g., turn **MPI_Abort** and *MPI_Abort* into ``MPI_Abort``
+            curline = re.sub(r'[\*]*MPI_[A-Z][A-Za-z_]*[\*]*',mpicmdrepl,curline)
+            print(f"{curline}")
       else: 
           SKIP-=1
-
-# print out last line
-print(foo_lines[len(foo_lines)-1],end='')
