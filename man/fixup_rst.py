@@ -113,7 +113,7 @@ for i in range(len(in_lines)):
       if syntaxsect.match(curline):
         LANGUAGE=(re.split(' ',curline)[0]).lower()
     elif codeblock.match(curline):
-        print(f"\n.. code-block:: {LANGUAGE}\n   :linenos:")
+        print(f".. code-block:: {LANGUAGE}\n   :linenos:")
         CODEBLOCK=True
         SKIP+=1
     else:
