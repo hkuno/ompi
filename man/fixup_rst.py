@@ -20,9 +20,9 @@
 #         :linenos:
 #
 #  TODO
+#  - Convert existing "SEE ALSO" sections into ".. :seelso::" 
 #  - Add ".. :seelso::" for MPI commands that do not forward to this page
 #    (Note to self: verify that doing this would actually produce good output.)
-#  - Convert existing "SEE ALSO" sections into ".. :seelso::" 
 
 import re
 import sys
@@ -53,23 +53,24 @@ output_lines = list()
 with open(in_fname) as fp:
     in_lines = fp.readlines()
 
+
 # PATTERNS
 # delimiter line (occurs after the heading text)
 dline=re.compile("^[=]+")
 
-# Heading patterns
-
-# heading2 may contain lowercase letters
-heading2=re.compile("^[A-Z][A-Za-z]*")
-
-# Syntax heading2 indicates language
-syntaxsect=re.compile(".*Syntax$")
-
 # Indicates parameters in body
 paramsect=re.compile(".*PARAMETER")
 
+# includes ':'
+contains_colon=re.compile(".*:")
+
 # codeblock pattern
 codeblock=re.compile("^::")
+
+# languages
+fortran_lang=re.compile(".*Fortran", re.IGNORECASE)
+cpp_lang=re.compile(".*C\+\+", re.IGNORECASE)
+c_lang=re.compile(".*C\s", re.IGNORECASE)
 
 # repl functions
 def mpicmdrepl(match):
@@ -79,6 +80,19 @@ def mpicmdrepl(match):
 
 # for labeling codeblocks
 LANGUAGE="FOOBAR_ERROR"
+
+# We only need to detect languages that ompi supports
+# Just pick the first match.
+def get_cb_language(aline):
+    #LANG="FOOBAR_ERROR: " + aline
+    LANG=""
+    if fortran_lang.match(aline):
+      LANG="fortran" 
+    elif cpp_lang.match(aline):
+      LANG="c++" 
+    elif c_lang.match(aline):
+      LANG="c" 
+    return(LANG)
 
 # for keeping track of state
 PARAM=False
@@ -100,35 +114,58 @@ for i in range(len(in_lines)):
     nextline = in_lines[i+1].rstrip()
     if dline.match(nextline):
       CODEBLOCK=False
+      PARAM=False
       SKIP+=1
       if paramsect.match(curline):
         PARAM=True
-      else:
-        PARAM=False
       if (curline.isupper()):
         # level 1 heading
         print(f"{curline}\n{re.sub('=','-',nextline)}")
       else:
+        # level 2 heading
         print(f"{curline}\n{re.sub('=','~',nextline)}")
-      if syntaxsect.match(curline):
-        LANGUAGE=(re.split(' ',curline)[0]).lower()
     elif codeblock.match(curline):
-        print(f".. code-block:: {LANGUAGE}\n   :linenos:")
-        CODEBLOCK=True
-        SKIP+=1
+        curlangline=prevline
+        nextlangline=nextline
+        d=1
+        while (not curlangline) or dline.match(curlangline):
+          curlangline = in_lines[i-d].rstrip()
+          nextlangline = in_lines[i-d+1].rstrip()
+          d += 1
+        LANGUAGE = get_cb_language(curlangline)
+        if (LANGUAGE):
+          print(f".. code-block:: {LANGUAGE}\n   :linenos:\n")
+          CODEBLOCK=True
+          SKIP+=1
+#        else:
+#          print(f"FOOBAR: {curlangline}\n")
+        # ignore the '::'
     else:
         if (SKIP == 0):
           if CODEBLOCK:
-            print(in_lines[i-1])
+            print(f"{curline}")
           elif PARAM:
             # combine into parameter bullet-item (Note: check if multiline param)
             if not curline:
               print(f"{curline}") 
             else:
               paramline1 = re.sub('^[ ]*','',curline)
-              paramline2 = re.sub('^[ ]*','',nextline)
-              print(f"* ``{paramline1}``: {paramline2}")
-              SKIP+=1
+              if (contains_colon.match(curline)):
+                paramline1,paramline2 = re.split(r':',paramline1)
+                if not paramline2:
+                  paramline2 = re.sub('^[ ]*','',nextline)
+                  SKIP+=1
+              else:
+                paramline2 = re.sub('^[ ]*','',nextline)
+                SKIP+=1
+              d=1
+              nextpline=in_lines[i+d].rstrip()
+              while (nextpline):
+                d += 1
+                nextpline=in_lines[i+d].rstrip()
+                paramline2 += ' ' + re.sub('^[ ]*','',nextpline)
+                SKIP += 1
+              print(f"* ``{paramline1}``: {paramline2}\n")
           else:
               # e.g., turn **MPI_Abort** and *MPI_Abort* into ``MPI_Abort``
               curline = re.sub(r'[\*]*MPI_[A-Z][A-Za-z_]*[\*]*',mpicmdrepl,curline)
