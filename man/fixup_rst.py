@@ -9,8 +9,6 @@
 #  - Second level headings are underlined with '~'.
 #
 # Highlighting
-#  - The first mention of program (e.g., MPI_Abort) is annotated like the following:
-#      :program:`MPI_Abort`
 #  - All MPI_* commands are listed verbatim, with no emphasis: ``MPI_Abort``
 #
 # Special sections (code blocks, parameter lists)
@@ -18,8 +16,12 @@
 #  - Prefix code blocks with:
 #      .. code-block:: [LANGUAGE]
 #         :linenos:
+#  - Leave other verbatim blocks alone.
 #
 #  TODO
+#  - Fix indentation on bullet lists or (better?) join into a single line
+#  - Replace NAME with the name of the program? Or add a line like the following?
+#      :program:`MPI_Abort`
 #  - Convert existing "SEE ALSO" sections into ".. :seelso::" 
 #  - Add ".. :seelso::" for MPI commands that do not forward to this page
 #    (Note to self: verify that doing this would actually produce good output.)
@@ -53,8 +55,10 @@ output_lines = list()
 with open(in_fname) as fp:
     in_lines = fp.readlines()
 
-
 # PATTERNS
+# include file
+include_pat = re.compile("\.\. include::")
+
 # delimiter line (occurs after the heading text)
 dline=re.compile("^[=]+")
 
@@ -70,7 +74,9 @@ codeblock=re.compile("^::")
 # languages
 fortran_lang=re.compile(".*Fortran", re.IGNORECASE)
 cpp_lang=re.compile(".*C\+\+", re.IGNORECASE)
-c_lang=re.compile(".*C\s", re.IGNORECASE)
+c_lang=re.compile(".*C[^a-zA-Z]", re.IGNORECASE)
+#mpi_lang=re.compile(".*MPI[^_a-zA-Z]", re.IGNORECASE)
+mpi_lang=re.compile(".*MPI[^a-zA-Z]", re.IGNORECASE)
 
 # repl functions
 def mpicmdrepl(match):
@@ -92,6 +98,8 @@ def get_cb_language(aline):
       LANG="c++" 
     elif c_lang.match(aline):
       LANG="c" 
+#    elif mpi_lang.match(aline):
+#      LANG="mpi" 
     return(LANG)
 
 # for keeping track of state
@@ -101,6 +109,7 @@ CODEBLOCK=False
 # for tracking combined lines
 SKIP=0
 
+
 # Walk through all the lines, working on a section at a time
 for i in range(len(in_lines)):
   curline = in_lines[i].rstrip()
@@ -108,7 +117,8 @@ for i in range(len(in_lines)):
     prevline = in_lines[i-1].rstrip()
 
   if (i == len(in_lines) - 1):
-    curline = re.sub(r'[\*]*MPI_[A-Z][A-Za-z_]*[\*]*',mpicmdrepl,curline)
+    if ( not include_pat.match(curline) ):
+      curline = re.sub(r'[\*]*MPI_[A-Z][0-9A-Za-z_]*[\*]*',mpicmdrepl,curline)
     print(f"{curline}")
   else:
     nextline = in_lines[i+1].rstrip()
@@ -125,21 +135,26 @@ for i in range(len(in_lines)):
         # level 2 heading
         print(f"{curline}\n{re.sub('=','~',nextline)}")
     elif codeblock.match(curline):
-        curlangline=prevline
+        prevlangline=prevline
         nextlangline=nextline
         d=1
-        while (not curlangline) or dline.match(curlangline):
-          curlangline = in_lines[i-d].rstrip()
-          nextlangline = in_lines[i-d+1].rstrip()
+        while (not prevlangline) or dline.match(prevlangline):
+          prevlangline = in_lines[i-d].rstrip()
+          curlangline = in_lines[i-d+1].rstrip()
           d += 1
-        LANGUAGE = get_cb_language(curlangline)
-        if (LANGUAGE):
+        LANGUAGE = get_cb_language(prevlangline)
+        while (not LANGUAGE) and (not dline.match(prevlangline)):
+          prevlangline = in_lines[i-d].rstrip()
+          curlangline = in_lines[i-d+1].rstrip()
+          d += 1
+          LANGUAGE = get_cb_language(prevlangline)
+        if (LANGUAGE == "mpi") or (not LANGUAGE):
+          CODEBLOCK=True
+          print(f"{curline}")
+        else:
           print(f".. code-block:: {LANGUAGE}\n   :linenos:\n")
           CODEBLOCK=True
           SKIP+=1
-#        else:
-#          print(f"FOOBAR: {curlangline}\n")
-        # ignore the '::'
     else:
         if (SKIP == 0):
           if CODEBLOCK:
@@ -168,7 +183,7 @@ for i in range(len(in_lines)):
               print(f"* ``{paramline1}``: {paramline2}\n")
           else:
               # e.g., turn **MPI_Abort** and *MPI_Abort* into ``MPI_Abort``
-              curline = re.sub(r'[\*]*MPI_[A-Z][A-Za-z_]*[\*]*',mpicmdrepl,curline)
+              curline = re.sub(r'[\*]*MPI_[A-Z][()0-9A-Za-z_]*[\*]*',mpicmdrepl,curline)
               print(f"{curline}")
         else: 
             SKIP-=1
