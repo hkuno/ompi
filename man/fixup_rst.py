@@ -17,9 +17,10 @@
 #      .. code-block:: [LANGUAGE]
 #         :linenos:
 #  - Leave other verbatim blocks alone.
+#  - Fix indentation on bullet lists or (better?) join into a single line
+#  - Combine bullet items into a single line
 #
 #  TODO
-#  - Fix indentation on bullet lists or (better?) join into a single line
 #  - Replace NAME with the name of the program? Or add a line like the following?
 #      :program:`MPI_Abort`
 #  - Convert existing "SEE ALSO" sections into ".. :seelso::" 
@@ -62,6 +63,9 @@ include_pat = re.compile("\.\. include::")
 # delimiter line (occurs after the heading text)
 dline=re.compile("^[=]+")
 
+# bullet item
+bullet=re.compile("^[\s]*\- ")
+
 # Indicates parameters in body
 paramsect=re.compile(".*PARAMETER")
 
@@ -75,8 +79,7 @@ codeblock=re.compile("^::")
 fortran_lang=re.compile(".*Fortran", re.IGNORECASE)
 cpp_lang=re.compile(".*C\+\+", re.IGNORECASE)
 c_lang=re.compile(".*C[^a-zA-Z]", re.IGNORECASE)
-#mpi_lang=re.compile(".*MPI[^_a-zA-Z]", re.IGNORECASE)
-mpi_lang=re.compile(".*MPI[^a-zA-Z]", re.IGNORECASE)
+#mpi_lang=re.compile(".*MPI[^a-zA-Z]", re.IGNORECASE)
 
 # repl functions
 def mpicmdrepl(match):
@@ -105,6 +108,7 @@ def get_cb_language(aline):
 # for keeping track of state
 PARAM=False
 CODEBLOCK=False
+BULLETITEM=False
 
 # for tracking combined lines
 SKIP=0
@@ -143,13 +147,8 @@ for i in range(len(in_lines)):
           curlangline = in_lines[i-d+1].rstrip()
           d += 1
         LANGUAGE = get_cb_language(prevlangline)
-        while (not LANGUAGE) and (not dline.match(prevlangline)):
-          prevlangline = in_lines[i-d].rstrip()
-          curlangline = in_lines[i-d+1].rstrip()
-          d += 1
-          LANGUAGE = get_cb_language(prevlangline)
-        if (LANGUAGE == "mpi") or (not LANGUAGE):
-          CODEBLOCK=True
+        if (not LANGUAGE):
+          CODEBLOCK=False
           print(f"{curline}")
         else:
           print(f".. code-block:: {LANGUAGE}\n   :linenos:\n")
@@ -184,6 +183,17 @@ for i in range(len(in_lines)):
           else:
               # e.g., turn **MPI_Abort** and *MPI_Abort* into ``MPI_Abort``
               curline = re.sub(r'[\*]*MPI_[A-Z][()0-9A-Za-z_]*[\*]*',mpicmdrepl,curline)
-              print(f"{curline}")
+              if bullet.match(curline):
+                d=1
+                nextbline=in_lines[i+d].rstrip()
+                bline2 = nextline
+                while (nextbline):
+                  d += 1
+                  nextbline=in_lines[i+d].rstrip()
+                  bline2 += ' ' + re.sub('^[ ]*','',nextbline)
+                  SKIP += 1
+                print(f"{curline} {bline2}\n")
+              else:
+                print(f"{curline}")
         else: 
             SKIP-=1
