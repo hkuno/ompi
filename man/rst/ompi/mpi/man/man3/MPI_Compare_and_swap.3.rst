@@ -20,7 +20,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -29,7 +29,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	TARGET_DISP, WIN, IERROR)
    	<type> ORIGIN_ADDR, COMPARE_ADDR, RESULT_ADDR(*)
    	INTEGER(KIND=MPI_ADDRESS_KIND) TARGET_DISP
-   	INTEGER DATATYPE, TARGET_RANK, WIN, IERROR 
+   	INTEGER DATATYPE, TARGET_RANK, WIN, IERROR
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -51,39 +51,32 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``origin_addr``: Initial address of buffer (choice).
 
-* ``compare_addr``: Initial address of compare buffer (choice).
 
-* ``result_addr``: Initial address of result buffer (choice).
 
-* ``datatype``: Data type of the entry in origin, result, and target buffers
-* ``(handle).``: 
-* ``target_rank``: Rank of target (nonnegative integer).
 
-* ``target_disp``: Displacement from start of window to beginning of target buffer
-* ``(nonnegative integer).``: 
-* ``win``: Window object (handle).
+
+
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-This function compares one element of type ``*datatype``* in the compare
-buffer ``*compare``_addr* with the buffer at offset ``*target``_disp* in the
-target window specified by ``*target``_rank* and ``*win``* and replaces the
-value at the target with the value in the origin buffer ``*origin``_addr* if
+This function compares one element of type *datatype* in the compare
+buffer *compare_addr* with the buffer at offset *target_disp* in the
+target window specified by *target_rank* and *win* and replaces the
+value at the target with the value in the origin buffer *origin_addr* if
 the compare buffer and the target buffer are identical. The original
-value at the target is returned in the buffer ``*result``_addr*. The
-parameter ``*datatype``* must belong to one of the following categories of
+value at the target is returned in the buffer *result_addr*. The
+parameter *datatype* must belong to one of the following categories of
 predefined datatypes: C integer, Fortran integer, Logical,
 Multi-language types, or Byte as specified in MPI-3 § 5.9.2 on page 176.
 
-The origin and result buffers (``*origin``_addr* and ``*result``_addr*) must be
+The origin and result buffers (*origin_addr* and *result_addr*) must be
 disjoint.
 
 FORTRAN 77 NOTES
@@ -93,8 +86,7 @@ The MPI standard prescribes portable Fortran syntax for the
 *TARGET_DISP* argument only for Fortran 90. FORTRAN 77 users may use the
 non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND TARGET_DISP
 

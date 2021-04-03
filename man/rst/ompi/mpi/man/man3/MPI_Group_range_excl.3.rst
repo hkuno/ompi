@@ -44,19 +44,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``group``: Group (handle).
 
-* ``n``: Number of triplets in array ranges (integer).
 
-* ``ranges``: A one-dimensional array of integer triplets of the form (first rank,
-* ``last rank, stride), indicating the ranks in group of processes to be``: excluded from the output group newgroup.
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newgroup``: New group derived from above, preserving the order in group (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -88,4 +83,4 @@ SEE ALSO
 --------
 
 | ``MPI_Group_excl``
-| MPI_Group_free
+| ``MPI_Group_free``

@@ -1,18 +1,18 @@
 NAME
 ----
 
-``*shmem``_collect4*\ (3), ``*shmem``_collect8*\ (3), ``*shmem``_collect32*\ (3),
-``*shmem``_collect64*\ (3), ``*shmem``_fcollect*\ (3), ``*shmem``_fcollect4*\ (3),
-``*shmem``_fcollect8*\ (3), ``*shmem``_fcollect32*\ (3), ``*shmem``_fcollect64*\ (3)
-- Concatenates blocks of data from multiple processing elements (PEs) to
-an array in every PE
+*shmem_collect4*\ (3), *shmem_collect8*\ (3), *shmem_collect32*\ (3),
+*shmem_collect64*\ (3), *shmem_fcollect*\ (3), *shmem_fcollect4*\ (3),
+*shmem_fcollect8*\ (3), *shmem_fcollect32*\ (3), *shmem_fcollect64*\ (3)
+- Concatenates blocks of data from multiple processing elements (PEs) to an array in every PE 
+
 
 SYNOPSIS
 --------
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -35,7 +35,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -73,8 +73,7 @@ PE to PE.
 
 The resulting target array is as follows:
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    ----------------------------------------------------------
       source(1..nelems)
@@ -154,7 +153,7 @@ restored to the original values.
 NOTES
 -----
 
-The terms collective and symmetric are defined in ``*intro``_shmem*\ (3).
+The terms collective and symmetric are defined in *intro_shmem*\ (3).
 All SHMEM collective routines reset the values in pSync before they
 return, so a particular pSync buffer need only be initialized the first
 time it is used.
@@ -182,7 +181,7 @@ EXAMPLES
 
 C/C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    for (i=0; i < _SHMEM_COLLECT_SYNC_SIZE; i++) {
@@ -194,7 +193,7 @@ C/C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INTEGER PSYNC(SHMEM_COLLECT_SYNC_SIZE)

@@ -8,8 +8,6 @@ collective routine (nonblocking).
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -50,30 +48,26 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``fh``: File handle (handle).
 
 INPUT PARAMETERS
 ----------------
 
-* ``buf``: Initial address of buffer (choice).
 
-* ``count``: Number of elements in buffer (integer).
 
-* ``datatype``: Data type of each buffer element (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_File_write_all_begin`` is the beginning part of a split collective,
 nonblocking routine that attempts to write into the file associated with
-``*fh``* (at the current individual file pointer position maintained by the
-system) a total number of ``*count``* data items having ``*datatype``* type from
-the user's buffer ``*buf``.* The data is written into those parts of the
+*fh* (at the current individual file pointer position maintained by the
+system) a total number of *count* data items having *datatype* type from
+the user's buffer *buf.* The data is written into those parts of the
 file specified by the current view.
 
 NOTES

@@ -29,19 +29,17 @@ Fortran Syntax
 INPUT PARAMETER
 ---------------
 
-* ``datatype``: Datatype (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``displacement``: Displacement of upper bound from origin, in bytes (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Note that use of this routine is ``*deprecated``* as of MPI-2. Please use
+Note that use of this routine is *deprecated* as of MPI-2. Please use
 ``MPI_Type_get_extent`` instead.
 
 ``MPI_Type_ub`` returns the upper bound of a data type. This will differ
@@ -50,7 +48,7 @@ take into account any alignment considerations.
 
 The "pseudo-datatypes," ``MPI_LB`` and ``MPI_UB``, can be used, respectively, to
 mark the upper bound (or the lower bound) of a datatype. These
-pseudo-datatypes occupy no space (extent (``MPI_LB``) = extent (``MPI_UB``) =0.
+pseudo-datatypes occupy no space (extent (``MPI_LB)`` = extent (``MPI_UB)`` =0.
 They do not affect the size or count of a datatype, and do not affect
 the context of a message created with this datatype. However, they do
 affect the definition of the extent of a datatype and, therefore, affect
@@ -58,16 +56,14 @@ the outcome of a replication of this datatype by a datatype constructor.
 
 In general, if
 
-.. code-block:: fortran
-   :linenos:
+::
 
 
        Typemap = {(type(0), disp(0)), ..., (type(n-1), disp(n-1))}
 
 then the lower bound of Typemap is defined to be
 
-.. code-block:: fortran
-   :linenos:
+::
 
 
                      (min(j) disp(j)                          if no entry has
@@ -76,8 +72,7 @@ then the lower bound of Typemap is defined to be
 
 Similarly, the upper bound of Typemap is defined to be
 
-.. code-block:: fortran
-   :linenos:
+::
 
 
                      (max(j) disp(j) + sizeof(type(j) = lb}   if no entry has
@@ -86,8 +81,7 @@ Similarly, the upper bound of Typemap is defined to be
 
 Then
 
-.. code-block:: fortran
-   :linenos:
+::
 
 
        extent(Typemap) = ub(Typemap) - lb(Typemap)
@@ -112,4 +106,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Type_get_extent
+| ``MPI_Type_get_extent``

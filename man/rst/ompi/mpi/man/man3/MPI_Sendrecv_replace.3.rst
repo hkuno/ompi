@@ -52,31 +52,22 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``buf``: Initial address of send and receive buffer (choice).
 
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Number of elements in send and receive buffer (integer).
 
-* ``datatype``: Type of elements to send and receive (handle).
 
-* ``dest``: Rank of destination (integer).
 
-* ``sendtag``: Send message tag (integer).
 
-* ``source``: Rank of source (integer).
 
-* ``recvtag``: Receive message tag (integer).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``status``: Status object (status).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -124,4 +115,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Sendrecv
+``MPI_Sendrecv``

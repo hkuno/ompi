@@ -31,12 +31,12 @@ Fortran Syntax
    MPI_REDUCE_SCATTER_BLOCK(SENDBUF, RECVBUF, RECVCOUNT, DATATYPE, OP,
    		COMM, IERROR)
    	<type>	SENDBUF(*), RECVBUF(*)
-   	INTEGER	RECVCOUNT, DATATYPE, OP, COMM, IERROR 
+   	INTEGER	RECVCOUNT, DATATYPE, OP, COMM, IERROR
 
    MPI_IREDUCE_SCATTER_BLOCK(SENDBUF, RECVBUF, RECVCOUNT, DATATYPE, OP,
    		COMM, REQUEST, IERROR)
    	<type>	SENDBUF(*), RECVBUF(*)
-   	INTEGER	RECVCOUNT, DATATYPE, OP, COMM, REQUEST, IERROR 
+   	INTEGER	RECVCOUNT, DATATYPE, OP, COMM, REQUEST, IERROR
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -69,36 +69,29 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Starting address of send buffer (choice).
 
-* ``recvcount``: lement count per block (non-negative integer).
 
-* ``datatype``: Datatype of elements of input buffer (handle).
 
-* ``op``: Operation (handle).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Starting address of receive buffer (choice).
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Reduce_scatter_block`` first does an element-wise reduction on vector
-of ``*count``* = n \* ``*recvcount``* elements in the send buffer defined by
-``*sendbuf``*, ``*count``*, and ``*datatype``*, using the operation ``*op``*, where n is
-the number of processes in the group of ``*comm``*. Next, the resulting
+of *count* = n \* *recvcount* elements in the send buffer defined by
+*sendbuf*, *count*, and *datatype*, using the operation *op*, where n is
+the number of processes in the group of *comm*. Next, the resulting
 vector of results is split into n disjoint segments, where n is the
-number of processes in the group. Each segments contains ``*recvcount``*
+number of processes in the group. Each segments contains *recvcount*
 elements. The ith segment is sent to process i and stored in the receive
-buffer defined by ``*recvbuf``*, ``*recvcount``*, and ``*datatype``*.
+buffer defined by *recvbuf*, *recvcount*, and *datatype*.
 
 USE OF IN-PLACE OPTION
 ----------------------
@@ -106,7 +99,7 @@ USE OF IN-PLACE OPTION
 When the communicator is an intracommunicator, you can perform a
 reduce-scatter operation in-place (the output buffer is used as the
 input buffer). Use the variable ``MPI_IN_PLACE`` as the value of the
-``*sendbuf``*. In this case, the input data is taken from the top of the
+*sendbuf*. In this case, the input data is taken from the top of the
 receive buffer. The area occupied by the input data may be either longer
 or shorter than the data filled by the output data.
 
@@ -119,8 +112,8 @@ performed on the data provided by the processes in the first group is
 scattered among the processes in the second group. Then the reverse
 occurs: the reduction performed on the data provided by the processes in
 the second group is scattered among the processes in the first group.
-For each group, all processes provide the same ``*recvcounts``* argument,
-and the sum of the ``*recvcounts``* values should be the same for both
+For each group, all processes provide the same *recvcounts* argument,
+and the sum of the *recvcounts* values should be the same for both
 groups.
 
 NOTES ON COLLECTIVE OPERATIONS
@@ -151,4 +144,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Reduce_scatter
+``MPI_Reduce_scatter``

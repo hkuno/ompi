@@ -29,19 +29,17 @@ Fortran Syntax
 INPUT PARAMETER
 ---------------
 
-* ``comm``: Communicator to get the error handler from (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``errhandler``: MPI error handler currently associated with communicator (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Note that use of this routine is ``*deprecated``* as of MPI-2. Please use
+Note that use of this routine is *deprecated* as of MPI-2. Please use
 ``MPI_Comm_get_errhandler`` instead.
 
 Returns in errhandler (a handle to) the error handler that is currently
@@ -70,4 +68,4 @@ SEE ALSO
 
 | ``MPI_Comm_create_errhandler``
 | ``MPI_Comm_get_errhandler``
-| MPI_Comm_set_errhandler
+| ``MPI_Comm_set_errhandler``

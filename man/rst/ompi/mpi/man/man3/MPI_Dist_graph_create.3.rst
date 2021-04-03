@@ -52,48 +52,39 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``comm_old``: Input communicator without topology (handle).
 
-* ``n``: Number of source nodes for which this process specifies edges
-* ``(non-negative integer).``: 
-* ``sources``: Array containing the *n* source nodes for which this process
-* ``specifies edges (array of non-negative integers).``: 
-* ``degrees``: Array specifying the number of destinations for each source node in
-* ``the source node array (array of non-negative integers).``: 
-* ``destinations``: Destination nodes for the source nodes in the source node array
-* ``(array of non-negative integers).``: 
-* ``weights``: Weights for source to destination edges (array of non-negative
-* ``integers).``: 
-* ``info``: Hints on optimization and interpretation of weights (handle).
 
-* ``reorder``: Ranking may be reordered (true) or not (false) (logical).
+
+
+
+
+
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``comm_dist_graph``: Communicator with distributed graph topology added (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Dist_graph_create`` creates a new communicator ``*comm``_dist_graph* with
+``MPI_Dist_graph_create`` creates a new communicator *comm_dist_graph* with
 distrubuted graph topology and returns a handle to the new communicator.
-The number of processes in ``*comm``_dist_graph* is identical to the number
-of processes in ``*comm``_old*. Concretely, each process calls the
+The number of processes in *comm_dist_graph* is identical to the number
+of processes in *comm_old*. Concretely, each process calls the
 constructor with a set of directed (source,destination) communication
-edges as described below. Every process passes an array of ``*n``* source
-nodes in the ``*sources``* array. For each source node, a non-negative
-number of destination nodes is specied in the ``*degrees``* array. The
+edges as described below. Every process passes an array of *n* source
+nodes in the *sources* array. For each source node, a non-negative
+number of destination nodes is specied in the *degrees* array. The
 destination nodes are stored in the corresponding consecutive segment of
-the ``*destinations``* array. More precisely, if the i-th node in sources is
-s, this specifies ``*degrees``*\ [i] ``*edges``* (s,d) with d of the j-th such
+the *destinations* array. More precisely, if the i-th node in sources is
+s, this specifies *degrees*\ [i] *edges* (s,d) with d of the j-th such
 edge stored in
-``*destinations``*\ [``*degrees``*\ [0]+...+\ ``*degrees``*\ [i-1]+j]. The weight of
+*destinations*\ [*degrees*\ [0]+...+\ *degrees*\ [i-1]+j]. The weight of
 this edge is stored in
-``*weights``*\ [``*degrees``*\ [0]+...+\ ``*degrees``*\ [i-1]+j]. Both the ``*sources``*
-and the ``*destinations``* arrays may contain the same node more than once,
+*weights*\ [*degrees*\ [0]+...+\ *degrees*\ [i-1]+j]. Both the *sources*
+and the *destinations* arrays may contain the same node more than once,
 and the order in which nodes are listed as destinations or sources is
 not signicant. Similarly, different processes may specify edges with the
 same source and destination nodes. Source and destination nodes must be
@@ -126,7 +117,7 @@ implementation. An application can supply the special value
 ``MPI_UNWEIGHTED`` for the weight array to indicate that all edges have the
 same (effectively no) weight. It is erroneous to supply ``MPI_UNWEIGHTED``
 for some but not all processes of comm_old. If the graph is weighted but
-``*n``* = 0, then ``MPI_WEIGHTS_EMPTY`` or any arbitrary array may be passed to
+*n* = 0, then ``MPI_WEIGHTS_EMPTY`` or any arbitrary array may be passed to
 weights. Note that ``MPI_UNWEIGHTED`` and ``MPI_WEIGHTS_EMPTY`` are not special
 weight values; rather they are special values for the total array
 argument. In Fortran, ``MPI_UNWEIGHTED`` and ``MPI_WEIGHTS_EMPTY`` are objects
@@ -150,4 +141,4 @@ SEE ALSO
 --------
 
 ``MPI_Dist_graph_create_adjacent`` ``MPI_Dist_graph_neighbors``
-MPI_Dist_graph_neighbors_count
+``MPI_Dist_graph_neighbors_count``

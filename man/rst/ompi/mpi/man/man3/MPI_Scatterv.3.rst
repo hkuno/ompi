@@ -72,31 +72,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Address of send buffer (choice, significant only at root).
 
-* ``sendcounts``: Integer array (of length group size) specifying the number of
-* ``elements to send to each processor.``: 
-* ``displs``: Integer array (of length group size). Entry i specifies the
-* ``displacement (relative to sendbuf) from which to take the outgoing``: data to process i.
 
-* ``sendtype``: Datatype of send buffer elements (handle).
 
-* ``recvcount``: Number of elements in receive buffer (integer).
 
-* ``recvtype``: Datatype of receive buffer elements (handle).
 
-* ``root``: Rank of sending process (integer).
 
-* ``comm``: Communicator (handle).
+
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Address of receive buffer (choice).
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -104,14 +93,13 @@ DESCRIPTION
 ``MPI_Scatterv`` is the inverse operation to ``MPI_Gatherv``.
 
 ``MPI_Scatterv`` extends the functionality of ``MPI_Scatter`` by allowing a
-varying count of data to be sent to each process, since ``*sendcounts``* is
+varying count of data to be sent to each process, since *sendcounts* is
 now an array. It also allows more flexibility as to where the data is
-taken from on the root, by providing the new argument, ``*displs``*.
+taken from on the root, by providing the new argument, *displs*.
 
-The outcome is as if the root executed ``*n``* send operations,
+The outcome is as if the root executed *n* send operations,
 
-.. code-block:: fortran
-   :linenos:
+::
 
        MPI_Send(sendbuf + displs[i] * extent(sendtype), \
                 sendcounts[i], sendtype, i, ...)
@@ -142,7 +130,7 @@ have a varying stride between blocks at sending (root) side, at the
 receiving side we receive 100 - *i* elements into the *i*\ th column of
 a 100 x 150 C array at process *i*.
 
-.. code-block:: fortran
+.. code-block:: c
    :linenos:
 
        MPI_Comm comm;
@@ -181,8 +169,7 @@ root process scatters sets of 100 ints to the other processes, but the
 sets of 100 are stride ints apart in the sending buffer. Requires use of
 MPI_Scatterv, where *stride* >= 100.
 
-.. code-block:: fortran
-   :linenos:
+::
 
        MPI_Comm comm;
            int gsize,*sendbuf;
@@ -207,8 +194,8 @@ USE OF IN-PLACE OPTION
 
 When the communicator is an intracommunicator, you can perform a scatter
 operation in-place (the output buffer is used as the input buffer). Use
-the variable ``MPI_IN_PLACE`` as the value of the root process ``*recvbuf``*. In
-this case, ``*recvcount``* and ``*recvtype``* are ignored, and the root process
+the variable ``MPI_IN_PLACE`` as the value of the root process *recvbuf*. In
+this case, *recvcount* and *recvtype* are ignored, and the root process
 sends no data to itself.
 
 Note that ``MPI_IN_PLACE`` is a special kind of value; it has the same
@@ -224,10 +211,10 @@ WHEN COMMUNICATOR IS AN INTER-COMMUNICATOR
 When the communicator is an inter-communicator, the root process in the
 first group sends data to all processes in the second group. The first
 group defines the root process. That process uses ``MPI_ROOT`` as the value
-of its ``*root``* argument. The remaining processes use ``MPI_PROC_NULL`` as the
-value of their ``*root``* argument. All processes in the second group use
+of its *root* argument. The remaining processes use ``MPI_PROC_NULL`` as the
+value of their *root* argument. All processes in the second group use
 the rank of that root process in the first group as the value of their
-``*root``* argument. The receive buffer argument of the root process in the
+*root* argument. The receive buffer argument of the root process in the
 first group must be consistent with the receive buffer argument of the
 processes in the second group.
 
@@ -247,8 +234,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Gather
    MPI_Gatherv

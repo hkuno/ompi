@@ -48,50 +48,42 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``inbuf``: Input buffer start (choice).
 
-* ``incount``: Number of input data items (integer).
 
-* ``datatype``: Datatype of each input data item (handle).
 
-* ``outsize``: Output buffer size, in bytes (integer).
 
-* ``comm``: Communicator for packed message (handle).
 
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``position``: Current position in buffer, in bytes (integer).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``outbuf``: Output buffer start (choice).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Packs the message in the send buffer specified by ``*inbuf``*, ``*incount``*,
-``*datatype``* into the buffer space specified by ``*outbuf``* and ``*outsize``*.
+Packs the message in the send buffer specified by *inbuf*, *incount*,
+*datatype* into the buffer space specified by *outbuf* and *outsize*.
 The input buffer can be any communication buffer allowed in ``MPI_Send``.
-The output buffer is a contiguous storage area containing ``*outsize``*
-bytes, starting at the address ``*outbuf``* (length is counted in bytes, not
+The output buffer is a contiguous storage area containing *outsize*
+bytes, starting at the address *outbuf* (length is counted in bytes, not
 elements, as if it were a communication buffer for a message of type
-``MPI_Packed``).
+``MPI_Packed)``.
 
-The input value of ``*position``* is the first location in the output buffer
-to be used for packing. ``*position``* is incremented by the size of the
-packed message, and the output value of ``*position``* is the first location
+The input value of *position* is the first location in the output buffer
+to be used for packing. *position* is incremented by the size of the
+packed message, and the output value of *position* is the first location
 in the output buffer following the locations occupied by the packed
-message. The ``*comm``* argument is the communicator that will be
+message. The *comm* argument is the communicator that will be
 subsequently used for sending the packed message.
 
 **Example:** An example using ``MPI_Pack``:
 
-.. code-block:: fortran
-   :linenos:
+::
 
        int position, i, j, a[2];
        char buff[1000];
@@ -130,4 +122,4 @@ SEE ALSO
 --------
 
 | ``MPI_Unpack``
-| MPI_Pack_size
+| ``MPI_Pack_size``

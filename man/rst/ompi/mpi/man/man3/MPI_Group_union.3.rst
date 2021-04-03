@@ -42,16 +42,13 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``group1``: First group (handle).
 
-* ``group2``: Second group (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newgroup``: Union group (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -93,4 +90,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Group_free
+| ``MPI_Group_free``

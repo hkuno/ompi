@@ -41,19 +41,17 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``group``: Group (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``size``: Number of processes in the group (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Group_size`` returns in ``*size``* the number of processes in the group.
+``MPI_Group_size`` returns in *size* the number of processes in the group.
 Thus, if group = ``MPI_GROUP_EMPTY``, then the call will return size = 0. On
 the other hand, a call with group = ``MPI_GROUP_NULL`` is erroneous.
 

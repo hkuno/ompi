@@ -44,27 +44,24 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``request``: Communication request (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``flag``: Boolean flag, same as from MPI_Test (logical).
 
-* ``status``: MPI_Status object if flag is true (status).
 
 DESCRIPTION
 -----------
 
-``MPI_Request_get_status`` sets ``*flag``*\ =\ ``*true``* if the operation is
-complete or sets ``*flag``*\ =\ ``*false``* if it is not complete. If the
-operation is complete, it returns in ``*status``* the request status. It
+``MPI_Request_get_status`` sets *flag*\ =\ *true* if the operation is
+complete or sets *flag*\ =\ *false* if it is not complete. If the
+operation is complete, it returns in *status* the request status. It
 does not deallocate or inactivate the request; a subsequent call to
 test, wait, or free should be executed with that request.
 
-If your application does not need to examine the ``*status``* field, you can
+If your application does not need to examine the *status* field, you can
 save resources by using the predefined constant ``MPI_STATUS_IGNORE`` as a
-special value for the ``*status``* argument.
+special value for the *status* argument.
 
 ERRORS
 ------

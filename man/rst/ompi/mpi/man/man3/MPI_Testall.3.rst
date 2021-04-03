@@ -48,23 +48,19 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Lists length (integer).
 
-* ``array_of_requests``: Array of requests (array of handles).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``flag``: True if previously initiated communications are complete (logical.)
 
-* ``array_of_statuses``: Array of status objects (array of status).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Returns ``*flag``* = true if all communications associated with active
+Returns *flag* = true if all communications associated with active
 handles in the array have completed (this includes the case where no
 handle in the list is active). In this case, each status entry that
 corresponds to an active handle request is set to the status of the
@@ -73,13 +69,13 @@ nonblocking communication call then it is deallocated, and the handle is
 set to ``MPI_REQUEST_NULL``. Each status entry that corresponds to a null or
 inactive handle is set to empty.
 
-Otherwise, ``*flag``* = false is returned, no request is modified and the
+Otherwise, *flag* = false is returned, no request is modified and the
 values of the status entries are undefined. This is a local operation.
 
-If your application does not need to examine the ``*array``_of_statuses*
+If your application does not need to examine the *array_of_statuses*
 field, you can save resources by using the predefined constant
 ``MPI_STATUSES_IGNORE`` can be used as a special value for the
-``*array``_of_statuses* argument.
+*array_of_statuses* argument.
 
 Errors that occurred during the execution of ``MPI_Testall`` are handled in
 the same manner as errors in ``MPI_Waitall``.
@@ -87,17 +83,17 @@ the same manner as errors in ``MPI_Waitall``.
 NOTE
 ----
 
-``*flag``* is true only if all requests have completed. Otherwise, ``*flag``* is
-false, and neither ``*array``_of_requests* nor ``*array``_of_statuses* is
+*flag* is true only if all requests have completed. Otherwise, *flag* is
+false, and neither *array_of_requests* nor *array_of_statuses* is
 modified.
 
 ERRORS
 ------
 
 For each invocation of ``MPI_Testall``, if one or more requests generate an
-MPI error, only the ``*first``* MPI request that caused an error will be
+MPI error, only the *first* MPI request that caused an error will be
 passed to its corresponding error handler. No other error handlers will
-be invoked (even if multiple requests generated errors). However, ``*all``*
+be invoked (even if multiple requests generated errors). However, *all*
 requests that generate an error will have a relevant error code set in
 the corresponding status.``MPI_ERROR`` field (unless ``MPI_STATUSES_IGNORE`` was
 used).
@@ -126,4 +122,4 @@ SEE ALSO
 | ``MPI_Waitall``
 | ``MPI_Waitany``
 | ``MPI_Waitsome``
-| MPI_Win_set_errhandler
+| ``MPI_Win_set_errhandler``

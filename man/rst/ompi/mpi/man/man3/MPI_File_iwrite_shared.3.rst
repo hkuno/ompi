@@ -7,8 +7,6 @@ NAME
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -50,23 +48,18 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``fh``: File handle (handle).
 
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Number of elements in buffer (integer).
 
-* ``datatype``: Data type of each buffer element (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``buf``: Initial address of buffer (choice).
 
-* ``request``: Request object (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------

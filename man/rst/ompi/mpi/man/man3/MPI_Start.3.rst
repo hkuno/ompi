@@ -41,12 +41,11 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``request``: Communication request (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -56,7 +55,7 @@ initiated by the function ``MPI_Start``.
 
 The argument, request, is a handle returned by one of the persistent
 communication-request initialization functions (``MPI_Send_init``,
-``MPI_Bsend_init``, ``MPI_Ssend_init``, ``MPI_Rsend_init``, ``MPI_Recv_init``). The
+``MPI_Bsend_init``, ``MPI_Ssend_init``, ``MPI_Rsend_init``, ``MPI_Recv_init)``. The
 associated request should be inactive and becomes active once the call
 is made.
 
@@ -94,4 +93,4 @@ SEE ALSO
 | ``MPI_Send_init``
 | ``MPI_Sssend_init``
 | ``MPI_Recv_init``
-| MPI_Startall
+| ``MPI_Startall``

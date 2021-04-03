@@ -24,7 +24,7 @@ Fortran Syntax
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_WIN_SET_INFO(WIN, INFO, IERROR)
-   	INTEGER	WIN, INFO, IERROR 
+   	INTEGER	WIN, INFO, IERROR
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -41,23 +41,21 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``win``: Window on which to set info hints
 
-* ``info``: Info object containing hints to be set on *win*
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_WIN_SET_INFO`` sets new values for the hints of the window associated
-with ``*win``.* ``MPI_WIN_SET_INFO`` is a collective routine. The info object
+with *win.* ``MPI_WIN_SET_INFO`` is a collective routine. The info object
 may be different on each process, but any info entries that an
 implementation requires to be the same on all processes must appear with
-the same value in each process's ``*info``* object.
+the same value in each process's *info* object.
 
 ERRORS
 ------
@@ -75,4 +73,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Win_get_info, MPI_Info_create, MPI_Info_set, MPI_Info_free
+``MPI_Win_get_info``, ``MPI_Info_create``, ``MPI_Info_set``, ``MPI_Info_free``

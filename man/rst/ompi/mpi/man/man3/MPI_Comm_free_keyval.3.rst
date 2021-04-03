@@ -25,7 +25,7 @@ Fortran Syntax
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_COMM_FREE_KEYVAL(COMM_KEYVAL, IERROR)
-   	INTEGER	COMM_KEYVAL, IERROR 
+   	INTEGER	COMM_KEYVAL, IERROR
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -41,17 +41,17 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``comm_keyval``: 
+
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Comm_free_keyval`` frees an extant attribute key. This function sets
-the value of ``*keyval``* to ``MPI_KEYVAL_INVALID``. Note that it is not
+the value of *keyval* to ``MPI_KEYVAL_INVALID``. Note that it is not
 erroneous to free an attribute key that is in use, because the actual
 free does not transpire until after all references (in other
 communicators on the process) to the key have been freed. These

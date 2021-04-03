@@ -75,26 +75,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Starting address of send buffer (choice).
 
-* ``sendcount``: Number of elements to send to each process (integer).
 
-* ``sendtype``: Datatype of send buffer elements (handle).
 
-* ``recvcount``: Number of elements to receive from each process (integer).
 
-* ``recvtype``: Datatype of receive buffer elements (handle).
 
-* ``comm``: Communicator over which data is to be exchanged (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Starting address of receive buffer (choice).
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -103,11 +95,10 @@ DESCRIPTION
 same amount of data to each other, and receive the same amount of data
 from each other. The operation of this routine can be represented as
 follows, where each process performs 2n (n being the number of processes
-in communicator ``*comm``*) independent point-to-point communications
+in communicator *comm*) independent point-to-point communications
 (including communication with itself).
 
-.. code-block:: fortran
-   :linenos:
+::
 
    	MPI_Comm_size(comm, &n);
    	for (i = 0, i < n; i++)
@@ -148,15 +139,15 @@ USE OF IN-PLACE OPTION
 
 When the communicator is an intracommunicator, you can perform an
 all-to-all operation in-place (the output buffer is used as the input
-buffer). Use the variable ``MPI_IN_PLACE`` as the value of ``*sendbuf``*. In
-this case, ``*sendcount``* and ``*sendtype``* are ignored. The input data of
+buffer). Use the variable ``MPI_IN_PLACE`` as the value of *sendbuf*. In
+this case, *sendcount* and *sendtype* are ignored. The input data of
 each process is assumed to be in the area where that process would
 receive its own contribution to the receive buffer.
 
 NOTES
 -----
 
-All arguments on all processes are significant. The ``*comm``* argument, in
+All arguments on all processes are significant. The *comm* argument, in
 particular, must describe the same communicator on all processes.
 
 There are two MPI library functions that are more general than
@@ -181,8 +172,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Alltoallv
    MPI_Alltoallw

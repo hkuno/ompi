@@ -7,8 +7,6 @@ file.
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -45,20 +43,18 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``fh``: File handle (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``amode``: File access mode used to open the file (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_File_get_amode`` returns, in ``*amode``,* the access mode associated with
-the open file ``*fh``.*
+``MPI_File_get_amode`` returns, in *amode,* the access mode associated with
+the open file *fh.*
 
 ERRORS
 ------

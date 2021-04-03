@@ -48,27 +48,23 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``datarep``: Data representation (string).
 
-* ``incount``: Number of input data items (integer).
 
-* ``datatype``: Datatype of each input data item (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``size``: Upper bound on size of packed message, in bytes (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Pack_external_size`` allows the application to find out how much space
 is needed to pack a message in the portable format defined by the MPI
-Forum. It returns in ``*size``* an upper bound on the increment in
-``*position``* that would occur in a call to ``MPI_Pack_external`` with the same
-values for ``*datarep``*, ``*incount``*, and ``*datatype``*.
+Forum. It returns in *size* an upper bound on the increment in
+*position* that would occur in a call to ``MPI_Pack_external`` with the same
+values for *datarep*, *incount*, and *datatype*.
 
 The call returns an upper bound, rather than an exact bound, as the
 exact amount of space needed to pack the message may depend on context
@@ -78,7 +74,7 @@ more space).
 NOTES
 -----
 
-The ``*datarep``* argument specifies the data format. The only valid value
+The *datarep* argument specifies the data format. The only valid value
 in the current version of MPI is "external32". The argument is provided
 for future extensibility.
 
@@ -100,8 +96,7 @@ See the MPI man page for a full list of MPI error codes.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Pack_external
    MPI_Unpack_external

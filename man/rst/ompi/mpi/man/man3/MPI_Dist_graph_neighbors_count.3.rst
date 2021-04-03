@@ -46,18 +46,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``comm``: Communicator with distributed graph topology (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``indegree``: Number of edges into this process (non-negative integer).
 
-* ``outdegree``: Number of edges out of this process (non-negative integer).
 
-* ``weighted``: False if MPI_UNWEIGHTED was supplied during creation, true otherwise
-* ``(logical).``: 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -83,4 +79,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Dist_graph_neighbors
+``MPI_Dist_graph_neighbors``

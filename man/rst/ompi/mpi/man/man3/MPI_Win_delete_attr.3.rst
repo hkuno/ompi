@@ -41,17 +41,15 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``win``: Window from which the attribute is deleted (handle).
 
 INPUT PARAMETER
 ---------------
 
-* ``win_keyval``: Key value (integer).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 NOTES
 -----

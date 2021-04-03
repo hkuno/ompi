@@ -47,24 +47,17 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``buf``: Initial address of receive buffer (choice).
 
-* ``count``: Number of elements in receive buffer (integer).
 
-* ``datatype``: Datatype of each receive buffer element (handle).
 
-* ``source``: Rank of source (integer).
 
-* ``tag``: Message tag (integer).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``request``: Communication request (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -99,4 +92,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Recv MPI_Probe MPI_Test MPI_Testany MPI_Wait MPI_Waitany
+| ``MPI_Recv`` ``MPI_Probe`` ``MPI_Test`` ``MPI_Testany`` ``MPI_Wait`` ``MPI_Waitany``

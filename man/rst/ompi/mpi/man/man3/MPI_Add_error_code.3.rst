@@ -2,7 +2,7 @@ NAME
 ----
 
 ``MPI_Add_error_code`` - Creates a new error code associated with
-``*errorclass``*
+*errorclass*
 
 SYNTAX
 ------
@@ -42,20 +42,18 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``errorclass``: MPI error class (integer).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``errorcode``: Error code returned by an MPI routine or an MPI error class
-* ``(integer).``: 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Creates a new error code associated with ``*errorclass``* and returns its
-value in ``*errorcode``*.
+Creates a new error code associated with *errorclass* and returns its
+value in *errorcode*.
 
 NOTES
 -----
@@ -81,8 +79,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Add_error_class
    MPI_Error_class

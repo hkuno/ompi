@@ -65,32 +65,25 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Send buffer (choice).
 
-* ``count``: Number of elements in input buffer (integer).
 
-* ``datatype``: Data type of elements of input buffer (handle).
 
-* ``op``: Operation (handle).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Receive buffer (choice).
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Scan`` is used to perform an inclusive prefix reduction on data
 distributed across the calling processes. The operation returns, in the
-``*recvbuf``* of the process with rank i, the reduction (calculated
-according to the function ``*op``*) of the values in the ``*sendbuf``*\ s of
+*recvbuf* of the process with rank i, the reduction (calculated
+according to the function *op*) of the values in the *sendbuf*\ s of
 processes with ranks 0, ..., i (inclusive). The type of operations
 supported, their semantics, and the constraints on send and receive
 buffers are as for ``MPI_Reduce``.
@@ -103,8 +96,7 @@ A segmented scan takes, as input, a set of values and a set of logicals,
 where the logicals delineate the various segments of the scan. For
 example,
 
-.. code-block:: fortran
-   :linenos:
+::
 
    values     v1      v2      v3      v4      v5      v6      v7      v8
    logicals   0       0       1       1       1       0       0       1
@@ -114,8 +106,7 @@ The result for rank j is thus the sum v(i) + ... + v(j), where i is the
 lowest rank such that for all ranks n, i <= n <= j, logical(n) =
 logical(j). The operator that produces this effect is
 
-.. code-block:: fortran
-   :linenos:
+::
 
          [ u ]     [ v ]     [ w ]
          [   ]  o  [   ]  =  [   ]
@@ -128,8 +119,7 @@ where
 Note that this is a noncommutative operator. C code that implements it
 is given below.
 
-.. code-block:: fortran
-   :linenos:
+::
 
    	typedef struct {
    		double val;
@@ -163,8 +153,7 @@ the right-hand operand of the operator. When using this operator, we
 must be careful to specify that it is noncommutative, as in the
 following:
 
-.. code-block:: fortran
-   :linenos:
+::
 
    	int			i, base;
    	SeqScanPair	a, answer;
@@ -198,7 +187,7 @@ USE OF IN-PLACE OPTION
 
 When the communicator is an intracommunicator, you can perform a
 scanning operation in place (the output buffer is used as the input
-buffer). Use the variable ``MPI_IN_PLACE`` as the value of the ``*sendbuf``*
+buffer). Use the variable ``MPI_IN_PLACE`` as the value of the *sendbuf*
 argument. The input data is taken from the receive buffer and replaced
 by the output data.
 
@@ -209,7 +198,7 @@ The reduction functions of type ``MPI_Op`` do not return an error value. As
 a result, if the functions detect an error, all they can do is either
 call ``MPI_Abort`` or silently skip the problem. Thus, if the error handler
 is changed from ``MPI_ERRORS_ARE_FATAL`` to something else (e.g.,
-``MPI_ERRORS_RETURN``), then no error may be indicated.
+``MPI_ERRORS_RETURN)``, then no error may be indicated.
 
 The reason for this is the performance problems in ensuring that all
 collective routines return the same error value.
@@ -232,8 +221,7 @@ See the MPI man page for a full list of MPI error codes.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Exscan
    MPI_Op_create

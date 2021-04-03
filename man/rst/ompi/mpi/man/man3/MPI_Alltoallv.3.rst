@@ -82,31 +82,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Starting address of send buffer.
 
-* ``sendcounts``: Integer array, where entry i specifies the number of elements to send
-* ``to rank i.``: 
-* ``sdispls``: Integer array, where entry i specifies the displacement (offset from
-* ``*sendbuf*, in units of *sendtype*) from which to send data to rank i.``: 
-* ``sendtype``: Datatype of send buffer elements.
 
-* ``recvcounts``: Integer array, where entry j specifies the number of elements to
-* ``receive from rank j.``: 
-* ``rdispls``: Integer array, where entry j specifies the displacement (offset from
-* ``*recvbuf*, in units of *recvtype*) to which data from rank j should``: be written.
 
-* ``recvtype``: Datatype of receive buffer elements.
 
-* ``comm``: Communicator over which data is to be exchanged.
+
+
+
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Address of receive buffer.
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status.
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -117,11 +106,10 @@ adds flexibility to ``MPI_Alltoall`` by allowing the user to specify data to
 send and receive vector-style (via a displacement and element count).
 The operation of this routine can be thought of as follows, where each
 process performs 2n (n being the number of processes in communicator
-``*comm``*) independent point-to-point communications (including
+*comm*) independent point-to-point communications (including
 communication with itself).
 
-.. code-block:: fortran
-   :linenos:
+::
 
    	MPI_Comm_size(comm, &n);
    	for (i = 0, i < n; i++)
@@ -165,8 +153,8 @@ USE OF IN-PLACE OPTION
 
 When the communicator is an intracommunicator, you can perform an
 all-to-all operation in-place (the output buffer is used as the input
-buffer). Use the variable ``MPI_IN_PLACE`` as the value of ``*sendbuf``*. In
-this case, ``*sendcounts``*, ``*sdispls``*, and ``*sendtype``* are ignored. The
+buffer). Use the variable ``MPI_IN_PLACE`` as the value of *sendbuf*. In
+this case, *sendcounts*, *sdispls*, and *sendtype* are ignored. The
 input data of each process is assumed to be in the area where that
 process would receive its own contribution to the receive buffer.
 
@@ -176,11 +164,11 @@ NOTES
 The specification of counts and displacements should not cause any
 location to be written more than once.
 
-All arguments on all processes are significant. The ``*comm``* argument, in
+All arguments on all processes are significant. The *comm* argument, in
 particular, must describe the same communicator on all processes.
 
-The offsets of ``*sdispls``* and ``*rdispls``* are measured in units of
-``*sendtype``* and ``*recvtype``*, respectively. Compare this to ``MPI_Alltoallw``,
+The offsets of *sdispls* and *rdispls* are measured in units of
+*sendtype* and *recvtype*, respectively. Compare this to ``MPI_Alltoallw``,
 where these offsets are measured in bytes.
 
 ERRORS
@@ -199,8 +187,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Alltoall
    MPI_Alltoallw

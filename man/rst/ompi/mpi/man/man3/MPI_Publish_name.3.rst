@@ -1,8 +1,7 @@
 NAME
 ----
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    MPI_Publish_name - Publishes a service name associated with a port
 
@@ -46,33 +45,29 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``service_name``: A service name (string).
 
-* ``info``: Options to the name service functions (handle).
 
-* ``port_name``: A port name (string).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-This routine publishes the pair (``*service``_name, port_name*) so that an
-application may retrieve ``*port``_name* by calling ``MPI_Lookup_name`` with
-``*service``_name* as an argument. It is an error to publish the same
-``*service``_name* twice, or to use a ``*port``_name* argument that was not
+This routine publishes the pair (*service_name, port_name*) so that an
+application may retrieve *port_name* by calling ``MPI_Lookup_name`` with
+*service_name* as an argument. It is an error to publish the same
+*service_name* twice, or to use a *port_name* argument that was not
 previously opened by the calling process via a call to ``MPI_Open_port``.
 
 INFO ARGUMENTS
 --------------
 
-The following keys for ``*info``* are recognized:
+The following keys for *info* are recognized:
 
-.. code-block:: fortran
-   :linenos:
+::
 
    Key                   Type      Description
    ---                   ----      -----------
@@ -103,7 +98,7 @@ Otherwise, the data will default to publish with local scope.
 NAME SCOPE
 ----------
 
-Open MPI supports two name scopes: ``*global``* and ``*local``*. Local scope
+Open MPI supports two name scopes: *global* and *local*. Local scope
 will place the specified service/port pair in a data store located on
 the mpirun of the calling process' job. Thus, data published with local
 scope will only be accessible to processes in jobs spawned by that
@@ -122,7 +117,7 @@ that server. ``MPI_Publish_name`` will return an error if global scope is
 specified and a global server is either not specified or cannot be
 found.
 
-Open MPI provides a server called ``*ompi``-server* to support global scope
+Open MPI provides a server called *ompi-server* to support global scope
 operations. Please refer to its manual page for a more detailed
 description of data store/lookup operations.
 
@@ -164,8 +159,7 @@ See the MPI man page for a full list of MPI error codes.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Lookup_name
    MPI_Open_port

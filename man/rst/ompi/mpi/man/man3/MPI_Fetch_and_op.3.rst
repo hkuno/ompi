@@ -21,7 +21,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -30,7 +30,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
                     TARGET_DISP, OP, WIN, IERROR)
    	<type> ORIGIN_ADDR, RESULT_ADDR(*)
    	INTEGER(KIND=MPI_ADDRESS_KIND) TARGET_DISP
-   	INTEGER DATATYPE, TARGET_RANK, OP, WIN, IERROR 
+   	INTEGER DATATYPE, TARGET_RANK, OP, WIN, IERROR
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -53,38 +53,31 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``origin_addr``: Initial address of buffer (choice).
 
-* ``result_addr``: Initial address of result buffer (choice).
 
-* ``datatype``: Data type of the entry in origin, result, and target buffers
-* ``(handle).``: 
-* ``target_rank``: Rank of target (nonnegative integer).
 
-* ``target_disp``: Displacement from start of window to beginning of target buffer
-* ``(nonnegative integer).``: 
-* ``op``: Reduce operation (handle).
 
-* ``win``: Window object (handle).
+
+
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Accumulate one element of type ``*datatype``* from the origin buffer
-(``*origin``_addr*) to the buffer at offset ``*target``_disp*, in the target
-window specified by ``*target``_rank* and ``*win``*, using the operation ``*op``*
-and return in the result buffer ``*result``_addr* the contents of the target
+Accumulate one element of type *datatype* from the origin buffer
+(*origin_addr*) to the buffer at offset *target_disp*, in the target
+window specified by *target_rank* and *win*, using the operation *op*
+and return in the result buffer *result_addr* the contents of the target
 buffer before the accumulation.
 
-The origin and result buffers (``*origin``_addr* and ``*result``_addr*) must be
+The origin and result buffers (*origin_addr* and *result_addr*) must be
 disjoint. Any of the predefined operations for ``MPI_Rreduce``, as well
-as ``MPI_NO_OP`` or ``MPI_REPLACE``, can be specified as ``*op``*; user-defined
-functions cannot be used. The ``*datatype``* argument must be a predefined
+as ``MPI_NO_OP`` or ``MPI_REPLACE``, can be specified as *op*; user-defined
+functions cannot be used. The *datatype* argument must be a predefined
 datatype. The operation is executed atomically.
 
 A new predefined operation, ``MPI_REPLACE``, is defined. It corresponds to
@@ -103,8 +96,7 @@ The MPI standard prescribes portable Fortran syntax for the
 *TARGET_DISP* argument only for Fortran 90. FORTRAN 77 users may use the
 non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND TARGET_DISP
 
@@ -137,4 +129,4 @@ SEE ALSO
 --------
 
 | ``MPI_Get_accumulate``
-| MPI_Reduce
+| ``MPI_Reduce``

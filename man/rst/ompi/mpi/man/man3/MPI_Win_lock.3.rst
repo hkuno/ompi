@@ -42,18 +42,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``lock_type``: Either MPI_LOCK_EXCLUSIVE or MPI_LOCK_SHARED (state).
 
-* ``rank``: Rank of locked window (nonnegative integer).
 
-* ``assert``: Program assertion (integer).
 
-* ``win``: Window object (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -71,9 +67,9 @@ same window that are lock protected. Accesses that are protected by a
 shared lock will not be concurrent at the window site with accesses
 protected by an exclusive lock to the same window.
 
-The ``*assert``* argument is used to provide assertions on the context of
+The *assert* argument is used to provide assertions on the context of
 the call that may be used for various optimizations. (See Section 6.4.4
-of the MPI-2 Standard.) A value of ``*assert``* = 0 is always valid.
+of the MPI-2 Standard.) A value of *assert* = 0 is always valid.
 
 NOTES
 -----
@@ -100,4 +96,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Win_unlock MPI_Win_lock_all
+| ``MPI_Win_unlock`` ``MPI_Win_lock_all``

@@ -21,48 +21,35 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``pvar_index``: Index of the performance variable to be queried.
 
 INPUT/OUTPUT PARAMETERS
 -----------------------
 
-* ``name_len``: Length of the string and/or buffer for name.
 
-* ``desc_len``: Length of the string and/or buffer for desc.
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``name``: Buffer to return the string containing the name of the performance
-* ``variable.``: 
-* ``verbosity``: Verbosity level of this variable.
 
-* ``var_class``: Class of performance variable.
 
-* ``datatype``: MPI datatype of the information stored in the performance variable.
 
-* ``enumtype``: Optional descriptor for enumeration information.
 
-* ``desc``: Buffer to return the string containing the description of the
-* ``performance variable.``: 
-* ``bind``: Type of MPI object to which this variable must be bound.
 
-* ``readonly``: Flag indicating whether the variable can be written/reset.
 
-* ``continuous``: Flag indicating whether the variable can be started and stopped or is
-* ``continuously active.``: 
-* ``atomic``: Flag indicating whether the variable can be atomically read and
-* ``reset.``: 
+
+
+
+
 DESCRIPTION
 -----------
 
 ``MPI_T_pvar_get_info`` can be used to query information from a performance
 variable. The function returns the verbosity, class, datatype,
 enumeration type, and binding of the queried control variable in the
-arguments ``*verbosity``*, ``*var``_class*, ``*datatype``*, ``*enumtype``*, and ``*bind``*
+arguments *verbosity*, *var_class*, *datatype*, *enumtype*, and *bind*
 respectively. Flags indicating whether the variable is read-only,
-continuous, or atomic are returns in ``*readonly``*, ``*continuous``*, and
-``*atomic``* accordingly. See MPI-3 § 14.3.7 for more information. See the
+continuous, or atomic are returns in *readonly*, *continuous*, and
+*atomic* accordingly. See MPI-3 § 14.3.7 for more information. See the
 man page for ``MPI_T_cvar_get_info`` for information on variable verbosity.
 
 VARIABLE CLASS
@@ -70,7 +57,7 @@ VARIABLE CLASS
 
 Performance variables are categorized into classes which describe their
 initial value, valid types, and behavior. The class returned in the
-``*var``_class* parameter may be one of the following:
+*var_class* parameter may be one of the following:
 
 ``MPI_T_PVAR_CLASS_STATE``
    Variable represents a set of discrete states that may be described by
@@ -125,7 +112,7 @@ initial value, valid types, and behavior. The class returned in the
    of code. Variables of this class are represented by an ``MPI_UNSIGNED``,
    ``MPI_UNSIGNED_LONG``, ``MPI_UNSIGNED_LONG_LONG``, or ``MPI_DOUBLE``. If the
    variable is represented by an ``MPI_DOUBLE`` the units will be the same
-   as those used by ``MPI_Wtime``(). The starting value is 0.
+   as those used by ``MPI_Wtime()``. The starting value is 0.
 
 ``MPI_T_PVAR_CLASS_GENERIC``
    Variable does not fit into any other class. Can by represented by an
@@ -147,7 +134,7 @@ BINDING
 -------
 
 Performance variables may be bound to an MPI object. The binding
-returned in the ``*bind``* parameter may be one of the following:
+returned in the *bind* parameter may be one of the following:
 
 ``MPI_T_BIND_NO_OBJECT``
    No object
@@ -200,18 +187,17 @@ ignored and the string is not returned. For more information see MPI-3 �
 ERRORS
 ------
 
-``MPI_T_pvar_get_info``() will fail if:
+``MPI_T_pvar_get_info()`` will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED``]
+[``MPI_T_ERR_NOT_INITIALIZED]``
    The MPI Tools interface not initialized
 
-[``MPI_T_ERR_INVALID_INDEX``]
+[``MPI_T_ERR_INVALID_INDEX]``
    The performance variable index is invalid
 
 SEE ALSO
 --------
 
-.. code-block:: c
-   :linenos:
+::
 
    MPI_T_cvar_get_info

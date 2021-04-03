@@ -1,13 +1,13 @@
 NAME
 ----
 
-``*shmem``_int_wait*\ (3), ``*shmem``_int_wait*\ (3)_until,
-``*shmem``_int4_wait*\ (3), ``*shmem``_int4_wait*\ (3)_until,
-``*shmem``_int8_wait*\ (3), ``*shmem``_int8_wait*\ (3)_until,
-``*shmem``_long_wait*\ (3), ``*shmem``_long_wait*\ (3)_until,
-``*shmem``_longlong_wait*\ (3), ``*shmem``_longlong_wait*\ (3)_until,
-``*shmem``_short_wait*\ (3), ``*shmem``_short_wait*\ (3)_until,
-``*shmem``_wait*\ (3), ``*shmem``_wait*\ (3)_until - Waits for a variable on the
+*shmem_int_wait*\ (3), *shmem_int_wait*\ (3)_until,
+*shmem_int4_wait*\ (3), *shmem_int4_wait*\ (3)_until,
+*shmem_int8_wait*\ (3), *shmem_int8_wait*\ (3)_until,
+*shmem_long_wait*\ (3), *shmem_long_wait*\ (3)_until,
+*shmem_longlong_wait*\ (3), *shmem_longlong_wait*\ (3)_until,
+*shmem_short_wait*\ (3), *shmem_short_wait*\ (3)_until,
+*shmem_wait*\ (3), *shmem_wait*\ (3)_until - Waits for a variable on the
 local processing element (PE) to change
 
 SYNOPSIS
@@ -15,7 +15,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -44,7 +44,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -64,13 +64,13 @@ Fortran:
 DESCRIPTION
 -----------
 
-shmem_wait and shmem_wait_until wait for *``*ivar``** to be changed by a
+shmem_wait and shmem_wait_until wait for **ivar** to be changed by a
 remote write or atomic swap issued by a different processor. These
 routines can be used for point-to- point directed synchronization. A
 call to shmem_wait does not return until some other processor writes a
-value, not equal to cmp_value, into *``*ivar``** on the waiting processor. A
+value, not equal to cmp_value, into **ivar** on the waiting processor. A
 call to shmem_wait_until does not return until some other processor
-changes *``*ivar``** to satisfy the condition implied by cmp and cmp_value.
+changes **ivar** to satisfy the condition implied by cmp and cmp_value.
 This mechanism is useful when a processor needs to tell another
 processor that it has completed some action.
 
@@ -101,11 +101,11 @@ ivar
    must be a specific sized integer type according to the function being
    called, as follows:
 
-   *``*shmem``_wait, shmem_wait_until:** default INTEGER
+   **shmem_wait, shmem_wait_until:** default INTEGER
 
-   *``*shmem``_int4_wait, shmem_int4_wait_until:** INTEGER*4
+   **shmem_int4_wait, shmem_int4_wait_until:** INTEGER*4
 
-   *``*shmem``_int8_wait, shmem_int8_wait_until:** INTEGER*8
+   **shmem_int8_wait, shmem_int8_wait_until:** INTEGER*8
 
 cmp
    The compare operator that compares ivar with cmp_value. cmp must be
@@ -148,8 +148,7 @@ EXAMPLES
 **Example 1:** The following call returns when variable ivar is not
 equal to 100:
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    INTEGER*8 IVAR
 
@@ -158,8 +157,7 @@ equal to 100:
 **Example 2:** The following call to SHMEM_INT8_WAIT_UNTIL is equivalent
 to the call to SHMEM_INT8_WAIT in example 1:
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    INTEGER*8 IVAR
 
@@ -168,8 +166,7 @@ to the call to SHMEM_INT8_WAIT in example 1:
 **Example 3:** The following C/C++ call waits until the sign bit in ivar
 is set by a transfer from a remote PE:
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    int ivar;
 
@@ -178,8 +175,7 @@ is set by a transfer from a remote PE:
 **Example 4:** The following Fortran example is in the context of a
 subroutine:
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    SUBROUTINE EXAMPLE()
      INTEGER FLAG_VAR

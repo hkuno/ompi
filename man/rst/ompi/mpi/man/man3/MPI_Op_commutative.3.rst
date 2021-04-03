@@ -42,14 +42,12 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``op``: Operation (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``commute``: True if op is commutative, false otherwise (logical).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -72,4 +70,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Op_create
+``MPI_Op_create``

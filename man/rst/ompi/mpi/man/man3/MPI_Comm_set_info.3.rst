@@ -24,7 +24,7 @@ Fortran Syntax
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_COMM_SET_INFO(COMM, INFO, IERROR)
-   	INTEGER	COMM, INFO, IERROR 
+   	INTEGER	COMM, INFO, IERROR
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -41,40 +41,38 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``comm``: Communicator on which to set info hints
 
-* ``info``: Info object containing hints to be set on *comm*
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_COMM_SET_INFO`` sets new values for the hints of the communicator
-associated with ``*comm``*. ``MPI_COMM_SET_INFO`` is a collective routine. The
+associated with *comm*. ``MPI_COMM_SET_INFO`` is a collective routine. The
 info object may be different on each process, but any info entries that
 an implementation requires to be the same on all processes must appear
-with the same value in each process's ``*info``* object.
+with the same value in each process's *info* object.
 
 The following info key assertions may be accepted by Open MPI:
 
-``*mpi``_assert_no_any_tag* (boolean): If set to true, then the
+*mpi_assert_no_any_tag* (boolean): If set to true, then the
 implementation may assume that the process will not use the ``MPI_ANY_TAG``
 wildcard on the given communicator.
 
-``*mpi``_assert_no_any_source* (boolean): If set to true, then the
+*mpi_assert_no_any_source* (boolean): If set to true, then the
 implementation may assume that the process will not use the
 ``MPI_ANY_SOURCE`` wildcard on the given communicator.
 
-``*mpi``_assert_exact_length* (boolean): If set to true, then the
+*mpi_assert_exact_length* (boolean): If set to true, then the
 implementation may assume that the lengths of messages received by the
 process are equal to the lengths of the corresponding receive buffers,
 for point-to-point communication operations on the given communicator.
 
-``*mpi``_assert_allow_overtaking* (boolean): If set to true, then the
+*mpi_assert_allow_overtaking* (boolean): If set to true, then the
 implementation may assume that point-to-point communications on the
 given communicator do not rely on the non-overtaking rule specified in
 MPI-3.1 Section 3.5. In other words, the application asserts that send
@@ -99,4 +97,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Comm_get_info, MPI_Info_create, MPI_Info_set, MPI_Info_free
+``MPI_Comm_get_info``, ``MPI_Info_create``, ``MPI_Info_set``, ``MPI_Info_free``

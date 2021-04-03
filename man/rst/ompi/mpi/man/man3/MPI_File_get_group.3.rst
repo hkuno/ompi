@@ -7,8 +7,6 @@ file.
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -45,21 +43,19 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``fh``: File handle (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``group``: Group that opened the file (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_File_get_group`` returns a duplicate of the group of the communicator
-used to open the file associated with ``*fh``.* The group is returned in
-``*group``.* The user is responsible for freeing ``*group``,* using
+used to open the file associated with *fh.* The group is returned in
+*group.* The user is responsible for freeing *group,* using
 ``MPI_Group_free``.
 
 ERRORS

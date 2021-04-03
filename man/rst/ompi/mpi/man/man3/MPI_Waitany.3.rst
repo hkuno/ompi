@@ -45,18 +45,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: List length (integer).
 
-* ``array_of_requests``: Array of requests (array of handles).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``index``: Index of handle for operation that completed (integer). In the range
-* ``0 to count-1. In Fortran, the range is 1 to count.``: 
-* ``status``: Status object (status).
 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -69,20 +65,19 @@ list contains no active handles (list has length zero or all entries are
 null or inactive), then the call returns immediately with index =
 ``MPI_UNDEFINED``, and an empty status.
 
-The execution of ``MPI_Waitany``(count, array_of_requests, index, status)
-has the same effect as the execution of ``MPI_Wait``(&array_of_requests[i],
+The execution of ``MPI_Waitany(count``, array_of_requests, index, status)
+has the same effect as the execution of ``MPI_Wait(``&array_of_requests[i],
 status), where i is the value returned by index (unless the value of
-index is ``MPI_UNDEFINED``). ``MPI_Waitany`` with an array containing one active
+index is ``MPI_UNDEFINED)``. ``MPI_Waitany`` with an array containing one active
 entry is equivalent to ``MPI_Wait``.
 
-If your application does not need to examine the ``*status``* field, you can
+If your application does not need to examine the *status* field, you can
 save resources by using the predefined constant ``MPI_STATUS_IGNORE`` as a
-special value for the ``*status``* argument.
+special value for the *status* argument.
 
 **Example:** Client-server code (starvation can occur).
 
-.. code-block:: fortran
-   :linenos:
+::
 
        CALL MPI_COMM_SIZE(comm, size, ierr)
        CALL MPI_COMM_RANK(comm, rank, ierr)
@@ -138,4 +133,4 @@ SEE ALSO
 | ``MPI_Wait``
 | ``MPI_Waitall``
 | ``MPI_Waitsome``
-| MPI_Win_set_errhandler
+| ``MPI_Win_set_errhandler``

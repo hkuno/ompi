@@ -1,8 +1,8 @@
 NAME
 ----
 
-``*shmem``_int4_inc*\ (3), ``*shmem``_int8_inc*\ (3), ``*shmem``_int_inc*\ (3),
-``*shmem``_long_inc*\ (3), ``*shmem``_longlong_inc*\ (3) - These routines
+*shmem_int4_inc*\ (3), *shmem_int8_inc*\ (3), *shmem_int_inc*\ (3),
+*shmem_long_inc*\ (3), *shmem_longlong_inc*\ (3) - These routines
 perform an atomic increment operation on a remote data object.
 
 SYNOPSIS
@@ -10,7 +10,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -23,7 +23,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -39,9 +39,9 @@ Fortran:
 DESCRIPTION
 -----------
 
-The atomic increment routines replace the value of *``*target``** with its
+The atomic increment routines replace the value of **target** with its
 value incremented by one. The operation must be completed without the
-possibility of another process updating *``*target``** between the time of
+possibility of another process updating **target** between the time of
 the fetch and the update.
 
 The arguments are as follows:
@@ -59,7 +59,7 @@ pe
 NOTES
 -----
 
-The term remotely accessible is defined in ``*intro``_shmem*\ (3).
+The term remotely accessible is defined in *intro_shmem*\ (3).
 
 RETURN VALUES
 -------------

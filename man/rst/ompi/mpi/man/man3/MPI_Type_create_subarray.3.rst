@@ -2,7 +2,7 @@ NAME
 ----
 
 ``MPI_Type_create_subarray`` - Creates a data type describing an
-``*n``*-dimensional subarray of an ``*n``*-dimensional array.
+*n*-dimensional subarray of an *n*-dimensional array.
 
 SYNTAX
 ------
@@ -48,30 +48,23 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``ndims``: Number of array dimensions (positive integer).
 
-* ``array_of_sizes``: Number of elements of type *oldtype* in each dimension of the full
-* ``array (array of positive integers).``: 
-* ``array_of_subsizes``: Number of elements of type *oldtype* in each dimension of the
-* ``subarray (array of positive integers).``: 
-* ``array_of_starts``: Starting coordinates of the subarray in each dimension (array of
-* ``nonnegative integers).``: 
-* ``order``: Array storage order flag (state).
 
-* ``oldtype``: Array element data type (handle).
+
+
+
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newtype``: New data type (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 The subarray type constructor creates an MPI data type describing an
-``*n``*-dimensional subarray of an ``*n``*-dimensional array. The subarray may
+*n*-dimensional subarray of an *n*-dimensional array. The subarray may
 be situated anywhere within the full array, and may be of any nonzero
 size up to the size of the larger array as long as it is confined within
 this array. This type constructor facilitates creating file types to
@@ -83,29 +76,27 @@ dimensions and works for both C- and Fortran-ordered matrices (that is,
 row-major or column-major). Note that a C program may use Fortran order
 and a Fortran program may use C order.
 
-The ``*ndims``* parameter specifies the number of dimensions in the full
-data array and gives the number of elements in ``*array``_of_sizes*,
-``*array``_of_subsizes*, and ``*array``_of_starts*.
+The *ndims* parameter specifies the number of dimensions in the full
+data array and gives the number of elements in *array_of_sizes*,
+*array_of_subsizes*, and *array_of_starts*.
 
-The number of elements of type ``*oldtype``* in each dimension of the
-``*n``*-dimensional array and the requested subarray are specified by
-``*array``_of_sizes* and ``*array``_of_subsizes*, respectively. For any
-dimension ``*i``*, it is erroneous to specify ``*array``_of_subsizes[i]* < 1 or
-``*array``_of_subsizes[i]* > ``*array`` of sizes[i]*.
+The number of elements of type *oldtype* in each dimension of the
+*n*-dimensional array and the requested subarray are specified by
+*array_of_sizes* and *array_of_subsizes*, respectively. For any
+dimension *i*, it is erroneous to specify *array_of_subsizes[i]* < 1 or
+*array_of_subsizes[i]* > *array of sizes[i]*.
 
-The ``*array``_of_starts* contains the starting coordinates of each
+The *array_of_starts* contains the starting coordinates of each
 dimension of the subarray. Arrays are assumed to be indexed starting
-from zero. For any dimension ``*i``*, it is erroneous to specify
+from zero. For any dimension *i*, it is erroneous to specify
 
-.. code-block:: fortran
-   :linenos:
+::
 
    array_of_starts[i] < 0
 
 or
 
-.. code-block:: fortran
-   :linenos:
+::
 
    array_of_starts[i] > (array_of_sizes[i] - array_of_subsizes[i]).
 
@@ -120,8 +111,7 @@ column-major order)
 A *ndims*-dimensional subarray (*newtype*) with no extra padding can be
 defined by the function Subarray() as follows:
 
-.. code-block:: fortran
-   :linenos:
+::
 
       newtype = Subarray(ndims, {size , size ,..., size       },
                                      0      1           ndims-1
@@ -132,8 +122,7 @@ defined by the function Subarray() as follows:
 
 Let the typemap of *oldtype* have the form:
 
-.. code-block:: fortran
-   :linenos:
+::
 
       {(type , disp ), (type , disp ), ..., (type   , disp   )}
             0      0        1      1              n-1      n-1
@@ -151,8 +140,8 @@ NOTES
 -----
 
 In a Fortran program with arrays indexed starting from 1, if the
-starting coordinate of a particular dimension of the subarray is ``*n``*,
-then the entry in array of starts for that dimension is ``*n``*-1.
+starting coordinate of a particular dimension of the subarray is *n*,
+then the entry in array of starts for that dimension is *n*-1.
 
 ERRORS
 ------

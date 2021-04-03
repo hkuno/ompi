@@ -51,14 +51,12 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``rank``: Rank of window (nonnegative integer).
 
-* ``win``: Window object (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -89,4 +87,4 @@ error.
 SEE ALSO
 --------
 
-| MPI_Win_flush MPI_Win_lock MPI_Win_lock_all
+| ``MPI_Win_flush`` ``MPI_Win_lock`` ``MPI_Win_lock_all``

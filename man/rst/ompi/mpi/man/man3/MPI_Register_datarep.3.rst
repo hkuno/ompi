@@ -6,8 +6,6 @@ NAME
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -57,20 +55,15 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``datarep``: Data representation identifier (string).
 
-* ``read_conversion_fn``: Function invoked to convert from file representation to native
-* ``representation (function).``: 
-* ``write_conversion_fn``: Function invoked to convert from native representation to file
-* ``representation (function).``: 
-* ``dtype_file_extent_fn``: Function invoked to get the extent of a data type as represented in
-* ``the file (function).``: 
-* ``extra_state``: Extra state.
+
+
+
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -85,14 +78,14 @@ using this routine, you may specify its identifier as an argument to
 ``MPI_File_set_view``, causing subsequent data-access operations to call the
 specified conversion functions.
 
-The call associates ``*read``_conversion_fn*, ``*write``_conversion_fn*, and
-``*dtype``_file_extent_fn* with the data representation identifier
-``*datarep``*. ``*datarep``* can then be used as an argument to
+The call associates *read_conversion_fn*, *write_conversion_fn*, and
+*dtype_file_extent_fn* with the data representation identifier
+*datarep*. *datarep* can then be used as an argument to
 ``MPI_File_set_view``, causing subsequent data access operations to call the
 conversion functions to convert all data items accessed between file
 data representation and native representation. ``MPI_Register_datarep`` is a
 local operation and only registers the data representation for the
-calling MPI process. If ``*datarep``* is already defined, an error in the
+calling MPI process. If *datarep* is already defined, an error in the
 error class ``MPI_ERR_DUP_DATAREP`` is raised using the default file error
 handler. The length of a data representation string is limited to the
 value of ``MPI_MAX_DATAREP_STRING``. ``MPI_MAX_DATAREP_STRING`` must have a

@@ -71,21 +71,15 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Number of blocks -- also number of entries in array_of_displacements
-* ``and array_of_blocklengths (nonnegative integer).``: 
-* ``array_of_blocklengths``: Number of elements per block (array of nonnegative integers).
 
-* ``array_of_displacements``: Displacement for each block, in multiples of oldtype extent for
-* ``MPI_Type_indexed and bytes for MPI_Type_create_hindexed (array of``: integer for **MPI_TYPE_INDEXED**, array of *MPI_Aint* for
-* ``**MPI_TYPE_CREATE_HINDEXED**).``: 
-* ``oldtype``: Old datatype (handle).
+
+
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newtype``: New datatype (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -98,11 +92,10 @@ the old data type's extent.
 
 **Example:** Let oldtype have type map {(double, 0), (char, 8)}, with
 extent 16. Let B = (3, 1) and let D = (4, 0). A call to
-``MPI_Type_indexed``(2, B, D, oldtype, newtype) returns a datatype with type
+``MPI_Type_indexed(2``, B, D, oldtype, newtype) returns a datatype with type
 map
 
-.. code-block:: fortran
-   :linenos:
+::
 
        {(double, 64), (char, 72), (double, 80), (char, 88),
        (double, 96), (char, 104),
@@ -113,16 +106,14 @@ That is, three copies of the old type starting at displacement 4 x 16 =
 
 In general, assume that oldtype has type map
 
-.. code-block:: fortran
-   :linenos:
+::
 
        {(type(0), disp(0)), ..., (type(n-1), disp(n-1))},
 
 | with extent ex. Let B be the array_of_blocklength argument and D be
   the array_of_displacements argument. The newly created datatype has
 
-.. code-block:: fortran
-   :linenos:
+::
 
    n x S ^count-1
        i = 0           B[i]  entries:
@@ -140,8 +131,7 @@ A call to MPI_Type_vector(count, blocklength, stride, oldtype, newtype)
 is equivalent to a call to MPI_Type_indexed(count, B, D, oldtype,
 newtype) where
 
-.. code-block:: fortran
-   :linenos:
+::
 
        D[j] = j * stride, j = 0,..., count-1
 
@@ -169,4 +159,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Type_hindexed
+| ``MPI_Type_hindexed``

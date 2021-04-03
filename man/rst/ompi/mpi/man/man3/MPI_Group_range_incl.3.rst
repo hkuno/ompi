@@ -44,34 +44,27 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``group``: Group (handle).
 
-* ``n``: Number of triplets in array ranges (integer).
 
-* ``ranges``: A one-dimensional array of integer triplets, of the form (first rank,
-* ``last rank, stride) indicating ranks in group or processes to be``: included in newgroup.
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newgroup``: New group derived from above, in the order defined by ranges
-* ``(handle).``: 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 If ranges consist of the triplets
 
-.. code-block:: fortran
-   :linenos:
+::
 
        (first1, last1, stride1), ..., (firstn, lastn, striden)
 
 then newgroup consists of the sequence of processes in group with ranks
 
-.. code-block:: fortran
-   :linenos:
+::
 
                                                     last(1)-first(1)
      first(1), first(1) + stride(1),..., first(1) + ---------------- stride(1),...
@@ -116,4 +109,4 @@ SEE ALSO
 --------
 
 | ``MPI_Group_incl``
-| MPI_Group_free
+| ``MPI_Group_free``

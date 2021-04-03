@@ -43,16 +43,13 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``request``: Communication request (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``flag``: True if operation completed (logical).
 
-* ``status``: Status object (status).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -71,13 +68,13 @@ Standard, "Return Status." The status object for a send operation
 carries information that can be accessed by a call to ``MPI_Test_cancelled``
 (see Section 3.8 of the MPI-1 Standard, "Probe and Cancel").
 
-If your application does not need to examine the ``*status``* field, you can
+If your application does not need to examine the *status* field, you can
 save resources by using the predefined constant ``MPI_STATUS_IGNORE`` as a
-special value for the ``*status``* argument.
+special value for the *status* argument.
 
-One is allowed to call ``MPI_Test`` with a null or inactive ``*request``*
-argument. In such a case the operation returns with ``*flag``* = true and
-empty ``*status``*.
+One is allowed to call ``MPI_Test`` with a null or inactive *request*
+argument. In such a case the operation returns with *flag* = true and
+empty *status*.
 
 The functions ``MPI_Wait`` and ``MPI_Test`` can be used to complete both sends
 and receives.
@@ -124,4 +121,4 @@ SEE ALSO
 | ``MPI_Waitall``
 | ``MPI_Waitany``
 | ``MPI_Waitsome``
-| MPI_Win_set_errhandler
+| ``MPI_Win_set_errhandler``

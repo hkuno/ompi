@@ -30,19 +30,17 @@ Fortran Syntax
 INPUT PARAMETER
 ---------------
 
-* ``datatype``: Datatype (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``extent``: Datatype extent (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Note that use of this routine is ``*deprecated``* as of MPI-2. Please use
+Note that use of this routine is *deprecated* as of MPI-2. Please use
 ``MPI_Type_get_extent`` instead.
 
 ``MPI_Type_extent`` returns the extent of a data type, the difference
@@ -50,15 +48,13 @@ between the upper and lower bounds of the data type.
 
 In general, if
 
-.. code-block:: fortran
-   :linenos:
+::
 
        Typemap = {(type(0), disp(0)), ..., (type(n-1), disp(n-1))}
 
 then the lower bound of Typemap is defined to be
 
-.. code-block:: fortran
-   :linenos:
+::
 
                  ( min(j) disp(j)                         if no entry has
      lb(Typemap)=(                                        basic type lb
@@ -66,8 +62,7 @@ then the lower bound of Typemap is defined to be
 
 Similarly, the upper bound of Typemap is defined to be
 
-.. code-block:: fortran
-   :linenos:
+::
 
                  (max(j) disp(j) + sizeof(type(j)) + e    if no entry has
      ub(Typemap)=(                                        basic type ub
@@ -75,8 +70,7 @@ Similarly, the upper bound of Typemap is defined to be
 
 Then
 
-.. code-block:: fortran
-   :linenos:
+::
 
        extent(Typemap) = ub(Typemap) - lb(Typemap)
 
@@ -100,4 +94,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Type_get_extent
+| ``MPI_Type_get_extent``

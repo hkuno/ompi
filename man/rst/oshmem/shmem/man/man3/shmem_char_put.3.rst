@@ -1,13 +1,13 @@
 NAME
 ----
 
-``*shmem``_character_put*\ (3), ``*shmem``_complex_put*\ (3),
-``*shmem``_double_put*\ (3), ``*shmem``_float_put*\ (3), ``*shmem``_int_put*\ (3),
-``*shmem``_integer_put*\ (3), ``*shmem``_logical_put*\ (3),
-``*shmem``_long_put*\ (3), ``*shmem``_longdouble_put*\ (3),
-``*shmem``_longlong_put*\ (3), ``*shmem``_put4*\ (3), ``*shmem``_put8*\ (3),
-``*shmem``_put32*\ (3), ``*shmem``_put64*\ (3), ``*shmem``_put128*\ (3),
-``*shmem``_putmem*\ (3), ``*shmem``_real_put*\ (3), ``*shmem``_short_put*\ (3) -
+*shmem_character_put*\ (3), *shmem_complex_put*\ (3),
+*shmem_double_put*\ (3), *shmem_float_put*\ (3), *shmem_int_put*\ (3),
+*shmem_integer_put*\ (3), *shmem_logical_put*\ (3),
+*shmem_long_put*\ (3), *shmem_longdouble_put*\ (3),
+*shmem_longlong_put*\ (3), *shmem_put4*\ (3), *shmem_put8*\ (3),
+*shmem_put32*\ (3), *shmem_put64*\ (3), *shmem_put128*\ (3),
+*shmem_putmem*\ (3), *shmem_real_put*\ (3), *shmem_short_put*\ (3) -
 Transfers data to a specified processing element (PE)
 
 SYNOPSIS
@@ -15,7 +15,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -55,7 +55,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -91,15 +91,15 @@ Fortran:
 DESCRIPTION
 -----------
 
-These routines transfer *``*nelems``** elements of the data object at
-address *``*source``** on the calling PE, to the data object at address
-*``*target``** on the remote PE *``*pe``**. These routines start the remote
+These routines transfer **nelems** elements of the data object at
+address **source** on the calling PE, to the data object at address
+**target** on the remote PE **pe**. These routines start the remote
 transfer and may return before the data is delivered to the remote PE.
 
 The delivery of data into the data object on the destination PE from
 different put calls may occur in any order. Because of this, two
 successive put operations may deliver data out of order unless a call to
-``*shmem``_fence*\ (3) is introduced between the two calls.
+*shmem_fence*\ (3) is introduced between the two calls.
 
 The arguments are as follows:
 
@@ -123,31 +123,31 @@ pe
 The target and source data objects must conform to certain typing
 constraints, which are as follows:
 
-*``*shmem``_putmem**: Fortran: Any noncharacter type. C: Any data type. len is scaled in
+**shmem_putmem**: Fortran: Any noncharacter type. C: Any data type. len is scaled in
    bytes.
 
-*``*shmem``_put4, shmem_put32:** Any noncharacter type that has a storage size
+**shmem_put4, shmem_put32:** Any noncharacter type that has a storage size
    equal to 32 bits.
 
-*``*shmem``_put8, shmem_put64:** Any noncharacter type that has a storage size
+**shmem_put8, shmem_put64:** Any noncharacter type that has a storage size
    equal to 64 bits.
 
-*``*shmem``_put128:** Any noncharacter type that has a storage size equal to 128
+**shmem_put128:** Any noncharacter type that has a storage size equal to 128
    bits.
 
-*``*shmem``_short_put:** Elements of type short.
+**shmem_short_put:** Elements of type short.
 
-*``*shmem``_int_put:** Elements of type int.
+**shmem_int_put:** Elements of type int.
 
-*``*shmem``_long_put:** Elements of type long.
+**shmem_long_put:** Elements of type long.
 
-*``*shmem``_longlong_put:** Elements of type long long.
+**shmem_longlong_put:** Elements of type long long.
 
-*``*shmem``_float_put:** Elements of type float.
+**shmem_float_put:** Elements of type float.
 
-*``*shmem``_double_put:** Elements of type double.
+**shmem_double_put:** Elements of type double.
 
-*``*shmem``_longdouble_put:** Elements of type long double.
+**shmem_longdouble_put:** Elements of type long double.
 
 **SHMEM_CHARACTER_PUT:** Elements of type character. len is the number of
    characters to transfer. The actual character lengths of the source
@@ -171,7 +171,7 @@ EXAMPLES
 
 The following shmem_put example is for C/C++ programs:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <stdio.h>

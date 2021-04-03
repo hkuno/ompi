@@ -8,8 +8,6 @@ collective routine (nonblocking).
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -50,30 +48,26 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``fh``: File handle (handle).
 
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Number of elements in buffer (integer).
 
-* ``datatype``: Data type of each buffer element (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``buf``: Initial address of buffer (choice).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_File_read_all_begin`` is the beginning part of a split collective
-operation that attempts to read from the file associated with ``*fh``* (at
+operation that attempts to read from the file associated with *fh* (at
 the current individual file pointer position maintained by the system) a
-total number of ``*count``* data items having ``*datatype``* type into the
-user's buffer ``*buf``.* The data is taken out of those parts of the file
+total number of *count* data items having *datatype* type into the
+user's buffer *buf.* The data is taken out of those parts of the file
 specified by the current view.
 
 NOTES

@@ -41,14 +41,12 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``comm``: Communicator of tasks to abort.
 
-* ``errorcode``: Error code to return to invoking environment.
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -60,7 +58,7 @@ should handle this as a return errorcode from the main program or an
 abort (errorcode).
 
 The long-term goal of the Open MPI implementation is to terminate all
-processes in all tasks that contain a process in ``*comm``, and the error
+processes in all tasks that contain a process in *comm, and the error
 code is not returned to the invoking environment. At the moment, this
 isn't fully implemented and ``MPI_Abort`` will terminate the entire job.*
 

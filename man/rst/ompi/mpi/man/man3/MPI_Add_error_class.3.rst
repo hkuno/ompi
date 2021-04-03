@@ -1,8 +1,7 @@
 NAME
 ----
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    MPI_Add_error_class - Creates a new error class and returns its value
 
@@ -43,9 +42,8 @@ Fortran 2008 Syntax
 OUTPUT PARAMETERS
 -----------------
 
-* ``errorclass``: New error class (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -55,13 +53,13 @@ The function ``MPI_Add_error_class`` creates a new, local error class.
 NOTES
 -----
 
-Because this function is local, the same value of ``*errorclass``* may not
+Because this function is local, the same value of *errorclass* may not
 be returned on all processes that make this call, even if they call the
 function concurrently. Thus, same error on different processes may not
-cause the same value of ``*errorclass``* to be returned. To reduce the
+cause the same value of *errorclass* to be returned. To reduce the
 potential for confusion, ``MPI_Add_error_string`` may be used on multiple
 processes to associate the same error string with the newly created
-``*errorclass``*. Even though ``*errorclass``* may not be consistent across
+*errorclass*. Even though *errorclass* may not be consistent across
 processes, using ``MPI_Add_error_string`` will ensure the error string
 associated with it will be the same everywhere.
 
@@ -86,8 +84,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Add_error_code
    MPI_Add_error_string

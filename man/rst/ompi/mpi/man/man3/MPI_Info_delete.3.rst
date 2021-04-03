@@ -1,7 +1,7 @@
 NAME
 ----
 
-``MPI_Info_delete`` - Deletes a key/value pair from ``*info``*.
+``MPI_Info_delete`` - Deletes a key/value pair from *info*.
 
 SYNTAX
 ------
@@ -42,23 +42,21 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``info``: Info object (handle).
 
 INPUT PARAMETER
 ---------------
 
-* ``key``: Key (string).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Info_delete`` deletes a (key,value) pair from ``*info``*. If ``*key``* is not
-defined in ``*info``*, the call raises an error of class ``MPI_ERR_INFO_NOKEY``.
+``MPI_Info_delete`` deletes a (key,value) pair from *info*. If *key* is not
+defined in *info*, the call raises an error of class ``MPI_ERR_INFO_NOKEY``.
 
 ERRORS
 ------
@@ -80,4 +78,4 @@ SEE ALSO
 | ``MPI_Info_dup``
 | ``MPI_Info_free``
 | ``MPI_Info_get``
-| MPI_Info_set
+| ``MPI_Info_set``

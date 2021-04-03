@@ -54,42 +54,31 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``size``: Size of process group (positive integer).
 
-* ``rank``: Rank in process group (nonnegative integer).
 
-* ``ndims``: Number of array dimensions as well as process grid dimensions
-* ``(positive integer).``: 
-* ``array_of_gsizes``: Number of elements of type *oldtype* in each dimension of global
-* ``array (array of positive integers).``: 
-* ``array_of_distribs``: Distribution of array in each dimension (array of state).
 
-* ``array_of_dargs``: Distribution argument in each dimension (array of positive integers).
 
-* ``array_of_psizes``: Size of process grid in each dimension (array of positive integers).
 
-* ``order``: Array storage order flag (state).
 
-* ``oldtype``: Old data type (handle).
+
+
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newtype``: New data type (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Type_create_darray`` can be used to generate the data types
 corresponding to the distribution of an ndims-dimensional array of
-``*oldtype``* elements onto an ``*ndims``*-dimensional grid of logical
-processes. Unused dimensions of ``*array``_of_psizes* should be set to 1.
+*oldtype* elements onto an *ndims*-dimensional grid of logical
+processes. Unused dimensions of *array_of_psizes* should be set to 1.
 For a call to ``MPI_Type_create_darray`` to be correct, the equation
 
-.. code-block:: fortran
-   :linenos:
+::
 
        ndims-1
      pi              array_of_psizes[i] = size
@@ -101,8 +90,7 @@ topologies in MPI-1.
 
 Each dimension of the array can be distributed in one of three ways:
 
-.. code-block:: fortran
-   :linenos:
+::
 
    - MPI_DISTRIBUTE_BLOCK - Block distribution
    - MPI_DISTRIBUTE_CYCLIC - Cyclic distribution
@@ -137,8 +125,7 @@ MPI_DISTRIBUTE_BLOCK with *array_of_dargs[i]* equal to
 MPI_DISTRIBUTE_DFLT_DARG is equivalent to MPI_DISTRIBUTE_CYCLIC with
 *array_of_dargs[i]* set to
 
-.. code-block:: fortran
-   :linenos:
+::
 
       (array_of_gsizes[i] + array_of_psizes[i] - 1)/array_of_psizes[i]
 

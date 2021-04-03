@@ -31,13 +31,13 @@ maxprocs
    The number of processes in the job.
 
 soft
-   Open MPI does not support the ``*soft``* option for specifying the number
+   Open MPI does not support the *soft* option for specifying the number
    of processes to be executed, so this value is set to the same as
-   ``*maxprocs``*.
+   *maxprocs*.
 
 host
    The name of the host this process is executing upon - the value
-   returned from ``*gethostname``()*.
+   returned from *gethostname()*.
 
 arch
    The architecture of the host this process is executing upon. This
@@ -56,7 +56,7 @@ file
 
 thread_level
    The requested MPI thread level - note that this may differ from the
-   ``*actual``* MPI thread level of the application.
+   *actual* MPI thread level of the application.
 
 ompi_num_apps
    The number of application contexts in an MPMD job. This is an Open
@@ -80,10 +80,10 @@ ompi_positioned_file_dir
 ERRORS
 ------
 
-| When calling ``MPI_INFO_GET``(3), the ``*flag``* parameter will be set to zero
+| When calling ``MPI_INFO_GET(3)``, the *flag* parameter will be set to zero
   (false) if a value for the field has not been set.
 
 SEE ALSO
 --------
 
-MPI_Info_get
+``MPI_Info_get``

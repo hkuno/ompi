@@ -7,8 +7,6 @@ specified by the individual file pointer (nonblocking, collective).
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -50,35 +48,30 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``fh``: File handle (handle).
 
 INPUT PARAMETERS
 ----------------
 
-* ``buf``: Initial address of buffer (choice).
 
-* ``count``: Number of elements in buffer (integer).
 
-* ``datatype``: Data type of each buffer element (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``request``: Request object (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_File_iwrite_all`` is a nonblocking version of the ``MPI_File_write_all``
-interface. It attempts to write into the file associated with ``*fh``* (at
+interface. It attempts to write into the file associated with *fh* (at
 the current individual file pointer position maintained by the system) a
-total number of ``*count``* data items having ``*datatype``* type from the
-user's buffer ``*buf``.* The data is written into those parts of the file
+total number of *count* data items having *datatype* type from the
+user's buffer *buf.* The data is written into those parts of the file
 specified by the current view. ``MPI_File_iwrite_all`` stores the number of
-``*datatype``* elements actually written in ``*status``.* All other fields of
-``*status``* are undefined.
+*datatype* elements actually written in *status.* All other fields of
+*status* are undefined.
 
 It is erroneous to call this function if ``MPI_MODE_SEQUENTIAL`` mode was
 specified when the file was open.

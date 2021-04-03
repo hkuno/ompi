@@ -6,8 +6,6 @@ NAME
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -22,7 +20,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -47,35 +45,32 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``fh``: File handle (handle).
 
-* ``offset``: File offset (integer).
 
-* ``whence``: Update mode (integer).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_File_seek`` updates the individual file pointer according to ``*whence``,*
+``MPI_File_seek`` updates the individual file pointer according to *whence,*
 which could have the following possible values:
 
  o
-   ``MPI_SEEK_SET`` - The pointer is set to ``*offset``.*
+   ``MPI_SEEK_SET`` - The pointer is set to *offset.*
 
  o
    ``MPI_SEEK_CUR`` - The pointer is set to the current pointer position
-   plus ``*offset``.*
+   plus *offset.*
 
  o
    ``MPI_SEEK_END`` - The pointer is set to the end of the file plus
-   ``*offset``.*
+   *offset.*
 
-The ``*offset``* can be negative, which allows seeking backwards. It is
+The *offset* can be negative, which allows seeking backwards. It is
 erroneous to seek to a negative position in the file. The end of the
 file is defined to be the location of the next elementary data item
 immediately after the last accessed data item, even if that location is
@@ -88,8 +83,7 @@ The MPI standard prescribes portable Fortran syntax for the *OFFSET*
 argument only for Fortran 90. FORTRAN 77 users may use the non-portable
 syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_OFFSET_KIND OFFSET
 

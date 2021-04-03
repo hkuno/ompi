@@ -40,17 +40,16 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``op``: Operation (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Marks a user-defined reduction operation for deallocation and sets ``*op``*
+Marks a user-defined reduction operation for deallocation and sets *op*
 to ``MPI_OP_NULL``.
 
 ERRORS
@@ -73,4 +72,4 @@ SEE ALSO
 | ``MPI_Reduce``
 | ``MPI_Allreduce``
 | ``MPI_Reduce_scatter``
-| MPI_Scan
+| ``MPI_Scan``

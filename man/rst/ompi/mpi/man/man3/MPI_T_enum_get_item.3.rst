@@ -19,27 +19,22 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``enumtype``: Enumeration to be queried.
 
-* ``index``: Number of the value to be queried in this enumeration.
 
 INPUT/OUTPUT PARAMETERS
 -----------------------
 
-* ``name_len``: Length of the string and/or buffer for name.
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``value``: Variable value.
 
-* ``name``: Buffer to return the string containing the name of the category.
 
 DESCRIPTION
 -----------
 
 ``MPI_T_enum_get_item`` can be used to query information about an item in an
-enumerator. This function returns the enumeration value in the ``*value``*
+enumerator. This function returns the enumeration value in the *value*
 parameter.
 
 NOTES
@@ -57,10 +52,10 @@ and the string is not returned. For more information see MPI-3 � 14.3.3.
 ERRORS
 ------
 
-``MPI_T_enum_get_item``() will fail if:
+``MPI_T_enum_get_item()`` will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED``]
+[``MPI_T_ERR_NOT_INITIALIZED]``
    The MPI Tools interface not initialized
 
-[``MPI_T_ERR_INVALID_INDEX``]
+[``MPI_T_ERR_INVALID_INDEX]``
    The enumeration is invalid or has been deleted

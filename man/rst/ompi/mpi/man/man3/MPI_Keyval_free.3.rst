@@ -29,17 +29,16 @@ Fortran Syntax
 INPUT PARAMETER
 ---------------
 
-* ``keyval``: Frees the integer key value (integer).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Note that use of this routine is ``*deprecated``* as of MPI-2. Please use
+Note that use of this routine is *deprecated* as of MPI-2. Please use
 ``MPI_Comm_free_keyval`` instead.
 
 Frees an extant attribute key. This function sets the value of keyval to
@@ -73,4 +72,4 @@ SEE ALSO
 --------
 
 | ``MPI_Keyval_create``
-| MPI_Comm_free_keyval
+| ``MPI_Comm_free_keyval``

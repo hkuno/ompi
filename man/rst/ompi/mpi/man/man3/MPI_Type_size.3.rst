@@ -51,14 +51,12 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``datatype``: Datatype (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``size``: Datatype size (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -67,7 +65,7 @@ DESCRIPTION
 type signature associated with datatype; i.e., the total size of the
 data in a message that would be created with this datatype. Entries that
 occur multiple times in the datatype are counted with their
-multiplicity. For either function, if the ``*size``* parameter cannot
+multiplicity. For either function, if the *size* parameter cannot
 express the value to be returned (e.g., if the parameter is too small to
 hold the output value), it is set to ``MPI_UNDEFINED``.
 
@@ -91,8 +89,7 @@ The MPI standard prescribes portable Fortran syntax for the *SIZE*
 argument of ``MPI_Type_size_x`` only for Fortran 90. FORTRAN 77 users may
 use the non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_COUNT_KIND SIZE
 

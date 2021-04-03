@@ -44,18 +44,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``comm``: Communicator with graph topology (handle).
 
-* ``rank``: Rank of process in group of comm (integer).
 
-* ``maxneighbors``: Size of array neighbors (integer).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``neighbors``: Ranks of processes that are neighbors to specified process (array of
-* ``integers).``: 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -68,8 +64,7 @@ a(n)) = a(2), ..., a(n), a(1), and unshuffle (a(1), ..., a(n)) = a(n),
 a(1), ..., a(n-1). The graph adjacency list is illustrated below for
 n=3.
 
-.. code-block:: fortran
-   :linenos:
+::
 
            		exchange		shuffle		unshuffle
        node		neighbors(1)	neighbors(2)	neighbors(3)
@@ -86,8 +81,7 @@ Suppose that the communicator comm has this topology associated with it.
 The following code fragment cycles through the three types of neighbors
 and performs an appropriate permutation for each.
 
-.. code-block:: fortran
-   :linenos:
+::
 
    C  assume: each process has stored a real number A.
    C  extract neighborhood information
@@ -119,4 +113,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Graph_neighbors_count
+``MPI_Graph_neighbors_count``

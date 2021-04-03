@@ -49,43 +49,37 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``size``: Size of window in bytes (nonnegative integer).
 
-* ``disp_unit``: Local unit size for displacements, in bytes (positive integer).
 
-* ``info``: Info argument (handle).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``baseptr``: Initial address of window.
 
-* ``win``: Window object returned by the call (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Win_allocate`` is a collective call executed by all processes in
-the group of ``*comm``*. On each process, it allocates memory of at least
-``*size``* bytes, returns a pointer to it, and returns a window object that
-can be used by all processes in ``*comm``* to perform RMA operations. The
-returned memory consists of ``*size``* bytes local to each process, starting
-at address ``*baseptr``* and is associated with the window as if the user
-called ``MPI_Win_create`` on existing memory. The ``*size``* argument may be
-different at each process and ``*size``* = 0 is valid; however, a library
+the group of *comm*. On each process, it allocates memory of at least
+*size* bytes, returns a pointer to it, and returns a window object that
+can be used by all processes in *comm* to perform RMA operations. The
+returned memory consists of *size* bytes local to each process, starting
+at address *baseptr* and is associated with the window as if the user
+called ``MPI_Win_create`` on existing memory. The *size* argument may be
+different at each process and *size* = 0 is valid; however, a library
 might allocate and expose more memory in order to create a fast,
 globally symmetric allocation. The discussion of and rationales for
 ``MPI_Alloc_mem`` and ``MPI_Free_mem`` in MPI-3.1 � 8.2 also apply to
 ``MPI_Win_allocate``; in particular, see the rationale in MPI-3.1 � 8.2
-for an explanation of the type used for ``*baseptr``*.
+for an explanation of the type used for *baseptr*.
 
 The displacement unit argument is provided to facilitate address
 arithmetic in RMA operations: the target displacement argument of an RMA
-operation is scaled by the factor ``*disp``_unit* specified by the target
+operation is scaled by the factor *disp_unit* specified by the target
 process, at window creation.
 
 For supported info keys see ``MPI_Win_create``\ *.*
@@ -93,9 +87,9 @@ For supported info keys see ``MPI_Win_create``\ *.*
 NOTES
 -----
 
-Common choices for ``*disp``_unit are 1 (no scaling), and (in C* syntax)
-``*sizeof``(type), for a window that consists of an array of* elements of
-type ``*type``. The later choice will allow one to use* array indices in RMA
+Common choices for *disp_unit are 1 (no scaling), and (in C* syntax)
+*sizeof(type), for a window that consists of an array of* elements of
+type *type. The later choice will allow one to use* array indices in RMA
 calls, and have those scaled correctly to byte displacements, even in a
 heterogeneous environment.
 
@@ -115,4 +109,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Alloc_mem MPI_Free_mem MPI_Win_create MPI_Win_allocate_shared
+``MPI_Alloc_mem`` ``MPI_Free_mem`` ``MPI_Win_create`` ``MPI_Win_allocate_shared``

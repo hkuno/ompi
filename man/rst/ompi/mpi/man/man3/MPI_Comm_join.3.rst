@@ -41,20 +41,18 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``fd``: socket file descriptor (socket).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``intercomm``: Intercommunicator between processes (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Comm_join`` creates an intercommunicator from the union of two MPI
-processes that are connected by a socket. ``*fd``* is a file descriptor
+processes that are connected by a socket. *fd* is a file descriptor
 representing a socket of type SOCK_STREAM (a two-way reliable
 byte-stream connection). Nonblocking I/O and asynchronous notification
 via SIGIO must not be enabled for the socket. The socket must be in a
@@ -67,7 +65,7 @@ NOTES
 -----
 
 There are no MPI library calls for opening and manipulating a socket.
-The socket ``*fd``* can be opened using standard socket API calls. MPI uses
+The socket *fd* can be opened using standard socket API calls. MPI uses
 the socket to bootstrap creation of the intercommunicator, and for
 nothing else. Upon return, the file descriptor will be open and
 quiescent.
@@ -99,8 +97,7 @@ See the MPI man page for a full list of MPI error codes.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    socket(3SOCKET)
    MPI_Comm_create

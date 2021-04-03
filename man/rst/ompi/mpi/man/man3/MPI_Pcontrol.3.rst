@@ -39,7 +39,6 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``level``: Profiling level.
 
 DESCRIPTION
 -----------
@@ -90,4 +89,4 @@ interpretation of level and any other arguments is left to the profiling
 library.
 
 This function does not return an error value. Consequently, the result
-of calling it before MPI_Init or after MPI_Finalize is undefined.
+of calling it before ``MPI_Init`` or after ``MPI_Finalize`` is undefined.

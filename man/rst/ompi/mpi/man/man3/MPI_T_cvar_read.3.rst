@@ -18,35 +18,32 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``handle``: Handle of the control variable to be read.
 
-* ``buf``: Initial address of storage location for variable value.
 
 DESCRIPTION
 -----------
 
 ``MPI_T_cvar_read`` reads the value of the control variable identified by
-the handle specified in ``*handle``* and stores the value in the buffer
-pointed to by ``*buf``*. The caller must ensure that the buffer pointed to
-by ``*buf``* is large enough to hold the entire value of the control
+the handle specified in *handle* and stores the value in the buffer
+pointed to by *buf*. The caller must ensure that the buffer pointed to
+by *buf* is large enough to hold the entire value of the control
 variable.
 
 ERRORS
 ------
 
-``MPI_T_cvar_read``() will fail if:
+``MPI_T_cvar_read()`` will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED``]
+[``MPI_T_ERR_NOT_INITIALIZED]``
    The MPI Tools interface not initialized
 
-[``MPI_T_ERR_INVALID_HANDLE``]
+[``MPI_T_ERR_INVALID_HANDLE]``
    The handle is invalid
 
 SEE ALSO
 --------
 
-.. code-block:: c
-   :linenos:
+::
 
    MPI_T_cvar_handle_alloc
    MPI_T_cvar_get_info

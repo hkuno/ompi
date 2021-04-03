@@ -40,12 +40,11 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``datatype``: Data type (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -59,8 +58,7 @@ different buffers, with different starting addresses.
 **Example:** The following Fortran code fragment gives examples of using
 ``MPI_Type_commit``.
 
-.. code-block:: fortran
-   :linenos:
+::
 
        INTEGER type1, type2
        CALL MPI_TYPE_CONTIGUOUS(5, MPI_REAL, type1, ierr)

@@ -2,7 +2,7 @@ NAME
 ----
 
 ``MPI_Win_post`` - Starts an RMA exposure epoch for the local window
-associated with ``*win``*
+associated with *win*
 
 SYNTAX
 ------
@@ -43,23 +43,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``group``: The group of origin processes (handle)
 
-* ``assert``: Program assertion (integer)
 
-* ``win``: Window object (handle)
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Starts an RMA exposure epoch for the local window associated with ``*win``*.
-Only the processes belonging to ``*group``* should access the window with
-RMA calls on ``*win``* during this epoch. Each process in ``*group``* must issue
+Starts an RMA exposure epoch for the local window associated with *win*.
+Only the processes belonging to *group* should access the window with
+RMA calls on *win* during this epoch. Each process in *group* must issue
 a matching call to ``MPI_Win_start``. ``MPI_Win_post`` does not block.
 
 ERRORS
@@ -78,4 +75,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Win_start MPI_Win_wait
+| ``MPI_Win_start`` ``MPI_Win_wait``

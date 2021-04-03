@@ -41,29 +41,27 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``assert``: Program assertion (integer).
 
-* ``win``: Window object (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Win_fence`` synchronizes RMA calls on ``*win``*. The call is collective on
-the group of ``*win``*. All RMA operations on ``*win``* originating at a given
+``MPI_Win_fence`` synchronizes RMA calls on *win*. The call is collective on
+the group of *win*. All RMA operations on *win* originating at a given
 process and started before the fence call will complete at that process
 before the fence call returns. They will be completed at their target
-before the fence call returns at the target. RMA operations on ``*win``*
+before the fence call returns at the target. RMA operations on *win*
 started by a process after the fence call returns will access their
 target window only after ``MPI_Win_fence`` has been called by the target
 process.
 
 The call completes an RMA access epoch if it was preceded by another
-fence call and the local process issued RMA communication calls on ``*win``*
+fence call and the local process issued RMA communication calls on *win*
 between these two calls. The call completes an RMA exposure epoch if it
 was preceded by another fence call and the local window was the target
 of RMA accesses between these two calls. The call starts an RMA access
@@ -71,12 +69,14 @@ epoch if it is followed by another fence call and by RMA communication
 calls issued between these two fence calls. The call starts an exposure
 epoch if it is followed by another fence call and the local window is
 the target of RMA accesses between these two fence calls. Thus, the
-fence call is equivalent to calls to a subset of ``*post``, start, complete,
+fence call is equivalent to calls to a subset of *post, start, complete,
 wait*.
 
 A fence call usually entails a barrier synchronization: a process
 completes a call to ``MPI_Win_fence`` only after all other processes in the
 group have entered their matching call. However, a call to ``MPI_Win_fence``
+that is known not to end any epoch (in particular, a call with *assert*
+~ MPI_MODE_NOPRECEDE) does not necessarily act as a barrier.
 
 NOTE
 ----
@@ -101,4 +101,4 @@ SEE ALSO
 --------
 
 | ``MPI_Win_create`` ``MPI_Win_start`` ``MPI_Win_post`` ``MPI_Win_complete``
-  MPI_Win_wait
+  ``MPI_Win_wait``

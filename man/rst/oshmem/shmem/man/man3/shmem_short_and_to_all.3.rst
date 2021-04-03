@@ -1,9 +1,9 @@
 NAME
 ----
 
-``*shmem``_int_and_to_all*\ (3), ``*shmem``_int4_and_to_all*\ (3),
-``*shmem``_int8_and_to_all*\ (3), ``*shmem``_long_and_to_all*\ (3),
-``*shmem``_longlong_and_to_all*\ (3), ``*shmem``_short_and_to_all*\ (3) -
+*shmem_int_and_to_all*\ (3), *shmem_int4_and_to_all*\ (3),
+*shmem_int8_and_to_all*\ (3), *shmem_long_and_to_all*\ (3),
+*shmem_longlong_and_to_all*\ (3), *shmem_short_and_to_all*\ (3) -
 Performs a bitwise AND operation on symmetric arrays over the active set
 of PEs.
 
@@ -12,7 +12,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -35,7 +35,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -55,7 +55,7 @@ DESCRIPTION
 The shared memory (SHMEM) reduction routines compute one or more
 reductions across symmetric arrays on multiple virtual PEs. A reduction
 performs an associative binary operation across a set of values. For a
-list of other SHMEM reduction routines, see ``*intro``_shmem*\ (3).
+list of other SHMEM reduction routines, see *intro_shmem*\ (3).
 
 The nreduce argument determines the number of separate reductions to
 perform. The source array on all PEs in the active set provides one
@@ -78,9 +78,9 @@ target
    C/C++, refer to the SYNOPSIS section for data type information. When
    calling from Fortran, the target data types are as follows:
 
-   *``*shmem``_int8_and_to_all**: Integer, with an element size of 8 bytes
+   **shmem_int8_and_to_all**: Integer, with an element size of 8 bytes
 
-   *``*shmem``_int4_and_to_all**: Integer, with an element size of 4 bytes
+   **shmem_int4_and_to_all**: Integer, with an element size of 4 bytes
 
 source
    A symmetric array, of length nreduce elements, that contains one
@@ -141,7 +141,7 @@ NOTES
 -----
 
 The terms collective, symmetric, and cache aligned are defined in
-``*intro``_shmem*\ (3). All SHMEM reduction routines reset the values in
+*intro_shmem*\ (3). All SHMEM reduction routines reset the values in
 pSync before they return, so a particular pSync buffer need only be
 initialized the first time it is used.
 
@@ -166,8 +166,7 @@ EXAMPLES
 array and finds the logical AND of the integer variable FOO across all
 even PEs.
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    INCLUDE "mpp/shmem.fh"
 
@@ -187,7 +186,7 @@ even PEs.
 
 **Example 2**: Consider the following C call:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c
    :linenos:
 
    shmem_int_and_to_all( target, source, 3, 0, 0, 8, pwrk, psync );
@@ -195,8 +194,7 @@ even PEs.
 The preceding call is more efficient, but semantically equivalent to,
 the combination of the following calls:
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    shmem_int_and_to_all(&(target[0]), &(source[0]), 1, 0, 0, 8,
      pwrk1, psync1);

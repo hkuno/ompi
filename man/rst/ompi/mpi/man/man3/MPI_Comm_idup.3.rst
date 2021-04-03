@@ -43,16 +43,13 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newcomm``: Copy of comm (handle).
 
-* ``request``: Communication request (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -65,7 +62,7 @@ that a copy callback may take is to delete the attribute from the new
 communicator. Returns in newcomm a new communicator with the same group,
 any copied cached information, but a new context (see Section 5.7.1 of
 the MPI-1 Standard, "Functionality"). The communicator returned in
-``*newcomm``* will not be available until the request is complete.
+*newcomm* will not be available until the request is complete.
 
 The completion of a communicator duplication request can be determined
 by calling any of ``MPI_Wait``, ``MPI_Waitany``, ``MPI_Test``, or ``MPI_Testany`` with
@@ -108,4 +105,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Comm_dup MPI_Comm_dup_with_info
+``MPI_Comm_dup`` ``MPI_Comm_dup_with_info``

@@ -41,23 +41,21 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``count``: List length (integer).
 
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``array_of_requests``: Array of requests (array of handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 Starts all communications associated with requests in array_of_requests.
-A call to ``MPI_Startall``(count, array_of_requests) has the same effect as
+A call to ``MPI_Startall(count``, array_of_requests) has the same effect as
 calls to ``MPI_Start`` (&array_of_requests[i]), executed for i=0 ,...,
 count-1, in some arbitrary order.
 
@@ -115,4 +113,4 @@ SEE ALSO
 | ``MPI_Ssend_init``
 | ``MPI_Recv_init``
 | ``MPI_Start``
-| MPI_Request_free
+| ``MPI_Request_free``

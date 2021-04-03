@@ -40,17 +40,16 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``info``: Info object (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Info_free`` frees ``*info``* and sets it to ``MPI_INFO_NULL``.
+``MPI_Info_free`` frees *info* and sets it to ``MPI_INFO_NULL``.
 
 ERRORS
 ------
@@ -72,4 +71,4 @@ SEE ALSO
 | ``MPI_Info_delete``
 | ``MPI_Info_dup``
 | ``MPI_Info_get``
-| MPI_Info_set
+| ``MPI_Info_set``

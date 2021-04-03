@@ -18,7 +18,7 @@ C Syntax
 Fortran Syntax (see FORTRAN NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -35,7 +35,7 @@ Fortran 2008 Syntax
 
    USE mpi_f08
    MPI_Alloc_mem(size, info, baseptr, ierror)
-   	USE, INTRINSIC :: ISO_C_BINDING, ONLY 
+   	USE, INTRINSIC :: ISO_C_BINDING, ONLY
    	INTEGER(KIND=MPI_ADDRESS_KIND), INTENT(IN) :: size
    	TYPE(MPI_Info), INTENT(IN) :: info
    	TYPE(C_PTR), INTENT(OUT) :: baseptr
@@ -44,22 +44,19 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``size``: Size of memory segment in bytes (nonnegative integer).
 
-* ``info``: Info argument (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``baseptr``: Pointer to beginning of memory segment allocated.
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Alloc_mem`` allocates ``*size``* bytes of memory. The starting address of
-this memory is returned in the variable ``*base``*.
+``MPI_Alloc_mem`` allocates *size* bytes of memory. The starting address of
+this memory is returned in the variable *base*.
 
 FORTRAN NOTES
 -------------
@@ -72,8 +69,7 @@ compilers.
 From FORTRAN 77, you can use the following non-standard declarations for
 the SIZE and BASEPTR arguments:
 
-.. code-block:: fortran
-   :linenos:
+::
 
               INCLUDE "mpif.h"
               INTEGER*MPI_ADDRESS_KIND SIZE, BASEPTR
@@ -113,4 +109,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Free_mem
+``MPI_Free_mem``

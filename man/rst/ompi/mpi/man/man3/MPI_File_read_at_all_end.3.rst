@@ -7,8 +7,6 @@ offsets; ending part of a split collective routine (blocking).
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -48,26 +46,23 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``fh``: File handle (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``buf``: Initial address of buffer (choice).
 
-* ``status``: Status object (status).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_File_read_at_all_end`` is a split collective routine that stores the
-number of elements actually read from the file associated with ``*fh``* in
-``*status``.* ``MPI_File_read_at_all_end`` blocks until the operation initiated
+number of elements actually read from the file associated with *fh* in
+*status.* ``MPI_File_read_at_all_end`` blocks until the operation initiated
 by ``MPI_File_read_at_all_begin`` completes. The data is taken out of those
 parts of the file specified by the current view. All other fields of
-``*status``* are undefined.
+*status* are undefined.
 
 NOTES
 -----

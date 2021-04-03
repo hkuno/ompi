@@ -1,8 +1,7 @@
 NAME
 ----
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    MPI_Add_error_string - Associates a string with an error code or class
 
@@ -45,14 +44,12 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``errorcode``: MPI error class, or an error code returned by an MPI routine
-* ``(integer).``: 
-* ``string``: Text that corresponds to the error code or class (string).
+
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -62,7 +59,7 @@ Calling ``MPI_Add_error_string`` for an error code or class that already has
 an associated error string will replace the old string with the new one.
 It is erroneous to call ``MPI_Add_error_string`` for an error value not
 generated via ``MPI_Add_error_class`` or ``MPI_Add_error_code`` (e.g., an error
-code or class with a value not greater than ``MPI_LAST_ERRCODE``).
+code or class with a value not greater than ``MPI_LAST_ERRCODE)``.
 
 ERRORS
 ------
@@ -80,8 +77,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Add_error_class
    MPI_Add_error_code

@@ -42,20 +42,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``win``: Window with error handler (handle).
 
-* ``errorcode``: MPI error code (integer).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-This function invokes the error handler assigned to the window ``*win``*
-with the supplied error code ``*errorcode``*. If the error handler was
+This function invokes the error handler assigned to the window *win*
+with the supplied error code *errorcode*. If the error handler was
 successfully called, the process is not aborted, and the error handler
 returns, this function returns ``MPI_SUCCESS``.
 
@@ -78,8 +76,7 @@ See the MPI man page for a full list of MPI error codes.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Win_create_errhandler
    MPI_Win_set_errhandler

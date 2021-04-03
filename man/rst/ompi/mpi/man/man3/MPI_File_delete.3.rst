@@ -6,8 +6,6 @@ NAME
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -45,19 +43,17 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``filename``: Name of file to delete (string).
 
-* ``info``: Info object (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_File_delete`` deletes the file identified by the file name ``*filename``*,
+``MPI_File_delete`` deletes the file identified by the file name *filename*,
 provided it is not currently open by any process. It is an error to
 delete the file with ``MPI_File_delete`` if some process has it open, but
 ``MPI_File_delete`` does not check this. If the file does not exist,

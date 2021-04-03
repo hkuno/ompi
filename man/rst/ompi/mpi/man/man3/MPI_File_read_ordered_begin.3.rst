@@ -8,8 +8,6 @@ by a shared file pointer; beginning part of a split collective routine
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -50,32 +48,28 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``fh``: File handle (handle).
 
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Number of elements in buffer (integer).
 
-* ``datatype``: Data type of each buffer element (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``buf``: Initial address of buffer (choice).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_File_read_ordered_begin`` is the beginning part of a split collective,
 nonblocking routine that must be called by all processes in the
-communicator group associated with the file handle ``*fh``.* Each process
-may pass different argument values for the ``*datatype``* and ``*count``*
+communicator group associated with the file handle *fh.* Each process
+may pass different argument values for the *datatype* and *count*
 arguments. Each process attempts to read, from the file associated with
-``*fh``,* a total number of ``*count``* data items having ``*datatype``* type into
-the user's buffer ``*buf``.* For each process, the location in the file at
+*fh,* a total number of *count* data items having *datatype* type into
+the user's buffer *buf.* For each process, the location in the file at
 which data is read is the position at which the shared file pointer
 would be after all processes whose ranks within the group are less than
 that of this process had read their data.

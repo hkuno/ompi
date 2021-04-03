@@ -42,17 +42,15 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``type``: Data type for which the identifier is to be set (handle).
 
 INPUT PARAMETER
 ---------------
 
-* ``type_name``: The character string remembered as the name (string).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -76,4 +74,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Type_get_name
+| ``MPI_Type_get_name``

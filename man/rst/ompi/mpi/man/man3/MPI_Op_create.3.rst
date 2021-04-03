@@ -45,16 +45,13 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``function``: User-defined function (function).
 
-* ``commute``: True if commutative; false otherwise.
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``op``: Operation (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -70,12 +67,12 @@ taking advantage of the associativity of the operation. If commute =
 true then the order of evaluation can be changed, taking advantage of
 commutativity and associativity.
 
-``*function``* is the user-defined function, which must have the following
+*function* is the user-defined function, which must have the following
 four arguments: invec, inoutvec, len, and datatype.
 
 The ANSI-C prototype for the function is the following:
 
-.. code-block:: fortran
+.. code-block:: c
    :linenos:
 
      typedef void MPI_User_function(void *invec, void *inoutvec,
@@ -140,7 +137,7 @@ that are shared by the user code and the library code.
 
 Compute the product of an array of complex numbers, in C.
 
-.. code-block:: fortran
+.. code-block:: c
    :linenos:
 
        typedef struct {
@@ -223,8 +220,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Reduce
    MPI_Reduce_scatter

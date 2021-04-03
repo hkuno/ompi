@@ -44,14 +44,12 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``top_type``: Topology type of communicator comm (choice).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -59,10 +57,9 @@ DESCRIPTION
 The function ``MPI_Topo_test`` returns the type of topology that is assigned
 to a communicator.
 
-The output value ``*top``_type* is one of the following:
+The output value *top_type* is one of the following:
 
-.. code-block:: fortran
-   :linenos:
+::
 
        MPI_GRAPH		graph topology
        MPI_CART		Cartesian topology
@@ -86,4 +83,4 @@ SEE ALSO
 --------
 
 | ``MPI_Graph_create``
-| MPI_Cart_create
+| ``MPI_Cart_create``

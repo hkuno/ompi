@@ -42,14 +42,12 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``rank``: Rank of the calling process in group of comm (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -81,8 +79,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Comm_group
    MPI_Comm_size

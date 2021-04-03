@@ -7,8 +7,6 @@ file.
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -23,7 +21,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -48,25 +46,22 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``fh``: File handle (handle).
 
-* ``datatype``: Data type (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``extent``: Data type extent (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_File_get_type_extent`` can be used to calculate ``*extent``* for
-``*datatype``* in the file. The extent is the same for all processes
-accessing the file associated with ``*fh``*. If the current view uses a
+``MPI_File_get_type_extent`` can be used to calculate *extent* for
+*datatype* in the file. The extent is the same for all processes
+accessing the file associated with *fh*. If the current view uses a
 user-defined data representation, ``MPI_File_get_type_extent`` uses the
-``*dtype``_file_extent_fn* callback to calculate the extent.
+*dtype_file_extent_fn* callback to calculate the extent.
 
 FORTRAN 77 NOTES
 ----------------
@@ -75,8 +70,7 @@ The MPI standard prescribes portable Fortran syntax for the *EXTENT*
 argument only for Fortran 90. FORTRAN 77 users may use the non-portable
 syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND EXTENT
 

@@ -20,7 +20,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -28,7 +28,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    MPI_TYPE_CREATE_STRUCT(COUNT, ARRAY_OF_BLOCKLENGTHS,
    		ARRAY_OF_DISPLACEMENTS, ARRAY_OF_TYPES, NEWTYPE, IERROR)
    	INTEGER	COUNT, ARRAY_OF_BLOCKLENGTHS(*), ARRAY_OF_TYPES(*),
-   	INTEGER NEWTYPE, IERROR 
+   	INTEGER NEWTYPE, IERROR
    	INTEGER(KIND=MPI_ADDRESS_KIND) ARRAY_OF_DISPLACEMENTS(*)
 
 Fortran 2008 Syntax
@@ -50,21 +50,15 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Number of blocks (integer) -- also number of entries in arrays
-* ``*array_of_types*, *array_of_displacements*, and``: *array_of_blocklengths*.
 
-* ``array_of_blocklengths``: Number of elements in each block (array of integers).
 
-* ``array_of_displacements``: Byte displacement of each block (array of integers).
 
-* ``array_of_types``: Type of elements in each block (array of handles to data-type
-* ``objects).``: 
+
 OUTPUT PARAMETERS
 -----------------
 
-* ``newtype``: New data type (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -73,7 +67,7 @@ DESCRIPTION
 replaces ``MPI_Type_struct``, which is now deprecated.
 
 NOTE - This routine replaces ``MPI_Type_struct``, which is deprecated. See
-the man page ``MPI_Type_struct``(3) for information about that routine.
+the man page ``MPI_Type_struct(3)`` for information about that routine.
 
 FORTRAN 77 NOTES
 ----------------
@@ -82,8 +76,7 @@ The MPI standard prescribes portable Fortran syntax for the
 *ARRAY_OF_DISPLACEMENTS*\ (*) argument only for Fortran 90. FORTRAN 77
 users may use the non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND ARRAY_OF_DISPLACEMENTS(*)
 
@@ -107,4 +100,4 @@ SEE ALSO
 --------
 
 | ``MPI_Type_struct``
-| MPI_Type_create_hindexed
+| ``MPI_Type_create_hindexed``

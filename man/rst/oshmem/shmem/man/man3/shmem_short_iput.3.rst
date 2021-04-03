@@ -1,13 +1,13 @@
 NAME
 ----
 
-``*shmem``_complex_iput*\ (3), ``*shmem``_double_iput*\ (3),
-``*shmem``_float_iput*\ (3), ``*shmem``_int_iput*\ (3),
-``*shmem``_integer_iput*\ (3), ``*shmem``_iput4*\ (3), ``*shmem``_iput8*\ (3),
-``*shmem``_iput32*\ (3), ``*shmem``_iput64*\ (3), ``*shmem``_iput128*\ (3),
-``*shmem``_logical_iput*\ (3), ``*shmem``_long_iput*\ (3),
-``*shmem``_longdouble_iput*\ (3), ``*shmem``_longlong_iput*\ (3),
-``*shmem``_real_iput*\ (3), ``*shmem``_short_iput*\ (3) - Transfer strided data
+*shmem_complex_iput*\ (3), *shmem_double_iput*\ (3),
+*shmem_float_iput*\ (3), *shmem_int_iput*\ (3),
+*shmem_integer_iput*\ (3), *shmem_iput4*\ (3), *shmem_iput8*\ (3),
+*shmem_iput32*\ (3), *shmem_iput64*\ (3), *shmem_iput128*\ (3),
+*shmem_logical_iput*\ (3), *shmem_long_iput*\ (3),
+*shmem_longdouble_iput*\ (3), *shmem_longlong_iput*\ (3),
+*shmem_real_iput*\ (3), *shmem_short_iput*\ (3) - Transfer strided data
 to a specified processing element (PE).
 
 SYNOPSIS
@@ -15,7 +15,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -54,7 +54,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -88,9 +88,9 @@ Fortran:
 DESCRIPTION
 -----------
 
-The shmem_iput routines read the elements of a local array (*``*source``**)
-and write them to a remote array (*``*target``**) on the PE indicated by
-*``*pe``**. These routines return when the data has been copied out of the
+The shmem_iput routines read the elements of a local array (**source**)
+and write them to a remote array (**target**) on the PE indicated by
+**pe**. These routines return when the data has been copied out of the
 source array on the local PE but not necessarily before the data has
 been delivered to the remote data object.
 
@@ -128,27 +128,27 @@ pe
 The target and source data objects must conform to typing constraints,
 which are as follows:
 
-*``*shmem``_iput32, shmem_iput4**: Any noncharacter type that has a storage size equal
+**shmem_iput32, shmem_iput4**: Any noncharacter type that has a storage size equal
    to 32 bits.
 
-*``*shmem``_iput64, shmem_iput8**: Any noncharacter type that has a storage size equal
+**shmem_iput64, shmem_iput8**: Any noncharacter type that has a storage size equal
    to 64 bits.
 
-*``*shmem``_iput128**: Any noncharacter type that has a storage size equal to 128 bits.
+**shmem_iput128**: Any noncharacter type that has a storage size equal to 128 bits.
 
-*``*shmem``_short_iput**: Elements of type short.
+**shmem_short_iput**: Elements of type short.
 
-*``*shmem``_int_iput**: Elements of type int.
+**shmem_int_iput**: Elements of type int.
 
-*``*shmem``_long_iput**: Elements of type long.
+**shmem_long_iput**: Elements of type long.
 
-*``*shmem``_longlong_iput**: Elements of type long long.
+**shmem_longlong_iput**: Elements of type long long.
 
-*``*shmem``_float_iput**: Elements of type float.
+**shmem_float_iput**: Elements of type float.
 
-*``*shmem``_double_iput**: Elements of type double.
+**shmem_double_iput**: Elements of type double.
 
-*``*shmem``_longdouble_iput**: Elements of type long double.
+**shmem_longdouble_iput**: Elements of type long double.
 
 **SHMEM_COMPLEX_IPUT**: Elements of type complex of default size.
 
@@ -171,7 +171,7 @@ REAL(KIND=4).
 NOTES
 -----
 
-See ``*intro``_shmem*\ (3) for a definition of the term remotely accessible.
+See *intro_shmem*\ (3) for a definition of the term remotely accessible.
 
 EXAMPLES
 --------
@@ -179,8 +179,7 @@ EXAMPLES
 Consider the following simple shmem_long_iput example for C/C++
 programs.
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    #include <mpp/shmem.h>
 
@@ -208,5 +207,5 @@ programs.
 SEE ALSO
 --------
 
-``*intro``_shmem*\ (3), ``*shmem``_iget*\ (3), ``*shmem``_put*\ (3),
+*intro_shmem*\ (3), *shmem_iget*\ (3), *shmem_put*\ (3),
 *shmem_quiet*\ (3)

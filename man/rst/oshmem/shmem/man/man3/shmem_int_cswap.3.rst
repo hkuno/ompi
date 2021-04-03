@@ -1,9 +1,9 @@
 NAME
 ----
 
-``*shmem``_int_cswap*\ (3), ``*shmem``_int4_cswap*\ (3),
-``*shmem``_int8_cswap*\ (3), ``*shmem``_long_cswap*\ (3),
-``*shmem``_longlong_cswap*\ (3) - Performs an atomic conditional swap to a
+*shmem_int_cswap*\ (3), *shmem_int4_cswap*\ (3),
+*shmem_int8_cswap*\ (3), *shmem_long_cswap*\ (3),
+*shmem_longlong_cswap*\ (3) - Performs an atomic conditional swap to a
 remote data object
 
 SYNOPSIS
@@ -11,7 +11,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -26,7 +26,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -95,7 +95,7 @@ pe
 NOTES
 -----
 
-The term remotely accessible is defined in ``*intro``_shmem*\ (3).
+The term remotely accessible is defined in *intro_shmem*\ (3).
 
 RETURN VALUES
 -------------
@@ -109,8 +109,7 @@ EXAMPLES
 The following call ensures that the first PE to execute the conditional
 swap will successfully write its PE number to race_winner on PE 0.
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    main()
    {

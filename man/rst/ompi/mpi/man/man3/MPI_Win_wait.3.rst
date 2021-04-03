@@ -2,7 +2,7 @@ NAME
 ----
 
 ``MPI_Win_wait`` - Completes an RMA exposure epoch started by a call to
-``MPI_Win_post`` on ``*win``*
+``MPI_Win_post`` on *win*
 
 SYNTAX
 ------
@@ -41,19 +41,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``win``: Window object (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Win_wait`` is a one-sided MPI communication synchronization call that
 completes an RMA exposure epoch started by a call to ``MPI_Win_post`` on
-``*win``*. This call matches calls to ``MPI_Win_complete``(``*win``*) issued by each
+*win*. This call matches calls to ``MPI_Win_complete(``win*) issued by each
 of the processes that were granted access to the window during this
 epoch. The call to ``MPI_Win_wait`` blocks until all matching calls to
 ``MPI_Win_complete`` have occurred. This guarantees that all these origin
@@ -77,4 +76,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Win_post
+| ``MPI_Win_post``

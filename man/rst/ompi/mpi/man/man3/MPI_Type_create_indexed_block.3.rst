@@ -29,7 +29,7 @@ Fortran Syntax
    MPI_TYPE_CREATE_INDEXED_BLOCK(COUNT, BLOCKLENGTH,
    		ARRAY_OF_DISPLACEMENTS, OLDTYPE, NEWTYPE, IERROR)
    	INTEGER	COUNT, BLOCKLENGTH, ARRAY_OF_DISPLACEMENTS(*),
-   	        OLDTYPE, NEWTYPE, IERROR 
+   	        OLDTYPE, NEWTYPE, IERROR
 
    MPI_TYPE_CREATE_HINDEXED_BLOCK(COUNT, BLOCKLENGTH,
    		ARRAY_OF_DISPLACEMENTS, OLDTYPE, NEWTYPE, IERROR)
@@ -64,21 +64,15 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Length of array of displacements (integer).
 
-* ``blocklength``: Size of block (integer).
 
-* ``array_of_displacements``: Array of displacements (array of integers). In units of the extent of
-* ``*oldtype* for MPI_Type_create_indexed_block and bytes for``: MPI_Type_create_hindexed_block.
 
-* ``oldtype``: Old data type (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newtype``: New data type (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -86,7 +80,7 @@ DESCRIPTION
 ``MPI_Type_create_indexed_block`` and ``MPI_Type_create_hindexed_block`` create
 an indexed data type with the same block length for all blocks. The only
 difference between the two functions is ``MPI_Type_create_indexed_block``
-takes an array of displacements in units of the extent of ``*oldtype``*
+takes an array of displacements in units of the extent of *oldtype*
 while ``MPI_Type_create_hindexed_block`` takes displacements in bytes.
 
 ERRORS
@@ -105,4 +99,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Type_indexed
+| ``MPI_Type_indexed``

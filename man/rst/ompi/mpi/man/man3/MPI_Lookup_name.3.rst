@@ -1,8 +1,7 @@
 NAME
 ----
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    MPI_Lookup_name - Finds port associated with a service name
 
@@ -47,32 +46,28 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``service_name``: A service name (string).
 
-* ``info``: Options to the name service functions (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``port_name``: a port name (string).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-This function retrieves a ``*port``_name* published under ``*service``_name* by
+This function retrieves a *port_name* published under *service_name* by
 a previous invocation of ``MPI_Publish_name``. The application must supply a
-``*port``_name* buffer large enough to hold the largest possible port name
+*port_name* buffer large enough to hold the largest possible port name
 (i.e., ``MPI_MAX_PORT_NAME`` bytes).
 
 INFO ARGUMENTS
 --------------
 
-The following keys for ``*info``* are recognized:
+The following keys for *info* are recognized:
 
-.. code-block:: fortran
-   :linenos:
+::
 
    Key                   Type      Description
    ---                   ----      -----------
@@ -103,7 +98,7 @@ the search will default to local.
 NAME SCOPE
 ----------
 
-Open MPI supports two name scopes: ``*global``* and ``*local``*. Local scope
+Open MPI supports two name scopes: *global* and *local*. Local scope
 values are placed in a data store located on the mpirun of the calling
 process' job, while global scope values reside on a central server.
 Calls to ``MPI_Unpublish_name`` must correctly specify the scope to be used
@@ -131,8 +126,7 @@ See the MPI man page for a full list of MPI error codes.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Publish_name
    MPI_Open_port

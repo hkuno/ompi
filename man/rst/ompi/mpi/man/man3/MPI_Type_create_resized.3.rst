@@ -20,7 +20,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -45,29 +45,25 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``oldtype``: Input data type (handle).
 
-* ``lb``: New lower bound of data type (integer).
 
-* ``extent``: New extent of data type (integer).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newtype``: Output data type (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Type_create_resized`` returns in ``*newtype``* a handle to a new data type
-that is identical to ``*oldtype``*, except that the lower bound of this new
-data type is set to be ``*lb``*, and its upper bound is set to be ``*lb``* +
-``*extent``*. Any previous ``*lb``* and ``*ub``* markers are erased, and a new pair
+``MPI_Type_create_resized`` returns in *newtype* a handle to a new data type
+that is identical to *oldtype*, except that the lower bound of this new
+data type is set to be *lb*, and its upper bound is set to be *lb* +
+*extent*. Any previous *lb* and *ub* markers are erased, and a new pair
 of lower bound and upper bound markers are put in the positions
-indicated by the ``*lb``* and ``*extent``* arguments. This affects the behavior
-of the data type when used in communication operations, with ``*count``* >
+indicated by the *lb* and *extent* arguments. This affects the behavior
+of the data type when used in communication operations, with *count* >
 1, and when used in the construction of new derived data types.
 
 FORTRAN 77 NOTES
@@ -77,8 +73,7 @@ The MPI standard prescribes portable Fortran syntax for the *LB* and
 *EXTENT* arguments only for Fortran 90. FORTRAN 77 users may use the
 non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND LB
    or
@@ -109,4 +104,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Type_get_extent
+``MPI_Type_get_extent``

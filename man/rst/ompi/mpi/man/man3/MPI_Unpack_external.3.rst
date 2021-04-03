@@ -55,27 +55,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``datarep``: Data Representation (string).
 
-* ``inbuf``: Input buffer start (choice).
 
-* ``insize``: Size of input buffer, in bytes (integer).
 
-* ``outcount``: Number of items to be unpacked (integer).
 
-* ``datatype``: Datatype of each output data item (handle).
 
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``position``: Current position in buffer, in bytes (integer).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``outbuf``: Output buffer start (choice).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -85,24 +78,24 @@ data representation defined by the MPI Forum. This format is useful for
 exchanging data between MPI implementations, or when writing data to a
 file.
 
-The input buffer is a contiguous storage area pointed to by ``*inbuf``*
-containing ``*insize``* bytes. The output buffer can be any communication
-buffer allowed in ``MPI_Recv``, and is specified by ``*outbuf``*, ``*outcount``*,
-and ``*datatype``*.
+The input buffer is a contiguous storage area pointed to by *inbuf*
+containing *insize* bytes. The output buffer can be any communication
+buffer allowed in ``MPI_Recv``, and is specified by *outbuf*, *outcount*,
+and *datatype*.
 
-The input value of ``*position``* is the first position in ``*inbuf``* to be
+The input value of *position* is the first position in *inbuf* to be
 read for unpacking (measured in bytes, not elements, relative to the
-start of the buffer). When the function returns, ``*position``* is
+start of the buffer). When the function returns, *position* is
 incremented by the size of the packed message, so that it points to the
-first location in ``*inbuf``* following the message that was unpacked. This
+first location in *inbuf* following the message that was unpacked. This
 way it may be used as input to a subsequent call to ``MPI_Unpack_external``.
 
 NOTES
 -----
 
 Note the difference between ``MPI_Recv`` and ``MPI_Unpack_external``: In
-``MPI_Recv``, the ``*count``* argument specifies the maximum number of items
-that can be received. In ``MPI_Unpack_external``, the ``*outcount``* argument
+``MPI_Recv``, the *count* argument specifies the maximum number of items
+that can be received. In ``MPI_Unpack_external``, the *outcount* argument
 specifies the actual number of items that are to be unpacked. With a
 regular receive operation, the incoming message size determines the
 number of components that will be received. With ``MPI_Unpack_external``, it
@@ -121,9 +114,9 @@ function.)
 
 Several messages can be successively packed into one packing unit. This
 is effected by several successive related calls to ``MPI_Pack_external``,
-where the first call provides ``*position``*\ =0, and each successive call
-inputs the value of ``*position``* that was output by the previous call,
-along with the same values for ``*outbuf``* and ``*outcount``*. This packing
+where the first call provides *position*\ =0, and each successive call
+inputs the value of *position* that was output by the previous call,
+along with the same values for *outbuf* and *outcount*. This packing
 unit now contains the equivalent information that would have been stored
 in a message by one send call with a send buffer that is the
 "concatenation" of the individual send buffers.
@@ -137,9 +130,9 @@ type ``MPI_BYTE``.
 
 A packing unit can be unpacked into several successive messages. This is
 effected by several successive related calls to ``MPI_Unpack_external``,
-where the first call provides ``*position``*\ =0, and each successive call
+where the first call provides *position*\ =0, and each successive call
 inputs the value of position that was output by the previous call, and
-the same values for ``*inbuf``* and ``*insize``*.
+the same values for *inbuf* and *insize*.
 
 The concatenation of two packing units is not necessarily a packing
 unit; nor is a substring of a packing unit necessarily a packing unit.
@@ -167,8 +160,7 @@ See the MPI man page for a full list of MPI error codes.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Pack_external
    MPI_Pack_external_size

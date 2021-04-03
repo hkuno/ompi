@@ -42,18 +42,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``source``: Source rank or MPI_ANY_SOURCE (integer).
 
-* ``tag``: Tag value or MPI_ANY_TAG (integer).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``status``: Status object (status).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -67,9 +63,9 @@ receive buffer, according to the length of the probed message.
 ``MPI_Probe`` behaves like ``MPI_Iprobe`` except that it is a blocking call that
 returns only after a matching message has been found.
 
-If your application does not need to examine the ``*status``* field, you can
+If your application does not need to examine the *status* field, you can
 save resources by using the predefined constant ``MPI_STATUS_IGNORE`` as a
-special value for the ``*status``* argument.
+special value for the *status* argument.
 
 The semantics of ``MPI_Probe`` and ``MPI_Iprobe`` guarantee progress: If a call
 to ``MPI_Probe`` has been issued by a process, and a send that matches the
@@ -83,8 +79,7 @@ concurrent receive operation.
 
 **Example 1:** Use blocking probe to wait for an incoming message.
 
-.. code-block:: fortran
-   :linenos:
+::
 
    CALL MPI_COMM_RANK(comm, rank, ierr)
           IF (rank.EQ.0) THEN
@@ -108,8 +103,7 @@ Each message is received with the right type.
 **Example 2:** A program similar to the previous example, but with a
 problem.
 
-.. code-block:: fortran
-   :linenos:
+::
 
    CALL MPI_COMM_RANK(comm, rank, ierr)
           IF (rank.EQ.0) THEN
@@ -153,4 +147,4 @@ SEE ALSO
 --------
 
 | ``MPI_Iprobe``
-| MPI_Cancel
+| ``MPI_Cancel``

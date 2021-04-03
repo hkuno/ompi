@@ -19,13 +19,13 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_TYPE_GET_ATTR(TYPE, TYPE_KEYVAL, ATTRIBUTE_VAL, FLAG, IERROR)
-   	INTEGER	TYPE, TYPE_KEYVAL, IERROR 
+   	INTEGER	TYPE, TYPE_KEYVAL, IERROR
    	INTEGER(KIND=MPI_ADDRESS_KIND) ATTRIBUTE_VAL
    	LOGICAL FLAG
 
@@ -46,18 +46,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``type``: Data type to which the attribute is attached (handle).
 
-* ``type_keyval``: Key value (integer).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``attribute_val``: Attribute value, unless *flag* = false
 
-* ``flag``: "false" if no attribute is associated with the key (logical).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -72,8 +68,7 @@ The MPI standard prescribes portable Fortran syntax for the
 *ATTRIBUTE_VAL* argument only for Fortran 90. Sun FORTRAN 77 users may
 use the non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND ATTRIBUTE_VAL
 
@@ -96,4 +91,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Type_set_attr
+| ``MPI_Type_set_attr``

@@ -7,8 +7,6 @@ data-access operations.
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -46,22 +44,20 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``fh``: File handle (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``flag``: true if atomic mode is enabled, false if nonatomic mode is enabled
-* ``(boolean).``: 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_File_get_atomicity`` returns the current consistency semantics for
 data access operations on the set of file handles created by one
-collective ``MPI_File_open``. If ``*flag``* is ``*true``,* atomic mode is currently
-enabled; if ``*flag``* is ``*false``,* nonatomic mode is currently enabled.
+collective ``MPI_File_open``. If *flag* is *true,* atomic mode is currently
+enabled; if *flag* is *false,* nonatomic mode is currently enabled.
 
 ERRORS
 ------

@@ -1,10 +1,10 @@
 NAME
 ----
 
-``*shmem``_double_swap*\ (3), ``*shmem``_float_swap*\ (3),
-``*shmem``_int_swap*\ (3), ``*shmem``_long_swap*\ (3), ``*shmem``_swap*\ (3),
-``*shmem``_int4_swap*\ (3), ``*shmem``_int8_swap*\ (3), ``*shmem``_real4_swap*\ (3),
-``*shmem``_real8_swap*\ (3), ``*shmem``_longlong_swap*\ (3) - Performs an atomic
+*shmem_double_swap*\ (3), *shmem_float_swap*\ (3),
+*shmem_int_swap*\ (3), *shmem_long_swap*\ (3), *shmem_swap*\ (3),
+*shmem_int4_swap*\ (3), *shmem_int8_swap*\ (3), *shmem_real4_swap*\ (3),
+*shmem_real8_swap*\ (3), *shmem_longlong_swap*\ (3) - Performs an atomic
 swap to a remote data object
 
 SYNOPSIS
@@ -12,7 +12,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -33,7 +33,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -58,8 +58,8 @@ Fortran:
 DESCRIPTION
 -----------
 
-The atomic swap routines write *``*value``** to address target on PE *``*pe``**,
-and return the previous contents of *``*target``** in one atomic operation.
+The atomic swap routines write **value** to address target on PE **pe**,
+and return the previous contents of **target** in one atomic operation.
 
 The arguments are as follows:
 
@@ -91,7 +91,7 @@ pe
 NOTES
 -----
 
-The term remotely accessible is defined in ``*intro``_shmem*\ (3).
+The term remotely accessible is defined in *intro_shmem*\ (3).
 
 RETURN VALUES
 -------------

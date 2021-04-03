@@ -44,16 +44,13 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Lists length (integer).
 
-* ``array_of_requests``: Array of requests (array of handles).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``array_of_statuses``: Array of status objects (array of status).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -68,9 +65,9 @@ deallocated, and the corresponding handles in the array are set to
 ``MPI_REQUEST_NULL``. The list may contain null or inactive handles. The
 call sets to empty the status of each such entry.
 
-The error-free execution of ``MPI_Waitall``(count, array_of_requests,
+The error-free execution of ``MPI_Waitall(count``, array_of_requests,
 array_of_statuses) has the same effect as the execution of
-``MPI_Wait``(&array_of_request[i], &array_of_statuses[i]), for
+``MPI_Wait(``&array_of_request[i], &array_of_statuses[i]), for
 i=0,...,count-1, in some arbitrary order. ``MPI_Waitall`` with an array of
 length 1 is equivalent to ``MPI_Wait``.
 
@@ -86,18 +83,18 @@ request had an error, or will return another error code if it failed for
 other reasons (such as invalid arguments). In such cases, it will not
 update the error fields of the statuses.
 
-If your application does not need to examine the ``*array``_of_statuses*
+If your application does not need to examine the *array_of_statuses*
 field, you can save resources by using the predefined constant
 ``MPI_STATUSES_IGNORE`` can be used as a special value for the
-``*array``_of_statuses* argument.
+*array_of_statuses* argument.
 
 ERRORS
 ------
 
 For each invocation of ``MPI_Waitall``, if one or more requests generate an
-MPI error, only the ``*first``* MPI request that caused an error will be
+MPI error, only the *first* MPI request that caused an error will be
 passed to its corresponding error handler. No other error handlers will
-be invoked (even if multiple requests generated errors). However, ``*all``*
+be invoked (even if multiple requests generated errors). However, *all*
 requests that generate an error will have a relevant error code set in
 the corresponding status.``MPI_ERROR`` field (unless ``MPI_STATUSES_IGNORE`` was
 used).
@@ -126,4 +123,4 @@ SEE ALSO
 | ``MPI_Wait``
 | ``MPI_Waitany``
 | ``MPI_Waitsome``
-| MPI_Win_set_errhandler
+| ``MPI_Win_set_errhandler``

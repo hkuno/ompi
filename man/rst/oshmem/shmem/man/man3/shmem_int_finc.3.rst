@@ -1,8 +1,8 @@
 NAME
 ----
 
-``*shmem``_int4_finc*\ (3), ``*shmem``_int8_finc*\ (3), ``*shmem``_int_finc*\ (3),
-``*shmem``_long_finc*\ (3), ``*shmem``_longlong_finc*\ (3) - Performs an atomic
+*shmem_int4_finc*\ (3), *shmem_int8_finc*\ (3), *shmem_int_finc*\ (3),
+*shmem_long_finc*\ (3), *shmem_longlong_finc*\ (3) - Performs an atomic
 fetch-and-increment operation on a remote data object
 
 SYNOPSIS
@@ -10,7 +10,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -23,7 +23,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -40,9 +40,9 @@ DESCRIPTION
 -----------
 
 The fetch and increment routines retrieve the value at address
-*``*target``** on PE *``*pe``**, and update *``*target``** with the result of
+**target** on PE **pe**, and update **target** with the result of
 incrementing the retrieved value by one. The operation must be completed
-without the possibility of another process updating *``*target``** between
+without the possibility of another process updating **target** between
 the time of the fetch and the update.
 
 The arguments are as follows:
@@ -60,7 +60,7 @@ pe
 NOTES
 -----
 
-The term remotely accessible is defined in ``*intro``_shmem*\ (3).
+The term remotely accessible is defined in *intro_shmem*\ (3).
 
 RETURN VALUES
 -------------

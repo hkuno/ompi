@@ -1,8 +1,8 @@
 NAME
 ----
 
-``*shmem``_int4_fadd*\ (3), ``*shmem``_int8_fadd*\ (3), ``*shmem``_int_fadd*\ (3),
-``*shmem``_long_fadd*\ (3), ``*shmem``_longlong_fadd*\ (3) - Performs an atomic
+*shmem_int4_fadd*\ (3), *shmem_int8_fadd*\ (3), *shmem_int_fadd*\ (3),
+*shmem_long_fadd*\ (3), *shmem_longlong_fadd*\ (3) - Performs an atomic
 fetch-and-add operation on a remote data object
 
 SYNOPSIS
@@ -10,7 +10,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -24,7 +24,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -66,7 +66,7 @@ pe
 NOTES
 -----
 
-The term remotely accessible is defined in ``*intro``_shmem*\ (3).
+The term remotely accessible is defined in *intro_shmem*\ (3).
 
 RETURN VALUES
 -------------

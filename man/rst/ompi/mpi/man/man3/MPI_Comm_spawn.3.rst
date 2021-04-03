@@ -52,35 +52,27 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``command``: Name of program to be spawned (string, significant only at *root*).
 
-* ``argv``: Arguments to *command* (array of strings, significant only at
-* ``*root*).``: 
-* ``maxprocs``: Maximum number of processes to start (integer, significant only at
-* ``*root*).``: 
-* ``info``: A set of key-value pairs telling the runtime system where and how to
-* ``start the processes (handle, significant only at *root*).``: 
-* ``root``: Rank of process in which previous arguments are examined (integer).
 
-* ``comm``: Intracommunicator containing group of spawning processes (handle).
+
+
+
 
 OUTPUT PARAMETER
 ----------------
 
-* ``intercomm``: Intercommunicator between original group and the newly spawned group
-* ``(handle).``: 
-* ``array_of_errcodes``: One code per process (array of integers).
 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Comm_spawn`` tries to start ``*maxprocs``* identical copies of the MPI
-program specified by ``*command``*, establishing communication with them and
+``MPI_Comm_spawn`` tries to start *maxprocs* identical copies of the MPI
+program specified by *command*, establishing communication with them and
 returning an intercommunicator. The spawned processes are referred to as
 children. The children have their own ``MPI_COMM_WORLD``, which is separate
-from that of the parents. ``MPI_Comm_spawn`` is collective over ``*comm``*, and
+from that of the parents. ``MPI_Comm_spawn`` is collective over *comm*, and
 also may not return until ``MPI_Init`` has been called in the children.
 Similarly, ``MPI_Init`` in the children may not return until all parents
 have called ``MPI_Comm_spawn``. In this sense, ``MPI_Comm_spawn`` in the parents
@@ -89,7 +81,7 @@ of parent and child processes. The intercommunicator returned by
 ``MPI_Comm_spawn`` contains the parent processes in the local group and the
 child processes in the remote group. The ordering of processes in the
 local and remote groups is the same as the as the ordering of the group
-of the ``*comm``* in the parents and of ``MPI_COMM_WORLD`` of the children,
+of the *comm* in the parents and of ``MPI_COMM_WORLD`` of the children,
 respectively. This intercommunicator can be obtained in the children
 through the function ``MPI_Comm_get_parent``.
 
@@ -100,69 +92,68 @@ defines ``MPI_UNIVERSE_SIZE``, it does not allow the user to set its value.
 If you try to set the value of ``MPI_UNIVERSE_SIZE``, you will get an error
 message.
 
-The ``*command``* Argument
+The *command* Argument
 
-The ``*command``* argument is a string containing the name of a program to
+The *command* argument is a string containing the name of a program to
 be spawned. The string is null-terminated in C. In Fortran, leading and
 trailing spaces are stripped. MPI looks for the file first in the
 working directory of the spawning process.
 
-The ``*argv``* Argument
+The *argv* Argument
 
-``*argv``* is an array of strings containing arguments that are passed to
-the program. The first element of ``*argv``* is the first argument passed to
-``*command``*, not, as is conventional in some contexts, the command itself.
+*argv* is an array of strings containing arguments that are passed to
+the program. The first element of *argv* is the first argument passed to
+*command*, not, as is conventional in some contexts, the command itself.
 The argument list is terminated by NULL in C and an empty string in
 Fortran (note that it is the MPI application's responsibility to ensure
-that the last entry of the ``*argv``* array is an empty string; the compiler
+that the last entry of the *argv* array is an empty string; the compiler
 will not automatically insert it). In Fortran, leading and trailing
 spaces are always stripped, so that a string consisting of all spaces is
 considered an empty string. The constant ``MPI_ARGV_NULL`` may be used in C
 and Fortran to indicate an empty argument list. In C, this constant is
 the same as NULL.
 
-In C, the ``MPI_Comm_spawn`` argument ``*argv``* differs from the ``*argv``*
-argument of ``*main``* in two respects. First, it is shifted by one element.
-Specifically, ``*argv``*\ [0] of ``*main``* contains the name of the program
-(given by ``*command``*). ``*argv``*\ [1] of ``*main``* corresponds to ``*argv``*\ [0]
-in ``MPI_Comm_spawn``, ``*argv``*\ [2] of ``*main``* to ``*argv``*\ [1] of
-``MPI_Comm_spawn``, and so on. Second, ``*argv``* of ``MPI_Comm_spawn`` must be
-null-terminated, so that its length can be determined. Passing an ``*argv``*
-of ``MPI_ARGV_NULL`` to ``MPI_Comm_spawn`` results in ``*main``* receiving ``*argc``* of
-1 and an ``*argv``* whose element 0 is the name of the program.
+In C, the ``MPI_Comm_spawn`` argument *argv* differs from the *argv*
+argument of *main* in two respects. First, it is shifted by one element.
+Specifically, *argv*\ [0] of *main* contains the name of the program
+(given by *command*). *argv*\ [1] of *main* corresponds to *argv*\ [0]
+in ``MPI_Comm_spawn``, *argv*\ [2] of *main* to *argv*\ [1] of
+``MPI_Comm_spawn``, and so on. Second, *argv* of ``MPI_Comm_spawn`` must be
+null-terminated, so that its length can be determined. Passing an *argv*
+of ``MPI_ARGV_NULL`` to ``MPI_Comm_spawn`` results in *main* receiving *argc* of
+1 and an *argv* whose element 0 is the name of the program.
 
-The ``*maxprocs``* Argument
+The *maxprocs* Argument
 
-Open MPI tries to spawn ``*maxprocs``* processes. If it is unable to spawn
-``*maxprocs``* processes, it raises an error of class ``MPI_ERR_SPAWN``. If MPI
+Open MPI tries to spawn *maxprocs* processes. If it is unable to spawn
+*maxprocs* processes, it raises an error of class ``MPI_ERR_SPAWN``. If MPI
 is able to spawn the specified number of processes, ``MPI_Comm_spawn``
-returns successfully and the number of spawned processes, ``*m``*, is given
-by the size of the remote group of ``*intercomm``*.
+returns successfully and the number of spawned processes, *m*, is given
+by the size of the remote group of *intercomm*.
 
 A spawn call with the default behavior is called hard. A spawn call for
-which fewer than ``*maxprocs``* processes may be returned is called soft.
+which fewer than *maxprocs* processes may be returned is called soft.
 
-The ``*info``* Argument
+The *info* Argument
 
-The ``*info``* argument is an opaque handle of type ``MPI_Info`` in C and
+The *info* argument is an opaque handle of type ``MPI_Info`` in C and
 INTEGER in Fortran. It is a container for a number of user-specified
-(``*key``,value*) pairs. ``*key``* and ``*value``* are strings (null-terminated
+(*key,value*) pairs. *key* and *value* are strings (null-terminated
 char\* in C, character*(*) in Fortran). Routines to create and
-manipulate the ``*info``* argument are described in Section 4.10 of the
+manipulate the *info* argument are described in Section 4.10 of the
 MPI-2 standard.
 
-For the SPAWN calls, ``*info``* provides additional,
+For the SPAWN calls, *info* provides additional,
 implementation-dependent instructions to MPI and the runtime system on
 how to start processes. An application may pass ``MPI_INFO_NULL`` in C or
 Fortran. Portable programs not requiring detailed control over process
 locations should use ``MPI_INFO_NULL``.
 
-The following keys for ``*info``* are recognized in Open MPI. (The reserved
+The following keys for *info* are recognized in Open MPI. (The reserved
 values mentioned in Section 5.3.4 of the MPI-2 standard are not
 implemented.)
 
-.. code-block:: fortran
-   :linenos:
+::
 
    Key                    Type     Description
    ---                    ----     -----------
@@ -285,8 +276,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Comm_spawn_multiple(3)
    MPI_Comm_get_parent(3)

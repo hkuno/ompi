@@ -42,21 +42,19 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``win``: Window object (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``group``: Group of processes that share access to the window (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Win_get_group`` returns a duplicate of the group of the communicator
-used to create the window associated with ``*win``*. The group is returned
-in ``*group``*.
+used to create the window associated with *win*. The group is returned
+in *group*.
 
 ERRORS
 ------

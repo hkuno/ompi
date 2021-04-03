@@ -29,22 +29,19 @@ Fortran Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``comm``: Communicator to which attribute will be attached (handle).
 
-* ``keyval``: Key value, as returned by MPI_KEYVAL_CREATE (integer).
 
-* ``attribute_val``: Attribute value.
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Note that use of this routine is ``*deprecated`` as of MPI-2, and* was
-``*deleted`` in MPI-3. Please use ``MPI_Comm_set_attr``. This* function does not
+Note that use of this routine is *deprecated as of MPI-2, and* was
+*deleted in MPI-3. Please use ``MPI_Comm_set_attr``. This* function does not
 have a mpi_f08 binding.
 
 ``MPI_Attr_put`` stores the stipulated attribute value attribute_val for
@@ -87,4 +84,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Comm_set_attr
+| ``MPI_Comm_set_attr``

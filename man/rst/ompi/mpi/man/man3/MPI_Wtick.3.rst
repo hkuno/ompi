@@ -57,4 +57,4 @@ of calling it before ``MPI_Init`` or after ``MPI_Finalize`` is undefined.
 SEE ALSO
 --------
 
-MPI_Wtime
+``MPI_Wtime``

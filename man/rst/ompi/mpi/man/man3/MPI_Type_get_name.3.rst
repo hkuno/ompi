@@ -25,7 +25,7 @@ Fortran Syntax
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_TYPE_GET_NAME(TYPE, TYPE_NAME, RESULTLEN, IERROR)
-   	INTEGER	TYPE, RESULTLEN, IERROR 
+   	INTEGER	TYPE, RESULTLEN, IERROR
    	CHARACTER*(*) TYPE_NAME
 
 Fortran 2008 Syntax
@@ -44,16 +44,13 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``type``: Data type whose name is to be returned (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``type_name``: The name previously stored on the data type, or an empty string if
-* ``not such name exists (string).``: 
-* ``resultlen``: Length of returned name (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -77,4 +74,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Type_set_name
+| ``MPI_Type_set_name``

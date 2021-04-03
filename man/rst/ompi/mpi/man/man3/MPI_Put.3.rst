@@ -26,7 +26,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -75,57 +75,51 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``origin_addr``: Initial address of origin buffer (choice).
 
-* ``origin_count``: Number of entries in origin buffer (nonnegative integer).
 
-* ``origin_datatype``: Data type of each entry in origin buffer (handle).
 
-* ``target_rank``: Rank of target (nonnegative integer).
 
-* ``target_disp``: Displacement from start of window to target buffer (nonnegative
-* ``integer).``: 
-* ``target_count``: Number of entries in target buffer (nonnegative integer).
 
-* ``target_datatype``: Data type of each entry in target buffer (handle).
 
-* ``win``: Window object used for communication (handle).
+
 
 OUTPUT PARAMETER
 ----------------
 
-* ``request``: MPI_Rput: RMA request
+* ``MPI_Rput``: 
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Put`` transfers ``*origin``_count* successive entries of the type
-specified by ``*origin``_datatype*, starting at address ``*origin``_addr* on the
-origin node to the target node specified by the ``*win``*, ``*target``_rank*
-``*disp``_unit* are the base address and window displacement unit specified
+``MPI_Put`` transfers *origin_count* successive entries of the type
+specified by *origin_datatype*, starting at address *origin_addr* on the
+origin node to the target node specified by the *win*, *target_rank*
+pair. The data are written in the target buffer at address *target_addr*
+~ *window_base* + *target_disp* x *disp_unit*, where *window_base* and
+*disp_unit* are the base address and window displacement unit specified
 at window initialization, by the target process.
 
-The target buffer is specified by the arguments ``*target``_count* and
-``*target``_datatype*.
+The target buffer is specified by the arguments *target_count* and
+*target_datatype*.
 
 The data transfer is the same as that which would occur if the origin
-process executed a send operation with arguments ``*origin``_addr*,
-``*origin``_count*, ``*origin``_datatype*, ``*target``_rank*, ``*tag``*, ``*comm``*, and the
+process executed a send operation with arguments *origin_addr*,
+*origin_count*, *origin_datatype*, *target_rank*, *tag*, *comm*, and the
 target process executed a receive operation with arguments
-``*target``_addr*, ``*target``_count*, ``*target``_datatype*, ``*source``*, ``*tag``*,
-``*comm``*, where ``*target``_addr* is the target buffer address computed as
-explained above, and ``*comm``* is a communicator for the group of ``*win``*.
+*target_addr*, *target_count*, *target_datatype*, *source*, *tag*,
+*comm*, where *target_addr* is the target buffer address computed as
+explained above, and *comm* is a communicator for the group of *win*.
 
 The communication must satisfy the same constraints as for a similar
-message-passing communication. The ``*target``_datatype* may not specify
+message-passing communication. The *target_datatype* may not specify
 overlapping entries in the target buffer. The message sent must fit,
 without truncation, in the target buffer. Furthermore, the target buffer
 must fit in the target window. In addition, only processes within the
 same buffer can access the target window.
 
-The ``*target``_datatype* argument is a handle to a datatype object defined
+The *target_datatype* argument is a handle to a datatype object defined
 at the origin process. However, this object is interpreted at the target
 process: The outcome is as if the target datatype object were defined at
 the target process, by the same sequence of calls used to define it at
@@ -135,9 +129,9 @@ accumulate.
 
 ``MPI_Rput`` is similar to ``MPI_Put``, except that it allocates a
 communication request object and associates it with the request handle
-(the argument ``*request``*). The completion of an ``MPI_Rput`` operation (i.e.,
+(the argument *request*). The completion of an ``MPI_Rput`` operation (i.e.,
 after the corresponding test or wait) indicates that the sender is now
-free to update the locations in the ``*origin``_addr* buffer. It does not
+free to update the locations in the *origin_addr* buffer. It does not
 indicate that the data is available at the target window. If remote
 completion is required, ``MPI_Win_flush``, ``MPI_Win_flush_all``,
 ``MPI_Win_unlock``, or ``MPI_Win_unlock_all`` can be used.
@@ -145,7 +139,7 @@ completion is required, ``MPI_Win_flush``, ``MPI_Win_flush_all``,
 NOTES
 -----
 
-The ``*target``_datatype* argument is a handle to a datatype object that is
+The *target_datatype* argument is a handle to a datatype object that is
 defined at the origin process, even though it defines a data layout in
 the target process memory. This does not cause problems in a homogeneous
 or heterogeneous environment, as long as only portable data types are
@@ -167,8 +161,7 @@ The MPI standard prescribes portable Fortran syntax for the
 *TARGET_DISP* argument only for Fortran 90. FORTRAN 77 users may use the
 non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND TARGET_DISP
 
@@ -193,4 +186,4 @@ SEE ALSO
 
 | ``MPI_Get`` ``MPI_Rget``
 | ``MPI_Accumulate`` ``MPI_Win_flush`` ``MPI_Win_flush_all`` ``MPI_Win_unlock``
-  MPI_Win_unlock_all
+  ``MPI_Win_unlock_all``

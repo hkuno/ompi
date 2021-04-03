@@ -43,25 +43,22 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``typeclass``: Generic type specifier (integer).
 
-* ``size``: Size, in bytes, of representation (integer).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``type``: Datatype with correct type and size (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 The function returns an MPI datatype matching a local variable of type
-(``*typeclass``*, ``*size``*). The returned type is a reference (handle) to a
+(*typeclass*, *size*). The returned type is a reference (handle) to a
 predefined named datatype, not a duplicate. This type cannot be freed.
 
-The value of ``*typeclass``* may be set to one of ``MPI_TYPECLASS_REAL``,
+The value of *typeclass* may be set to one of ``MPI_TYPECLASS_REAL``,
 ``MPI_TYPECLASS_INTEGER``, or ``MPI_TYPECLASS_COMPLEX``, corresponding to the
 desired datatype.
 
@@ -90,8 +87,7 @@ See the MPI man page for a full list of MPI error codes.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Sizeof
    MPI_Type_get_extent

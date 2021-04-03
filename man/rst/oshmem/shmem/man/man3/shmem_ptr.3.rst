@@ -1,7 +1,7 @@
 NAME
 ----
 
-``*shmem``_ptr*\ (3) - Returns a pointer to a data object on a specified
+*shmem_ptr*\ (3) - Returns a pointer to a data object on a specified
 processing element (PE).
 
 SYNOPSIS
@@ -9,7 +9,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -18,7 +18,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -32,12 +32,12 @@ DESCRIPTION
 -----------
 
 The shmem_ptr routine returns an address that can be used to directly
-reference *``*target``** on the remote PE *``*pe``**. With this address we can
+reference **target** on the remote PE **pe**. With this address we can
 perform ordinary loads and stores to the remote address.
 
 When a sequence of loads (gets) and stores (puts) to a data object on a
 remote PE does not match the access pattern provided in a SHMEM data
-transfer routine like ``*shmem``_put32*\ (3) or ``*shmem``_real_iget*\ (3), the
+transfer routine like *shmem_put32*\ (3) or *shmem_real_iget*\ (3), the
 shmem_ptr function can provide an efficient means to accomplish the
 communication.
 
@@ -57,8 +57,7 @@ EXAMPLES
 This Fortran program calls shmem_ptr and then PE 0 writes to the BIGD
 array on PE 1:
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    PROGRAM REMOTEWRITE
      INCLUDE 'mpp/shmem.fh'
@@ -86,7 +85,7 @@ array on PE 1:
 
 This is the equivalent program written in C:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c
    :linenos:
 
    #include <mpp/shmem.h>

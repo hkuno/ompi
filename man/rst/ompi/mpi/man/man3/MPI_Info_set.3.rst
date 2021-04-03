@@ -1,7 +1,7 @@
 NAME
 ----
 
-``MPI_Info_set`` - Adds a key/value pair to ``*info``*.
+``MPI_Info_set`` - Adds a key/value pair to *info*.
 
 SYNTAX
 ------
@@ -42,28 +42,25 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``info``: Info object (handle).
 
 INPUT PARAMETERS
 ----------------
 
-* ``key``: Key (string).
 
-* ``value``: Value (string).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Info_set`` adds the (key,value) pair to ``*info``* and overrides the value
-if a value for the same key was previously set. The ``*key``* and ``*value``*
+``MPI_Info_set`` adds the (key,value) pair to *info* and overrides the value
+if a value for the same key was previously set. The *key* and *value*
 parameters are null-terminated strings in C. In Fortran, leading and
-trailing spaces in ``*key``* and ``*value``* are stripped. If either ``*key``* or
-``*value``* is larger than the allowed maximums, the error ``MPI_ERR_INFO_KEY``
+trailing spaces in *key* and *value* are stripped. If either *key* or
+*value* is larger than the allowed maximums, the error ``MPI_ERR_INFO_KEY``
 or ``MPI_ERR_INFO_VALUE`` is raised, respectively.
 
 ERRORS
@@ -86,4 +83,4 @@ SEE ALSO
 | ``MPI_Info_delete``
 | ``MPI_Info_dup``
 | ``MPI_Info_free``
-| MPI_Info_set
+| ``MPI_Info_set``

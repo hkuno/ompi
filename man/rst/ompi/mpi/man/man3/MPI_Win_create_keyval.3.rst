@@ -20,7 +20,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -49,36 +49,32 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``win_copy_attr_fn``: Copy callback function for *win_keyval* (function).
 
-* ``win_delete_attr_fn``: Delete callback function for *win_keyval* (function).
 
-* ``extra_state``: Extra state for callback functions.
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``win_keyval``: Key value for future access (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-The argument ``*win``_copy_attr_fn* may be specified as ``MPI_WIN_NULL_COPY_FN``
+The argument *win_copy_attr_fn* may be specified as ``MPI_WIN_NULL_COPY_FN``
 or ``MPI_WIN_DUP_FN`` from either C or Fortran. ``MPI_WIN_NULL_COPY_FN`` is a
-function that serves only to return ``*flag``* = 0 and ``MPI_SUCCESS``.
-``MPI_WIN_DUP_FN`` is a simple-minded copy function that sets ``*flag``* = 1,
-returns the value of ``*attribute``_val_in* in ``*attribute``_val_out*, and
+function that serves only to return *flag* = 0 and ``MPI_SUCCESS``.
+``MPI_WIN_DUP_FN`` is a simple-minded copy function that sets *flag* = 1,
+returns the value of *attribute_val_in* in *attribute_val_out*, and
 returns ``MPI_SUCCESS``.
 
-The argument ``*win``_delete_attr_fn* may be specified as
+The argument *win_delete_attr_fn* may be specified as
 ``MPI_WIN_NULL_DELETE_FN`` from either C or Fortran. ``MPI_WIN_NULL_DELETE_FN``
 is a function that serves only to return ``MPI_SUCCESS``.
 
 The C callback functions are:
 
-.. code-block:: fortran
+.. code-block:: c
    :linenos:
 
    typedef int MPI_Win_copy_attr_function(MPI_Win oldwin, int win_keyval,
@@ -87,8 +83,7 @@ The C callback functions are:
 
 and
 
-.. code-block:: fortran
-   :linenos:
+::
 
    typedef int MPI_Win_delete_attr_function(MPI_Win win, int win_keyval,
                 void *attribute_val, void *extra_state);
@@ -107,8 +102,7 @@ The Fortran callback functions are:
 
 and
 
-.. code-block:: fortran
-   :linenos:
+::
 
    SUBROUTINE WIN_DELETE_ATTR_FN(WIN, WIN_KEYVAL, ATTRIBUTE_VAL,
    	EXTRA_STATE, IERROR)
@@ -122,8 +116,7 @@ The MPI standard prescribes portable Fortran syntax for the
 *EXTRA_STATE* argument only for Fortran 90. FORTRAN 77 users may use the
 non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND EXTRA_STATE
 

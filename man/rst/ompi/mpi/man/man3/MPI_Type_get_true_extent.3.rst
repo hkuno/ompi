@@ -23,7 +23,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -54,31 +54,28 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``datatype``: Data type for which information is wanted (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``true_lb``: True lower bound of data type (integer).
 
-* ``true_extent``: True size of data type (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-The ``*true``_lb* parameter returns the offset of the lowest unit of store
+The *true_lb* parameter returns the offset of the lowest unit of store
 that is addressed by the data type, that is, the lower bound of the
-corresponding typemap, ignoring ``MPI_LB`` markers. The ``*true``_extent*
+corresponding typemap, ignoring ``MPI_LB`` markers. The *true_extent*
 parameter returns the true size of the data type, that is, the extent of
 the corresponding typemap, ignoring ``MPI_LB`` and ``MPI_UB`` markers, and
 performing no rounding for alignment. For both functions, if either the
-``*true``_lb* or ``*true``_extent* parameter cannot express the value to be
+*true_lb* or *true_extent* parameter cannot express the value to be
 returned (e.g., if the parameter is too small to hold the output value),
 it is set to ``MPI_UNDEFINED``.
 
-The ``*true``_extent* is the minimum number of bytes of memory necessary to
+The *true_extent* is the minimum number of bytes of memory necessary to
 hold a data type, uncompressed.
 
 See § 4.1.8 of the MPI-3 standard for more detailed definitions of these
@@ -93,8 +90,7 @@ use the non-portable syntax
 
 ``MPI_Type_get_true_extent``:
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND TRUE_LB
    or
@@ -102,8 +98,7 @@ use the non-portable syntax
 
 MPI_Type_get_true_extent_x:
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_COUNT_KIND TRUE_LB
    or

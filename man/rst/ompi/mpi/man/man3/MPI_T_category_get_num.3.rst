@@ -18,7 +18,6 @@ C Syntax
 OUTPUT PARAMETERS
 -----------------
 
-* ``num_cat``: Current number of categories
 
 DESCRIPTION
 -----------
@@ -29,7 +28,7 @@ categories.
 ERRORS
 ------
 
-``MPI_T_category_get_num``() will fail if:
+``MPI_T_category_get_num()`` will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED``]
+[``MPI_T_ERR_NOT_INITIALIZED]``
    The MPI Tools interface not initialized

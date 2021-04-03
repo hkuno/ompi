@@ -42,22 +42,20 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``status``: Status object (status).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``flag``: True if operation was cancelled (logical).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Returns ``*flag``* = true if the communication associated with the status
+Returns *flag* = true if the communication associated with the status
 object was canceled successfully. In such a case, all other fields of
-status (such as ``*count``* or ``*tag``*) are undefined. Otherwise, returns
-``*flag``* = false. If a receive operation might be canceled, one should
+status (such as *count* or *tag*) are undefined. Otherwise, returns
+*flag* = false. If a receive operation might be canceled, one should
 call ``MPI_Test_cancelled`` first, to check whether the operation was
 canceled, before checking on the other fields of the return status.
 

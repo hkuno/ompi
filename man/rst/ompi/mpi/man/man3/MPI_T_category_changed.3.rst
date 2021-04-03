@@ -18,7 +18,6 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``stamp``: A virtual time stamp to indicate the last change to the categories.
 
 DESCRIPTION
 -----------
@@ -31,7 +30,7 @@ added or changed.
 ERRORS
 ------
 
-``MPI_T_category_changed``() will fail if:
+``MPI_T_category_changed()`` will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED``]
+[``MPI_T_ERR_NOT_INITIALIZED]``
    The MPI Tools interface not initialized

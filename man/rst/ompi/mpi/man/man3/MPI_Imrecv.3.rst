@@ -46,20 +46,15 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Number of elements to receive (nonnegative integer).
 
-* ``datatype``: Datatype of each send buffer element (handle).
 
-* ``message``: Message (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``buf``: Initial address of receive buffer (choice).
 
-* ``request``: Request (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -67,19 +62,19 @@ DESCRIPTION
 The functions ``MPI_Mrecv`` and ``MPI_Imrecv`` receive messages that have been
 previously matched by a matching probe.
 
-The ``*request``* returned from ``MPI_Imrecv`` can be used with any of the
+The *request* returned from ``MPI_Imrecv`` can be used with any of the
 ``MPI_Test`` and ``MPI_Wait`` variants, like any non-blocking receive request.
 
 If ``MPI_Imrecv`` is called with ``MPI_MESSAGE_NULL`` as the message argument, a
 call to one of the ``MPI_Test`` or ``MPI_Wait`` variants will return immediately
-with the ``*status``* object set to ``*source``* = ``MPI_PROC_NULL``, ``*tag``* =
-``MPI_ANY_TAG``, and ``*count``* = 0, as if a receive from ``MPI_PROC_NULL`` was
+with the *status* object set to *source* = ``MPI_PROC_NULL``, *tag* =
+``MPI_ANY_TAG``, and *count* = 0, as if a receive from ``MPI_PROC_NULL`` was
 issued.
 
 If reception of a matched message is started with ``MPI_Imrecv``, then it is
 possible to cancel the returned request with ``MPI_Cancel``. If ``MPI_Cancel``
 succeeds, the matched message must be found by a subsequent message
-probe (``MPI_Probe``, ``MPI_Iprobe``, ``MPI_Mprobe``, or ``MPI_Improbe``), received by a
+probe (``MPI_Probe``, ``MPI_Iprobe``, ``MPI_Mprobe``, or ``MPI_Improbe)``, received by a
 subsequent receive operation or canceled by the sender.
 
 Note, however, that is it possible for the cancellation of operations
@@ -104,8 +99,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Mprobe
    MPI_Improbe

@@ -1,10 +1,10 @@
 NAME
 ----
 
-``*shmem``_int4_fetch*\ (3), ``*shmem``_int8_fetch*\ (3),
-``*shmem``_int_fetch*\ (3), ``*shmem``_long_fetch*\ (3),
-``*shmem``_longlong_fetch*\ (3) ``*shmem``_double_fetch*\ (3)
-``*shmem``_float_fetch*\ (3) - Atomically fetches the value of a remote data
+*shmem_int4_fetch*\ (3), *shmem_int8_fetch*\ (3),
+*shmem_int_fetch*\ (3), *shmem_long_fetch*\ (3),
+*shmem_longlong_fetch*\ (3) *shmem_double_fetch*\ (3)
+*shmem_float_fetch*\ (3) - Atomically fetches the value of a remote data
 object
 
 SYNOPSIS
@@ -12,7 +12,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -29,7 +29,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -53,7 +53,7 @@ DESCRIPTION
 -----------
 
 The shmem_fetch functions perform an atomic fetch operation. They return
-the contents of the *``*target``** as an atomic operation.
+the contents of the **target** as an atomic operation.
 
 The arguments are as follows:
 
@@ -61,14 +61,14 @@ target
    The remotely accessible data object to be fetched from the remote PE.
 
 pe
-   An integer that indicates the PE number from which ``*target``* is to be
+   An integer that indicates the PE number from which *target* is to be
    fetched. If you are using Fortran, it must be a default integer
    value.
 
 RETURN VALUES
 -------------
 
-The contents at the ``*target``* address on the remote PE. The data type of
+The contents at the *target* address on the remote PE. The data type of
 the return value is the same as the the type of the remote data object.
 
 SEE ALSO

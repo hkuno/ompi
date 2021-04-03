@@ -47,20 +47,15 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``datatype``: Data type to access (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``num_integers``: Number of input integers used in the call constructing *combiner*
-* ``(nonnegative integer).``: 
-* ``num_addresses``: Number of input addresses used in the call constructing *combiner*
-* ``(nonnegative integer).``: 
-* ``num_datatypes``: Number of input data types used in the call constructing *combiner*
-* ``(nonnegative integer).``: 
-* ``combiner``: Combiner (state).
 
-* ``IERROR``: Fortran only: Error status (integer).
+
+
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -71,16 +66,15 @@ data type. The number-of-arguments values returned can be used to
 provide sufficiently large arrays in the decoding routine
 ``MPI_Type_get_contents``. This call and the meaning of the returned values
 is described below. The combiner reflects the MPI data type constructor
-call that was used in creating ``*datatype``*.
+call that was used in creating *datatype*.
 
 NOTES
 -----
 
-These are the values that can be returned in ``*combiner``* and their
+These are the values that can be returned in *combiner* and their
 associated calls:
 
-.. code-block:: fortran
-   :linenos:
+::
 
    Values                          Associated Calls
 
@@ -131,4 +125,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Type_get_contents
+| ``MPI_Type_get_contents``

@@ -6,8 +6,6 @@ NAME
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -21,7 +19,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -45,20 +43,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``fh``: File handle (handle).
 
-* ``size``: Size of the file in bytes (integer).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_File_get_size`` returns, in ``*size``* , the current size in bytes of the
-file associated with the file handle ``*fh``*. Note that the file size
+``MPI_File_get_size`` returns, in *size* , the current size in bytes of the
+file associated with the file handle *fh*. Note that the file size
 returned by Solaris may not represent the number of bytes physically
 allocated for the file in those cases where all bytes in this file have
 not been written at least once.
@@ -70,8 +66,7 @@ The MPI standard prescribes portable Fortran syntax for the *SIZE*
 argument only for Fortran 90. Sun FORTRAN 77 users may use the
 non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_OFFSET_KIND SIZE
 
@@ -94,5 +89,5 @@ does not guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| 
-| MPI_File_preallocate
+|
+| ``MPI_File_preallocate``

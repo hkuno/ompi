@@ -6,8 +6,6 @@ NAME
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -23,7 +21,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -51,30 +49,25 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``fh``: File handle (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``disp``: Displacement (integer).
 
-* ``etype``: Elementary data type (handle).
 
-* ``filetype``: File type (handle). See Restrictions, below.
 
-* ``datarep``: Data representation (string).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 The ``MPI_File_get_view`` routine returns the process's view of the data in
 the file. The current values of the displacement, etype, and filetype
-are returned in ``*disp``,* ``*etype``,* and ``*filetype``,* respectively.
+are returned in *disp,* *etype,* and *filetype,* respectively.
 
 The ``MPI_File_get_view`` interface allows the user to pass a
-data-representation string via the ``*datarep``* argument.
+data-representation string via the *datarep* argument.
 
 FORTRAN 77 NOTES
 ----------------
@@ -83,8 +76,7 @@ The MPI standard prescribes portable Fortran syntax for the *DISP*
 argument only for Fortran 90. FORTRAN 77 users may use the non-portable
 syntax.
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_OFFSET_KIND DISP
 

@@ -19,14 +19,11 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``cat_index``: Index of the category to be queried.
 
-* ``len``: The length of the indices array.
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``indices``: An integer array of size len, indicating category indices.
 
 DESCRIPTION
 -----------
@@ -37,10 +34,10 @@ categories are in a category.
 ERRORS
 ------
 
-``MPI_T_category_get_categories``() will fail if:
+``MPI_T_category_get_categories()`` will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED``]
+[``MPI_T_ERR_NOT_INITIALIZED]``
    The MPI Tools interface not initialized
 
-[``MPI_T_ERR_INVALID_INDEX``]
+[``MPI_T_ERR_INVALID_INDEX]``
    The category index is invalid

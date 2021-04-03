@@ -1,16 +1,16 @@
 NAME
 ----
 
-``*shmem``_clear_cache_inv*\ (3), ``*shmem``_set_cache_inv*\ (3),
-``*shmem``_set_cache_line_inv*\ (3), ``*shmem``_udcflush*\ (3),
-``*shmem``_udcflush_line*\ (3) - Controls data cache utilities
+*shmem_clear_cache_inv*\ (3), *shmem_set_cache_inv*\ (3),
+*shmem_set_cache_line_inv*\ (3), *shmem_udcflush*\ (3),
+*shmem_udcflush_line*\ (3) - Controls data cache utilities
 
 SYNOPSIS
 --------
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -24,7 +24,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -47,24 +47,24 @@ target
    can be of any noncharacter type. If you are using Fortran, it can be
    of any kind.
 
-*``*shmem``_clear_cache_inv** disables automatic cache coherency mode
+**shmem_clear_cache_inv** disables automatic cache coherency mode
 previously enabled by shmem_set_cache_inv or shmem_set_cache_line_inv.
 
-*``*shmem``_clear_cache_line_inv** disables automatic cache coherency mode
-for the cache line associated with the address of *``*target``** only.
+**shmem_clear_cache_line_inv** disables automatic cache coherency mode
+for the cache line associated with the address of **target** only.
 
-*``*shmem``_set_cache_inv** enables the OpenSHMEM API to automatically
+**shmem_set_cache_inv** enables the OpenSHMEM API to automatically
 decide the best strategy for cache coherency.
 
-*``*shmem``_set_cache_line_inv** enables automatic cache coherency mode for
-the cache line associated with the address of *``*target``** only.
+**shmem_set_cache_line_inv** enables automatic cache coherency mode for
+the cache line associated with the address of **target** only.
 
-*``*shmem``_clear_cache_inv** disables automatic cache coherency mode
+**shmem_clear_cache_inv** disables automatic cache coherency mode
 previously enabled by shmem_set_cache_inv or shmem_set_cache_line_inv.
 
-*``*shmem``_udcflush** makes the entire user data cache coherent.
+**shmem_udcflush** makes the entire user data cache coherent.
 
-*``*shmem``_udcflush_line** makes coherent the cache line that corresponds
+**shmem_udcflush_line** makes coherent the cache line that corresponds
 with the address specified by target.
 
 NOTES

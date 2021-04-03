@@ -7,8 +7,6 @@ absolute byte position.
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -23,7 +21,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -48,24 +46,21 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``fh``: File handle (handle).
 
-* ``offset``: Offset (integer).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``disp``: Absolute byte position of offset (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_File_get_byte_offset`` converts an offset specified for the current
 view to its corresponding displacement value, or absolute byte position,
-from the beginning of the file. The absolute byte position of ``*offset``*
-relative to the current view of ``*fh``* is returned in ``*disp``*.
+from the beginning of the file. The absolute byte position of *offset*
+relative to the current view of *fh* is returned in *disp*.
 
 FORTRAN 77 NOTES
 ----------------
@@ -74,8 +69,7 @@ The MPI standard prescribes portable Fortran syntax for the *OFFSET* and
 *DISP* arguments only for Fortran 90. Sun FORTRAN 77 users may use the
 non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_OFFSET_KIND OFFSET
    or

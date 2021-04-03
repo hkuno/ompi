@@ -45,20 +45,15 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Number of blocks (nonnegative integer).
 
-* ``blocklength``: Number of elements in each block (nonnegative integer).
 
-* ``stride``: Number of elements between start of each block (integer).
 
-* ``oldtype``: Old datatype (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newtype``: New datatype (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -70,11 +65,10 @@ copies of the old datatype. The spacing between blocks is a multiple of
 the extent of the old datatype.
 
 **Example 1:** Assume, again, that oldtype has type map {(double, 0),
-(char, 8)}, with extent 16. A call to ``MPI_Type_vector``(2, 3, 4, oldtype,
+(char, 8)}, with extent 16. A call to ``MPI_Type_vector(2``, 3, 4, oldtype,
 newtype) will create the datatype with type map
 
-.. code-block:: fortran
-   :linenos:
+::
 
        {(double, 0), (char, 8), (double, 16), (char, 24),
        (double, 32), (char, 40),
@@ -87,8 +81,7 @@ stride of 4 elements (4 x 16 bytes) between the blocks.
 **Example 2:** A call to MPI_Type_vector(3, 1, -2, oldtype, newtype)
 will create the datatype
 
-.. code-block:: fortran
-   :linenos:
+::
 
 
        {(double, 0), (char, 8), (double, -32), (char, -24),
@@ -96,8 +89,7 @@ will create the datatype
 
 In general, assume that oldtype has type map
 
-.. code-block:: fortran
-   :linenos:
+::
 
 
        {(type(0), disp(0)), ..., (type(n-1), disp(n-1))},
@@ -105,8 +97,7 @@ In general, assume that oldtype has type map
 with extent ex. Let bl be the blocklength. The newly created datatype
 has a type map with count x bl x n entries:
 
-.. code-block:: fortran
-   :linenos:
+::
 
 
        {(type(0), disp(0)), ..., (type(n-1), disp(n-1)),
@@ -143,4 +134,4 @@ SEE ALSO
 --------
 
 | ``MPI_Type_create_hvector``
-| MPI_Type_hvector
+| ``MPI_Type_hvector``

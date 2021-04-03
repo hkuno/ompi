@@ -51,14 +51,12 @@ names (indeed, the \_fn names are typedefs to the \_function names).
 INPUT PARAMETER
 ---------------
 
-* ``function``: User-defined error-handling procedure (function).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``errhandler``: MPI error handler (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -66,8 +64,7 @@ DESCRIPTION
 ``MPI_Win_create_errhandler`` should be, in C, a function of type
 ``MPI_Win_errhandler_function``, which is defined as
 
-.. code-block:: fortran
-   :linenos:
+::
 
    typedef void MPI_Win_errhandler_function(MPI Win *, int *, ...);
 

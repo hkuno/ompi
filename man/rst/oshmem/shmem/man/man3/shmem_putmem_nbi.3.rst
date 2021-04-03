@@ -1,13 +1,13 @@
 NAME
 ----
 
-``*shmem``_putmem_nbi*\ (3), ``*shmem``_char_put_nbi*\ (3),
-``*shmem``_short_put_nbi*\ (3), ``*shmem``_int_put_nbi*\ (3),
-``*shmem``_long_put_nbi*\ (3), ``*shmem``_longlong_put_nbi*\ (3),
-``*shmem``_float_put_nbi*\ (3), ``*shmem``_double_put_nbi*\ (3),
-``*shmem``_longdouble_put_nbi*\ (3), ``*shmem``_put8_nbi*\ (3),
-``*shmem``_put16_nbi*\ (3), ``*shmem``_put32_nbi*\ (3), ``*shmem``_put64_nbi*\ (3),
-``*shmem``_put128_nbi*\ (3), - The nonblocking put routines provide a method
+*shmem_putmem_nbi*\ (3), *shmem_char_put_nbi*\ (3),
+*shmem_short_put_nbi*\ (3), *shmem_int_put_nbi*\ (3),
+*shmem_long_put_nbi*\ (3), *shmem_longlong_put_nbi*\ (3),
+*shmem_float_put_nbi*\ (3), *shmem_double_put_nbi*\ (3),
+*shmem_longdouble_put_nbi*\ (3), *shmem_put8_nbi*\ (3),
+*shmem_put16_nbi*\ (3), *shmem_put32_nbi*\ (3), *shmem_put64_nbi*\ (3),
+*shmem_put128_nbi*\ (3), - The nonblocking put routines provide a method
 for copying data from a contiguous local data object to a data object on
 a specified PE.
 
@@ -16,7 +16,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -65,7 +65,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -133,14 +133,14 @@ REAL(KIND=4).
 NOTES
 -----
 
-See ``*intro``_shmem*\ (3) for a definition of the term remotely accessible.
+See *intro_shmem*\ (3) for a definition of the term remotely accessible.
 
 EXAMPLES
 --------
 
-Consider this simple example for Fortran.
+Consider this simple example for C.
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c
    :linenos:
 
    #include <stdio.h>

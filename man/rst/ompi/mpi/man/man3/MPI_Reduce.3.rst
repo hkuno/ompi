@@ -70,32 +70,24 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Address of send buffer (choice).
 
-* ``count``: Number of elements in send buffer (integer).
 
-* ``datatype``: Data type of elements of send buffer (handle).
 
-* ``op``: Reduce operation (handle).
 
-* ``root``: Rank of root process (integer).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Address of receive buffer (choice, significant only at root).
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 The global reduce functions (``MPI_Reduce``, ``MPI_Op_create``, ``MPI_Op_free``,
-``MPI_Allreduce``, ``MPI_Reduce_scatter``, ``MPI_Scan``) perform a global reduce
+``MPI_Allreduce``, ``MPI_Reduce_scatter``, ``MPI_Scan)`` perform a global reduce
 operation (such as sum, max, logical AND, etc.) across all the members
 of a group. The reduction operation can be either one of a predefined
 list of operations, or a user-defined operation. The global reduction
@@ -118,7 +110,7 @@ Each process can provide one element, or a sequence of elements, in
 which case the combine operation is executed element-wise on each entry
 of the sequence. For example, if the operation is ``MPI_MAX`` and the send
 buffer contains two elements that are floating-point numbers (count = 2
-and datatype = ``MPI_FLOAT``), then recvbuf(1) = global max (sendbuf(1)) and
+and datatype = ``MPI_FLOAT)``, then recvbuf(1) = global max (sendbuf(1)) and
 recvbuf(2) = global max(sendbuf(2)).
 
 USE OF IN-PLACE OPTION
@@ -126,7 +118,7 @@ USE OF IN-PLACE OPTION
 
 When the communicator is an intracommunicator, you can perform a reduce
 operation in-place (the output buffer is used as the input buffer). Use
-the variable ``MPI_IN_PLACE`` as the value of the root process ``*sendbuf``*. In
+the variable ``MPI_IN_PLACE`` as the value of the root process *sendbuf*. In
 this case, the input data is taken at the root from the receive buffer,
 where it will be replaced by the output data.
 
@@ -142,11 +134,11 @@ WHEN COMMUNICATOR IS AN INTER-COMMUNICATOR
 
 When the communicator is an inter-communicator, the root process in the
 first group combines data from all the processes in the second group and
-then performs the ``*op``* operation. The first group defines the root
-process. That process uses ``MPI_ROOT`` as the value of its ``*root``* argument.
-The remaining processes use ``MPI_PROC_NULL`` as the value of their ``*root``*
+then performs the *op* operation. The first group defines the root
+process. That process uses ``MPI_ROOT`` as the value of its *root* argument.
+The remaining processes use ``MPI_PROC_NULL`` as the value of their *root*
 argument. All processes in the second group use the rank of that root
-process in the first group as the value of their ``*root``* argument. Only
+process in the first group as the value of their *root* argument. Only
 the send buffer arguments are significant in the second group, and only
 the receive buffer arguments are significant in the root process of the
 first group.
@@ -160,7 +152,7 @@ datatypes each operation can be applied to. In addition, users may
 define their own operations that can be overloaded to operate on several
 datatypes, either basic or derived. This is further explained in the
 description of the user-defined operations (see the man pages for
-``MPI_Op_create`` and ``MPI_Op_free``).
+``MPI_Op_create`` and ``MPI_Op_free)``.
 
 The operation op is always assumed to be associative. All predefined
 operations are also assumed to be commutative. Users may define
@@ -184,8 +176,7 @@ The following predefined operations are supplied for ``MPI_Reduce`` and
 related functions ``MPI_Allreduce``, ``MPI_Reduce_scatter``, and ``MPI_Scan``. These
 operations are invoked by placing the following in op:
 
-.. code-block:: fortran
-   :linenos:
+::
 
    	Name                Meaning
         ---------           --------------------
@@ -207,7 +198,7 @@ below (MINLOC and MAXLOC). For the other predefined operations, we
 enumerate below the allowed combinations of op and datatype arguments.
 First, define groups of MPI basic datatypes in the following way:
 
-.. code-block:: fortran
+.. code-block:: c
    :linenos:
 
    	C integer:            MPI_INT, MPI_LONG, MPI_SHORT,
@@ -222,8 +213,7 @@ First, define groups of MPI basic datatypes in the following way:
 
 Now, the valid datatypes for each option is specified below.
 
-.. code-block:: fortran
-   :linenos:
+::
 
    	Op                      	Allowed Types
         ----------------         ---------------------------
@@ -243,8 +233,7 @@ Now, the valid datatypes for each option is specified below.
 that are distributed across a group of processes and returns the answer
 at process zero.
 
-.. code-block:: fortran
-   :linenos:
+::
 
        SUBROUTINE PAR_BLAS1(m, a, b, c, comm)
        REAL a(m), b(m)       ! local slice of array
@@ -266,8 +255,7 @@ at process zero.
 array that are distributed across a group of processes and returns the
 answer at process zero.
 
-.. code-block:: fortran
-   :linenos:
+::
 
        SUBROUTINE PAR_BLAS2(m, n, a, b, c, comm)
        REAL a(m), b(m,n)    ! local slice of array
@@ -300,7 +288,7 @@ value.
 
 The operation that defines ``MPI_MAXLOC`` is
 
-.. code-block:: fortran
+.. code-block:: c
    :linenos:
 
             ( u )    (  v )      ( w )
@@ -364,8 +352,7 @@ index). MPI provides nine such predefined datatypes. The operations
 MPI_MAXLOC and MPI_MINLOC can be used with each of the following
 datatypes:
 
-.. code-block:: fortran
-   :linenos:
+::
 
        Fortran:
        Name                     Description
@@ -384,8 +371,7 @@ datatypes:
 
 The data type MPI_2REAL is equivalent to:
 
-.. code-block:: fortran
-   :linenos:
+::
 
        MPI_TYPE_CONTIGUOUS(2, MPI_REAL, MPI_2REAL)
 
@@ -395,8 +381,7 @@ MPI_2INT.
 The datatype MPI_FLOAT_INT is as if defined by the following sequence of
 instructions.
 
-.. code-block:: fortran
-   :linenos:
+::
 
        type[0] = MPI_FLOAT
        type[1] = MPI_INT
@@ -412,8 +397,7 @@ Similar statements apply for MPI_LONG_INT and MPI_DOUBLE_INT.
 of the 30 locations, compute the value and rank of the process
 containing the largest value.
 
-.. code-block:: fortran
-   :linenos:
+::
 
            ...
            /* each process has an array of 30 double: ain[30]
@@ -478,8 +462,7 @@ containing the largest value.
 minimum global value, the rank of the process that holds it, and its
 index on this process.
 
-.. code-block:: fortran
-   :linenos:
+::
 
        #define  LEN   1000
 
@@ -550,4 +533,4 @@ SEE ALSO
 | ``MPI_Reduce_scatter``
 | ``MPI_Scan``
 | ``MPI_Op_create``
-| MPI_Op_free
+| ``MPI_Op_free``

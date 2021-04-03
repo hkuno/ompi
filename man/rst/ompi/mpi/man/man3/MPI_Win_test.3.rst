@@ -42,27 +42,25 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``win``: Window object (handle)
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
-* ``flag``: The returning state of the test for epoch closure.
 
 DESCRIPTION
 -----------
 
 ``MPI_Win_test`` is a one-sided MPI communication synchronization call, a
-nonblocking version of ``MPI_Win_wait``. It returns ``*flag`` = true* if
-``MPI_Win_wait`` would return, ``*flag`` = false* otherwise. The effect of
-return of ``MPI_Win_test`` with ``*flag`` = true* is the same as the effect of a
-return of ``MPI_Win_wait``. If ``*flag`` = false* is returned, then the call has
+nonblocking version of ``MPI_Win_wait``. It returns *flag = true* if
+``MPI_Win_wait`` would return, *flag = false* otherwise. The effect of
+return of ``MPI_Win_test`` with *flag = true* is the same as the effect of a
+return of ``MPI_Win_wait``. If *flag = false* is returned, then the call has
 no visible effect.
 
 Invoke ``MPI_Win_test`` only where ``MPI_Win_wait`` can be invoked. Once the
-call has returned ``*flag`` = true*, it must not be invoked anew, until the
+call has returned *flag = true*, it must not be invoked anew, until the
 window is posted anew.
 
 ERRORS
@@ -81,4 +79,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Win_post MPI_Win_wait
+| ``MPI_Win_post`` ``MPI_Win_wait``

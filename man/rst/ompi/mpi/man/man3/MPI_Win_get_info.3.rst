@@ -24,7 +24,7 @@ Fortran Syntax
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_WIN_GET_INFO(WIN, INFO_USED, IERROR)
-   	INTEGER	WIN, INFO_USED, IERROR 
+   	INTEGER	WIN, INFO_USED, IERROR
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -41,21 +41,19 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``win``: Window from which to receive active info hints
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``info_used``: New info object returned with all active hints on this window.
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Win_get_info`` returns a new info object containing the hints of the
-window associated with ``*win``*. The current setting of all hints actually
-used by the system related to this window is returned in ``*info``_used*. If
+window associated with *win*. The current setting of all hints actually
+used by the system related to this window is returned in *info_used*. If
 no such hints exist, a handle to a newly created info object is returned
 that contains no key/value pair. The user is responsible for freeing
 info_used via ``MPI_Info_free``.
@@ -76,4 +74,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Win_set_info, MPI_Win_free
+``MPI_Win_set_info``, ``MPI_Win_free``

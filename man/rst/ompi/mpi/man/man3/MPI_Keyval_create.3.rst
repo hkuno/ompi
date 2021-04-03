@@ -31,23 +31,19 @@ Fortran Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``copy_fn``: Copy callback function for keyval.
 
-* ``delete_fn``: Delete callback function for keyval.
 
-* ``extra_state``: Extra state for callback functions.
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``keyval``: Key value for future access (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Note that use of this routine is ``*deprecated``* as of MPI-2. Please use
+Note that use of this routine is *deprecated* as of MPI-2. Please use
 ``MPI_Comm_create_keyval`` instead.
 
 Generates a new attribute key. Keys are locally unique in a process and
@@ -59,8 +55,7 @@ The copy_fn function is invoked when a communicator is duplicated by
 ``MPI_COMM_DUP``. copy_fn should be of type ``MPI_Copy_function``, which is
 defined as follows:
 
-.. code-block:: fortran
-   :linenos:
+::
 
      typedef int MPI_Copy_function(MPI_Comm oldcomm, int keyval,
                                    void *extra_state, void *attribute_val_in,
@@ -122,8 +117,7 @@ deleted by ``MPI_Comm_free`` or when a call is made explicitly to
 ``MPI_Attr_delete``. delete_fn should be of type ``MPI_Delete_function``, which
 is defined as follows:
 
-.. code-block:: fortran
-   :linenos:
+::
 
      typedef int MPI_Delete_function(MPI_Comm comm, int keyval,
          void *attribute_val, void *extra_state);
@@ -166,4 +160,4 @@ SEE ALSO
 --------
 
 | ``MPI_Keyval_free``
-| MPI_Comm_create_keyval
+| ``MPI_Comm_create_keyval``

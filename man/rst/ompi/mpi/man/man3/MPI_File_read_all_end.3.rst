@@ -8,8 +8,6 @@ routine (blocking).
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -49,26 +47,23 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``fh``: File handle (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``buf``: Initial address of buffer (choice).
 
-* ``status``: Status object (status).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_File_read_all_end`` is the ending part of a split collective operation
 that stores the number of elements actually read from the file
-associated with ``*fh``* (at the current individual file pointer position
-maintained by the system) into the user's buffer ``*buf``* in ``*status``.* The
+associated with *fh* (at the current individual file pointer position
+maintained by the system) into the user's buffer *buf* in *status.* The
 data is taken out of those parts of the file specified by the current
-view. All other fields of ``*status``* are undefined.
+view. All other fields of *status* are undefined.
 
 NOTES
 -----

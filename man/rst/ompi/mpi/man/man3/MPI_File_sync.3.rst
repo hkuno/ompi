@@ -7,8 +7,6 @@ operations (collective).
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -44,23 +42,22 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``fh``: File handle (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Calling ``MPI_File_sync`` with ``*fh``* causes all previous writes to ``*fh``* by
+Calling ``MPI_File_sync`` with *fh* causes all previous writes to *fh* by
 the calling process to be written to permanent storage. If other
 processes have made updates to permanent storage, then all such updates
-become visible to subsequent reads of ``*fh``* by the calling process.
+become visible to subsequent reads of *fh* by the calling process.
 
 ``MPI_File_sync`` is a collective operation. The user is responsible for
-ensuring that all nonblocking requests on ``*fh``* have been completed
+ensuring that all nonblocking requests on *fh* have been completed
 before calling ``MPI_File_sync``. Otherwise, the call to ``MPI_File_sync`` is
 erroneous.
 

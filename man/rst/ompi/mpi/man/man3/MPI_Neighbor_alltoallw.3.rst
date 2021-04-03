@@ -86,31 +86,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Starting address of send buffer.
 
-* ``sendcounts``: Integer array, where entry i specifies the number of elements to send
-* ``to neighbor i.``: 
-* ``sdispls``: Integer array, where entry i specifies the displacement (in bytes,
-* ``offset from *sendbuf*) from which to send data to neighbor i.``: 
-* ``sendtypes``: Datatype array, where entry i specifies the datatype to use when
-* ``sending data to neighbor i.``: 
-* ``recvcounts``: Integer array, where entry j specifies the number of elements to
-* ``receive from neighbor j.``: 
-* ``rdispls``: Integer array, where entry j specifies the displacement (in bytes,
-* ``offset from *recvbuf*) to which data from neighbor j should be``: written.
 
-* ``recvtypes``: Datatype array, where entry j specifies the datatype to use when
-* ``receiving data from neighbor j.``: 
-* ``comm``: Communicator over which data is to be exchanged.
+
+
+
+
+
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Address of receive buffer.
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status.
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -121,12 +110,11 @@ flexibility to ``MPI_Neighbor_alltoallv`` by allowing the user to specify
 the datatype of individual data blocks (in addition to displacement and
 element count). Its operation can be thought of in the following way,
 where each process performs 2n (n being the number of neighbors in the
-topology of communicator ``*comm``*) independent point-to-point
+topology of communicator *comm*) independent point-to-point
 communications. The neighbors and buffer layout are determined by the
-topology of ``*comm``*.
+topology of *comm*.
 
-.. code-block:: fortran
-   :linenos:
+::
 
            MPI_Cart_get(comm, maxdims, dims, periods, coords);
            for (dim = 0, i = 0 ; dim < dims ; ++dim) {
@@ -168,18 +156,18 @@ communicator.
 NOTES
 -----
 
-The ``MPI_IN_PLACE`` option for ``*sendbuf``* is not meaningful for this
+The ``MPI_IN_PLACE`` option for *sendbuf* is not meaningful for this
 operation
 
 The specification of counts, types, and displacements should not cause
 any location to be written more than once.
 
-All arguments on all processes are significant. The ``*comm``* argument, in
+All arguments on all processes are significant. The *comm* argument, in
 particular, must describe the same communicator on all processes.
 
-The offsets of ``*sdispls``* and ``*rdispls``* are measured in bytes. Compare
+The offsets of *sdispls* and *rdispls* are measured in bytes. Compare
 this to ``MPI_Neighbor_alltoallv``, where these offsets are measured in
-units of ``*sendtype``* and ``*recvtype``*, respectively.
+units of *sendtype* and *recvtype*, respectively.
 
 ERRORS
 ------
@@ -197,8 +185,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Neighbor_alltoall
    MPI_Neighbor_alltoallv

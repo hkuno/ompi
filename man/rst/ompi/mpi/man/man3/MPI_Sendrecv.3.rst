@@ -55,34 +55,22 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Initial address of send buffer (choice).
 
-* ``sendcount``: Number of elements to send (integer).
 
-* ``sendtype``: Type of elements in send buffer (handle).
 
-* ``dest``: Rank of destination (integer).
 
-* ``sendtag``: Send tag (integer).
 
-* ``recvcount``: Maximum number of elements to receive (integer).
 
-* ``recvtype``: Type of elements in receive buffer (handle).
 
-* ``source``: Rank of source (integer).
 
-* ``recvtag``: Receive tag (integer).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Initial address of receive buffer (choice).
 
-* ``status``: Status object (status). This refers to the receive operation.
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -111,9 +99,9 @@ and receive use the same communicator, but possibly different tags. The
 send buffer and receive buffers must be disjoint, and may have different
 lengths and datatypes.
 
-If your application does not need to examine the ``*status``* field, you can
+If your application does not need to examine the *status* field, you can
 save resources by using the predefined constant ``MPI_STATUS_IGNORE`` as a
-special value for the ``*status``* argument.
+special value for the *status* argument.
 
 ERRORS
 ------
@@ -131,4 +119,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Sendrecv_replace
+``MPI_Sendrecv_replace``

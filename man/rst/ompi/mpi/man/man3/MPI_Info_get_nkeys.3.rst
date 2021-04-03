@@ -42,20 +42,18 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``info``: Info object (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``nkeys``: Number of defined keys (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Info_get_nkeys`` returns the number of currently defined keys in
-``*info``*.
+*info*.
 
 ERRORS
 ------
@@ -75,4 +73,4 @@ SEE ALSO
 
 | ``MPI_Info_get``
 | ``MPI_Info_get_nthkey``
-| MPI_Info_get_valuelen
+| ``MPI_Info_get_valuelen``

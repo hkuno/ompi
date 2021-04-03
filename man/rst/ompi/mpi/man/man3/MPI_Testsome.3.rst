@@ -50,20 +50,15 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``incount``: Length of array_of_requests (integer).
 
-* ``array_of_requests``: Array of requests (array of handles).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``outcount``: Number of completed requests (integer).
 
-* ``array_of_indices``: Array of indices of operations that completed (array of integers).
 
-* ``array_of_statuses``: Array of status objects for operations that completed (array of
-* ``status).``: 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -95,10 +90,10 @@ this fairness requirement.
 Errors that occur during the execution of ``MPI_Testsome`` are handled as
 for ``MPI_Waitsome``.
 
-If your application does not need to examine the ``*array``_of_statuses*
+If your application does not need to examine the *array_of_statuses*
 field, you can save resources by using the predefined constant
 ``MPI_STATUSES_IGNORE`` can be used as a special value for the
-``*array``_of_statuses* argument.
+*array_of_statuses* argument.
 
 NOTES
 -----
@@ -119,9 +114,9 @@ ERRORS
 ------
 
 For each invocation of ``MPI_Testsome``, if one or more requests generate an
-MPI error, only the ``*first``* MPI request that caused an error will be
+MPI error, only the *first* MPI request that caused an error will be
 passed to its corresponding error handler. No other error handlers will
-be invoked (even if multiple requests generated errors). However, ``*all``*
+be invoked (even if multiple requests generated errors). However, *all*
 requests that generate an error will have a relevant error code set in
 the corresponding status.``MPI_ERROR`` field (unless ``MPI_STATUSES_IGNORE`` was
 used).
@@ -150,4 +145,4 @@ SEE ALSO
 | ``MPI_Waitall``
 | ``MPI_Waitany``
 | ``MPI_Waitsome``
-| MPI_Win_set_errhandler
+| ``MPI_Win_set_errhandler``

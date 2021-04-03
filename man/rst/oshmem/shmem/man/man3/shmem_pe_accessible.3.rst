@@ -9,7 +9,7 @@ SYNOPSIS
 
 C:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c
    :linenos:
 
    #include <mpp/shmem.h>
@@ -18,7 +18,7 @@ C:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"

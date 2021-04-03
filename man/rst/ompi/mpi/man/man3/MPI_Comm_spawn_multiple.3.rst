@@ -56,48 +56,39 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Number of commands (positive integer, significant to MPI only at
-* ``*root* -- see NOTES).``: 
-* ``array_of_commands``: Programs to be executed (array of strings, significant only at
-* ``*root*).``: 
-* ``array_of_argv``: Arguments for *commands* (array of array of strings, significant only
-* ``at *root*).``: 
-* ``array_of_maxprocs``: Maximum number of processes to start for each command (array of
-* ``integers, significant only at *root*).``: 
-* ``array_of_info``: Info objects telling the runtime system where and how to start
-* ``processes (array of handles, significant only at *root*).``: 
-* ``root``: Rank of process in which previous arguments are examined (integer).
 
-* ``comm``: Intracommunicator containing group of spawning processes (handle).
+
+
+
+
+
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``intercomm``: Intercommunicator between original group and the newly spawned group
-* ``(handle).``: 
-* ``array_of_errcodes``: One code per process (array of integers).
 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Comm_spawn_multiple`` is identical to ``MPI_Comm_spawn``(3) except that it
-can specify multiple executables. The first argument, ``*count``*, indicates
+``MPI_Comm_spawn_multiple`` is identical to ``MPI_Comm_spawn(3)`` except that it
+can specify multiple executables. The first argument, *count*, indicates
 the number of executables. The next three arguments are arrays of the
-corresponding arguments in ``MPI_Comm_spawn``(3). The next argument,
-``*array``_of_info*, is an array of ``*info``* arguments, one for each
+corresponding arguments in ``MPI_Comm_spawn(3)``. The next argument,
+*array_of_info*, is an array of *info* arguments, one for each
 executable. See the INFO ARGUMENTS section for more information.
 
-For the Fortran version of ``*array``_of_argv*, the element
-``*array``_of_argv*\ (i,j) is the jth argument to command number i.
+For the Fortran version of *array_of_argv*, the element
+*array_of_argv*\ (i,j) is the jth argument to command number i.
 
 In any language, an application may use the constant ``MPI_ARGVS_NULL``
 (which is likely to be (char \***)0 in C) to specify that no arguments
 should be passed to any commands. The effect of setting individual
-elements of ``*array``_of_argv* to ``MPI_ARGV_NULL`` is not defined. To specify
+elements of *array_of_argv* to ``MPI_ARGV_NULL`` is not defined. To specify
 arguments for some commands but not others, the commands without
-arguments should have a corresponding ``*argv``* whose first element is null
+arguments should have a corresponding *argv* whose first element is null
 ((char \*)0 in C and empty string in Fortran).
 
 All of the spawned processes have the same ``MPI_COMM_WORLD``. Their ranks
@@ -108,10 +99,9 @@ corresponding to the first command have ranks 0, 1,..., m1-1. The
 processes in the second command have ranks m1, m1+1, ..., m1+m2-1. The
 processes in the third have ranks m1+m2, m1+m2+1, ..., m1+m2+m3-1, etc.
 
-The ``*array``_of_errcodes* argument is 1-dimensional array of size
+The *array_of_errcodes* argument is 1-dimensional array of size
 
-.. code-block:: fortran
-   :linenos:
+::
 
    	 _ count
    	\       n ,
@@ -120,8 +110,7 @@ The ``*array``_of_errcodes* argument is 1-dimensional array of size
 where i is the ith element of *array_of_maxprocs*. Command number *i*
 corresponds to the i contiguous slots in this array from element
 
-.. code-block:: fortran
-   :linenos:
+::
 
                          _              _
    	 _ i-1          |   _ i          |
@@ -134,12 +123,11 @@ Error codes are treated as for MPI_Comm_spawn(3).
 INFO ARGUMENTS
 --------------
 
-The following keys for ``*info``* are recognized in "#PACKAGE_NAME#". (The
+The following keys for *info* are recognized in "#PACKAGE_NAME#". (The
 reserved values mentioned in Section 5.3.4 of the MPI-2 standard are not
 implemented.)
 
-.. code-block:: fortran
-   :linenos:
+::
 
    Key                    Type     Description
    ---                    ----     -----------
@@ -234,40 +222,40 @@ Note that in "#PACKAGE_NAME#", the first array location in
 NOTES
 -----
 
-The argument ``*count``* is interpreted by MPI only at the root, as is
-``*array``_of_argv*. Since the leading dimension of ``*array``_of_argv* is
-``*count``*, a nonpositive value of ``*count``* at a nonroot node could
+The argument *count* is interpreted by MPI only at the root, as is
+*array_of_argv*. Since the leading dimension of *array_of_argv* is
+*count*, a nonpositive value of *count* at a nonroot node could
 theoretically cause a runtime bounds check error, even though
-``*array``_of_argv* should be ignored by the subroutine. If this happens,
-you should explicitly supply a reasonable value of ``*count``* on the
+*array_of_argv* should be ignored by the subroutine. If this happens,
+you should explicitly supply a reasonable value of *count* on the
 nonroot nodes.
 
-Similar to ``MPI_Comm_spawn``(3), it is the application's responsibility to
-terminate each individual set of argv in the ``*array``_of_argv* argument.
+Similar to ``MPI_Comm_spawn(3)``, it is the application's responsibility to
+terminate each individual set of argv in the *array_of_argv* argument.
 In C, each argv array is terminated by a NULL pointer. In Fortran, each
 argv array is terminated by an empty string (note that compilers will
 not automatically insert this blank string; the application must ensure
 to have enough space for an empty string entry as the last element of
 the array).
 
-Other restrictions apply to the ``*array``_of_argv* parameter; see
-``MPI_Comm_spawn``(3)'s description of the ``*argv``* parameter for more
+Other restrictions apply to the *array_of_argv* parameter; see
+``MPI_Comm_spawn(3)``'s description of the *argv* parameter for more
 details.
 
 MPI-3.1 implies (but does not directly state) that the argument
-``*array``_of_commands* must be an array of strings of length ``*count``*.
-Unlike the ``*array``_of_argv* parameter, ``*array``_of_commands* does not need
+*array_of_commands* must be an array of strings of length *count*.
+Unlike the *array_of_argv* parameter, *array_of_commands* does not need
 to be terminated with a NULL pointer in C or a blank string in Fortran.
-Older versions of Open MPI required that ``*array``_of_commands* be
+Older versions of Open MPI required that *array_of_commands* be
 terminated with a blank string in Fortran; that is no longer required in
 this version of Open MPI.
 
-Calling ``MPI_Comm_spawn``(3) many times would create many sets of children
+Calling ``MPI_Comm_spawn(3)`` many times would create many sets of children
 with different ``MPI_COMM_WORLDs``, whereas ``MPI_Comm_spawn_multiple`` creates
 children with a single ``MPI_COMM_WORLD``, so the two methods are not
 completely equivalent. Also if you need to spawn multiple executables,
 you may get better performance by using ``MPI_Comm_spawn_multiple`` instead
-of calling ``MPI_Comm_spawn``(3) several times.
+of calling ``MPI_Comm_spawn(3)`` several times.
 
 ERRORS
 ------
@@ -285,8 +273,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Comm_spawn(3)
    MPI_Comm_get_parent(3)

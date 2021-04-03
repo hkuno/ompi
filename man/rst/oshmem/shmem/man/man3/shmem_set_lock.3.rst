@@ -1,7 +1,7 @@
 NAME
 ----
 
-``*shmem``_set_lock*\ (3), ``*shmem``_clear_lock*\ (3), ``*shmem``_test_lock*\ (3) -
+*shmem_set_lock*\ (3), *shmem_clear_lock*\ (3), *shmem_test_lock*\ (3) -
 Releases, locks, and tests a mutual exclusion memory lock.
 
 SYNOPSIS
@@ -9,7 +9,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -22,7 +22,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -63,7 +63,7 @@ lock
 NOTES
 -----
 
-The term symmetric data object is defined on ``*intro``_shmem*\ (3).
+The term symmetric data object is defined on *intro_shmem*\ (3).
 
 RETURN VALUES
 -------------

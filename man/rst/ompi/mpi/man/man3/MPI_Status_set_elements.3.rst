@@ -2,7 +2,7 @@ NAME
 ----
 
 ``MPI_Status_set_elements``, ``MPI_Status_set_elements_x`` - Modifies
-opaque part of ``*status``* to allow ``MPI_Get_elements`` to return ``*count``*.
+opaque part of *status* to allow ``MPI_Get_elements`` to return *count*.
 
 SYNTAX
 ------
@@ -53,30 +53,27 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``status``: Status to associate with *count (status).*
 
 INPUT PARAMETERS
 ----------------
 
-* ``datatype``: Data type associated with *count (handle).*
 
-* ``count``: Number of elements to associate with *status (integer).*
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Status_set_elements`` modifies the opaque part of ``*status`` so that a
+``MPI_Status_set_elements`` modifies the opaque part of *status so that a
 call to ``MPI_Get_elements`` or ``MPI_Get_elements_x`` will return count.
 ``MPI_Get_count`` will return a compatible value.*
 
-A subsequent call to ``MPI_Get_count``(``*status``, datatype, count), to
-``MPI_Get_elements``(status, datatype, count), or to
-``MPI_Get_elements_x``(status, datatype, count) must use a data-type
+A subsequent call to ``MPI_Get_count(``status, datatype, count), to
+``MPI_Get_elements(status``, datatype, count), or to
+``MPI_Get_elements_x(status``, datatype, count) must use a data-type
 argument that has the same type signature as the data-type argument that
 was used in the call to ``MPI_Status_set_elements``.*
 
@@ -87,7 +84,7 @@ Users are advised not to reuse the status fields for values other than
 those for which they were intended. Doing so may lead to unexpected
 results when using the status object. For example, calling
 ``MPI_Get_elements`` may cause an error if the value is out of range, or it
-may be impossible to detect such an error. The ``*extra``_state argument
+may be impossible to detect such an error. The *extra_state argument
 provided with a generalized request can be used to return information
 that does not logically belong in status. Furthermore, modifying the
 values in a status set internally by MPI, such as ``MPI_Recv``, may lead to
@@ -113,8 +110,7 @@ The MPI standard prescribes portable Fortran syntax for the *COUNT
 argument of ``MPI_Status_set_elements_x`` only for Fortran 90. FORTRAN 77
 users may use the non-portable syntax*
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_COUNT_KIND COUNT
 

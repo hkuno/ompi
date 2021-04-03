@@ -30,19 +30,17 @@ Fortran Syntax
 INPUT PARAMETER
 ---------------
 
-* ``location``: Location in caller memory (choice).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``address``: Address of location (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Note that use of this routine is ``*deprecated``* as of MPI-2. Please use
+Note that use of this routine is *deprecated* as of MPI-2. Please use
 ``MPI_Get_address`` instead.
 
 The address of a location in memory can be found by invoking this
@@ -50,12 +48,11 @@ function. Returns the (byte) address of location.
 
 Example: Using ``MPI_Address`` for an array.
 
-.. code-block:: fortran
-   :linenos:
+::
 
    REAL A(100,100)
 
-| 
+|
 | INTEGER I1, I2, DIFF
 | CALL MPI_ADDRESS(A(1,1), I1, IERROR)
 | CALL MPI_ADDRESS(A(10,10), I2, IERROR)
@@ -96,4 +93,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Get_address
+| ``MPI_Get_address``

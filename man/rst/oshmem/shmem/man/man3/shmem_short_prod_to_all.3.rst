@@ -1,14 +1,14 @@
 NAME
 ----
 
-``*shmem``_comp4_prod_to_all*\ (3), ``*shmem``_comp8_prod_to_all*\ (3),
-``*shmem``_complexd_prod_to_all*\ (3), ``*shmem``_complexf_prod_to_all*\ (3),
-``*shmem``_double_prod_to_all*\ (3), ``*shmem``_float_prod_to_all*\ (3),
-``*shmem``_int_prod_to_all*\ (3), ``*shmem``_int4_prod_to_all*\ (3),
-``*shmem``_int8_prod_to_all*\ (3), ``*shmem``_long_prod_to_all*\ (3),
-``*shmem``_longdouble_prod_to_all*\ (3), ``*shmem``_longlong_prod_to_all*\ (3),
-``*shmem``_real8_prod_to_all*\ (3), ``*shmem``_real16_prod_to_all*\ (3),
-``*shmem``_real4_prod_to_all*\ (3), ``*shmem``_short_prod_to_all*\ (3) -
+*shmem_comp4_prod_to_all*\ (3), *shmem_comp8_prod_to_all*\ (3),
+*shmem_complexd_prod_to_all*\ (3), *shmem_complexf_prod_to_all*\ (3),
+*shmem_double_prod_to_all*\ (3), *shmem_float_prod_to_all*\ (3),
+*shmem_int_prod_to_all*\ (3), *shmem_int4_prod_to_all*\ (3),
+*shmem_int8_prod_to_all*\ (3), *shmem_long_prod_to_all*\ (3),
+*shmem_longdouble_prod_to_all*\ (3), *shmem_longlong_prod_to_all*\ (3),
+*shmem_real8_prod_to_all*\ (3), *shmem_real16_prod_to_all*\ (3),
+*shmem_real4_prod_to_all*\ (3), *shmem_short_prod_to_all*\ (3) -
 Performs a product reduction across a set of processing elements (PEs)
 
 SYNOPSIS
@@ -16,7 +16,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -63,7 +63,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -98,7 +98,7 @@ DESCRIPTION
 The shared memory (SHMEM) reduction routines compute one or more
 reductions across symmetric arrays on multiple virtual PEs. A reduction
 performs an associative binary operation across a set of values. For a
-list of other SHMEM reduction routines, see ``*intro``_shmem*\ (3).
+list of other SHMEM reduction routines, see *intro_shmem*\ (3).
 
 As with all SHMEM collective routines, each of these routines assumes
 that only PEs in the active set call the routine. If a PE not in the
@@ -123,21 +123,21 @@ target
    information. When calling from Fortran, the target data types are as
    follows:
 
-   *``*shmem``_comp4_prod_to_all**: Complex, with an element size equal to two
+   **shmem_comp4_prod_to_all**: Complex, with an element size equal to two
       4-byte real values.
 
-   *``*shmem``_comp8_prod_to_all**: Complex, with an element size equal to two
+   **shmem_comp8_prod_to_all**: Complex, with an element size equal to two
       8-byte real values.
 
-   *``*shmem``_int4_prod_to_all**: Integer, with an element size of 4 bytes
+   **shmem_int4_prod_to_all**: Integer, with an element size of 4 bytes
 
-   *``*shmem``_int8_prod_to_all**: Integer, with an element size of 8 bytes
+   **shmem_int8_prod_to_all**: Integer, with an element size of 8 bytes
 
-   *``*shmem``_real4_prod_to_all**: Real, with an element size of 4 bytes
+   **shmem_real4_prod_to_all**: Real, with an element size of 4 bytes
 
-   *``*shmem``_real8_prod_to_all**: Real, with an element size of 8 bytes
+   **shmem_real8_prod_to_all**: Real, with an element size of 8 bytes
 
-   *``*shmem``_real16_prod_to_all**: Real, with an element size of 16 bytes
+   **shmem_real16_prod_to_all**: Real, with an element size of 16 bytes
 
 source
    A symmetric array, of length nreduce elements, that contains one
@@ -196,7 +196,7 @@ NOTES
 -----
 
 The terms collective, symmetric, and cache aligned are defined in
-``*intro``_shmem*\ (3). All SHMEM reduction routines reset the values in
+*intro_shmem*\ (3). All SHMEM reduction routines reset the values in
 pSync before they return, so a particular pSync buffer need only be
 initialized the first time it is used.
 
@@ -221,8 +221,7 @@ EXAMPLES
 array and finds the product of the real variable FOO across all the even
 PEs.
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    INCLUDE "mpp/shmem.fh"
 
@@ -241,7 +240,7 @@ PEs.
 
 **Example 2:** Consider the following C/C++ call:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    shmem_short_prod_to_all(target, source, 3, 0, 0, 8, pwrk, psync);
@@ -249,8 +248,7 @@ PEs.
 The preceding call is more efficient, but semantically equivalent to,
 the combination of the following calls:
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    shmem_short_prod_to_all(&(target[0]), &(source[0]), 1, 0, 0, 8,
      pwrk1, psync1);

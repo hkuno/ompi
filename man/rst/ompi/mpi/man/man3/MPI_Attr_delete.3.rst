@@ -29,20 +29,18 @@ Fortran Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``comm``: Communicator to which attribute is attached (handle).
 
-* ``keyval``: The key value of the deleted attribute (integer).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Note that use of this routine is ``*deprecated``* as of MPI-2, and was
-``*deleted``* in MPI-3. Please use ``MPI_Comm_delete_attr``. This function does
+Note that use of this routine is *deprecated* as of MPI-2, and was
+*deleted* in MPI-3. Please use ``MPI_Comm_delete_attr``. This function does
 not have a mpi_f08 binding.
 
 Delete attribute from cache by key. This function invokes the attribute
@@ -81,4 +79,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Comm_delete_attr
+| ``MPI_Comm_delete_attr``

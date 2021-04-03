@@ -1,9 +1,9 @@
 NAME
 ----
 
-``*shmem``_double_set*\ (3), ``*shmem``_float_set*\ (3), ``*shmem``_int_set*\ (3),
-``*shmem``_long_set*\ (3), ``*shmem``_longlong_set*\ (3) ``*shmem``_int4_set*\ (3),
-``*shmem``_int8_set*\ (3), ``*shmem``_real4_set*\ (3), ``*shmem``_real8_set*\ (3), -
+*shmem_double_set*\ (3), *shmem_float_set*\ (3), *shmem_int_set*\ (3),
+*shmem_long_set*\ (3), *shmem_longlong_set*\ (3) *shmem_int4_set*\ (3),
+*shmem_int8_set*\ (3), *shmem_real4_set*\ (3), *shmem_real8_set*\ (3), -
 Atomically sets the value of a remote data object
 
 SYNOPSIS
@@ -11,7 +11,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -28,7 +28,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -43,8 +43,8 @@ Fortran:
 DESCRIPTION
 -----------
 
-The set routines write the *``*value``** into the address *``*target``** on
-*``*pe``** as an atomic operation.
+The set routines write the **value** into the address **target** on
+**pe** as an atomic operation.
 
 The arguments are as follows:
 

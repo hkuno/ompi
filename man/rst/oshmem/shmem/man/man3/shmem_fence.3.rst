@@ -9,7 +9,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -18,7 +18,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -28,16 +28,16 @@ Fortran:
 DESCRIPTION
 -----------
 
-The *``*shmem``_fence()** routine provides an ordering on the put operations
-issued by the calling PE prior to the call to *``*shmem``_fence()** relative
+The **shmem_fence()** routine provides an ordering on the put operations
+issued by the calling PE prior to the call to **shmem_fence()** relative
 to the put operations issued by the calling PE following the call to
-*``*shmem``_fence()**. It guarantees that all such prior put operations
+**shmem_fence()**. It guarantees that all such prior put operations
 issued to a particular destination PE are fully written to the symmetric
 memory of that destination PE, before any such following put operations
 to that same destination PE are written to the symmetric memory of that
 destination PE. Note that the ordering is provided separately on the
 sequences of puts from the calling PE to each distinct destination PE.
-The *``*shmem``_quiet()** routine should be used instead if ordering of puts
+The **shmem_quiet()** routine should be used instead if ordering of puts
 is required when multiple destination PEs are involved.
 
 NOTES

@@ -71,28 +71,19 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Address of send buffer (choice, significant only at root).
 
-* ``sendcount``: Number of elements sent to each process (integer, significant only at
-* ``root).``: 
-* ``sendtype``: Datatype of send buffer elements (handle, significant only at root).
 
-* ``recvcount``: Number of elements in receive buffer (integer).
 
-* ``recvtype``: Datatype of receive buffer elements (handle).
 
-* ``root``: Rank of sending process (integer).
 
-* ``comm``: Communicator (handle).
+
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Address of receive buffer (choice).
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -101,16 +92,14 @@ DESCRIPTION
 
 The outcome is as if the root executed n send operations,
 
-.. code-block:: fortran
-   :linenos:
+::
 
        MPI_Send(sendbuf + i * sendcount * extent(sendtype), sendcount,
                 sendtype, i, ...)
 
 and each process executed a receive,
 
-.. code-block:: fortran
-   :linenos:
+::
 
        MPI_Recv(recvbuf, recvcount, recvtype, i, ...).
 
@@ -143,8 +132,7 @@ to achieve symmetry with MPI_Gather, where the corresponding restriction
 **Example:** The reverse of Example 1 in the MPI_Gather manpage. Scatter
 sets of 100 ints from the root to each process in the group.
 
-.. code-block:: fortran
-   :linenos:
+::
 
            MPI_Comm comm;
            int gsize,*sendbuf;
@@ -161,8 +149,8 @@ USE OF IN-PLACE OPTION
 
 When the communicator is an intracommunicator, you can perform a scatter
 operation in-place (the output buffer is used as the input buffer). Use
-the variable ``MPI_IN_PLACE`` as the value of the root process ``*recvbuf``*. In
-this case, ``*recvcount``* and ``*recvtype``* are ignored, and the root process
+the variable ``MPI_IN_PLACE`` as the value of the root process *recvbuf*. In
+this case, *recvcount* and *recvtype* are ignored, and the root process
 sends no data to itself.
 
 Note that ``MPI_IN_PLACE`` is a special kind of value; it has the same
@@ -178,10 +166,10 @@ WHEN COMMUNICATOR IS AN INTER-COMMUNICATOR
 When the communicator is an inter-communicator, the root process in the
 first group sends data to all processes in the second group. The first
 group defines the root process. That process uses ``MPI_ROOT`` as the value
-of its ``*root``* argument. The remaining processes use ``MPI_PROC_NULL`` as the
-value of their ``*root``* argument. All processes in the second group use
+of its *root* argument. The remaining processes use ``MPI_PROC_NULL`` as the
+value of their *root* argument. All processes in the second group use
 the rank of that root process in the first group as the value of their
-``*root``* argument. The receive buffer argument of the root process in the
+*root* argument. The receive buffer argument of the root process in the
 first group must be consistent with the receive buffer argument of the
 processes in the second group.
 
@@ -201,8 +189,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Scatterv
    MPI_Gather

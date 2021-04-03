@@ -43,23 +43,21 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``info``: Options on how to establish an address (handle). No options currently
-* ``supported.``: 
+
 OUTPUT PARAMETERS
 -----------------
 
-* ``port_name``: Newly established port (string).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Open_port`` establishes a network address, encoded in the ``*port``_name*
+``MPI_Open_port`` establishes a network address, encoded in the *port_name*
 string, at which the server will be able to accept connections from
-clients. ``*port``_name* is supplied by the system.
+clients. *port_name* is supplied by the system.
 
-MPI copies a system-supplied port name into ``*port``_name*. ``*port``_name*
+MPI copies a system-supplied port name into *port_name*. *port_name*
 identifies the newly opened port and can be used by a client to contact
 the server. The maximum size string that may be supplied by the system
 is ``MPI_MAX_PORT_NAME``.
@@ -85,4 +83,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Comm_accept MPI_Comm_connect
+| ``MPI_Comm_accept`` ``MPI_Comm_connect``

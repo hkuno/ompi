@@ -69,19 +69,19 @@ Elemental data put routines
       C/C++ only:
 
       **\***
-         ``*shmem``_double_p*\ (3)
+         *shmem_double_p*\ (3)
 
       **\***
-         ``*shmem``_float_p*\ (3)
+         *shmem_float_p*\ (3)
 
       **\***
-         ``*shmem``_int_p*\ (3)
+         *shmem_int_p*\ (3)
 
       **\***
-         ``*shmem``_long_p*\ (3)
+         *shmem_long_p*\ (3)
 
       **\***
-         ``*shmem``_short_p.*\ (3)
+         *shmem_short_p.*\ (3)
 
 Block data put routines
 
@@ -91,46 +91,46 @@ Block data put routines
       C/C++ and Fortran:
 
       **\***
-         ``*shmem``_put32*\ (3)
+         *shmem_put32*\ (3)
 
       **\***
-         ``*shmem``_put64*\ (3)
+         *shmem_put64*\ (3)
 
       **\***
-         ``*shmem``_put128*\ (3)
+         *shmem_put128*\ (3)
 
    **\***
       C/C++ only:
 
       **\***
-         ``*shmem``_double_put*\ (3)
+         *shmem_double_put*\ (3)
 
       **\***
-         ``*shmem``_float_put*\ (3)
+         *shmem_float_put*\ (3)
 
       **\***
-         ``*shmem``_int_put*\ (3)
+         *shmem_int_put*\ (3)
 
       **\***
-         ``*shmem``_long_put*\ (3)
+         *shmem_long_put*\ (3)
 
       **\***
-         ``*shmem``_short_put.*\ (3)
+         *shmem_short_put.*\ (3)
 
    **\***
       Fortran only:
 
       **\***
-         ``*shmem``_complex_put*\ (3)
+         *shmem_complex_put*\ (3)
 
       **\***
-         ``*shmem``_integer_put*\ (3)
+         *shmem_integer_put*\ (3)
 
       **\***
-         ``*shmem``_logical_put*\ (3)
+         *shmem_logical_put*\ (3)
 
       **\***
-         ``*shmem``_real_put*\ (3)
+         *shmem_real_put*\ (3)
 
 Elemental data get routines
 
@@ -140,19 +140,19 @@ Elemental data get routines
       C/C++ only:
 
       **\***
-         ``*shmem``_double_g*\ (3)
+         *shmem_double_g*\ (3)
 
       **\***
-         ``*shmem``_float_g*\ (3)
+         *shmem_float_g*\ (3)
 
       **\***
-         ``*shmem``_int_g*\ (3)
+         *shmem_int_g*\ (3)
 
       **\***
-         ``*shmem``_long_g*\ (3)
+         *shmem_long_g*\ (3)
 
       **\***
-         ``*shmem``_short_g*\ (3)
+         *shmem_short_g*\ (3)
 
 Block data get routines
 
@@ -160,46 +160,46 @@ Block data get routines
       C/C++ and Fortran:
 
       **\***
-         ``*shmem``_get32*\ (3)
+         *shmem_get32*\ (3)
 
       **\***
-         ``*shmem``_get64*\ (3)
+         *shmem_get64*\ (3)
 
       **\***
-         ``*shmem``_get128*\ (3)
+         *shmem_get128*\ (3)
 
    **\***
       C/C++ only:
 
       **\***
-         ``*shmem``_double_get*\ (3)
+         *shmem_double_get*\ (3)
 
       **\***
-         ``*shmem``_float_get*\ (3)
+         *shmem_float_get*\ (3)
 
       **\***
-         ``*shmem``_int_get*\ (3)
+         *shmem_int_get*\ (3)
 
       **\***
-         ``*shmem``_long_get*\ (3)
+         *shmem_long_get*\ (3)
 
       **\***
-         ``*shmem``_short_get*\ (3)
+         *shmem_short_get*\ (3)
 
    **\***
       Fortran only:
 
       **\***
-         ``*shmem``_complex_get*\ (3)
+         *shmem_complex_get*\ (3)
 
       **\***
-         ``*shmem``_integer_get*\ (3)
+         *shmem_integer_get*\ (3)
 
       **\***
-         ``*shmem``_logical_get*\ (3)
+         *shmem_logical_get*\ (3)
 
       **\***
-         ``*shmem``_real_get*\ (3)
+         *shmem_real_get*\ (3)
 
 Strided put routines
 
@@ -207,46 +207,46 @@ Strided put routines
       C/C++ and Fortran:
 
       **\***
-         ``*shmem``_iput32*\ (3)
+         *shmem_iput32*\ (3)
 
       **\***
-         ``*shmem``_iput64*\ (3)
+         *shmem_iput64*\ (3)
 
       **\***
-         ``*shmem``_iput128*\ (3)
+         *shmem_iput128*\ (3)
 
    **\***
       C/C++ only:
 
       **\***
-         ``*shmem``_double_iput*\ (3)
+         *shmem_double_iput*\ (3)
 
       **\***
-         ``*shmem``_float_iput*\ (3)
+         *shmem_float_iput*\ (3)
 
       **\***
-         ``*shmem``_int_iput*\ (3)
+         *shmem_int_iput*\ (3)
 
       **\***
-         ``*shmem``_long_iput*\ (3)
+         *shmem_long_iput*\ (3)
 
       **\***
-         ``*shmem``_short_iput*\ (3)
+         *shmem_short_iput*\ (3)
 
    **\***
       Fortran only:
 
       **\***
-         ``*shmem``_complex_iput*\ (3)
+         *shmem_complex_iput*\ (3)
 
       **\***
-         ``*shmem``_integer_iput*\ (3)
+         *shmem_integer_iput*\ (3)
 
       **\***
-         ``*shmem``_logical_iput*\ (3)
+         *shmem_logical_iput*\ (3)
 
       **\***
-         ``*shmem``_real_iput*\ (3)
+         *shmem_real_iput*\ (3)
 
 Strided get routines
 
@@ -256,46 +256,46 @@ Strided get routines
       C/C++ and Fortran:
 
       **\***
-         ``*shmem``_iget32*\ (3)
+         *shmem_iget32*\ (3)
 
       **\***
-         ``*shmem``_iget64*\ (3)
+         *shmem_iget64*\ (3)
 
       **\***
-         ``*shmem``_iget128*\ (3)
+         *shmem_iget128*\ (3)
 
    **\***
       C/C++ only:
 
       **\***
-         ``*shmem``_double_iget*\ (3)
+         *shmem_double_iget*\ (3)
 
       **\***
-         ``*shmem``_float_iget*\ (3)
+         *shmem_float_iget*\ (3)
 
       **\***
-         ``*shmem``_int_iget*\ (3)
+         *shmem_int_iget*\ (3)
 
       **\***
-         ``*shmem``_long_iget*\ (3)
+         *shmem_long_iget*\ (3)
 
       **\***
-         ``*shmem``_short_iget*\ (3)
+         *shmem_short_iget*\ (3)
 
    **\***
       Fortran only:
 
       **\***
-         ``*shmem``_complex_iget*\ (3)
+         *shmem_complex_iget*\ (3)
 
       **\***
-         ``*shmem``_integer_iget*\ (3)
+         *shmem_integer_iget*\ (3)
 
       **\***
-         ``*shmem``_logical_iget*\ (3)
+         *shmem_logical_iget*\ (3)
 
       **\***
-         ``*shmem``_real_iget*\ (3)
+         *shmem_real_iget*\ (3)
 
 Point-to-point synchronization routines
 
@@ -303,43 +303,43 @@ Point-to-point synchronization routines
       C/C++ only:
 
       **\***
-         ``*shmem``_int_wait*\ (3)
+         *shmem_int_wait*\ (3)
 
       **\***
-         ``*shmem``_int_wait_until*\ (3)
+         *shmem_int_wait_until*\ (3)
 
       **\***
-         ``*shmem``_long_wait*\ (3)
+         *shmem_long_wait*\ (3)
 
       **\***
-         ``*shmem``_long_wait_until*\ (3)
+         *shmem_long_wait_until*\ (3)
 
       **\***
-         ``*shmem``_longlong_wait*\ (3)
+         *shmem_longlong_wait*\ (3)
 
       **\***
-         ``*shmem``_longlong_wait_until*\ (3)
+         *shmem_longlong_wait_until*\ (3)
 
       **\***
-         ``*shmem``_short_wait*\ (3)
+         *shmem_short_wait*\ (3)
 
       **\***
-         ``*shmem``_short_wait_until*\ (3)
+         *shmem_short_wait_until*\ (3)
 
    **\***
       Fortran:
 
       **\***
-         ``*shmem``_int4_wait*\ (3)
+         *shmem_int4_wait*\ (3)
 
       **\***
-         ``*shmem``_int4_wait_until*\ (3)
+         *shmem_int4_wait_until*\ (3)
 
       **\***
-         ``*shmem``_int8_wait*\ (3)
+         *shmem_int8_wait*\ (3)
 
       **\***
-         ``*shmem``_int8_wait_until*\ (3)
+         *shmem_int8_wait_until*\ (3)
 
 Barrier synchronization routines
 
@@ -349,10 +349,10 @@ Barrier synchronization routines
       C/C++ and Fortran:
 
       **\***
-         ``*shmem``_barrier_all*\ (3)
+         *shmem_barrier_all*\ (3)
 
       **\***
-         ``*shmem``_barrier*\ (3)
+         *shmem_barrier*\ (3)
 
 Atomic memory fetch-and-operate (fetch-op) routines
 
@@ -368,181 +368,181 @@ Reduction routines
       C/C++ only:
 
       **\***
-         ``*shmem``_int_and_to_all*\ (3)
+         *shmem_int_and_to_all*\ (3)
 
       **\***
-         ``*shmem``_long_and_to_all*\ (3)
+         *shmem_long_and_to_all*\ (3)
 
       **\***
-         ``*shmem``_longlong_and_to_all*\ (3)
+         *shmem_longlong_and_to_all*\ (3)
 
       **\***
-         ``*shmem``_short_and_to_all*\ (3)
+         *shmem_short_and_to_all*\ (3)
 
       **\***
-         ``*shmem``_double_max_to_all*\ (3)
+         *shmem_double_max_to_all*\ (3)
 
       **\***
-         ``*shmem``_float_max_to_all*\ (3)
+         *shmem_float_max_to_all*\ (3)
 
       **\***
-         ``*shmem``_int_max_to_all*\ (3)
+         *shmem_int_max_to_all*\ (3)
 
       **\***
-         ``*shmem``_long_max_to_all*\ (3)
+         *shmem_long_max_to_all*\ (3)
 
       **\***
-         ``*shmem``_longlong_max_to_all*\ (3)
+         *shmem_longlong_max_to_all*\ (3)
 
       **\***
-         ``*shmem``_short_max_to_all*\ (3)
+         *shmem_short_max_to_all*\ (3)
 
       **\***
-         ``*shmem``_double_min_to_all*\ (3)
+         *shmem_double_min_to_all*\ (3)
 
       **\***
-         ``*shmem``_float_min_to_all*\ (3)
+         *shmem_float_min_to_all*\ (3)
 
       **\***
-         ``*shmem``_int_min_to_all*\ (3)
+         *shmem_int_min_to_all*\ (3)
 
       **\***
-         ``*shmem``_long_min_to_all*\ (3)
+         *shmem_long_min_to_all*\ (3)
 
       **\***
-         ``*shmem``_longlong_min_to_all*\ (3)
+         *shmem_longlong_min_to_all*\ (3)
 
       **\***
-         ``*shmem``_short_min_to_all*\ (3)
+         *shmem_short_min_to_all*\ (3)
 
       **\***
-         ``*shmem``_double_sum_to_all*\ (3)
+         *shmem_double_sum_to_all*\ (3)
 
       **\***
-         ``*shmem``_float_sum_to_all*\ (3)
+         *shmem_float_sum_to_all*\ (3)
 
       **\***
-         ``*shmem``_int_sum_to_all*\ (3)
+         *shmem_int_sum_to_all*\ (3)
 
       **\***
-         ``*shmem``_long_sum_to_all*\ (3)
+         *shmem_long_sum_to_all*\ (3)
 
       **\***
-         ``*shmem``_longlong_sum_to_all*\ (3)
+         *shmem_longlong_sum_to_all*\ (3)
 
       **\***
-         ``*shmem``_short_sum_to_all*\ (3)
+         *shmem_short_sum_to_all*\ (3)
 
       **\***
-         ``*shmem``_double_prod_to_all*\ (3)
+         *shmem_double_prod_to_all*\ (3)
 
       **\***
-         ``*shmem``_float_prod_to_all*\ (3)
+         *shmem_float_prod_to_all*\ (3)
 
       **\***
-         ``*shmem``_int_prod_to_all*\ (3)
+         *shmem_int_prod_to_all*\ (3)
 
       **\***
-         ``*shmem``_long_prod_to_all*\ (3)
+         *shmem_long_prod_to_all*\ (3)
 
       **\***
-         ``*shmem``_longlong_prod_to_all*\ (3)
+         *shmem_longlong_prod_to_all*\ (3)
 
       **\***
-         ``*shmem``_short_prod_to_all*\ (3)
+         *shmem_short_prod_to_all*\ (3)
 
       **\***
-         ``*shmem``_int_or_to_all*\ (3)
+         *shmem_int_or_to_all*\ (3)
 
       **\***
-         ``*shmem``_long_or_to_all*\ (3)
+         *shmem_long_or_to_all*\ (3)
 
       **\***
-         ``*shmem``_longlong_or_to_all*\ (3)
+         *shmem_longlong_or_to_all*\ (3)
 
       **\***
-         ``*shmem``_short_or_to_all*\ (3)
+         *shmem_short_or_to_all*\ (3)
 
       **\***
-         ``*shmem``_int_xor_to_all*\ (3)
+         *shmem_int_xor_to_all*\ (3)
 
       **\***
-         ``*shmem``_long_xor_to_all*\ (3)
+         *shmem_long_xor_to_all*\ (3)
 
       **\***
-         ``*shmem``_longlong_xor_to_all*\ (3)
+         *shmem_longlong_xor_to_all*\ (3)
 
       **\***
-         ``*shmem``_short_xor_to_all*\ (3)
+         *shmem_short_xor_to_all*\ (3)
 
    **\***
       Fortran only:
 
       **\***
-         ``*shmem``_int4_and_to_all*\ (3)
+         *shmem_int4_and_to_all*\ (3)
 
       **\***
-         ``*shmem``_int8_and_to_all*\ (3)
+         *shmem_int8_and_to_all*\ (3)
 
       **\***
-         ``*shmem``_real4_max_to_all*\ (3)
+         *shmem_real4_max_to_all*\ (3)
 
       **\***
-         ``*shmem``_real8_max_to_all*\ (3)
+         *shmem_real8_max_to_all*\ (3)
 
       **\***
-         ``*shmem``_int4_max_to_all*\ (3)
+         *shmem_int4_max_to_all*\ (3)
 
       **\***
-         ``*shmem``_int8_max_to_all*\ (3)
+         *shmem_int8_max_to_all*\ (3)
 
       **\***
-         ``*shmem``_real4_min_to_all*\ (3)
+         *shmem_real4_min_to_all*\ (3)
 
       **\***
-         ``*shmem``_real8_min_to_all*\ (3)
+         *shmem_real8_min_to_all*\ (3)
 
       **\***
-         ``*shmem``_int4_min_to_all*\ (3)
+         *shmem_int4_min_to_all*\ (3)
 
       **\***
-         ``*shmem``_int8_min_to_all*\ (3)
+         *shmem_int8_min_to_all*\ (3)
 
       **\***
-         ``*shmem``_real4_sum_to_all*\ (3)
+         *shmem_real4_sum_to_all*\ (3)
 
       **\***
-         ``*shmem``_real8_sum_to_all*\ (3)
+         *shmem_real8_sum_to_all*\ (3)
 
       **\***
-         ``*shmem``_int4_sum_to_all*\ (3)
+         *shmem_int4_sum_to_all*\ (3)
 
       **\***
-         ``*shmem``_int8_sum_to_all*\ (3)
+         *shmem_int8_sum_to_all*\ (3)
 
       **\***
-         ``*shmem``_real4_prod_to_all*\ (3)
+         *shmem_real4_prod_to_all*\ (3)
 
       **\***
-         ``*shmem``_real8_prod_to_all*\ (3)
+         *shmem_real8_prod_to_all*\ (3)
 
       **\***
-         ``*shmem``_int4_prod_to_all*\ (3)
+         *shmem_int4_prod_to_all*\ (3)
 
       **\***
-         ``*shmem``_int8_prod_to_all*\ (3)
+         *shmem_int8_prod_to_all*\ (3)
 
       **\***
-         ``*shmem``_int4_or_to_all*\ (3)
+         *shmem_int4_or_to_all*\ (3)
 
       **\***
-         ``*shmem``_int8_or_to_all*\ (3)
+         *shmem_int8_or_to_all*\ (3)
 
       **\***
-         ``*shmem``_int4_xor_to_all*\ (3)
+         *shmem_int4_xor_to_all*\ (3)
 
       **\***
-         ``*shmem``_int8_xor_to_all*\ (3)
+         *shmem_int8_xor_to_all*\ (3)
 
 Broadcast routines
 
@@ -552,10 +552,10 @@ Broadcast routines
       C/C++ and Fortran:
 
       **\***
-         ``*shmem``_broadcast32*\ (3)
+         *shmem_broadcast32*\ (3)
 
       **\***
-         ``*shmem``_broadcast64*\ (3)
+         *shmem_broadcast64*\ (3)
 
 Cache management routines
 
@@ -565,10 +565,10 @@ Cache management routines
       C/C++ and Fortran:
 
       **\***
-         ``*shmem``_udcflush*\ (3)
+         *shmem_udcflush*\ (3)
 
       **\***
-         ``*shmem``_udcflush_line*\ (3)
+         *shmem_udcflush_line*\ (3)
 
 Byte-granularity block put routines
 
@@ -578,19 +578,19 @@ Byte-granularity block put routines
       C/C++ and Fortran
 
       **\***
-         ``*shmem``_putmem*\ (3)
+         *shmem_putmem*\ (3)
 
       **\***
-         ``*shmem``_getmem*\ (3)
+         *shmem_getmem*\ (3)
 
    **\***
       Fortran only:
 
       **\***
-         ``*shmem``_character_put*\ (3)
+         *shmem_character_put*\ (3)
 
       **\***
-         ``*shmem``_character_get*\ (3)
+         *shmem_character_get*\ (3)
 
 Collect routines
 
@@ -598,16 +598,16 @@ Collect routines
       C/C++ and Fortran:
 
       **\***
-         ``*shmem``_collect32*\ (3)
+         *shmem_collect32*\ (3)
 
       **\***
-         ``*shmem``_collect64*\ (3)
+         *shmem_collect64*\ (3)
 
       **\***
-         ``*shmem``_fcollect32*\ (3)
+         *shmem_fcollect32*\ (3)
 
       **\***
-         ``*shmem``_fcollect64*\ (3)
+         *shmem_fcollect64*\ (3)
 
 Atomic memory fetch-and-operate (fetch-op) routines
 
@@ -615,73 +615,73 @@ Atomic memory fetch-and-operate (fetch-op) routines
       C/C++ only:
 
       **\***
-         ``*shmem``_double_swap*\ (3)
+         *shmem_double_swap*\ (3)
 
       **\***
-         ``*shmem``_float_swap*\ (3)
+         *shmem_float_swap*\ (3)
 
       **\***
-         ``*shmem``_int_cswap*\ (3)
+         *shmem_int_cswap*\ (3)
 
       **\***
-         ``*shmem``_int_fadd*\ (3)
+         *shmem_int_fadd*\ (3)
 
       **\***
-         ``*shmem``_int_finc*\ (3)
+         *shmem_int_finc*\ (3)
 
       **\***
-         ``*shmem``_int_swap*\ (3)
+         *shmem_int_swap*\ (3)
 
       **\***
-         ``*shmem``_long_cswap*\ (3)
+         *shmem_long_cswap*\ (3)
 
       **\***
-         ``*shmem``_long_fadd*\ (3)
+         *shmem_long_fadd*\ (3)
 
       **\***
-         ``*shmem``_long_finc*\ (3)
+         *shmem_long_finc*\ (3)
 
       **\***
-         ``*shmem``_long_swap*\ (3)
+         *shmem_long_swap*\ (3)
 
       **\***
-         ``*shmem``_longlong_cswap*\ (3)
+         *shmem_longlong_cswap*\ (3)
 
       **\***
-         ``*shmem``_longlong_fadd*\ (3)
+         *shmem_longlong_fadd*\ (3)
 
       **\***
-         ``*shmem``_longlong_finc*\ (3)
+         *shmem_longlong_finc*\ (3)
 
       **\***
-         ``*shmem``_longlong_swap*\ (3)
+         *shmem_longlong_swap*\ (3)
 
    **\***
       Fortran only:
 
       **\***
-         ``*shmem``_int4_cswap*\ (3)
+         *shmem_int4_cswap*\ (3)
 
       **\***
-         ``*shmem``_int4_fadd*\ (3)
+         *shmem_int4_fadd*\ (3)
 
       **\***
-         ``*shmem``_int4_finc*\ (3)
+         *shmem_int4_finc*\ (3)
 
       **\***
-         ``*shmem``_int4_swap*\ (3)
+         *shmem_int4_swap*\ (3)
 
       **\***
-         ``*shmem``_int8_swap*\ (3)
+         *shmem_int8_swap*\ (3)
 
       **\***
-         ``*shmem``_real4_swap*\ (3)
+         *shmem_real4_swap*\ (3)
 
       **\***
-         ``*shmem``_real8_swap*\ (3)
+         *shmem_real8_swap*\ (3)
 
       **\***
-         ``*shmem``_int8_cswap*\ (3)
+         *shmem_int8_cswap*\ (3)
 
 Atomic memory operation routines
 
@@ -689,10 +689,10 @@ Atomic memory operation routines
       Fortran only:
 
       **\***
-         ``*shmem``_int4_add*\ (3)
+         *shmem_int4_add*\ (3)
 
       **\***
-         ``*shmem``_int4_inc*\ (3)
+         *shmem_int4_inc*\ (3)
 
 Remote memory pointer function
 
@@ -700,7 +700,7 @@ Remote memory pointer function
       C/C++ and Fortran:
 
       **\***
-         ``*shmem``_ptr*\ (3)
+         *shmem_ptr*\ (3)
 
 Reduction routines
 
@@ -708,31 +708,31 @@ Reduction routines
       C/C++ only:
 
       **\***
-         ``*shmem``_longdouble_max_to_all*\ (3)
+         *shmem_longdouble_max_to_all*\ (3)
 
       **\***
-         ``*shmem``_longdouble_min_to_all*\ (3)
+         *shmem_longdouble_min_to_all*\ (3)
 
       **\***
-         ``*shmem``_longdouble_prod_to_all*\ (3)
+         *shmem_longdouble_prod_to_all*\ (3)
 
       **\***
-         ``*shmem``_longdouble_sum_to_all*\ (3)
+         *shmem_longdouble_sum_to_all*\ (3)
 
    **\***
       Fortran only:
 
       **\***
-         ``*shmem``_real16_max_to_all*\ (3)
+         *shmem_real16_max_to_all*\ (3)
 
       **\***
-         ``*shmem``_real16_min_to_all*\ (3)
+         *shmem_real16_min_to_all*\ (3)
 
       **\***
-         ``*shmem``_real16_prod_to_all*\ (3)
+         *shmem_real16_prod_to_all*\ (3)
 
       **\***
-         ``*shmem``_real16_sum_to_all*\ (3)
+         *shmem_real16_sum_to_all*\ (3)
 
 Accessibility query routines
 
@@ -740,10 +740,10 @@ Accessibility query routines
       C/C++ and Fortran:
 
       **\***
-         ``*shmem``_pe_accessible*\ (3)
+         *shmem_pe_accessible*\ (3)
 
       **\***
-         ``*shmem``_addr_accessible*\ (3)
+         *shmem_addr_accessible*\ (3)
 
 Symmetric Data Objects
 
@@ -767,50 +767,50 @@ The following kinds of data objects are symmetric:
       defined in a DSO.
 
    **\***
-      Fortran arrays allocated with ``*shpalloc``*\ (3F)
+      Fortran arrays allocated with *shpalloc*\ (3F)
 
    **\***
-      C and C++ data allocated by ``*shmalloc``*\ (3C)
+      C and C++ data allocated by *shmalloc*\ (3C)
 
 ..
 
 Collective Routines
-   Some SHMEM routines, for example, ``*shmem``_broadcast*\ (3) and
-   ``*shmem``_float_sum_to_all*\ (3), are classified as collective routines
+   Some SHMEM routines, for example, *shmem_broadcast*\ (3) and
+   *shmem_float_sum_to_all*\ (3), are classified as collective routines
    because they distribute work across a set of PEs. They must be called
    concurrently by all PEs in the active set defined by the PE_start,
    logPE_stride, PE_size argument triplet. The following man pages
    describe the OpenSHMEM collective routines:
 
    **\***
-      ``*shmem``_and*\ (3)
+      *shmem_and*\ (3)
 
    **\***
-      ``*shmem``_barrier*\ (3)
+      *shmem_barrier*\ (3)
 
    **\***
-      ``*shmem``_broadcast*\ (3)
+      *shmem_broadcast*\ (3)
 
    **\***
-      ``*shmem``_collect*\ (3)
+      *shmem_collect*\ (3)
 
    **\***
-      ``*shmem``_max*\ (3)
+      *shmem_max*\ (3)
 
    **\***
-      ``*shmem``_min*\ (3)
+      *shmem_min*\ (3)
 
    **\***
-      ``*shmem``_or*\ (3)
+      *shmem_or*\ (3)
 
    **\***
-      ``*shmem``_prod*\ (3)
+      *shmem_prod*\ (3)
 
    **\***
-      ``*shmem``_sum*\ (3)
+      *shmem_sum*\ (3)
 
    **\***
-      ``*shmem``_xor*\ (3)
+      *shmem_xor*\ (3)
 
 USING THE SYMMETRIC WORK ARRAY, PSYNC
 -------------------------------------
@@ -819,14 +819,14 @@ Multiple pSync arrays are often needed if a particular PE calls as
 OpenSHMEM collective routine twice without intervening barrier
 synchronization. Problems would occur if some PEs in the active set for
 call 2 arrive at call 2 before processing of call 1 is complete by all
-PEs in the call 1 active set. You can use ``*shmem``_barrier*\ (3) or
-``*shmem``_barrier_all*\ (3) to perform a barrier synchronization between
+PEs in the call 1 active set. You can use *shmem_barrier*\ (3) or
+*shmem_barrier_all*\ (3) to perform a barrier synchronization between
 consecutive calls to OpenSHMEM collective routines.
 
 There are two special cases:
 
 **\***
-   The ``*shmem``_barrier*\ (3) routine allows the same pSync array to be
+   The *shmem_barrier*\ (3) routine allows the same pSync array to be
    used on consecutive calls as long as the active PE set does not
    change.
 
@@ -859,7 +859,7 @@ This section lists the significant SHMEM environment variables.
 **\***
    **SMA_DEBUG** enable debugging messages.
 
-The first call to SHMEM must be ``*start``_pes*\ (3). This routines
+The first call to SHMEM must be *start_pes*\ (3). This routines
 initialize the SHMEM runtime.
 
 Calling any other SHMEM routines beforehand has undefined behavior.
@@ -875,12 +875,12 @@ The commands are styled after wrapper programs found in many MPI
 implementations.
 
 The following sample command line demonstrates running an OpenSHMEM
-Program using a wrapper script (*``*oshrun``** in this case):
+Program using a wrapper script (**oshrun** in this case):
 
 **\***
    C/C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    oshcc c_program.c
@@ -888,7 +888,7 @@ Program using a wrapper script (*``*oshrun``** in this case):
 **\***
    FORTRAN:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    oshfort fortran_program.f
@@ -897,8 +897,7 @@ The following sample command line demonstrates running an OpenSHMEM
 Program assuming that the library provides a wrapper script for such
 purpose (named **oshrun** for this example):
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    oshrun -np 32 ./a.out
 
@@ -908,8 +907,7 @@ EXAMPLES
 **Example 1**: The following Fortran OpenSHMEM program directs all PEs
 to sum simultaneously the numbers in the VALUES variable across all PEs:
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    PROGRAM REDUCTION
      REAL VALUES, SUM
@@ -931,8 +929,7 @@ to sum simultaneously the numbers in the VALUES variable across all PEs:
 **Example 2**: The following C OpenSHMEM program transfers an array of
 10 longs from PE 0 to PE 1:
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    #include <mpp/shmem.h>
 
@@ -956,15 +953,15 @@ SEE ALSO
 The following man pages also contain information on OpenSHMEM routines.
 See the specific man pages for implementation information.
 
-``*shmem``_add*\ (3), ``*shmem``_and*\ (3), ``*shmem``_barrier*\ (3),
-``*shmem``_barrier_all*\ (3), ``*shmem``_broadcast*\ (3), ``*shmem``_cache*\ (3),
-``*shmem``_collect*\ (3), ``*shmem``_cswap*\ (3), ``*shmem``_fadd*\ (3),
-``*shmem``_fence*\ (3), ``*shmem``_finc*\ (3), ``*shmem``_get*\ (3),
-``*shmem``_iget*\ (3), ``*shmem``_inc*\ (3), ``*shmem``_iput*\ (3),
-``*shmem``_lock*\ (3), ``*shmem``_max*\ (3), ``*shmem``_min*\ (3),
-``*shmem``_my_pe*\ (3), ``*shmem``_or*\ (3), ``*shmem``_prod*\ (3),
-``*shmem``_put*\ (3), ``*shmem``_quiet*\ (3), ``*shmem``_short_g*\ (3),
-``*shmem``_short_p*\ (3), ``*shmem``_sum*\ (3), ``*shmem``_swap*\ (3),
-``*shmem``_wait*\ (3), ``*shmem``_xor*\ (3), ``*shmem``_pe_accessible*\ (3),
-``*shmem``_addr_accessible*\ (3), ``*shmem``_init*\ (3), ``*shmem``_malloc*\ (3C),
+*shmem_add*\ (3), *shmem_and*\ (3), *shmem_barrier*\ (3),
+*shmem_barrier_all*\ (3), *shmem_broadcast*\ (3), *shmem_cache*\ (3),
+*shmem_collect*\ (3), *shmem_cswap*\ (3), *shmem_fadd*\ (3),
+*shmem_fence*\ (3), *shmem_finc*\ (3), *shmem_get*\ (3),
+*shmem_iget*\ (3), *shmem_inc*\ (3), *shmem_iput*\ (3),
+*shmem_lock*\ (3), *shmem_max*\ (3), *shmem_min*\ (3),
+*shmem_my_pe*\ (3), *shmem_or*\ (3), *shmem_prod*\ (3),
+*shmem_put*\ (3), *shmem_quiet*\ (3), *shmem_short_g*\ (3),
+*shmem_short_p*\ (3), *shmem_sum*\ (3), *shmem_swap*\ (3),
+*shmem_wait*\ (3), *shmem_xor*\ (3), *shmem_pe_accessible*\ (3),
+*shmem_addr_accessible*\ (3), *shmem_init*\ (3), *shmem_malloc*\ (3C),
 *shmem_my_pe*\ (3I), *shmem_n_pes*\ (3I)

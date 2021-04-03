@@ -19,13 +19,13 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_COMM_GET_ATTR(COMM, COMM_KEYVAL, ATTRIBUTE_VAL, FLAG, IERROR)
-   	INTEGER	COMM, COMM_KEYVAL, IERROR 
+   	INTEGER	COMM, COMM_KEYVAL, IERROR
    	INTEGER(KIND=MPI_ADDRESS_KIND) ATTRIBUTE_VAL
    	LOGICAL FLAG
 
@@ -46,31 +46,27 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``comm``: Communicator to which the attribute is attached (handle).
 
-* ``comm_keyval``: Key value (integer).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``attribute_val``: Attribute value, unless f\ *lag* = false.
 
-* ``flag``: False if no attribute is associated with the key (logical).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Comm_get_attr`` retrieves an attribute value by key. The call is
-erroneous if there is no key with value ``*keyval``*. On the other hand, the
+erroneous if there is no key with value *keyval*. On the other hand, the
 call is correct if the key value exists, but no attribute is attached on
-``*comm``* for that key; in that case, the call returns ``*flag``* = false. In
+*comm* for that key; in that case, the call returns *flag* = false. In
 particular, ``MPI_KEYVAL_INVALID`` is an erroneous key value.
 
 This function replaces ``MPI_Attr_get``, the use of which is deprecated. The
 C binding is identical. The Fortran binding differs in that
-``*attribute``_val* is an address-sized integer.
+*attribute_val* is an address-sized integer.
 
 FORTRAN 77 NOTES
 ----------------
@@ -79,8 +75,7 @@ The MPI standard prescribes portable Fortran syntax for the
 *ATTRIBUTE_VAL* argument only for Fortran 90. Sun FORTRAN 77 users may
 use the non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND ATTRIBUTE_VAL
 

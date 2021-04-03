@@ -74,29 +74,19 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Starting address of send buffer (choice).
 
-* ``sendcount``: Number of elements in send buffer (integer).
 
-* ``sendtype``: Datatype of send buffer elements (handle).
 
-* ``recvcount``: Integer array (of length group size) containing the number of
-* ``elements that are received from each neighbor.``: 
-* ``displs``: Integer array (of length group size). Entry i specifies the
-* ``displacement (relative to recvbuf) at which to place the incoming``: data from neighbor i.
 
-* ``recvtype``: Datatype of receive buffer elements (handle).
 
-* ``comm``: Communicator (handle).
+
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Address of receive buffer (choice).
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -106,11 +96,11 @@ processes gather data from all neighbors, except that each process can
 send a different amount of data. The block of data sent from the jth
 neighbor is received by every neighbor and placed in the jth block of
 the buffer. The neighbors and buffer layout is determined by the
-topology of ``*comm``*. ``*recvbuf``.*
+topology of *comm*. *recvbuf.*
 
 The type signature associated with sendcount, sendtype, at process j
 must be equal to the type signature associated with the corresponding
-entry in ``*recvcounts``* on neighboring processes.
+entry in *recvcounts* on neighboring processes.
 
 NEIGHBOR ORDERING
 -----------------
@@ -128,7 +118,7 @@ For a Cartesian topology, created with ``MPI_Cart_create``, the sequence of
 neighbors in the send and receive buffers at each process is defined by
 order of the dimensions, first the neighbor in the negative direction
 and then in the positive direction with displacement 1. The numbers of
-sources and destinations in the communication routines are 2``*ndims`` with
+sources and destinations in the communication routines are 2*ndims with
 ndims defined in ``MPI_Cart_create``. If a neighbor does not exist, i.e., at
 the border of a Cartesian topology in the case of a non-periodic virtual
 grid dimension (i.e., periods[...]==false), then this neighbor is
@@ -143,7 +133,7 @@ communicated nor updated.
 NOTES
 -----
 
-The ``MPI_IN_PLACE`` option for ``*sendbuf``* is not meaningful for this
+The ``MPI_IN_PLACE`` option for *sendbuf* is not meaningful for this
 operation.
 
 ERRORS
@@ -163,4 +153,4 @@ SEE ALSO
 --------
 
 ``MPI_Neighbor_allgather`` ``MPI_Cart_create`` ``MPI_Graph_create``
-MPI_Dist_graph_create
+``MPI_Dist_graph_create``

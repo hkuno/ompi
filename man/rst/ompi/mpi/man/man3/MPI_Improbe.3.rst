@@ -47,22 +47,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``source``: Source rank or MPI_ANY_SOURCE (integer).
 
-* ``tag``: Tag value or MPI_ANY_TAG (integer).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``flag``: Flag (logical).
 
-* ``message``: Message (handle).
 
-* ``status``: Status object (status).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -76,11 +70,13 @@ to decide how to receive the message, based on the information returned
 by the probe. In particular, the application may allocate memory for the
 receive buffer according to the length of the probed message.
 
-A matching probe with ``MPI_PROC_NULL`` as ``*source``* returns ``*flag``* = true,
+A matching probe with ``MPI_PROC_NULL`` as *source* returns *flag* = true,
+*message* = MPI_MESSAGE_NO_PROC, and the *status* object returns source
+~ MPI_PROC_NULL, tag ~ MPI_ANY_TAG, and count ~ 0.
 
-``MPI_Iprobe`` returns a true value in ``*flag``* if a message has been matched
-and can be received by passing the ``*message``* handle to the ``MPI_Mrecv`` or
-``MPI_Imrecv`` functions, provided the ``*source``* was not ``MPI_PROC_NULL``.
+``MPI_Iprobe`` returns a true value in *flag* if a message has been matched
+and can be received by passing the *message* handle to the ``MPI_Mrecv`` or
+``MPI_Imrecv`` functions, provided the *source* was not ``MPI_PROC_NULL``.
 
 ERRORS
 ------
@@ -98,8 +94,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Mprobe
    MPI_Probe

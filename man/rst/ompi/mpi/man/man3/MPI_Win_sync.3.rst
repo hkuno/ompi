@@ -41,18 +41,17 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``win``: Window object (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Win_sync`` synchronizes the private and public window copies of
-``*win``*. For the purposes of synchronizing the private and public window,
+*win*. For the purposes of synchronizing the private and public window,
 ``MPI_Win_sync`` has the effect of ending and reopening an access and
 exposure epoch on the window (note that it does not actually end an
 epoch or complete any pending MPI RMA operations).

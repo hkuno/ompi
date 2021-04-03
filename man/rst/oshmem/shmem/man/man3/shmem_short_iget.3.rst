@@ -1,13 +1,13 @@
 NAME
 ----
 
-``*shmem``_complex_iget*\ (3), ``*shmem``_double_iget*\ (3),
-``*shmem``_float_iget*\ (3), ``*shmem``_iget4*\ (3), ``*shmem``_iget8*\ (3),
-``*shmem``_iget32*\ (3), ``*shmem``_iget64*\ (3), ``*shmem``_iget128*\ (3),
-``*shmem``_int_iget*\ (3), ``*shmem``_integer_iget*\ (3),
-``*shmem``_logical_iget*\ (3), ``*shmem``_long_iget*\ (3),
-``*shmem``_longdouble_iget*\ (3), ``*shmem``_longlong_iget*\ (3),
-``*shmem``_real_iget*\ (3), ``*shmem``_short_iget*\ (3) - Transfers strided data
+*shmem_complex_iget*\ (3), *shmem_double_iget*\ (3),
+*shmem_float_iget*\ (3), *shmem_iget4*\ (3), *shmem_iget8*\ (3),
+*shmem_iget32*\ (3), *shmem_iget64*\ (3), *shmem_iget128*\ (3),
+*shmem_int_iget*\ (3), *shmem_integer_iget*\ (3),
+*shmem_logical_iget*\ (3), *shmem_long_iget*\ (3),
+*shmem_longdouble_iget*\ (3), *shmem_longlong_iget*\ (3),
+*shmem_real_iget*\ (3), *shmem_short_iget*\ (3) - Transfers strided data
 from a specified processing element (PE)
 
 SYNOPSIS
@@ -15,7 +15,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -51,7 +51,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -86,10 +86,10 @@ DESCRIPTION
 -----------
 
 The strided get routines retrieve array data available at address source
-on remote PE (pe). The elements of the *``*source``** array are separated by
-a stride *``*sst``**. Once the data is received, it is stored at the local
-memory address *``*target``**, separated by stride *``*tst``**. The routines
-return when the data has been copied into the local *``*target``** array.
+on remote PE (pe). The elements of the **source** array are separated by
+a stride **sst**. Once the data is received, it is stored at the local
+memory address **target**, separated by stride **tst**. The routines
+return when the data has been copied into the local **target** array.
 
 The arguments are as follows:
 
@@ -124,28 +124,28 @@ pe
 The target and source data objects must conform to typing constraints,
 which are as follows:
 
-*``*shmem``_iget32, shmem_iget4**: Any noncharacter type that has a storage size
+**shmem_iget32, shmem_iget4**: Any noncharacter type that has a storage size
    equal to 32 bits.
 
-*``*shmem``_iget64, shmem_iget8**: Any noncharacter type that has a storage size
+**shmem_iget64, shmem_iget8**: Any noncharacter type that has a storage size
    equal to 64 bits.
 
-*``*shmem``_iget128**: Any noncharacter type that has a storage size equal to
+**shmem_iget128**: Any noncharacter type that has a storage size equal to
    128 bits.
 
-*``*shmem``_short_iget**: Elements of type short.
+**shmem_short_iget**: Elements of type short.
 
-*``*shmem``_int_iget**: Elements of type int.
+**shmem_int_iget**: Elements of type int.
 
-*``*shmem``_long_iget**: Elements of type long.
+**shmem_long_iget**: Elements of type long.
 
-*``*shmem``_longlong_iget**: Elements of type long long.
+**shmem_longlong_iget**: Elements of type long long.
 
-*``*shmem``_float_iget**: Elements of type float.
+**shmem_float_iget**: Elements of type float.
 
-*``*shmem``_double_iget**: Elements of type double.
+**shmem_double_iget**: Elements of type double.
 
-*``*shmem``_longdouble_iget**: Elements of type long double.
+**shmem_longdouble_iget**: Elements of type long double.
 
 **SHMEM_COMPLEX_IGET**: Elements of type complex of default size.
 
@@ -157,7 +157,7 @@ which are as follows:
 
 **SHMEM_REAL_IGET**: Elements of type real.
 
-*``*shmem``_longdouble_iget**: Elements of type long double.
+**shmem_longdouble_iget**: Elements of type long double.
 
 **SHMEM_COMPLEX_IGET**: Elements of type complex of default size.
 
@@ -176,7 +176,7 @@ REAL(KIND=4).
 NOTES
 -----
 
-See ``*intro``_shmem*\ (3) for a definition of the term remotely accessible.
+See *intro_shmem*\ (3) for a definition of the term remotely accessible.
 
 EXAMPLES
 --------
@@ -184,8 +184,7 @@ EXAMPLES
 The following simple example uses shmem_logical_iget in a Fortran
 program. Compile this example with the -lsma compiler option.
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    PROGRAM STRIDELOGICAL
      LOGICAL SOURCE(10), TARGET(5)

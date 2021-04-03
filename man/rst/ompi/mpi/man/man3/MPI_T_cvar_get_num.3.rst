@@ -18,7 +18,6 @@ C Syntax
 OUTPUT PARAMETERS
 -----------------
 
-* ``num_cvar``: Current number of control variables.
 
 DESCRIPTION
 -----------
@@ -30,7 +29,7 @@ execution of the process but will never decrease.
 ERRORS
 ------
 
-``MPI_T_cvar_get_num``() will fail if:
+``MPI_T_cvar_get_num()`` will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED``]
+[``MPI_T_ERR_NOT_INITIALIZED]``
    The MPI Tools interface not initialized

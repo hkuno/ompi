@@ -7,8 +7,6 @@ shared file pointer.
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -22,7 +20,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -46,20 +44,18 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``fh``: File handle (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``offset``: Offset of the shared file pointer (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_File_get_position_shared`` returns, in ``*offset``,* the current position
-of the shared file pointer in ``*etype``* units relative to the current
+``MPI_File_get_position_shared`` returns, in *offset,* the current position
+of the shared file pointer in *etype* units relative to the current
 displacement and file type.
 
 FORTRAN 77 NOTES
@@ -69,8 +65,7 @@ The MPI standard prescribes portable Fortran syntax for the *OFFSET*
 argument only for Fortran 90. Sun FORTRAN 77 users may use the
 non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_OFFSET_KIND OFFSET
 

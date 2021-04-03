@@ -47,22 +47,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``local_comm``: The communicator containing the process that initiates the
-* ``inter-communication (handle).``: 
-* ``local_leader``: Rank of local group leader in local_comm (integer).
 
-* ``peer_comm``: "Peer" communicator; significant only at the local_leader (handle).
 
-* ``remote_leader``: Rank of remote group leader in peer_comm; significant only at the
-* ``local_leader (integer).``: 
-* ``tag``: Message tag used to identify new intercommunicator (integer).
+
+
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newintercomm``: Created intercommunicator (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -91,8 +85,8 @@ The MPI 1.1 Standard contains two mutually exclusive comments on the
 input intracommunicators. One says that their respective groups must be
 disjoint; the other that the leaders can be the same process. After some
 discussion by the MPI Forum, it has been decided that the groups must be
-disjoint. Note that the *``*reason``** given for this in the standard is
-*``*not``** the reason for this choice; rather, the *``*other``** operations on
+disjoint. Note that the **reason** given for this in the standard is
+**not** the reason for this choice; rather, the **other** operations on
 intercommunicators (like ``MPI_Intercomm_merge`` ) do not make sense if
 the groups are not disjoint.
 
@@ -115,4 +109,4 @@ SEE ALSO
 | ``MPI_Intercomm_merge``
 | ``MPI_Comm_free``
 | ``MPI_Comm_remote_group``
-| MPI_Comm_remote_size
+| ``MPI_Comm_remote_size``

@@ -22,30 +22,30 @@ DESCRIPTION
 -----------
 
 ``MPI_T_pvar_session_create`` creates a session for accessing performance
-variables. The new session is returned in the ``*session``* parameter.
+variables. The new session is returned in the *session* parameter.
 
 ``MPI_T_pvar_session_free`` releases a session allocated by
-``MPI_T_pvar_session_create`` and sets the ``*session``* parameter to
+``MPI_T_pvar_session_create`` and sets the *session* parameter to
 ``MPI_T_PVAR_SESSION_NULL``.
 
 ERRORS
 ------
 
-``MPI_T_pvar_session_create``() will fail if:
+``MPI_T_pvar_session_create()`` will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED``]
+[``MPI_T_ERR_NOT_INITIALIZED]``
    The MPI Tools interface not initialized
 
-[``MPI_T_ERR_MEMORY``]
+[``MPI_T_ERR_MEMORY]``
    Out of memory
 
-[``MPI_T_ERR_OUT_OF_SESSIONS``]
+[``MPI_T_ERR_OUT_OF_SESSIONS]``
    No more sessions available
 
-``MPI_T_pvar_session_free``() will fail if:
+``MPI_T_pvar_session_free()`` will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED``]
+[``MPI_T_ERR_NOT_INITIALIZED]``
    The MPI Tools interface not initialized
 
-[``MPI_T_ERR_INVALID_SESSION``]
+[``MPI_T_ERR_INVALID_SESSION]``
    The session parameter is not a valid session

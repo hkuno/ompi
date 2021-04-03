@@ -39,14 +39,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``argc``: C only: Pointer to the number of arguments.
+* ``C only``: 
 
-* ``argv``: C only: Argument vector.
+* ``C only``: 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -57,11 +57,10 @@ routines are called. There are a small number of errors, such as
 subsequent calls to ``MPI_Init`` or ``MPI_Init_thread`` are erroneous.
 
 All MPI programs must contain a call to ``MPI_Init`` or ``MPI_Init_thread``.
-Open MPI accepts the C ``*argc``* and ``*argv``* arguments to main, but neither
+Open MPI accepts the C *argc* and *argv* arguments to main, but neither
 modifies, interprets, nor distributes them:
 
-.. code-block:: fortran
-   :linenos:
+::
 
    	{
    		/* declare variables */
@@ -74,7 +73,7 @@ modifies, interprets, nor distributes them:
 NOTES
 -----
 
-The Fortran version does not have provisions for ``*argc``* and ``*argv``* and
+The Fortran version does not have provisions for *argc* and *argv* and
 takes only IERROR.
 
 The MPI Standard does not say what a program can do before an ``MPI_Init``
@@ -101,8 +100,7 @@ See the MPI man page for a full list of MPI error codes.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Init_thread
    MPI_Initialized

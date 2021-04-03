@@ -1,7 +1,7 @@
 NAME
 ----
 
-``*shmem``_quiet*\ (3) - Waits for completion of all outstanding remote
+*shmem_quiet*\ (3) - Waits for completion of all outstanding remote
 writes issued by a processing element (PE).
 
 SYNOPSIS
@@ -9,7 +9,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -18,7 +18,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    CALL SHMEM_QUIET
@@ -39,15 +39,14 @@ NOTES
   of several put operations. For example, you might use shmem_quiet to
   await delivery of a block of data before issuing another put, which
   sets a completion flag on another PE.
-| shmem_quiet is not usually needed if ``*shmem``_barrier_all*\ (3) or
-  ``*shmem``_barrier*\ (3) are called. The barrier routines all wait for the
+| shmem_quiet is not usually needed if *shmem_barrier_all*\ (3) or
+  *shmem_barrier*\ (3) are called. The barrier routines all wait for the
   completion of outstanding remote writes (puts).
 
 EXAMPLES
 --------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    PROGRAM COMPFLAG
      INCLUDE "mpp/shmem.fh"
@@ -77,5 +76,5 @@ EXAMPLES
 SEE ALSO
 --------
 
-``*intro``_shmem*\ (3), ``*shmem``_barrier*\ (3), ``*shmem``_barrier_all*\ (3),
+*intro_shmem*\ (3), *shmem_barrier*\ (3), *shmem_barrier_all*\ (3),
 *shmem_fence*\ (3), *shmem_put*\ (3), *shmem_wait*\ (3)

@@ -25,7 +25,7 @@ Fortran Syntax
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_COMM_GET_PARENT(PARENT, IERROR)
-   	INTEGER	PARENT, IERROR 
+   	INTEGER	PARENT, IERROR
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -41,9 +41,8 @@ Fortran 2008 Syntax
 OUTPUT PARAMETERS
 -----------------
 
-* ``parent``: The parent communicator (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -86,8 +85,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Comm_spawn
    MPI_Comm_spawn_multiple

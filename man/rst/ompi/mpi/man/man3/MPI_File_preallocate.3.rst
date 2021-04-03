@@ -7,8 +7,6 @@ space at the beginning of a file (collective).
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -22,7 +20,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -46,31 +44,29 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``fh``: File handle (handle).
 
 INPUT PARAMETER
 ---------------
 
-* ``size``: Size to preallocate file, in bytes (integer).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_File_preallocate`` ensures that storage space is allocated for the
-first ``*size``* bytes of the file associated with ``*fh``*.
+first *size* bytes of the file associated with *fh*.
 ``MPI_File_preallocate`` can be a very time-consuming operation.
 
 ``MPI_File_preallocate`` is collective; all processes in the group must pass
-identical values for ``*size``*. Regions of the file that have previously
+identical values for *size*. Regions of the file that have previously
 been written are unaffected. For newly allocated regions of the file,
 ``MPI_File_preallocate`` has the same effect as writing undefined data. If
 size is larger than the current file size, the file size increases to
-``*size``*. If ``*size``* is less than or equal to the current file size, the
+*size*. If *size* is less than or equal to the current file size, the
 file size is unchanged.
 
 The treatment of file pointers, pending nonblocking accesses, and file
@@ -85,8 +81,7 @@ The MPI standard prescribes portable Fortran syntax for the *SIZE*
 argument only for Fortran 90. FORTRAN 77 users may use the non-portable
 syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_OFFSET_KIND SIZE
 

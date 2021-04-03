@@ -42,21 +42,19 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``assert``: Program assertion (integer).
 
-* ``win``: Window object (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Starts an RMA access epoch to all processes in ``*win``*, with a lock type
+Starts an RMA access epoch to all processes in *win*, with a lock type
 of ``MPI_LOCK_SHARED``. During the epoch, the calling process can access the
-window memory on all processes in ``*win``* by using RMA operations. A
+window memory on all processes in *win* by using RMA operations. A
 window locked with ``MPI_Win_lock_all`` must be unlocked with
 ``MPI_Win_unlock_all``. This routine is not collective — the ALL refers to a
 lock on all members of the group of the window.
@@ -70,9 +68,9 @@ same window that are lock protected. Accesses that are protected by a
 shared lock will not be concurrent at the window site with accesses
 protected by an exclusive lock to the same window.
 
-The ``*assert``* argument is used to provide assertions on the context of
+The *assert* argument is used to provide assertions on the context of
 the call that may be used for various optimizations. (See Section 6.4.4
-of the MPI-2 Standard.) A value of ``*assert``* = 0 is always valid.
+of the MPI-2 Standard.) A value of *assert* = 0 is always valid.
 
 NOTES
 -----
@@ -99,4 +97,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Win_unlock_all MPI_Win_lock
+| ``MPI_Win_unlock_all`` ``MPI_Win_lock``

@@ -26,7 +26,7 @@ Fortran Syntax
    ! or the older form: INCLUDE 'mpif.h'
    MPI_COMM_TEST_INTER(COMM, FLAG, IERROR)
    	INTEGER	COMM, IERROR
-   	LOGICAL	FLAG 
+   	LOGICAL	FLAG
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -43,13 +43,12 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``flag (Logical.)``: 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -64,8 +63,7 @@ within a single group), the functions listed below return the expected
 values, group size, group, and rank. When dealing with an
 inter-communicator, however, they return the following values:
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Comm_size	Returns the size of the local group.
    MPI_Comm_group	Returns the local group.
@@ -104,8 +102,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Comm_remote_group
    MPI_Comm_remote_size

@@ -31,24 +31,20 @@ Fortran Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``comm``: Communicator to which attribute is attached (handle).
 
-* ``keyval``: Key value (integer).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``attribute_val``: Attribute value, unless flag = false.
 
-* ``flag``: True if an attribute value was extracted; false if no attribute is
-* ``associated with the key.``: 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Note that use of this routine is ``*deprecated``* as of MPI-2, and was
-``*deleted``* in MPI-3. Please use ``MPI_Comm_get_attr``. This function does not
+Note that use of this routine is *deprecated* as of MPI-2, and was
+*deleted* in MPI-3. Please use ``MPI_Comm_get_attr``. This function does not
 have a mpi_f08 binding.
 
 Retrieves attribute value by key. The call is erroneous if there is no
@@ -73,4 +69,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Comm_get_attr
+| ``MPI_Comm_get_attr``

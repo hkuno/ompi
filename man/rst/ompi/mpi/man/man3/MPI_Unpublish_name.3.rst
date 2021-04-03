@@ -1,8 +1,7 @@
 NAME
 ----
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    MPI_Unpublish_name - Unpublishes a service name
 
@@ -46,34 +45,30 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``service_name``: A service name (string).
 
-* ``info``: Options to the name service functions (handle).
 
-* ``port_name``: A port name (string).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-This routine removes the pair (``*service``_name, port_name*) so that
-applications may no longer retrieve ``*port``_name* by calling
-``MPI_Lookup_name``. It is an error to unpublish a ``*service``_name* that was
-not published via ``MPI_Publish_name``. Both the ``*service``_name* and
-``*port``_name* arguments to ``MPI_Unpublish_name`` must be identical to the
+This routine removes the pair (*service_name, port_name*) so that
+applications may no longer retrieve *port_name* by calling
+``MPI_Lookup_name``. It is an error to unpublish a *service_name* that was
+not published via ``MPI_Publish_name``. Both the *service_name* and
+*port_name* arguments to ``MPI_Unpublish_name`` must be identical to the
 arguments to the previous call to ``MPI_Publish_name``.
 
 INFO ARGUMENTS
 --------------
 
-The following keys for ``*info``* are recognized:
+The following keys for *info* are recognized:
 
-.. code-block:: fortran
-   :linenos:
+::
 
    Key                   Type      Description
    ---                   ----      -----------
@@ -99,7 +94,7 @@ local. Otherwise, the data will default to unpublish with local scope.
 NAME SCOPE
 ----------
 
-Open MPI supports two name scopes: ``*global``* and ``*local``*. Local scope
+Open MPI supports two name scopes: *global* and *local*. Local scope
 values are placed in a data store located on the mpirun of the calling
 process' job, while global scope values reside on a central server.
 Calls to ``MPI_Unpublish_name`` must correctly specify the scope to be used
@@ -127,8 +122,7 @@ See the MPI man page for a full list of MPI error codes.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Publish_name
    MPI_Lookup_name

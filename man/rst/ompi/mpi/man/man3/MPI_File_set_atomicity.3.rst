@@ -7,8 +7,6 @@ operations (collective).
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -45,14 +43,12 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``fh``: File handle (handle).
 
-* ``flag``: **true** to enable atomic mode, **false** to enable nonatomic mode
-* ``(boolean).``: 
+
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -60,11 +56,11 @@ DESCRIPTION
 The consistency semantics for data-access operations using the set of
 file handles created by one collective ``MPI_File_open`` is set by
 collectively calling ``MPI_File_set_atomicity``. All processes in the group
-must pass identical values for ``*fh``* and ``*flag``.* If ``*flag``* is ``*true``,*
-atomic mode is set; if ``*flag``* is ``*false``,* nonatomic mode is set.
+must pass identical values for *fh* and *flag.* If *flag* is *true,*
+atomic mode is set; if *flag* is *false,* nonatomic mode is set.
 
-The default value on a call to ``MPI_File_open`` in Open MPI is ``*true``* for
-jobs running on more than one node, ``*false``* for jobs running on a single
+The default value on a call to ``MPI_File_open`` in Open MPI is *true* for
+jobs running on more than one node, *false* for jobs running on a single
 SMP. For more information, see the MPI-2 standard.
 
 ERRORS

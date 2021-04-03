@@ -8,8 +8,6 @@ a shared file pointer; ending part of a split collective routine
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -49,26 +47,23 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``fh``: File handle (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``buf``: Initial address of buffer (choice).
 
-* ``status``: Status object (status).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_File_read_ordered_end`` is the ending part of a split collective
 routine that must be called by all processes in the communicator group
-associated with the file handle ``*fh``.* ``MPI_File_rad_ordered_end`` blocks
+associated with the file handle *fh.* ``MPI_File_rad_ordered_end`` blocks
 until the operation initiated by ``MPI_File_read_ordered_begin`` completes.
-It attempts to read the file associated with ``*fh``* into the user's buffer
-``*buf``.* The shared file pointer is updated by the amounts of data
+It attempts to read the file associated with *fh* into the user's buffer
+*buf.* The shared file pointer is updated by the amounts of data
 requested by all processes of the group. For each process, the location
 in the file at which data is read is the position at which the shared
 file pointer would be after all processes whose ranks within the group

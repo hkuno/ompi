@@ -24,7 +24,7 @@ Fortran Syntax
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_TYPE_FREE_KEYVAL(TYPE_KEYVAL, IERROR)
-   	INTEGER	TYPE_KEYVAL, IERROR 
+   	INTEGER	TYPE_KEYVAL, IERROR
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -40,12 +40,11 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``type_keyval``: Key value to free (integer).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -66,4 +65,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Type_create_keyval
+| ``MPI_Type_create_keyval``

@@ -1,8 +1,8 @@
 NAME
 ----
 
-``*shmem``_alltoall32*\ (3), ``*shmem``_alltoall64*\ (3),
-``*shmem``_alltoalls32*\ (3), ``*shmem``_alltoalls64*\ (3) - collective routine
+*shmem_alltoall32*\ (3), *shmem_alltoall64*\ (3),
+*shmem_alltoalls32*\ (3), *shmem_alltoalls64*\ (3) - collective routine
 where each PE exchanges a fixed amount of data with all other PEs in the
 Active set
 
@@ -11,7 +11,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -36,7 +36,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -63,7 +63,7 @@ The shmem_alltoalls routines are collective routines. Each PE in the
 Active set exchanges nelems strided data elements of size 32 bits (for
 shmem_alltoalls32) or 64 bits (for shmem_alltoalls64) with all other PEs
 in the set. Both strides, dst and sst, must be greater than or equal to
-1. The sst``*jth`` block sent from PE i to PE j is placed in the dst``*ith``
+1. The sst*jth block sent from PE i to PE j is placed in the dst*ith
 block of the dest data object on PE j. As with all OpenSHMEM collective
 routines, these routines assume that only PEs in the Active set call the
 routine. If a PE not in the Active set calls an OpenSHMEM collective
@@ -86,11 +86,11 @@ The arguments are as follows:
 
 A symmetric data object with one of the following data types:
 
-   *``*shmem``_alltoall32**: Any noncharacter type that
+   **shmem_alltoall32**: Any noncharacter type that
       has an element size of 32 bits. No Fortran derived types or C/C++
       structures are allowed.
 
-   *``*shmem``_alltoall64**: Any noncharacter type that has an element size
+   **shmem_alltoall64**: Any noncharacter type that has an element size
       of 64 bits. No Fortran derived types or C/C++ structures are
       allowed.
 
@@ -160,7 +160,7 @@ accept the alltoall data.
 NOTES
 -----
 
-The terms collective and symmetric are defined in ``*intro``_shmem*\ (3).
+The terms collective and symmetric are defined in *intro_shmem*\ (3).
 
 All SHMEM alltoall routines restore pSync to its original contents.
 Multiple calls to SHMEM routines that use the same pSync array do not
@@ -185,7 +185,7 @@ EXAMPLES
 
 C/C++ example:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <shmem.h>

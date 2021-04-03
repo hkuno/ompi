@@ -45,16 +45,13 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``intercomm``: Intercommunicator (type indicator).
 
-* ``high``: Used to order the groups of the two intracommunicators within comm
-* ``when creating the new communicator (type indicator).``: 
+
 OUTPUT PARAMETERS
 -----------------
 
-* ``newintracomm``: Created intracommunicator (type indicator).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -85,4 +82,4 @@ SEE ALSO
 --------
 
 | ``MPI_Intercomm_create``
-| MPI_Comm_free
+| ``MPI_Comm_free``

@@ -9,7 +9,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    void shmem_init(void);
@@ -17,7 +17,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    CALL SHMEM_INIT()
@@ -45,15 +45,14 @@ Multiple calls to this function are not allowed.
 
 For an overview of programming with SHMEM communication routines,
 example SHMEM programs, and instructions for compiling SHMEM programs,
-see the ``*intro``_shmem*\ (3) man page.
+see the *intro_shmem*\ (3) man page.
 
 EXAMPLES
 --------
 
-This is a simple program that calls ``*shmem``_integer_put*\ (3):
+This is a simple program that calls *shmem_integer_put*\ (3):
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    PROGRAM PUT
      INCLUDE "mpp/shmem.fh"
@@ -82,5 +81,5 @@ unexpected results may occur on some architectures.
 SEE ALSO
 --------
 
-``*intro``_shmem*\ (3), ``*shmem``_barrier*\ (3), ``*shmem``_barrier_all*\ (3),
+*intro_shmem*\ (3), *shmem_barrier*\ (3), *shmem_barrier_all*\ (3),
 *shmem_put*\ (3), *my_pe*\ (3I), *shmem_n_pes*\ (3I)

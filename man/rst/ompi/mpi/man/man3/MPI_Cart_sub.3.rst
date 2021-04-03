@@ -44,16 +44,13 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``comm``: Communicator with Cartesian structure (handle).
 
-* ``remain_dims``: The ith entry of remain_dims specifies whether the ith dimension is
-* ``kept in the subgrid (true) or is dropped (false) (logical vector).``: 
+
 OUTPUT PARAMETERS
 -----------------
 
-* ``comm_new``: Communicator containing the subgrid that includes the calling process
-* ``(handle).``: 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -65,11 +62,10 @@ build for each subgroup a communicator with the associated subgrid
 Cartesian topology. (This function is closely related to
 ``MPI_Comm_split``.)
 
-**Example:** Assume that ``MPI_Cart_create``( ..., comm) has defined a (2 x
+**Example:** Assume that ``MPI_Cart_create(`` ..., comm) has defined a (2 x
 3 x 4) grid. Let remain_dims = (true, false, true). Then a call to
 
-.. code-block:: fortran
-   :linenos:
+::
 
        MPI_Cart_sub(comm, remain_dims, comm_new)
 
@@ -95,8 +91,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Cart_create
    MPI_Comm_split

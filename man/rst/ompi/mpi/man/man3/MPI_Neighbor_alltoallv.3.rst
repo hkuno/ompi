@@ -83,32 +83,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Starting address of send buffer.
 
-* ``sendcounts``: Integer array, where entry i specifies the number of elements to send
-* ``to neighbor i.``: 
-* ``sdispls``: Integer array, where entry i specifies the displacement (offset from
-* ``*sendbuf*, in units of *sendtype*) from which to send data to``: neighbor i.
 
-* ``sendtype``: Datatype of send buffer elements.
 
-* ``recvcounts``: Integer array, where entry j specifies the number of elements to
-* ``receive from neighbor j.``: 
-* ``rdispls``: Integer array, where entry j specifies the displacement (offset from
-* ``*recvbuf*, in units of *recvtype*) to which data from neighbor j``: should be written.
 
-* ``recvtype``: Datatype of receive buffer elements.
 
-* ``comm``: Communicator over which data is to be exchanged.
+
+
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Address of receive buffer.
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status.
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -119,12 +107,11 @@ flexibility to ``MPI_Neighbor_alltoall`` by allowing the user to specify
 data to send and receive vector-style (via a displacement and element
 count). The operation of this routine can be thought of as follows,
 where each process performs 2n (n being the number of neighbors in to
-topology of communicator ``*comm``*) independent point-to-point
+topology of communicator *comm*) independent point-to-point
 communications. The neighbors and buffer layout are determined by the
-topology of ``*comm``*.
+topology of *comm*.
 
-.. code-block:: fortran
-   :linenos:
+::
 
            MPI_Cart_get(comm, maxdims, dims, periods, coords);
            for (dim = 0, i = 0 ; dim < dims ; ++dim) {
@@ -168,7 +155,7 @@ For a Cartesian topology, created with ``MPI_Cart_create``, the sequence of
 neighbors in the send and receive buffers at each process is defined by
 order of the dimensions, first the neighbor in the negative direction
 and then in the positive direction with displacement 1. The numbers of
-sources and destinations in the communication routines are 2``*ndims`` with
+sources and destinations in the communication routines are 2*ndims with
 ndims defined in ``MPI_Cart_create``. If a neighbor does not exist, i.e., at
 the border of a Cartesian topology in the case of a non-periodic virtual
 grid dimension (i.e., periods[...]==false), then this neighbor is
@@ -183,17 +170,17 @@ communicated nor updated.
 NOTES
 -----
 
-The ``MPI_IN_PLACE`` option for ``*sendbuf``* is not meaningful for this
+The ``MPI_IN_PLACE`` option for *sendbuf* is not meaningful for this
 operation.
 
 The specification of counts and displacements should not cause any
 location to be written more than once.
 
-All arguments on all processes are significant. The ``*comm``* argument, in
+All arguments on all processes are significant. The *comm* argument, in
 particular, must describe the same communicator on all processes.
 
-The offsets of ``*sdispls``* and ``*rdispls``* are measured in units of
-``*sendtype``* and ``*recvtype``*, respectively. Compare this to
+The offsets of *sdispls* and *rdispls* are measured in units of
+*sendtype* and *recvtype*, respectively. Compare this to
 ``MPI_Neighbor_alltoallw``, where these offsets are measured in bytes.
 
 ERRORS
@@ -212,8 +199,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Neighbor_alltoall
    MPI_Neighbor_alltoallw

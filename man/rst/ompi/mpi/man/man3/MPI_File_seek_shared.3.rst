@@ -7,8 +7,6 @@ NAME
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -23,7 +21,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -48,41 +46,38 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``fh``: File handle (handle).
 
-* ``offset``: File offset (integer).
 
-* ``whence``: Update mode (integer).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_File_seek_shared`` updates the shared file pointer according to
-``*whence``,* which could have the following possible values:
+*whence,* which could have the following possible values:
 
  o
-   ``MPI_SEEK_SET`` - The pointer is set to ``*offset``.*
+   ``MPI_SEEK_SET`` - The pointer is set to *offset.*
 
  o
    ``MPI_SEEK_CUR`` - The pointer is set to the current pointer position
-   plus ``*offset``.*
+   plus *offset.*
 
  o
    ``MPI_SEEK_END`` - The pointer is set to the end of the file plus
-   ``*offset``.*
+   *offset.*
 
 ``MPI_File_seek_shared`` is collective; all the processes in the
-communicator group associated with the file handle ``*fh``* must call
-``MPI_File_seek_shared`` with the same ``*offset``* and ``*whence``.* All processes
+communicator group associated with the file handle *fh* must call
+``MPI_File_seek_shared`` with the same *offset* and *whence.* All processes
 in the communicator group are synchronized before the shared file
 pointer is updated.
 
-The ``*offset``* can be negative, which allows seeking backwards. It is
+The *offset* can be negative, which allows seeking backwards. It is
 erroneous to seek to a negative position in the view. The end of the
 view is defined to be the position of the next elementary data item,
 relative to the current view, following the last whole elementary data
@@ -95,8 +90,7 @@ The MPI standard prescribes portable Fortran syntax for the *OFFSET*
 argument only for Fortran 90. FORTRAN 77 users may use the non-portable
 syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_OFFSET_KIND OFFSET
 

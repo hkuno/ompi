@@ -24,7 +24,7 @@ Fortran Syntax
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_COMM_SET_NAME(COMM, COMM_NAME, IERROR)
-   	INTEGER	COMM, IERROR 
+   	INTEGER	COMM, IERROR
    	CHARACTER*(*) COMM_NAME
 
 Fortran 2008 Syntax
@@ -42,17 +42,15 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``comm``: Communicator whose identifier is to be set (handle).
 
 INPUT PARAMETER
 ---------------
 
-* ``comm_name``: Character string to be used as the identifier for the communicator
-* ``(string).``: 
+
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -61,7 +59,7 @@ DESCRIPTION
 communicator. The character string that is passed to ``MPI_Comm_set_name``
 is saved inside the MPI library (so it can be freed by the caller
 immediately after the call, or allocated on the stack). Leading spaces
-in ``*name``* are significant, but trailing ones are not.
+in *name* are significant, but trailing ones are not.
 
 ``MPI_Comm_set_name`` is a local (noncollective) operation, which affects
 only the name of the communicator as seen in the process that made the
@@ -103,4 +101,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Comm_get_name
+``MPI_Comm_get_name``

@@ -45,22 +45,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``buf``: Initial address of send buffer (choice).
 
-* ``count``: Number of elements send (nonnegative integer).
 
-* ``datatype``: Datatype of each send buffer element (handle).
 
-* ``dest``: Rank of destination (integer).
 
-* ``tag``: Message tag (integer).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -90,8 +84,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Isend
    MPI_Bsend

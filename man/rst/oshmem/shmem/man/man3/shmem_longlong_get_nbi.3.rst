@@ -1,1 +1,4 @@
+NAME
+----
+
 .. include:: ../man3/shmem_getmem_nbi.3.rst

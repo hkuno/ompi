@@ -6,8 +6,6 @@ NAME
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -43,20 +41,19 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``fh``: File handle (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_File_close`` first synchronizes file state, then closes the file
-associated with ``*fh``.* ``MPI_File_close`` is a collective routine. The user
+associated with *fh.* ``MPI_File_close`` is a collective routine. The user
 is responsible for ensuring that all outstanding requests associated
-with ``*fh``* have completed before calling ``MPI_File_close``.
+with *fh* have completed before calling ``MPI_File_close``.
 
 ERRORS
 ------

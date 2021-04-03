@@ -1,13 +1,13 @@
 NAME
 ----
 
-``*shmem``_getmem_nbi*\ (3), ``*shmem``_char_get_nbi*\ (3),
-``*shmem``_short_get_nbi*\ (3), ``*shmem``_int_get_nbi*\ (3),
-``*shmem``_long_get_nbi*\ (3), ``*shmem``_longlong_get_nbi*\ (3),
-``*shmem``_float_get_nbi*\ (3), ``*shmem``_double_get_nbi*\ (3),
-``*shmem``_longdouble_get_nbi*\ (3), ``*shmem``_get8_nbi*\ (3),
-``*shmem``_get16_nbi*\ (3), ``*shmem``_get32_nbi*\ (3), ``*shmem``_get64_nbi*\ (3),
-``*shmem``_get128_nbi*\ (3), - The nonblocking get routines provide a method
+*shmem_getmem_nbi*\ (3), *shmem_char_get_nbi*\ (3),
+*shmem_short_get_nbi*\ (3), *shmem_int_get_nbi*\ (3),
+*shmem_long_get_nbi*\ (3), *shmem_longlong_get_nbi*\ (3),
+*shmem_float_get_nbi*\ (3), *shmem_double_get_nbi*\ (3),
+*shmem_longdouble_get_nbi*\ (3), *shmem_get8_nbi*\ (3),
+*shmem_get16_nbi*\ (3), *shmem_get32_nbi*\ (3), *shmem_get64_nbi*\ (3),
+*shmem_get128_nbi*\ (3), - The nonblocking get routines provide a method
 for copying data from a contiguous remote data object on the specified
 PE to the local data object.
 
@@ -16,7 +16,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -65,7 +65,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -132,14 +132,14 @@ REAL(KIND=4).
 NOTES
 -----
 
-See ``*intro``_shmem*\ (3) for a definition of the term remotely accessible.
+See *intro_shmem*\ (3) for a definition of the term remotely accessible.
 
 EXAMPLES
 --------
 
 Consider this simple example for Fortran.
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    PROGRAM REDUCTION

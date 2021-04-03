@@ -42,19 +42,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``nnodes``: Number of nodes in a grid (integer).
 
-* ``ndims``: Number of Cartesian dimensions (integer).
 
 IN/OUT PARAMETER
 ----------------
 
-* ``dims``: Integer array of size ndims specifying the number of nodes in each
-* ``dimension.``: 
+
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -66,8 +63,8 @@ optional constraints that can be specified by the user. One use is to
 partition all the processes (the size of ``MPI_COMM_WORLD``'s group) into an
 n-dimensional topology.
 
-The entries in the array ``*dims``* are set to describe a Cartesian grid
-with ``*ndims``* dimensions and a total of ``*nnodes``* nodes. The dimensions
+The entries in the array *dims* are set to describe a Cartesian grid
+with *ndims* dimensions and a total of *nnodes* nodes. The dimensions
 are set to be as close to each other as possible, using an appropriate
 divisibility algorithm. The caller may further constrain the operation
 of this routine by specifying elements of array dims. If dims[i] is set
@@ -84,8 +81,7 @@ order. Array dims is suitable for use as input to routine
 
 **Example:**
 
-.. code-block:: fortran
-   :linenos:
+::
 
 
    dims

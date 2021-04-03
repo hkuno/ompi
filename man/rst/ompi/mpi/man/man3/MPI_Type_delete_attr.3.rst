@@ -25,7 +25,7 @@ Fortran Syntax
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_TYPE_DELETE_ATTR(TYPE, TYPE_KEYVAL, IERROR)
-   	INTEGER	TYPE, TYPE_KEYVAL, IERROR 
+   	INTEGER	TYPE, TYPE_KEYVAL, IERROR
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -42,17 +42,15 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``type``: Data type from which the attribute is deleted (handle).n
 
 INPUT PARAMETER
 ---------------
 
-* ``type_keyval``: Key value (integer).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------

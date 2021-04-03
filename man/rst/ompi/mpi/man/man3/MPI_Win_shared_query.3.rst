@@ -47,20 +47,15 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``win``: Shared memory window object (handle).
 
-* ``rank``: Rank in the group of window *win* (non-negative integer) or
-* ``MPI_PROC_NULL.``: 
+
 OUTPUT PARAMETERS
 -----------------
 
-* ``size``: Size of the window segment (non-negative integer).
 
-* ``disp_unit``: Local unit size for displacements, in bytes (positive integer).
 
-* ``baseptr``: Address for load/store access to window segment (choice).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -73,12 +68,12 @@ accesses subject to the constraints defined in MPI-3.1 � 11.7. This
 function can only be called with windows of flavor
 ``MPI_WIN_FLAVOR_SHARED``. If the passed window is not of flavor
 ``MPI_WIN_FLAVOR_SHARED``, the error ``MPI_ERR_RMA_FLAVOR`` is raised. When rank
-is ``MPI_PROC_NULL``, the ``*pointer``*, ``*disp``_unit*, and ``*size``* returned are
+is ``MPI_PROC_NULL``, the *pointer*, *disp_unit*, and *size* returned are
 the pointer, disp_unit, and size of the memory segment belonging the
-lowest rank that specified ``*size``* > 0. If all processes in the group
-attached to the window specified ``*size``* = 0, then the call returns
-``*size``* = 0 and a ``*baseptr``* as if ``MPI_Alloc_mem`` was called with
-``*size``* = 0.
+lowest rank that specified *size* > 0. If all processes in the group
+attached to the window specified *size* = 0, then the call returns
+*size* = 0 and a *baseptr* as if ``MPI_Alloc_mem`` was called with
+*size* = 0.
 
 ERRORS
 ------
@@ -96,4 +91,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Alloc_mem MPI_Win_allocate_shared
+``MPI_Alloc_mem`` ``MPI_Win_allocate_shared``

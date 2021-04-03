@@ -47,24 +47,17 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Maximum number of elements to receive (integer).
 
-* ``datatype``: Datatype of each receive buffer entry (handle).
 
-* ``source``: Rank of source (integer).
 
-* ``tag``: Message tag (integer).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``buf``: Initial address of receive buffer (choice).
 
-* ``status``: Status object (status).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -77,10 +70,10 @@ complete only after the matching send has started).
 The blocking semantics of this call are described in Section 3.4 of the
 MPI-1 Standard, "Communication Modes."
 
-The receive buffer contains a number (defined by the value of ``*count``*)
+The receive buffer contains a number (defined by the value of *count*)
 of consecutive elements. The first element in the set of elements is
-located at ``*address``_buf*. The type of each of these elements is
-specified by ``*datatype``*.
+located at *address_buf*. The type of each of these elements is
+specified by *datatype*.
 
 The length of the received message must be less than or equal to the
 length of the receive buffer. An ``MPI_ERR_TRUNCATE`` is returned upon the
@@ -93,8 +86,8 @@ received message are modified.
 NOTES
 -----
 
-The ``*count``* argument indicates the maximum number of entries of type
-``*datatype``* that can be received in a message. Once a message is
+The *count* argument indicates the maximum number of entries of type
+*datatype* that can be received in a message. Once a message is
 received, use the ``MPI_Get_count`` function to determine the actual number
 of entries within that message.
 
@@ -135,9 +128,9 @@ to itself using the blocking send and receive operations described
 above, since this may lead to deadlock. See Section 3.5 of the MPI-1
 Standard, "Semantics of Point-to-Point Communication."
 
-If your application does not need to examine the ``*status``* field, you can
+If your application does not need to examine the *status* field, you can
 save resources by using the predefined constant ``MPI_STATUS_IGNORE`` as a
-special value for the ``*status``* argument.
+special value for the *status* argument.
 
 ERRORS
 ------
@@ -155,8 +148,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Irecv
    MPI_Probe

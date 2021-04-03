@@ -67,24 +67,17 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Starting address of send buffer (choice).
 
-* ``count``: Number of elements in send buffer (integer).
 
-* ``datatype``: Datatype of elements of send buffer (handle).
 
-* ``op``: Operation (handle).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Starting address of receive buffer (choice).
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -96,8 +89,7 @@ of all the group members.
 array that are distributed across a group of processes and returns the
 answer at all nodes (compare with Example 2, with ``MPI_Reduce``, below).
 
-.. code-block:: fortran
-   :linenos:
+::
 
    SUBROUTINE PAR_BLAS2(m, n, a, b, c, comm)
    REAL a(m), b(m,n)    ! local slice of array
@@ -123,8 +115,7 @@ answer at all nodes (compare with Example 2, with ``MPI_Reduce``, below).
 array that are distributed across a group of processes and returns the
 answer at node zero.
 
-.. code-block:: fortran
-   :linenos:
+::
 
    SUBROUTINE PAR_BLAS2(m, n, a, b, c, comm)
    REAL a(m), b(m,n)    ! local slice of array
@@ -151,7 +142,7 @@ USE OF IN-PLACE OPTION
 
 When the communicator is an intracommunicator, you can perform an
 all-reduce operation in-place (the output buffer is used as the input
-buffer). Use the variable ``MPI_IN_PLACE`` as the value of ``*sendbuf``* at all
+buffer). Use the variable ``MPI_IN_PLACE`` as the value of *sendbuf* at all
 processes.
 
 Note that ``MPI_IN_PLACE`` is a special kind of value; it has the same

@@ -42,14 +42,12 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``comm``: Communicator.
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``group``: Remote group of communicator.
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -58,7 +56,7 @@ DESCRIPTION
 intercommunicator.
 
 The intercommunicator accessors (``MPI_Comm_test_inter``,
-``MPI_Comm_remote_size``, ``MPI_Comm_remote_group``) are all local operations.
+``MPI_Comm_remote_size``, ``MPI_Comm_remote_group)`` are all local operations.
 
 ERRORS
 ------
@@ -76,8 +74,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Comm_test_inter
    MPI_Comm_remote_size

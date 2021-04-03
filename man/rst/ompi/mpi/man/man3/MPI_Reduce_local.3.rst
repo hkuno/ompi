@@ -46,26 +46,21 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``inbuf``: Address of input buffer (choice).
 
-* ``count``: Number of elements in input buffer (integer).
 
-* ``datatype``: Data type of elements of input buffer (handle).
 
-* ``op``: Reduce operation (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``inoutbuf``: Address of in/out buffer (choice).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 The global reduce functions (``MPI_Reduce_local``, ``MPI_Op_create``,
-``MPI_Op_free``, ``MPI_Allreduce``, ``MPI_Reduce_local_scatter``, ``MPI_Scan``) perform
+``MPI_Op_free``, ``MPI_Allreduce``, ``MPI_Reduce_local_scatter``, ``MPI_Scan)`` perform
 a global reduce operation (such as sum, max, logical AND, etc.) across
 all the members of a group. The reduction operation can be either one of
 a predefined list of operations, or a user-defined operation. The global
@@ -85,7 +80,7 @@ local call. The process can provide one element, or a sequence of
 elements, in which case the combine operation is executed element-wise
 on each entry of the sequence. For example, if the operation is ``MPI_MAX``
 and the input buffer contains two elements that are floating-point
-numbers (count = 2 and datatype = ``MPI_FLOAT``), then inoutbuf(1) = global
+numbers (count = 2 and datatype = ``MPI_FLOAT)``, then inoutbuf(1) = global
 max (inbuf(1)) and inoutbuf(2) = global max(inbuf(2)).
 
 USE OF IN-PLACE OPTION
@@ -102,7 +97,7 @@ datatypes each operation can be applied to. In addition, users may
 define their own operations that can be overloaded to operate on several
 datatypes, either basic or derived. This is further explained in the
 description of the user-defined operations (see the man pages for
-``MPI_Op_create`` and ``MPI_Op_free``).
+``MPI_Op_create`` and ``MPI_Op_free)``.
 
 The operation op is always assumed to be associative. All predefined
 operations are also assumed to be commutative. Users may define
@@ -126,8 +121,7 @@ The following predefined operations are supplied for ``MPI_Reduce_local``
 and related functions ``MPI_Allreduce``, ``MPI_Reduce_scatter``, and ``MPI_Scan``.
 These operations are invoked by placing the following in op:
 
-.. code-block:: fortran
-   :linenos:
+::
 
    	Name                Meaning
         ---------           --------------------
@@ -149,7 +143,7 @@ below (MINLOC and MAXLOC). For the other predefined operations, we
 enumerate below the allowed combinations of op and datatype arguments.
 First, define groups of MPI basic datatypes in the following way:
 
-.. code-block:: fortran
+.. code-block:: c
    :linenos:
 
    	C integer:            MPI_INT, MPI_LONG, MPI_SHORT,
@@ -164,8 +158,7 @@ First, define groups of MPI basic datatypes in the following way:
 
 Now, the valid datatypes for each option is specified below.
 
-.. code-block:: fortran
-   :linenos:
+::
 
    	Op                      	Allowed Types
         ----------------         ---------------------------
@@ -192,7 +185,7 @@ value.
 
 The operation that defines ``MPI_MAXLOC`` is
 
-.. code-block:: fortran
+.. code-block:: c
    :linenos:
 
             ( u )    (  v )      ( w )
@@ -256,8 +249,7 @@ index). MPI provides nine such predefined datatypes. The operations
 MPI_MAXLOC and MPI_MINLOC can be used with each of the following
 datatypes:
 
-.. code-block:: fortran
-   :linenos:
+::
 
        Fortran:
        Name                     Description
@@ -276,8 +268,7 @@ datatypes:
 
 The data type MPI_2REAL is equivalent to:
 
-.. code-block:: fortran
-   :linenos:
+::
 
        MPI_TYPE_CONTIGUOUS(2, MPI_REAL, MPI_2REAL)
 
@@ -287,8 +278,7 @@ MPI_2INT.
 The datatype MPI_FLOAT_INT is as if defined by the following sequence of
 instructions.
 
-.. code-block:: fortran
-   :linenos:
+::
 
        type[0] = MPI_FLOAT
        type[1] = MPI_INT
@@ -336,4 +326,4 @@ SEE ALSO
 | ``MPI_Reduce_scatter``
 | ``MPI_Scan``
 | ``MPI_Op_create``
-| MPI_Op_free
+| ``MPI_Op_free``

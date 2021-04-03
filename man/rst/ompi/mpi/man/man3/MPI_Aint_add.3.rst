@@ -48,29 +48,24 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``base``: Base address (integer).
 
-* ``disp``: Displacement (integer).
 
-* ``addr1``: Minuend address (integer).
 
-* ``addr2``: Subtrahend address (integer).
 
 DESCRIPTION
 -----------
 
 ``MPI_Aint_add`` produces a new ``MPI_Aint`` value that is equivalent to the
-sum of the ``*base``* and ``*disp``* arguments, where ``*base``* represents a base
-address returned by a call to ``MPI_Get_address`` and ``*disp``* represents
+sum of the *base* and *disp* arguments, where *base* represents a base
+address returned by a call to ``MPI_Get_address`` and *disp* represents
 a signed integer displacement. The resulting address is valid only at
-the process that generated ``*base``*, and it must correspond to a location
-in the same object referenced by ``*base``*, as described in MPI-3.1 �
+the process that generated *base*, and it must correspond to a location
+in the same object referenced by *base*, as described in MPI-3.1 �
 4.1.12. The addition is performed in a manner that results in the
 correct ``MPI_Aint`` representation of the output address, as if the process
-that originally produced ``*base``* had called:
+that originally produced *base* had called:
 
-.. code-block:: fortran
-   :linenos:
+::
 
            MPI_Get_address ((char *) base + disp, &result);
 
@@ -88,4 +83,4 @@ originally produced the addresses had called (char \*) *addr1* - (char
 SEE ALSO
 --------
 
-MPI_Get_address
+``MPI_Get_address``

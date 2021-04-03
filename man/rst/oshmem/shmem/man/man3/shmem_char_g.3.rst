@@ -1,9 +1,9 @@
 NAME
 ----
 
-``*shmem``_char_g*\ (3), ``*shmem``_float_g*\ (3), ``*shmem``_int_g*\ (3),
-``*shmem``_long_g*\ (3), ``*shmem``_short_g*\ (3), ``*shmem``_longlong_g*\ (3),
-``*shmem``_longdouble_g*\ (3) - These routines provide a low latency
+*shmem_char_g*\ (3), *shmem_float_g*\ (3), *shmem_int_g*\ (3),
+*shmem_long_g*\ (3), *shmem_short_g*\ (3), *shmem_longlong_g*\ (3),
+*shmem_longdouble_g*\ (3) - These routines provide a low latency
 mechanism to read basic types (char, short, int, float, double, long,
 long long, long double) from symmetric data objects on remote PEs.
 
@@ -12,7 +12,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>

@@ -41,14 +41,12 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``info``: Info object (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newinfo``: Info object (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -76,4 +74,4 @@ SEE ALSO
 | ``MPI_Info_delete``
 | ``MPI_Info_free``
 | ``MPI_Info_get``
-| MPI_Info_set
+| ``MPI_Info_set``

@@ -21,46 +21,43 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``session``: Performance experiment session.
 
-* ``handle``: Performance variable handle.
 
 DESCRIPTION
 -----------
 
 ``MPI_T_pvar_start`` starts the performance variable with the handle
-specified in ``*handle``*. The special value ``MPI_T_PVAR_ALL_HANDLES`` can be
-passed in ``*handle``* to start all non-continuous handles in the session
-specified in ``*session``*.
+specified in *handle*. The special value ``MPI_T_PVAR_ALL_HANDLES`` can be
+passed in *handle* to start all non-continuous handles in the session
+specified in *session*.
 
 ``MPI_T_pvar_stop`` stops the performance variable with the handle specified
-in ``*handle``*. The special value ``MPI_T_PVAR_ALL_HANDLES`` can be passed in
-``*handle``* to stop all non-continuous handles in the session specified in
-``*session``*.
+in *handle*. The special value ``MPI_T_PVAR_ALL_HANDLES`` can be passed in
+*handle* to stop all non-continuous handles in the session specified in
+*session*.
 
 Continuous performance variables can neither be started nor stopped.
 
 ERRORS
 ------
 
-``MPI_T_pvar_start``() and ``MPI_T_pvar_stop``() will fail if:
+``MPI_T_pvar_start()`` and ``MPI_T_pvar_stop()`` will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED``]
+[``MPI_T_ERR_NOT_INITIALIZED]``
    The MPI Tools interface not initialized
 
-[``MPI_T_ERR_INVALID_SESSION``]
+[``MPI_T_ERR_INVALID_SESSION]``
    Session parameter is not a valid session
 
-[``MPI_T_ERR_INVALID_HANDLE``]
+[``MPI_T_ERR_INVALID_HANDLE]``
    Invalid handle or handle not associated with the session
 
-[``MPI_T_ERR_PVAR_NO_STARTSTOP``]
+[``MPI_T_ERR_PVAR_NO_STARTSTOP]``
    The variable cannot be started or stopped
 
 SEE ALSO
 --------
 
-.. code-block:: c
-   :linenos:
+::
 
    MPI_T_pvar_get_info

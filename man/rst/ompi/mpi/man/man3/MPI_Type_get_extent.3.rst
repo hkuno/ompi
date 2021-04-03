@@ -22,7 +22,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -53,22 +53,19 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``datatype``: Data type (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``lb``: Lower bound of data type (integer).
 
-* ``extent``: Data type extent (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Type_get_extent`` returns the lower bound and the extent of
-``*datatype``*. For either function, if either the ``*lb``* or ``*extent``*
+*datatype*. For either function, if either the *lb* or *extent*
 parameter cannot express the value to be returned (e.g., if the
 parameter is too small to hold the output value), it is set to
 ``MPI_UNDEFINED``.
@@ -88,8 +85,7 @@ non-portable syntax
 
 ``MPI_Type_get_extent``:
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND LB
    or
@@ -97,8 +93,7 @@ non-portable syntax
 
 MPI_Type_get_extent_x:
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_COUNT_KIND LB
    or

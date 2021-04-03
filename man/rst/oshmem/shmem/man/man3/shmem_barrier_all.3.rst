@@ -9,7 +9,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -18,7 +18,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    include 'mpp/shmem.h'
@@ -33,13 +33,12 @@ entered this routine at the same point of the execution path.
 
 Prior to synchronizing with other PEs, shmem_barrier_all ensures
 completion of all previously issued local memory stores and remote
-memory updates issued via SHMEM functions such as ``*shmem``_put32*\ (3).
+memory updates issued via SHMEM functions such as *shmem_put32*\ (3).
 
 EXAMPLES
 --------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    setup_data()
    {

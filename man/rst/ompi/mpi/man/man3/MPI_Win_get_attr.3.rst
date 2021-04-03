@@ -19,7 +19,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -46,18 +46,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``win``: Window to which the attribute is attached (handle).
 
-* ``win_keyval``: Key value (integer).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``attribute_val``: Attribute value, unless *ag* = false
 
-* ``flag``: False if no attribute is associated with the key (logical).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -71,8 +67,7 @@ The MPI standard prescribes portable Fortran syntax for the
 *ATTRIBUTE_VAL* argument only for Fortran 90. FORTRAN 77 users may use
 the non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND ATTRIBUTE_VAL
 

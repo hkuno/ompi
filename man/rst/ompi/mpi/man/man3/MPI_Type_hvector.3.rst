@@ -32,25 +32,20 @@ Fortran Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Number of blocks (nonnegative integer).
 
-* ``blocklength``: Number of elements in each block (nonnegative integer).
 
-* ``stride``: Number of bytes between start of each block (integer).
 
-* ``oldtype``: Old datatype (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newtype``: New datatype (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Note that use of this routine is ``*deprecated``* as of MPI-2. Use
+Note that use of this routine is *deprecated* as of MPI-2. Use
 ``MPI_Type_create_hvector`` instead.
 
 The function ``MPI_Type_hvector`` is identical to ``MPI_Type_vector``, except
@@ -60,16 +55,14 @@ types of vector constructors is illustrated in the examples in Section
 
 Assume that oldtype has type map
 
-.. code-block:: fortran
-   :linenos:
+::
 
        {(type(0), disp(0)), ..., (type(n-1), disp(n-1))}
 
 with extent ex. Let bl be the blocklength. The newly created datatype
 has a type map with count \* bl \* n entries:
 
-.. code-block:: fortran
-   :linenos:
+::
 
      {(type(0), disp(0)), ..., (type(n-1), disp(n-1)),
      (type(0), disp(0) + ex), ..., (type(n-1), disp(n-1) + ex),
@@ -100,4 +93,4 @@ SEE ALSO
 --------
 
 | ``MPI_Type_create_hvector``
-| MPI_Type_vector
+| ``MPI_Type_vector``

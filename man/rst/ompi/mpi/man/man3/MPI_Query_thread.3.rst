@@ -24,7 +24,7 @@ Fortran Syntax
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_QUERY_THREAD(PROVIDED, IERROR)
-   	INTEGER	PROVIDED, IERROR 
+   	INTEGER	PROVIDED, IERROR
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -40,25 +40,25 @@ Fortran 2008 Syntax
 OUTPUT PARAMETERS
 -----------------
 
-* ``provided``: C/Fortran only: Level of thread support (integer).
+* ``C/Fortran only``: 
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-This routine returns in ``*provided``* the current level of thread support.
-If MPI was initialized by a call to ``MPI_Init_thread``, ``*provided``* will
+This routine returns in *provided* the current level of thread support.
+If MPI was initialized by a call to ``MPI_Init_thread``, *provided* will
 have the same value as was returned by that function.
 
-The possible values of ``*provided``* are as follows:
+The possible values of *provided* are as follows:
 
 ``MPI_THREAD_SINGLE``
    Only one thread may execute.
 
 ``MPI_THREAD_FUNNELED``
    If the process is multithreaded, only the thread that called
-   ``MPI_Init``[_thread] may make MPI calls.
+   ``MPI_Init[_thread]`` may make MPI calls.
 
 ``MPI_THREAD_SERIALIZED``
    If the process is multithreaded, only one thread may make MPI library
@@ -71,8 +71,8 @@ The possible values of ``*provided``* are as follows:
 NOTES
 -----
 
-In Open MPI, ``*provided``* is always ``MPI_THREAD_SINGLE``, unless the program
-has been linked with the multithreaded library, in which case ``*provided``*
+In Open MPI, *provided* is always ``MPI_THREAD_SINGLE``, unless the program
+has been linked with the multithreaded library, in which case *provided*
 is ``MPI_THREAD_MULTIPLE``.
 
 ERRORS
@@ -93,8 +93,7 @@ See the MPI man page for a full list of MPI error codes.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Init
    MPI_Init_thread

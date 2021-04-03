@@ -75,26 +75,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Starting address of send buffer (choice).
 
-* ``sendcount``: Number of elements to send to each process (integer).
 
-* ``sendtype``: Datatype of send buffer elements (handle).
 
-* ``recvcount``: Number of elements to receive from each process (integer).
 
-* ``recvtype``: Datatype of receive buffer elements (handle).
 
-* ``comm``: Communicator over which data is to be exchanged (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Starting address of receive buffer (choice).
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -102,14 +94,13 @@ DESCRIPTION
 ``MPI_Neighbor_alltoall`` is a collective operation in which all processes
 send and receive the same amount of data to each neighbor. The operation
 of this routine can be represented as follows, where each process
-performs 2n (n being the number of neighbors in communicator ``*comm``*)
+performs 2n (n being the number of neighbors in communicator *comm*)
 independent point-to-point communications. The neighbors and buffer
-layout are determined by the topology of ``*comm``*.
+layout are determined by the topology of *comm*.
 
 Example of ``MPI_Neighbor_alltoall`` semantics for cartesian topologies:
 
-.. code-block:: fortran
-   :linenos:
+::
 
            MPI_Cart_get(comm, maxdims, dims, periods, coords);
            for (dim = 0, i = 0 ; dim < dims ; ++dim) {
@@ -152,7 +143,7 @@ For a Cartesian topology, created with ``MPI_Cart_create``, the sequence of
 neighbors in the send and receive buffers at each process is defined by
 order of the dimensions, first the neighbor in the negative direction
 and then in the positive direction with displacement 1. The numbers of
-sources and destinations in the communication routines are 2``*ndims`` with
+sources and destinations in the communication routines are 2*ndims with
 ndims defined in ``MPI_Cart_create``. If a neighbor does not exist, i.e., at
 the border of a Cartesian topology in the case of a non-periodic virtual
 grid dimension (i.e., periods[...]==false), then this neighbor is
@@ -167,11 +158,11 @@ communicated nor updated.
 NOTES
 -----
 
-The ``MPI_IN_PLACE`` option for ``*sendbuf``* is not meaningful for this
+The ``MPI_IN_PLACE`` option for *sendbuf* is not meaningful for this
 function.
 
-All arguments on all processes are significant. The ``*comm``* argument, in
-particular, must describe the same communicator on all processes. ``*comm``*
+All arguments on all processes are significant. The *comm* argument, in
+particular, must describe the same communicator on all processes. *comm*
 must be either a cartesian, graph, or dist graph communicator.
 
 There are two MPI library functions that are more general than
@@ -197,8 +188,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Neighbor_alltoallv
    MPI_Neighbor_alltoallw

@@ -52,26 +52,23 @@ names (indeed, the \_fn names are typedefs to the \_function names).
 INPUT PARAMETER
 ---------------
 
-* ``function``: User-defined error handling procedure (function).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``errhandler``: MPI error handler (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Registers the user routine ``*function``* for use as an MPI error handler.
+Registers the user routine *function* for use as an MPI error handler.
 Returns in errhandler a handle to the registered error handler.
 
-In the C language, the user routine ``*function``* should be a C function of
+In the C language, the user routine *function* should be a C function of
 type ``MPI_File_errhandler_function``, which is defined as
 
-.. code-block:: fortran
-   :linenos:
+::
 
        typedef void (MPI_File_errhandler_function)(MPI_File *, int *,
        ...);

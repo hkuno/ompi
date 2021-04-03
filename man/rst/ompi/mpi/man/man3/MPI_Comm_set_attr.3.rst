@@ -18,13 +18,13 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_COMM_SET_ATTR(COMM, COMM_KEYVAL, ATTRIBUTE_VAL, IERROR)
-   	INTEGER	COMM, COMM_KEYVAL, IERROR 
+   	INTEGER	COMM, COMM_KEYVAL, IERROR
    	INTEGER(KIND=MPI_ADDRESS_KIND) ATTRIBUTE_VAL
 
 Fortran 2008 Syntax
@@ -43,35 +43,32 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``comm``: Communicator from which attribute will be attached (handle).
 
 INPUT PARAMETERS
 ----------------
 
-* ``comm_keyval``: Key value (integer).
 
-* ``attribute_val``: Attribute value.
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Comm_set_attr`` stores the stipulated attribute value ``*attribute``_val*
+``MPI_Comm_set_attr`` stores the stipulated attribute value *attribute_val*
 for subsequent retrieval by ``MPI_Comm_get_attr``. If the value is already
 present, then the outcome is as if ``MPI_Comm_delete_attr`` was first called
 to delete the previous value (and the callback function delete_fn was
 executed), and a new value was next stored. The call is erroneous if
-there is no key with value ``*comm``_keyval*; in particular
+there is no key with value *comm_keyval*; in particular
 ``MPI_KEYVAL_INVALID`` is an erroneous key value. The call will fail if the
 delete_fn function returned an error code other than ``MPI_SUCCESS``.
 
 This function replaces ``MPI_Attr_put``, the use of which is deprecated. The
 C binding is identical. The Fortran binding differs in that
-``*attribute``_val* is an address-sized integer.
+*attribute_val* is an address-sized integer.
 
 FORTRAN 77 NOTES
 ----------------
@@ -80,8 +77,7 @@ The MPI standard prescribes portable Fortran syntax for the
 *ATTRIBUTE_VAL* argument only for Fortran 90. Sun FORTRAN 77 users may
 use the non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND ATTRIBUTE_VAL
 

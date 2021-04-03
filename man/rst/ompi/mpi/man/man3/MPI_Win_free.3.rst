@@ -40,21 +40,20 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``win``: Window object (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Win_free`` frees the window object ``*win``* and returns a null handle
-(equal to ``MPI_WIN_NULL``). This collective call is executed by all
-processes in the group associated with ``*win``*. It can be invoked by a
+``MPI_Win_free`` frees the window object *win* and returns a null handle
+(equal to ``MPI_WIN_NULL)``. This collective call is executed by all
+processes in the group associated with *win*. It can be invoked by a
 process only after it has completed its involvement in RMA
-communications on window ``*win``*, that is, the process has called
+communications on window *win*, that is, the process has called
 ``MPI_Win_fence``, or called ``MPI_Win_unlock`` to match a previous call to
 ``MPI_Win_lock``. When the call returns, the window memory can be freed.
 
@@ -74,4 +73,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Win_create MPI_Win_fence MPI_Win_unlock
+| ``MPI_Win_create`` ``MPI_Win_fence`` ``MPI_Win_unlock``

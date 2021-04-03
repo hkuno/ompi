@@ -41,16 +41,15 @@ Fortran 2008 Syntax
 OUTPUT PARAMETERS
 -----------------
 
-* ``flag``: True if calling thread is main thread (boolean).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Is_thread_main`` is called by a thread to find out whether the caller
 is the main thread (that is, the thread that called ``MPI_Init`` or
-``MPI_Init_thread``).
+``MPI_Init_thread)``.
 
 ERRORS
 ------
@@ -70,8 +69,7 @@ See the MPI man page for a full list of MPI error codes.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Init
    MPI_Init_thread

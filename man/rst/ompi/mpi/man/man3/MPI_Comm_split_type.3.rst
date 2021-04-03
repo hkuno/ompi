@@ -45,31 +45,26 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``comm``: Communicator (handle).
 
-* ``split_type``: Type of processes to be grouped together (integer).
 
-* ``key``: Control of rank assignment (integer).
 
-* ``info``: Info argument (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newcomm``: New communicator (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-This function partitions the group associated with ``*comm``* into disjoint
-subgroups, based on the type specied by ``*split``_type*. Each subgroup
+This function partitions the group associated with *comm* into disjoint
+subgroups, based on the type specied by *split_type*. Each subgroup
 contains all processes of the same type. Within each subgroup, the
 processes are ranked in the order defined by the value of the argument
-``*key``*, with ties broken according to their rank in the old group. A new
+*key*, with ties broken according to their rank in the old group. A new
 communicator is created for each subgroup and returned in newcomm. This
-is a collective call; all processes must provide the same ``*split``_type*,
+is a collective call; all processes must provide the same *split_type*,
 but each process is permitted to provide different values for key. An
 exception to this rule is that a process may supply the type value
 ``MPI_UNDEFINED``, in which case newcomm returns ``MPI_COMM_NULL``.
@@ -92,15 +87,15 @@ O``MPI_COMM_TYPE_CORE``
    This type splits the communicator into subcommunicators, each of
    which belongs to the same core/processing unit.
 
-O``MPI_COMM_TYPE_L``1CACHE
+O``MPI_COMM_TYPE_L1CACHE``
    This type splits the communicator into subcommunicators, each of
    which belongs to the same L1 cache.
 
-O``MPI_COMM_TYPE_L``2CACHE
+O``MPI_COMM_TYPE_L2CACHE``
    This type splits the communicator into subcommunicators, each of
    which belongs to the same L2 cache.
 
-O``MPI_COMM_TYPE_L``3CACHE
+O``MPI_COMM_TYPE_L3CACHE``
    This type splits the communicator into subcommunicators, each of
    which belongs to the same L3 cache.
 
@@ -156,4 +151,4 @@ SEE ALSO
 | ``MPI_Intercomm_create``
 | ``MPI_Comm_dup``
 | ``MPI_Comm_free``
-| MPI_Comm_split
+| ``MPI_Comm_split``

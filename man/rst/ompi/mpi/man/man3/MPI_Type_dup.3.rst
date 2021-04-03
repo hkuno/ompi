@@ -24,7 +24,7 @@ Fortran Syntax
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_TYPE_DUP(TYPE, NEWTYPE, IERROR)
-   	INTEGER	TYPE, NEWTYPE, IERROR 
+   	INTEGER	TYPE, NEWTYPE, IERROR
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -41,14 +41,12 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``type``: Data type (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newtype``: Copy of *type* (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -58,11 +56,11 @@ with associated key values. For each key value, the respective copy
 callback function determines the attribute value associated with this
 key in the new communicator. One particular action that a copy callback
 may take is to delete the attribute from the new data type. Returns in
-``*newtype``* a new data type with exactly the same properties as ``*type``*, as
+*newtype* a new data type with exactly the same properties as *type*, as
 well as any copied cached information. The new data type has identical
 upper bound and lower bound and yields the same net result when fully
 decoded with the functions described in Section 8.6 of the MPI-2
-standard. ``*newtype``* has the same committed state as the old ``*type``*.
+standard. *newtype* has the same committed state as the old *type*.
 
 NOTES
 -----
@@ -89,4 +87,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Type_create_keyval
+| ``MPI_Type_create_keyval``

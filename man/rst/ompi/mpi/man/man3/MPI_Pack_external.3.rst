@@ -55,27 +55,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``datarep``: Data representation (string).
 
-* ``inbuf``: Input buffer start (choice).
 
-* ``incount``: Number of input data items (integer).
 
-* ``datatype``: Datatype of each input data item (handle).
 
-* ``outsize``: Output buffer size, in bytes (integer).
 
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``position``: Current position in buffer, in bytes (integer).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``outbuf``: Output buffer start (choice).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -85,21 +78,20 @@ data representation defined by the MPI Forum. This format is useful for
 exchanging data between MPI implementations, or when writing data to a
 file.
 
-The input buffer is specified by ``*inbuf``*, ``*incount``* and ``*datatype``*, and
+The input buffer is specified by *inbuf*, *incount* and *datatype*, and
 may be any communication buffer allowed in ``MPI_Send``. The output buffer
-``*outbuf``* must be a contiguous storage area containing ``*outsize``* bytes.
+*outbuf* must be a contiguous storage area containing *outsize* bytes.
 
-The input value of ``*position``* is the first position in ``*outbuf``* to be
+The input value of *position* is the first position in *outbuf* to be
 used for packing (measured in bytes, not elements, relative to the start
-of the buffer). When the function returns, ``*position``* is incremented by
+of the buffer). When the function returns, *position* is incremented by
 the size of the packed message, so that it points to the first location
-in ``*outbuf``* following the packed message. This way it may be used as
+in *outbuf* following the packed message. This way it may be used as
 input to a subsequent call to ``MPI_Pack_external``.
 
 **Example:** An example using ``MPI_Pack_external``:
 
-.. code-block:: fortran
-   :linenos:
+::
 
    	int position, i;
    	double msg[5];
@@ -129,7 +121,7 @@ input to a subsequent call to ``MPI_Pack_external``.
 NOTES
 -----
 
-The ``*datarep``* argument specifies the data format. The only valid value
+The *datarep* argument specifies the data format. The only valid value
 in the current version of MPI is "external32". The argument is provided
 for future extensibility.
 
@@ -144,9 +136,9 @@ function.)
 
 Several messages can be successively packed into one packing unit. This
 is effected by several successive related calls to ``MPI_Pack_external``,
-where the first call provides ``*position``*\ =0, and each successive call
-inputs the value of ``*position``* that was output by the previous call,
-along with the same values for ``*outbuf``* and ``*outcount``*. This packing
+where the first call provides *position*\ =0, and each successive call
+inputs the value of *position* that was output by the previous call,
+along with the same values for *outbuf* and *outcount*. This packing
 unit now contains the equivalent information that would have been stored
 in a message by one send call with a send buffer that is the
 "concatenation" of the individual send buffers.
@@ -160,9 +152,9 @@ type ``MPI_BYTE``.)
 
 A packing unit can be unpacked into several successive messages. This is
 effected by several successive related calls to ``MPI_Unpack_external``,
-where the first call provides ``*position``*\ =0, and each successive call
+where the first call provides *position*\ =0, and each successive call
 inputs the value of position that was output by the previous call, and
-the same values for ``*inbuf``* and ``*insize``*.
+the same values for *inbuf* and *insize*.
 
 The concatenation of two packing units is not necessarily a packing
 unit; nor is a substring of a packing unit necessarily a packing unit.
@@ -190,8 +182,7 @@ See the MPI man page for a full list of MPI error codes.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Pack_external_size
    MPI_Send

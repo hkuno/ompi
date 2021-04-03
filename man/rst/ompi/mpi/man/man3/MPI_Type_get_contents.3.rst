@@ -20,7 +20,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -53,24 +53,17 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``datatype``: Data type to access (handle).
 
-* ``max_integers``: Number of elements in *array_of_integers (nonnegative integer).*
 
-* ``max_addresses``: Number of elements in *array_of_addresses (nonnegative integer).*
 
-* ``max_datatypes``: Number of elements in *array_of_datatypes (nonnegative integer).*
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``array_of_integers``: Contains integer arguments used in constructing *datatype (array of
-* ``integers).*``: 
-* ``array_of_addresses``: Contains address arguments used in constructing *datatype (array of
-* ``integers).*``: 
-* ``array_of_datatypes``: Contains data-type arguments used in constructing *datatype (array of
-* ``integers).*``: 
-* ``IERROR``: Fortran only: Error status (integer).
+
+
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -81,18 +74,18 @@ data type. The number-of-arguments values returned can be used to
 provide sufficiently large arrays in the decoding routine
 ``MPI_Type_get_contents``. This call and the meaning of the returned values
 is described below. The combiner reflects the MPI data type constructor
-call that was used in creating ``*datatype``.*
+call that was used in creating *datatype.*
 
-The parameter ``*datatype`` must be a predefined unnamed or a derived data
+The parameter *datatype must be a predefined unnamed or a derived data
 type. The call is erroneous if datatype is a predefined named data
 type.*
 
-The values given for ``*max``_integers, max_addresses, and max_datatypes
+The values given for *max_integers, max_addresses, and max_datatypes
 must be at least as large as the value returned in num_integers,
 num_addresses, and num_datatypes, respectively, in the call
 ``MPI_Type_get_envelope`` for the same datatype argument.*
 
-The data types returned in ``*array``_of_datatypes are handles to data-type
+The data types returned in *array_of_datatypes are handles to data-type
 objects that are equivalent to the data types used in the original
 construction call. If these were derived data types, then the returned
 data types are new data-type objects, and the user is responsible for
@@ -105,16 +98,16 @@ is, the data types may or may not be committed. Furthermore, the content
 of attributes of returned data types is undefined.
 
 Note that ``MPI_Type_get_contents`` can be invoked with a data-type argument
-that was constructed using ``MPI_Type_create_f``90_real,
-``MPI_Type_create_f``90_integer, or ``MPI_Type_create_f``90_complex (an unnamed
-predefined data type). In such a case, an empty ``*array``_of_datatypes is
+that was constructed using ``MPI_Type_create_f90_real``,
+``MPI_Type_create_f90_integer``, or ``MPI_Type_create_f90_complex`` (an unnamed
+predefined data type). In such a case, an empty *array_of_datatypes is
 returned.*
 
 In the MPI-1 data-type constructor calls, the address arguments in
 Fortran are of type INTEGER. In the new MPI-2 calls, the address
-arguments are of type INTEGER(KIND=``MPI_ADDRESS_KIND``). The call
+arguments are of type INTEGER(KIND=``MPI_ADDRESS_KIND)``. The call
 ``MPI_Type_get_contents`` returns all addresses in an argument of type
-INTEGER(KIND=``MPI_ADDRESS_KIND``). This is true even if the old MPI-1 calls
+INTEGER(KIND=``MPI_ADDRESS_KIND)``. This is true even if the old MPI-1 calls
 were used. Thus, the location of values returned can be thought of as
 being returned by the C bindings. It can also be determined by examining
 the new MPI-2 calls for data-type constructors for the deprecated MPI-1
@@ -127,8 +120,7 @@ The MPI standard prescribes portable Fortran syntax for the
 *ARRAY_OF_ADDRESSES argument only for Fortran 90. FORTRAN 77* users may
 use the non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND ARRAY_OF_ADDRESSES(*)
 
@@ -151,4 +143,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Type_get_envelope
+| ``MPI_Type_get_envelope``

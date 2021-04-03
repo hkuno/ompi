@@ -1,21 +1,22 @@
 NAME
 ----
 
-``*shmem``_character_get*\ (3), ``*shmem``_complex_get*\ (3),
-``*shmem``_double_get*\ (3), ``*shmem``_float_get*\ (3), ``*shmem``_get4*\ (3),
-``*shmem``_get8*\ (3), ``*shmem``_get32*\ (3), ``*shmem``_get64*\ (3),
-``*shmem``_get128*\ (3), ``*shmem``_getmem*\ (3), ``*shmem``_int_get*\ (3),
-``*shmem``_integer_get*\ (3), ``*shmem``_logical_get*\ (3),
-``*shmem``_long_get*\ (3), ``*shmem``_longdouble_get*\ (3),
-``*shmem``_longlong_get*\ (3), ``*shmem``_real_get*\ (3), ``*shmem``_short_get*\ (3)
-- Transfers data from a specified processing element (PE).
+*shmem_character_get*\ (3), *shmem_complex_get*\ (3),
+*shmem_double_get*\ (3), *shmem_float_get*\ (3), *shmem_get4*\ (3),
+*shmem_get8*\ (3), *shmem_get32*\ (3), *shmem_get64*\ (3),
+*shmem_get128*\ (3), *shmem_getmem*\ (3), *shmem_int_get*\ (3),
+*shmem_integer_get*\ (3), *shmem_logical_get*\ (3),
+*shmem_long_get*\ (3), *shmem_longdouble_get*\ (3),
+*shmem_longlong_get*\ (3), *shmem_real_get*\ (3), *shmem_short_get*\ (3)
+- Transfers data from a specified processing element (PE). 
+
 
 SYNOPSIS
 --------
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -55,7 +56,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -89,10 +90,10 @@ Fortran:
 DESCRIPTION
 -----------
 
-The shmem_get routines transfer *``*nelems``** elements of the data object
-at address *``*source``** on the remote PE *``*pe``**, to the data object at
-address *``*target``** on the local PE. These routines return after the data
-has been copied to address *``*target``** on the local PE.
+The shmem_get routines transfer **nelems** elements of the data object
+at address **source** on the remote PE **pe**, to the data object at
+address **target** on the local PE. These routines return after the data
+has been copied to address **target** on the local PE.
 
 The arguments are as follows:
 
@@ -116,31 +117,31 @@ pe
 The target and source data objects must conform to typing constraints,
 which are as follows:
 
-*``*shmem``_getmem**: Fortran: Any noncharacter type. C: Any data type. len is
+**shmem_getmem**: Fortran: Any noncharacter type. C: Any data type. len is
    scaled in bytes.
 
-*``*shmem``_get4, shmem_get32**: Any noncharacter type that has a storage size
+**shmem_get4, shmem_get32**: Any noncharacter type that has a storage size
    equal to 32 bits.
 
 {shmem_get8, shmem_get64}: Any noncharacter type that has a storage size equal to
    64 bits.
 
-*``*shmem``_get128**: Any noncharacter type that has a storage size equal to 128
+**shmem_get128**: Any noncharacter type that has a storage size equal to 128
    bits.
 
-*``*shmem``_short_get**: Elements of type short.
+**shmem_short_get**: Elements of type short.
 
-*``*shmem``_int_get**: Elements of type int.
+**shmem_int_get**: Elements of type int.
 
-*``*shmem``_long_get**: Elements of type long.
+**shmem_long_get**: Elements of type long.
 
-*``*shmem``_longlong_get**: Elements of type long long.
+**shmem_longlong_get**: Elements of type long long.
 
-*``*shmem``_float_get**: Elements of type float.
+**shmem_float_get**: Elements of type float.
 
-*``*shmem``_double_get**: Elements of type double.
+**shmem_double_get**: Elements of type double.
 
-*``*shmem``_longdouble_get**: Elements of type long double.
+**shmem_longdouble_get**: Elements of type long double.
 
 **SHMEM_CHARACTER_GET**: Elements of type character. len is the number of
    characters to transfer. The actual character lengths of the source
@@ -163,14 +164,14 @@ REAL(KIND=4).
 NOTES
 -----
 
-See ``*intro``_shmem*\ (3) for a definition of the term remotely accessible.
+See *intro_shmem*\ (3) for a definition of the term remotely accessible.
 
 EXAMPLES
 --------
 
 Consider this simple example for Fortran.
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    PROGRAM REDUCTION
@@ -193,5 +194,5 @@ Consider this simple example for Fortran.
 SEE ALSO
 --------
 
-``*intro``_shmem*\ (3), ``*shmem``_put*\ (3), ``*shmem``_iget*\ (3),
+*intro_shmem*\ (3), *shmem_put*\ (3), *shmem_iget*\ (3),
 *shmem_quiet*\ (3)

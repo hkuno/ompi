@@ -31,19 +31,17 @@ Fortran Syntax
 INPUT PARAMETER
 ---------------
 
-* ``function``: User-defined error handling procedure.
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``errhandler``: MPI error handler (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Note that use of this routine is ``*deprecated``* as of MPI-2. Please use
+Note that use of this routine is *deprecated* as of MPI-2. Please use
 ``MPI_Comm_create_errhandler`` instead.
 
 Registers the user routine function for use as an MPI error handler.
@@ -52,8 +50,7 @@ Returns in errhandler a handle to the registered error handler.
 In the C language, the user routine should be a C function of type
 ``MPI_Handler_function``, which is defined as
 
-.. code-block:: fortran
-   :linenos:
+::
 
        typedef void (MPI_Handler_function)(MPI_Comm *, int *, ...);
 
@@ -92,7 +89,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| 
+|
 | ``MPI_Comm_create_errhandler``
 | ``MPI_Comm_get_errhandler``
-| MPI_Comm_set_errhandler
+| ``MPI_Comm_set_errhandler``

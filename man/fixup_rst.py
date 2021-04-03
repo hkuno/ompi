@@ -21,6 +21,7 @@
 #  - Combine bullet items into a single line
 #
 #  TODO
+#  - Write output to array and then print to file or stdout
 #  - Replace NAME with the name of the program? Or add a line like the following?
 #      :program:`MPI_Abort`
 #  - Convert existing "SEE ALSO" sections into ".. :seelso::" 
@@ -73,7 +74,7 @@ paramsect=re.compile(".*PARAMETER")
 contains_colon=re.compile(".*:")
 
 # codeblock pattern
-codeblock=re.compile("^::")
+literalpat=re.compile("^::")
 
 # languages
 fortran_lang=re.compile(".*Fortran", re.IGNORECASE)
@@ -84,6 +85,7 @@ c_lang=re.compile(".*C[^a-zA-Z]", re.IGNORECASE)
 # repl functions
 def mpicmdrepl(match):
     match = match.group()
+    match = match.replace('`','')
     match = match.replace('*','')
     return ('``' + match + '``')
 
@@ -106,10 +108,9 @@ def get_cb_language(aline):
     return(LANG)
 
 # for keeping track of state
-PARAM=False
-CODEBLOCK=False
 BULLETITEM=False
-
+LITERAL=False
+PARAM=False
 # for tracking combined lines
 SKIP=0
 
@@ -119,15 +120,20 @@ for i in range(len(in_lines)):
   curline = in_lines[i].rstrip()
   if (i > 0):
     prevline = in_lines[i-1].rstrip()
-
   if (i == len(in_lines) - 1):
-    if ( not include_pat.match(curline) ):
-      curline = re.sub(r'[\*]*MPI_[A-Z][0-9A-Za-z_]*[\*]*',mpicmdrepl,curline)
-    print(f"{curline}")
+    if ((not include_pat.match(curline)) and (not LITERAL)):
+      curline = re.sub(r'[\*]*[\`]*MPI_[A-Z][()\[\]0-9A-Za-z_]*[\`]*[\*]*',mpicmdrepl,curline)
+    if (not SKIP):
+      print(f"{curline}")
   else:
     nextline = in_lines[i+1].rstrip()
+    if (i + 3 < len(in_lines)):
+      nextnextnextline = in_lines[i+3].rstrip()
+    else:
+      nextnextnextline = ""
     if dline.match(nextline):
-      CODEBLOCK=False
+      LITERAL=False
+#      print(f"136: SKIP is {SKIP}; LITERAL is {LITERAL}; PARAM is {PARAM}")
       PARAM=False
       SKIP+=1
       if paramsect.match(curline):
@@ -138,7 +144,10 @@ for i in range(len(in_lines)):
       else:
         # level 2 heading
         print(f"{curline}\n{re.sub('=','~',nextline)}")
-    elif codeblock.match(curline):
+    elif literalpat.match(curline):
+#        print("LITERAL pat matched")
+        LITERAL=True
+#        print(f"150: SKIP is {SKIP}; LITERAL is {LITERAL}; PARAM is {PARAM}")
         prevlangline=prevline
         nextlangline=nextline
         d=1
@@ -148,27 +157,27 @@ for i in range(len(in_lines)):
           d += 1
         LANGUAGE = get_cb_language(prevlangline)
         if (not LANGUAGE):
-          CODEBLOCK=False
-          print(f"{curline}")
+          if not dline.match(nextnextnextline):
+            print(f"{curline}")
         else:
           print(f".. code-block:: {LANGUAGE}\n   :linenos:\n")
-          CODEBLOCK=True
           SKIP+=1
     else:
-        if (SKIP == 0):
-          if CODEBLOCK:
-            print(f"{curline}")
-          elif PARAM:
-            # combine into parameter bullet-item (Note: check if multiline param)
-            if not curline:
-              print(f"{curline}") 
-            else:
-              paramline1 = re.sub('^[ ]*','',curline)
-              if (contains_colon.match(curline)):
-                paramline1,paramline2 = re.split(r':',paramline1)
-                if not paramline2:
-                  paramline2 = re.sub('^[ ]*','',nextline)
-                  SKIP+=1
+#      print(f"166: SKIP is {SKIP}; LITERAL is {LITERAL}; PARAM is {PARAM}")
+      if (SKIP == 0):
+        if LITERAL:
+          print(f"{curline}")
+        elif PARAM:
+          # combine into parameter bullet-item (Note: check if multiline param)
+          if not curline:
+            print(f"{curline}") 
+          else:
+            paramline1 = re.sub('^[ ]*','',curline)
+            if (contains_colon.match(curline)):
+              paramline1,paramline2 = re.split(r':',paramline1)
+              if not paramline2:
+                paramline2 = re.sub('^[ ]*','',nextline)
+                SKIP+=1
               else:
                 paramline2 = re.sub('^[ ]*','',nextline)
                 SKIP+=1
@@ -180,20 +189,20 @@ for i in range(len(in_lines)):
                 paramline2 += ' ' + re.sub('^[ ]*','',nextpline)
                 SKIP += 1
               print(f"* ``{paramline1}``: {paramline2}\n")
-          else:
               # e.g., turn **MPI_Abort** and *MPI_Abort* into ``MPI_Abort``
-              curline = re.sub(r'[\*]*MPI_[A-Z][()0-9A-Za-z_]*[\*]*',mpicmdrepl,curline)
-              if bullet.match(curline):
-                d=1
-                nextbline=in_lines[i+d].rstrip()
-                bline2 = nextline
-                while (nextbline):
-                  d += 1
-                  nextbline=in_lines[i+d].rstrip()
-                  bline2 += ' ' + re.sub('^[ ]*','',nextbline)
-                  SKIP += 1
-                print(f"{curline} {bline2}\n")
-              else:
-                print(f"{curline}")
-        else: 
-            SKIP-=1
+        elif ((not LITERAL) and (not dline.match(nextline))):
+          curline = re.sub(r'[\*]*[\`]*MPI_[A-Z][()\[\]0-9A-Za-z_]*[\`]*[\*]*',mpicmdrepl,curline)
+          if bullet.match(curline):
+            d=1
+            nextbline=in_lines[i+d].rstrip()
+            bline2 = nextline
+            while (nextbline):
+              d += 1
+              nextbline=in_lines[i+d].rstrip()
+              bline2 += ' ' + re.sub('^[ ]*','',nextbline)
+              SKIP += 1
+            print(f"{curline} {bline2}\n")
+          else:
+            print(f"{curline}")
+      else: 
+        SKIP-=1

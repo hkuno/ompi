@@ -49,45 +49,39 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``size``: Size of window in bytes (nonnegative integer).
 
-* ``disp_unit``: Local unit size for displacements, in bytes (positive integer).
 
-* ``info``: Info argument (handle).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``baseptr``: Initial address of window.
 
-* ``win``: Window object returned by the call (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Win_allocate_shared`` is a collective call executed by all
-processes in the group of ``*comm``*. On each process, it allocates memory
-of at least ``*size``* bytes that is shared among all processes in ``*comm``*,
-and returns a pointer to the locally allocated segment in ``*baseptr``* that
+processes in the group of *comm*. On each process, it allocates memory
+of at least *size* bytes that is shared among all processes in *comm*,
+and returns a pointer to the locally allocated segment in *baseptr* that
 can be used for load/store accesses on the calling process. The locally
 allocated memory can be the target of load/store accesses by remote
 processes; the base pointers for other processes can be queried using
 the function ``MPI_Win_shared_query``. The call also returns a window
-object that can be used by all processes in ``*comm``* to perform RMA
-operations. The ``*size``* argument may be different at each process and
-``*size``* = 0 is valid. It is the user's responsibility to ensure that the
-communicator ``*comm``* represents a group of processes that can create a
+object that can be used by all processes in *comm* to perform RMA
+operations. The *size* argument may be different at each process and
+*size* = 0 is valid. It is the user's responsibility to ensure that the
+communicator *comm* represents a group of processes that can create a
 shared memory segment that can be accessed by all processes in the
 group. The discussions of rationales for ``MPI_Alloc_mem`` and
 ``MPI_Free_mem`` in MPI-3.1 � 8.2 also apply to
 ``MPI_Win_allocate_shared``; in particular, see the rationale in MPI-3.1
-� 8.2 for an explanation of the type used for ``*baseptr``*. The allocated
+� 8.2 for an explanation of the type used for *baseptr*. The allocated
 memory is contiguous across process ranks unless the info key
-``*alloc``_shared_noncontig* is specified. Contiguous across process ranks
+*alloc_shared_noncontig* is specified. Contiguous across process ranks
 means that the first address in the memory segment of process i is
 consecutive with the last address in the memory segment of process i -
 1. This may enable the user to calculate remote address offsets with
@@ -96,16 +90,16 @@ local information only.
 The following info keys are supported:
 
 alloc_shared_noncontig
-   If not set to ``*true``*, the allocation strategy is to allocate
+   If not set to *true*, the allocation strategy is to allocate
    contiguous memory across process ranks. This may limit the
    performance on some architectures because it does not allow the
    implementation to modify the data layout (e.g., padding to reduce
    access latency).
 
 blocking_fence
-   If set to ``*true``*, the osc/sm component will use ``MPI_Barrier`` for
-   ``MPI_Win_fence``. If set to ``*false``* a condition variable and counter
-   will be used instead. The default value is ``*false``*. This info key is
+   If set to *true*, the osc/sm component will use ``MPI_Barrier`` for
+   ``MPI_Win_fence``. If set to *false* a condition variable and counter
+   will be used instead. The default value is *false*. This info key is
    Open MPI specific.
 
 For additional supported info keys see ``MPI_Win_create``.
@@ -113,9 +107,9 @@ For additional supported info keys see ``MPI_Win_create``.
 NOTES
 -----
 
-Common choices for ``*disp``_unit* are 1 (no scaling), and (in C syntax)
-``*sizeof``(type)*, for a window that consists of an array of elements of
-type ``*type``*. The later choice will allow one to use array indices in RMA
+Common choices for *disp_unit* are 1 (no scaling), and (in C syntax)
+*sizeof(type)*, for a window that consists of an array of elements of
+type *type*. The later choice will allow one to use array indices in RMA
 calls, and have those scaled correctly to byte displacements, even in a
 heterogeneous environment.
 
@@ -136,4 +130,4 @@ SEE ALSO
 --------
 
 ``MPI_Alloc_mem`` ``MPI_Free_mem`` ``MPI_Win_allocate`` ``MPI_Win_create``
-MPI_Win_shared_query
+``MPI_Win_shared_query``

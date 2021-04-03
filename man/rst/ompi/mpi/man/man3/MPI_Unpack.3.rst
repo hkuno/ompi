@@ -51,27 +51,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``inbuf``: Input buffer start (choice).
 
-* ``insize``: Size of input buffer, in bytes (integer).
 
-* ``outcount``: Number of items to be unpacked (integer).
 
-* ``datatype``: Datatype of each output data item (handle).
 
-* ``comm``: Communicator for packed message (handle).
 
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``position``: Current position in bytes (integer).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``outbuf``: Output buffer start (choice).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -81,17 +74,17 @@ datatype from the buffer space specified by inbuf and insize. The output
 buffer can be any communication buffer allowed in ``MPI_Recv``. The input
 buffer is a contiguous storage area containing insize bytes, starting at
 address inbuf. The input value of position is the first location in the
-input buffer occupied by the packed message. ``*position``* is incremented
+input buffer occupied by the packed message. *position* is incremented
 by the size of the packed message, so that the output value of position
 is the first location in the input buffer after the locations occupied
-by the message that was unpacked. ``*comm``* is the communicator used to
+by the message that was unpacked. *comm* is the communicator used to
 receive the packed message.
 
 NOTES
 -----
 
 Note the difference between ``MPI_Recv`` and ``MPI_Unpack``: In ``MPI_Recv``, the
-``*count``* argument specifies the maximum number of items that can be
+*count* argument specifies the maximum number of items that can be
 received. The actual number of items received is determined by the
 length of the incoming message. In ``MPI_Unpack``, the count argument
 specifies the actual number of items that are to be unpacked; the "size"
@@ -125,7 +118,7 @@ packing unit can now be received using any receive operation, with any
 datatype: The type-matching rules are relaxed for messages sent with
 type ``MPI_Packed``.
 
-A message sent with any type (including ``MPI_Packed``) can be received
+A message sent with any type (including ``MPI_Packed)`` can be received
 using the type ``MPI_Packed``. Such a message can then be unpacked by calls
 to ``MPI_Unpack``.
 
@@ -161,4 +154,4 @@ SEE ALSO
 --------
 
 | ``MPI_Pack``
-| MPI_Pack_size
+| ``MPI_Pack_size``

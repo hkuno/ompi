@@ -53,8 +53,7 @@ This function is portable (it returns seconds, not "ticks"), it allows
 high resolution, and carries no unnecessary baggage. One would use it
 like this:
 
-.. code-block:: fortran
-   :linenos:
+::
 
        {
           double starttime, endtime;
@@ -87,7 +86,7 @@ this value is "native", a method that is likely to be cheaper than
 gettimeofday() will be used to obtain the time when ``MPI_Wtime`` is
 invoked.
 
-For example, on platforms that support it, the ``*clock``_gettime()*
+For example, on platforms that support it, the *clock_gettime()*
 function will be used to obtain a monotonic clock value with whatever
 precision is supported on that platform (e.g., nanoseconds).
 
@@ -104,4 +103,4 @@ of calling it before ``MPI_Init`` or after ``MPI_Finalize`` is undefined.
 SEE ALSO
 --------
 
-| MPI_Wtick
+| ``MPI_Wtick``

@@ -9,7 +9,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -19,7 +19,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -33,7 +33,7 @@ DESCRIPTION
 -----------
 
 The shmem_barrier routine does not return until the subset of PEs
-specified by **PE_start**, *``*log``PE_stride** and **PE_size**, has entered
+specified by **PE_start**, **logPE_stride** and **PE_size**, has entered
 this routine at the same point of the execution path.
 
 As with all SHMEM collective routines, each of these routines assumes
@@ -70,7 +70,7 @@ in pSync to all PEs in the active set.
 
 shmem_barrier ensures that all previously issued local stores and
 previously issued remote memory updates done by any of the PEs in the
-active set (by using SHMEM calls, for example ``*shmem``_put*\ (3)) are
+active set (by using SHMEM calls, for example *shmem_put*\ (3)) are
 complete before returning.
 
 The same pSync array may be reused on consecutive calls to shmem_barrier
@@ -79,10 +79,10 @@ if the same active PE set is used.
 NOTES
 -----
 
-The term symmetric is defined in ``*intro``_shmem*\ (3).
+The term symmetric is defined in *intro_shmem*\ (3).
 
 If the pSync array is initialized at run time, be sure to use some type
-of synchronization, for example, a call to ``*shmem``_barrier_all*\ (3),
+of synchronization, for example, a call to *shmem_barrier_all*\ (3),
 before calling shmem_barrier for the first time.
 
 If the active set does not change, shmem_barrier can be called
@@ -94,14 +94,14 @@ EXAMPLES
 
 C/C++ example:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    shmem_barrier(PE_start, logPE_stride, size, pSync);
 
 Fortran example:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INTEGER PSYNC(SHMEM_BARRIER_SYNC_SIZE)

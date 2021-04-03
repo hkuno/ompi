@@ -20,31 +20,21 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``cvar_index``: Index of the control variable to be queried.
 
 INPUT/OUTPUT PARAMETERS
 -----------------------
 
-* ``name_len``: Length of the string and/or buffer for name.
 
-* ``desc_len``: Length of the string and/or buffer for desc.
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``name``: Buffer to return the string containing the name of the control
-* ``variable.``: 
-* ``verbosity``: Verbosity level of this variable.
 
-* ``datatype``: MPI datatype of the information stored in the control variable.
 
-* ``enumtype``: Optional descriptor for enumeration information.
 
-* ``desc``: Buffer to return the string containing the description of the control
-* ``variable.``: 
-* ``bind``: Type of MPI object to which this variable must be bound.
 
-* ``scope``: Scope of when changes to this variable are possible.
+
+
 
 DESCRIPTION
 -----------
@@ -52,7 +42,7 @@ DESCRIPTION
 ``MPI_T_cvar_get_info`` can be used to query information about a control
 variable. The function returns the verbosity, datatype, enumeration
 type, binding, and scope of the queried control variable in the
-arguments ``*verbosity``*, ``*datatype``*, ``*enumtype``*, ``*bind``*, and ``*scope``*,
+arguments *verbosity*, *datatype*, *enumtype*, *bind*, and *scope*,
 respectively. Control variables in Open MPI are the same as MCA
 parameters.
 
@@ -152,18 +142,17 @@ objects.
 ERRORS
 ------
 
-``MPI_T_cvar_get_info``() will fail if:
+``MPI_T_cvar_get_info()`` will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED``]
+[``MPI_T_ERR_NOT_INITIALIZED]``
    The MPI Tools interface not initialized
 
-[``MPI_T_ERR_INVALID_INDEX``]
+[``MPI_T_ERR_INVALID_INDEX]``
    The control variable index is invalid
 
 SEE ALSO
 --------
 
-.. code-block:: c
-   :linenos:
+::
 
    ompi_info

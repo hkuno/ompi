@@ -1,14 +1,14 @@
 NAME
 ----
 
-``*shmem``_comp4_sum_to_all*\ (3), ``*shmem``_comp8_sum_to_all*\ (3),
-``*shmem``_complexd_sum_to_all*\ (3), ``*shmem``_complexf_sum_to_all*\ (3),
-``*shmem``_double_sum_to_all*\ (3), ``*shmem``_float_sum_to_all*\ (3),
-``*shmem``_int_sum_to_all*\ (3), ``*shmem``_int4_sum_to_all*\ (3),
-``*shmem``_int8_sum_to_all*\ (3), ``*shmem``_long_sum_to_all*\ (3),
-``*shmem``_longdouble_sum_to_all*\ (3), ``*shmem``_longlong_sum_to_all*\ (3),
-``*shmem``_real4_sum_to_all*\ (3), ``*shmem``_real8_sum_to_all*\ (3),
-``*shmem``_real16_sum_to_all*\ (3), ``*shmem``_short_sum_to_all*\ (3) - Performs
+*shmem_comp4_sum_to_all*\ (3), *shmem_comp8_sum_to_all*\ (3),
+*shmem_complexd_sum_to_all*\ (3), *shmem_complexf_sum_to_all*\ (3),
+*shmem_double_sum_to_all*\ (3), *shmem_float_sum_to_all*\ (3),
+*shmem_int_sum_to_all*\ (3), *shmem_int4_sum_to_all*\ (3),
+*shmem_int8_sum_to_all*\ (3), *shmem_long_sum_to_all*\ (3),
+*shmem_longdouble_sum_to_all*\ (3), *shmem_longlong_sum_to_all*\ (3),
+*shmem_real4_sum_to_all*\ (3), *shmem_real8_sum_to_all*\ (3),
+*shmem_real16_sum_to_all*\ (3), *shmem_short_sum_to_all*\ (3) - Performs
 a sum reduction across a set of processing elements (PEs)
 
 SYNOPSIS
@@ -16,7 +16,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -62,7 +62,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -97,7 +97,7 @@ DESCRIPTION
 The shared memory (SHMEM) reduction routines compute one or more
 reductions across symmetric arrays on multiple virtual PEs. A reduction
 performs an associative binary operation across a set of values. For a
-list of other SHMEM reduction routines, see ``*intro``_shmem*\ (3).
+list of other SHMEM reduction routines, see *intro_shmem*\ (3).
 
 As with all SHMEM collective routines, each of these routines assumes
 that only PEs in the active set call the routine. If a PE not in the
@@ -140,22 +140,22 @@ target
      C/C++, refer to the SYNOPSIS section for data type information.
      When calling from Fortran, the target data types are as follows:
 
-   *``*shmem``_comp4_sum_to_all:** COMPLEX(KIND=4).
+   **shmem_comp4_sum_to_all:** COMPLEX(KIND=4).
 
-   *``*shmem``_comp8_sum_to_all:** Complex. If you are using Fortran, it must be
+   **shmem_comp8_sum_to_all:** Complex. If you are using Fortran, it must be
       a default complex value.
 
-   *``*shmem``_int4_sum_to_all:** INTEGER(KIND=4).
+   **shmem_int4_sum_to_all:** INTEGER(KIND=4).
 
-   *``*shmem``_int8_sum_to_all:** Integer. If you are using Fortran, it must be a
+   **shmem_int8_sum_to_all:** Integer. If you are using Fortran, it must be a
       default integer value.
 
-   *``*shmem``_real4_sum_to_all:** REAL(KIND=4).
+   **shmem_real4_sum_to_all:** REAL(KIND=4).
 
-   *``*shmem``_real8_sum_to_all:** Real. If you are using Fortran, it must be a
+   **shmem_real8_sum_to_all:** Real. If you are using Fortran, it must be a
       default real value.
 
-   *``*shmem``_real16_sum_to_all:** Real. If you are using Fortran, it must be a
+   **shmem_real16_sum_to_all:** Real. If you are using Fortran, it must be a
       default real value.
 
 source
@@ -216,7 +216,7 @@ NOTES
 -----
 
 The terms collective, symmetric, and cache aligned are defined in
-``*intro``_shmem*\ (3).
+*intro_shmem*\ (3).
 
 All SHMEM reduction routines reset the values in pSync before they
 return, so a particular pSync buffer need only be initialized the first
@@ -242,8 +242,7 @@ EXAMPLES
 **Example 1:** This Fortran example statically initializes the pSync
 array and finds the sum of the real variable FOO across all even PEs.
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    INCLUDE "mpp/shmem.fh"
 
@@ -262,7 +261,7 @@ array and finds the sum of the real variable FOO across all even PEs.
 
 **Example 2:** Consider the following C/C++ call:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    shmem_int_sum_to_all( target, source, 3, 0, 0, 8, pwrk, psync );
@@ -270,8 +269,7 @@ array and finds the sum of the real variable FOO across all even PEs.
 The preceding call is more efficient, but semantically equivalent to,
 the combination of the following calls:
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
+::
 
    shmem_int_sum_to_all(&(target[0]), &(source[0]), 1, 0, 0, 8,
      pwrk1, psync1);

@@ -1,7 +1,7 @@
 NAME
 ----
 
-``MPI_Info_get_nthkey`` - Returns the ``*n``*\ th defined key in ``*info``*.
+``MPI_Info_get_nthkey`` - Returns the *n*\ th defined key in *info*.
 
 SYNTAX
 ------
@@ -43,24 +43,21 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``info``: Info object (handle).
 
-* ``n``: Key number (integer).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``key``: Key (string).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Info_get_nthkey`` returns the ``*n``*\ th defined key in ``*info``*. Keys are
+``MPI_Info_get_nthkey`` returns the *n*\ th defined key in *info*. Keys are
 numbered 0...\ *N* - 1 where *N* is the value returned by
 ``MPI_Info_get_nkeys``. All keys between 0 and *N* - 1 are guaranteed to be
-defined. The number of a given key does not change as long as ``*info``* is
+defined. The number of a given key does not change as long as *info* is
 not modified with ``MPI_Info_set`` or ``MPI_Info_delete``.
 
 ERRORS
@@ -81,4 +78,4 @@ SEE ALSO
 
 | ``MPI_Info_get``
 | ``MPI_Info_get_nkeys``
-| MPI_Info_get_valuelen
+| ``MPI_Info_get_valuelen``

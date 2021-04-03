@@ -40,7 +40,6 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``request``: Communication request (handle).
 
 DESCRIPTION
 -----------
@@ -74,8 +73,7 @@ receive has completed and the receive buffer can be reused.
 
 **Example:**
 
-.. code-block:: fortran
-   :linenos:
+::
 
        CALL MPI_COMM_RANK(MPI_COMM_WORLD, rank)
        IF(rank.EQ.0) THEN
@@ -139,4 +137,4 @@ SEE ALSO
 | ``MPI_Waitsome``
 | ``MPI_Testall``
 | ``MPI_Testany``
-| MPI_Testsome
+| ``MPI_Testsome``

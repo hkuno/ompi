@@ -1,8 +1,8 @@
 NAME
 ----
 
-``*shmem``_int_add*\ (3), ``*shmem``_int4_add*\ (3), ``*shmem``_int8_add*\ (3),
-``*shmem``_long_add*\ (3), ``*shmem``_longlong_add*\ (3) - Performs an atomic
+*shmem_int_add*\ (3), *shmem_int4_add*\ (3), *shmem_int8_add*\ (3),
+*shmem_long_add*\ (3), *shmem_longlong_add*\ (3) - Performs an atomic
 add operation.
 
 SYNOPSIS
@@ -10,7 +10,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -22,7 +22,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    include 'mpp/shmem.h'
@@ -35,8 +35,8 @@ Fortran:
 DESCRIPTION
 -----------
 
-The atomic add routines add *``*value``** to the data at address *``*target``**
-on PE *``*pe``**. The operation completes without the possibility of another
+The atomic add routines add **value** to the data at address **target**
+on PE **pe**. The operation completes without the possibility of another
 process updating target between the time of the fetch and the update.
 
 The arguments are as follows:
@@ -62,7 +62,7 @@ pe
 NOTES
 -----
 
-The term remotely accessible is defined in ``*intro``_shmem*\ (3).
+The term remotely accessible is defined in *intro_shmem*\ (3).
 
 SEE ALSO
 --------

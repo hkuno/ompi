@@ -1,7 +1,7 @@
 NAME
 ----
 
-``MPI_Win_complete`` - Completes an RMA access epoch on ``*win``* started by
+``MPI_Win_complete`` - Completes an RMA access epoch on *win* started by
 a call to ``MPI_Win_start``
 
 SYNTAX
@@ -40,18 +40,17 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``win``: Window object (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Win_complete`` is a one-sided MPI communication synchronization call,
-completing an RMA access epoch on ``*win``* started by a call to
+completing an RMA access epoch on *win* started by a call to
 ``MPI_Win_start``. ``MPI_Win_complete`` enforces the completion of preceding RMA
 calls at the origin and not at the target. A put or accumulate call may
 not have completed at the target when it has completed at the origin.
@@ -72,4 +71,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Win_start
+| ``MPI_Win_start``

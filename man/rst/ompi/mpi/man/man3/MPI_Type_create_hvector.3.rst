@@ -20,7 +20,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -49,20 +49,15 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Number of blocks (nonnegative integer).
 
-* ``blocklength``: Number of elements in each block (nonnegative integer).
 
-* ``stride``: Number of bytes between start of each block (integer).
 
-* ``oldtype``: Old data type (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``newtype``: New data type (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -71,7 +66,7 @@ DESCRIPTION
 in bytes.
 
 NOTE - This routine replaces ``MPI_Type_hvector``, which is deprecated. See
-the man page ``MPI_Type_hvector``(3) for information about that routine.
+the man page ``MPI_Type_hvector(3)`` for information about that routine.
 
 FORTRAN 77 NOTES
 ----------------
@@ -80,8 +75,7 @@ The MPI standard prescribes portable Fortran syntax for the *STRIDE*
 argument only for Fortran 90. FORTRAN 77 users may use the non-portable
 syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND STRIDE
 
@@ -105,4 +99,4 @@ SEE ALSO
 --------
 
 | ``MPI_Type_hvector``
-| MPI_Type_vector
+| ``MPI_Type_vector``

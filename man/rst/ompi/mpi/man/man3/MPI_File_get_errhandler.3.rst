@@ -42,20 +42,18 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``file``: File (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``errhandler``: MPI error handler currently associated with file (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Returns in ``*errhandler``* (a handle to) the error handler that is
-currently associated with file ``*file``*.
+Returns in *errhandler* (a handle to) the error handler that is
+currently associated with file *file*.
 
 ERRORS
 ------

@@ -6,8 +6,6 @@ NAME
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -50,43 +48,38 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``comm``: Communicator (handle).
 
-* ``filename``: Name of file to open (string).
 
-* ``amode``: File access mode (integer).
 
-* ``info``: Info object (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``fh``: New file handle (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_File_open`` opens the file identified by the filename ``*filename``* on
-all processes in the ``*comm``* communicator group. ``MPI_File_open`` is a
+``MPI_File_open`` opens the file identified by the filename *filename* on
+all processes in the *comm* communicator group. ``MPI_File_open`` is a
 collective routine; all processes must provide the same value for
-``*amode``,* and all processes must provide filenames that reference the
+*amode,* and all processes must provide filenames that reference the
 same file which are textually identical (note: Open MPI I/O plugins may
 have restrictions on characters that can be used in filenames. For
 example, the ROMIO plugin may disallow the colon (":") character from
 appearing in a filename). A process can open a file independently of
 other processes by using the ``MPI_COMM_SELF`` communicator. The file handle
-returned, ``*fh``,* can be subsequently used to access the file until the
+returned, *fh,* can be subsequently used to access the file until the
 file is closed using ``MPI_File_close``. Before calling ``MPI_Finalize``, the
-user is required to close (via ``MPI_File_close``) all files that were
-opened with ``MPI_File_open``. Note that the communicator ``*comm``* is
+user is required to close (via ``MPI_File_close)`` all files that were
+opened with ``MPI_File_open``. Note that the communicator *comm* is
 unaffected by ``MPI_File_open`` and continues to be usable in all MPI
-routines. Furthermore, use of ``*comm``* will not interfere with I/O
+routines. Furthermore, use of *comm* will not interfere with I/O
 behavior.
 
 Initially, all processes view the file as a linear byte stream; that is,
-the ``*etype``* and ``*filetype``* are both ``MPI_BYTE``. The file view can be
+the *etype* and *filetype* are both ``MPI_BYTE``. The file view can be
 changed via the ``MPI_File_set_view`` routine.
 
 The following access modes are supported (specified in amode, in a
@@ -132,40 +125,36 @@ are the default when processors in a communicator group reside on more
 than one node. This setting can be changed using ``MPI_File_set_atomicity``.
 
 The ``MPI_File_open`` interface allows the user to pass information via the
-``*info``* argument. It can be set to ``MPI_INFO_NULL``. See the HINTS section
+*info* argument. It can be set to ``MPI_INFO_NULL``. See the HINTS section
 for a list of hints that can be set.
 
 HINTS
 -----
 
-The following hints can be used as values for the ``*info``* argument.
+The following hints can be used as values for the *info* argument.
 
 SETTABLE HINTS:
 
-- ``MPI_INFO_NULL``
+- ``MPI_INFO_NULL`` 
 
-- shared_file_timeout: Amount of time (in seconds) to wait for access to
-the shared file pointer before exiting with ``MPI_ERR_TIMEDOUT``.
 
-- rwlock_timeout: Amount of time (in seconds) to wait for obtaining a
-read or write lock on a contiguous chunk of a UNIX file before exiting
-with ``MPI_ERR_TIMEDOUT``.
+- shared_file_timeout: Amount of time (in seconds) to wait for access to the shared file pointer before exiting with MPI_ERR_TIMEDOUT. 
 
-- noncoll_read_bufsize: Maximum size of the buffer used by MPI I/O to
-satisfy multiple noncontiguous read requests in the noncollective
-data-access routines. (See NOTE, below.)
 
-- noncoll_write_bufsize: Maximum size of the buffer used by MPI I/O to
-satisfy multiple noncontiguous write requests in the noncollective
-data-access routines. (See NOTE, below.)
+- rwlock_timeout: Amount of time (in seconds) to wait for obtaining a read or write lock on a contiguous chunk of a UNIX file before exiting with MPI_ERR_TIMEDOUT. 
 
-- coll_read_bufsize: Maximum size of the buffer used by MPI I/O to
-satisfy multiple noncontiguous read requests in the collective
-data-access routines. (See NOTE, below.)
 
-- coll_write_bufsize: Maximum size of the buffer used by MPI I/O to
-satisfy multiple noncontiguous write requests in the collective
-data-access routines. (See NOTE, below.)
+- noncoll_read_bufsize: Maximum size of the buffer used by MPI I/O to satisfy multiple noncontiguous read requests in the noncollective data-access routines. (See NOTE, below.) 
+
+
+- noncoll_write_bufsize: Maximum size of the buffer used by MPI I/O to satisfy multiple noncontiguous write requests in the noncollective data-access routines. (See NOTE, below.) 
+
+
+- coll_read_bufsize: Maximum size of the buffer used by MPI I/O to satisfy multiple noncontiguous read requests in the collective data-access routines. (See NOTE, below.) 
+
+
+- coll_write_bufsize: Maximum size of the buffer used by MPI I/O to satisfy multiple noncontiguous write requests in the collective data-access routines. (See NOTE, below.) 
+
 
 NOTE: A buffer size smaller than the distance (in bytes) in a UNIX file
 between the first byte and the last byte of the access request causes
@@ -178,16 +167,16 @@ calls made. If this is not desirable behavior, you should reduce this
 buffer size to equal the size of the contiguous chunks within the
 aggregate request.
 
-- mpiio_concurrency: (boolean) controls whether nonblocking I/O routines
-can bind an extra thread to an LWP.
+- mpiio_concurrency: (boolean) controls whether nonblocking I/O routines can bind an extra thread to an LWP. 
 
-- mpiio_coll_contiguous: (boolean) controls whether subsequent
-collective data accesses will request collectively contiguous regions of
-the file.
+
+- mpiio_coll_contiguous: (boolean) controls whether subsequent collective data accesses will request collectively contiguous regions of the file. 
+
 
 NON-SETTABLE HINTS:
 
-- filename: Access this hint to get the name of the file.
+- filename: Access this hint to get the name of the file. 
+
 
 ERRORS
 ------

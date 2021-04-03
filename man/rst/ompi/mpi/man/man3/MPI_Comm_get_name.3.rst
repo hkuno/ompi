@@ -25,7 +25,7 @@ Fortran Syntax
    USE MPI
    ! or the older form: INCLUDE 'mpif.h'
    MPI_COMM_GET_NAME(COMM, COMM_NAME, RESULTLEN, IERROR)
-   	INTEGER	COMM, RESULTLEN, IERROR 
+   	INTEGER	COMM, RESULTLEN, IERROR
    	CHARACTER*(*) COMM_NAME
 
 Fortran 2008 Syntax
@@ -44,16 +44,13 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``comm``: Communicator the name of which is to be returned (handle).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``comm_name``: Name previously stored on the communicator, or an empty string if no
-* ``such name exists (string).``: 
-* ``resultlen``: Length of returned name (integer).
 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -61,9 +58,9 @@ DESCRIPTION
 ``MPI_Comm_get_name`` returns the last name that was previously associated
 with the given communicator. The name may be set and retrieved from any
 language. The same name will be returned independent of the language
-used. ``*comm``_name* should be allocated so that it can hold a resulting
+used. *comm_name* should be allocated so that it can hold a resulting
 string of length ``MPI_MAX_OBJECT_NAME`` characters. ``MPI_Comm_get_name``
-returns a copy of the set name in ``*comm``_name*.
+returns a copy of the set name in *comm_name*.
 
 If the user has not associated a name with a communicator, or an error
 occurs, ``MPI_Comm_get_name`` will return an empty string (all spaces in

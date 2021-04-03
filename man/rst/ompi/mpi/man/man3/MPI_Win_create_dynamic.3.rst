@@ -43,50 +43,47 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``info``: Info argument (handle).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``win``: Window object returned by the call (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Win_create_dynamic`` is a one-sided MPI communication collective call
-executed by all processes in the group of ``*comm``*. It returns a window
+executed by all processes in the group of *comm*. It returns a window
 object without memory attached that can be used by these processes to
 perform RMA operations.
 
 The following info keys are supported:
 
 no_locks
-   If set to ``*true``*, then the implementation may assume that the local
+   If set to *true*, then the implementation may assume that the local
    window is never locked (by a call to ``MPI_Win_lock`` or
-   ``MPI_Win_lock_all``). Setting this value if only active synchronization
+   ``MPI_Win_lock_all)``. Setting this value if only active synchronization
    may allow the implementation to enable certain optimizations.
 
 accumulate_ordering
    By default, accumulate operations from one initiator to one target on
    the same window are strictly ordered. If the info key
-   accumulate_ordering is set to ``*none``*, no ordering of accumulate
+   accumulate_ordering is set to *none*, no ordering of accumulate
    operations guaranteed. They key can also be a comma-separated list of
-   required orderings consisting of ``*rar``*, ``*war``*, ``*raw``*, and ``*waw``* for
+   required orderings consisting of *rar*, *war*, *raw*, and *waw* for
    read-after-read, write-after-read, read-after-write, and
    write-after-write, respectively. Looser ordering constraints are
    likely to result in improved performance.
 
 accumulate_ops
-   If set to ``*same``_op*, the implementation will assume that all
+   If set to *same_op*, the implementation will assume that all
    concurrent accumulate calls to the same target address will use the
-   same operation. If set to ``*same``_op_no_op*, then the implementation
+   same operation. If set to *same_op_no_op*, then the implementation
    will assume that all concurrent accumulate calls to the same target
    address will use the same operation or ``MPI_NO_OP``. The default is
-   ``*same``_op_no_op*.
+   *same_op_no_op*.
 
 ERRORS
 ------

@@ -47,33 +47,26 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Maximum number of elements to receive (integer).
 
-* ``datatype``: Type of each entry (handle).
 
-* ``source``: Rank of source (integer).
 
-* ``tag``: Message tag (integer).
 
-* ``comm``: Communicator (handle).
 
 INPUT/OUTPUT PARAMETER
 ----------------------
 
-* ``buf``: Initial address of receive buffer (choice).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``request``: Communication request (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 Creates a persistent communication request for a receive operation. The
-argument ``*buf``* is marked as OUT because the user gives permission to
+argument *buf* is marked as OUT because the user gives permission to
 write on the receive buffer by passing the argument to ``MPI_Recv_init``.
 
 A persistent communication request is inactive after it is created -- no
@@ -104,4 +97,4 @@ SEE ALSO
 | ``MPI_Sssend_init``
 | ``MPI_Start``
 | ``MPI_Startall``
-| MPI_Request_free
+| ``MPI_Request_free``

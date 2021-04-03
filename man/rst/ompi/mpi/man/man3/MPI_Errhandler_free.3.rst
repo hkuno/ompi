@@ -40,12 +40,11 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
-* ``errhandler``: MPI error handler (handle). Set to MPI_ERRHANDLER_NULL on exit.
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -73,4 +72,4 @@ SEE ALSO
 
 | ``MPI_Comm_create_errhandler``
 | ``MPI_Comm_get_errhandler``
-| MPI_Comm_set_errhandler
+| ``MPI_Comm_set_errhandler``

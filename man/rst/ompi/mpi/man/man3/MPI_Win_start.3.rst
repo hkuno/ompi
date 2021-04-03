@@ -1,7 +1,7 @@
 NAME
 ----
 
-``MPI_Win_start`` - Starts an RMA access epoch for ``*win``*
+``MPI_Win_start`` - Starts an RMA access epoch for *win*
 
 SYNTAX
 ------
@@ -42,30 +42,27 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``group``: The group of target processes (handle).
 
-* ``assert``: Program assertion (integer).
 
-* ``win``: Window object (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Win_start`` is a one-sided MPI communication synchronization call that
-starts an RMA access epoch for ``*win``*. RMA calls issued on ``*win``* during
-this epoch must access only windows at processes in ``*group``*. Each
-process in ``*group``* must issue a matching call to ``MPI_Win_post``.
+starts an RMA access epoch for *win*. RMA calls issued on *win* during
+this epoch must access only windows at processes in *group*. Each
+process in *group* must issue a matching call to ``MPI_Win_post``.
 ``MPI_Win_start`` is allowed to block until the corresponding ``MPI_Win_post``
 calls have been executed, but is not required to.
 
-The ``*assert``* argument is used to provide assertions on the context of
+The *assert* argument is used to provide assertions on the context of
 the call that may be used for various optimizations. (See Section 6.4.4
-of the MPI-2 Standard.) A value of ``*assert``* = 0 is always valid. The
+of the MPI-2 Standard.) A value of *assert* = 0 is always valid. The
 following assertion value is supported:
 
 ``MPI_MODE_NOCHECK``
@@ -89,4 +86,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-| MPI_Win_post MPI_Win_complete
+| ``MPI_Win_post`` ``MPI_Win_complete``

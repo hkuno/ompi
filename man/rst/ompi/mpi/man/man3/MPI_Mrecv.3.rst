@@ -47,20 +47,15 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Number of elements to receive (nonnegative integer).
 
-* ``datatype``: Datatype of each send buffer element (handle).
 
-* ``message``: Message (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``buf``: Initial address of receive buffer (choice).
 
-* ``status``: Status object (status).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -69,8 +64,8 @@ The functions ``MPI_Mrecv`` and ``MPI_Imrecv`` receive messages that have been
 previously matched by a matching probe.
 
 If ``MPI_Mrecv`` is called with ``MPI_MESSAGE_NULL`` as the message argument,
-the call returns immediately with the ``*status``* object set to ``*source``* =
-``MPI_PROC_NULL``, ``*tag``* = ``MPI_ANY_TAG``, and ``*count``* = 0, as if a receive
+the call returns immediately with the *status* object set to *source* =
+``MPI_PROC_NULL``, *tag* = ``MPI_ANY_TAG``, and *count* = 0, as if a receive
 from ``MPI_PROC_NULL`` was issued.
 
 ERRORS
@@ -89,8 +84,7 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Mprobe
    MPI_Improbe

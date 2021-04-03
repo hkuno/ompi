@@ -71,35 +71,26 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Starting address of send buffer (choice).
 
-* ``sendcount``: Number of elements in send buffer (integer).
 
-* ``sendtype``: Datatype of send buffer elements (handle).
 
-* ``recvbuf``: Starting address of recv buffer (choice).
 
-* ``recvcount``: Number of elements received from any process (integer).
 
-* ``recvtype``: Datatype of receive buffer elements (handle).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Address of receive buffer (choice).
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Neighbor_allgather`` is similar to ``MPI_Allgather``, except that only the
 neighboring processes receive the result, instead of all processes. The
-neighbors and buffer layout is determined by the topology of ``*comm``*.
+neighbors and buffer layout is determined by the topology of *comm*.
 
 The type signature associated with sendcount, sendtype at a process must
 be equal to the type signature associated with recvcount, recvtype at
@@ -121,7 +112,7 @@ For a Cartesian topology, created with ``MPI_Cart_create``, the sequence of
 neighbors in the send and receive buffers at each process is defined by
 order of the dimensions, first the neighbor in the negative direction
 and then in the positive direction with displacement 1. The numbers of
-sources and destinations in the communication routines are 2``*ndims`` with
+sources and destinations in the communication routines are 2*ndims with
 ndims defined in ``MPI_Cart_create``. If a neighbor does not exist, i.e., at
 the border of a Cartesian topology in the case of a non-periodic virtual
 grid dimension (i.e., periods[...]==false), then this neighbor is
@@ -136,7 +127,7 @@ communicated nor updated.
 NOTES
 -----
 
-The ``MPI_IN_PLACE`` option for ``*sendbuf``* is not meaningful for this
+The ``MPI_IN_PLACE`` option for *sendbuf* is not meaningful for this
 operation.
 
 ERRORS
@@ -157,4 +148,4 @@ SEE ALSO
 
 | ``MPI_Neighbor_allgatherv`` ``MPI_Cart_create`` ``MPI_Garph_create``
   ``MPI_Dist_graph_create``
-| MPI_Gather
+| ``MPI_Gather``

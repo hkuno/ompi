@@ -48,50 +48,45 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: List length (integer).
 
-* ``array_of_requests``: Array of requests (array of handles).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``index``: Index of operation that completed, or MPI_UNDEFINED if none completed
-* ``(integer).``: 
-* ``flag``: True if one of the operations is complete (logical).
 
-* ``status``: Status object (status).
 
-* ``IERROR``: Fortran only: Error status (integer).
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Testany`` tests for completion of either one or none of the operations
-associated with active handles. In the former case, it returns ``*flag``* =
-true, returns in ``*index``* the index of this request in the array, and
-returns in ``*status``* the status of that operation; if the request was
+associated with active handles. In the former case, it returns *flag* =
+true, returns in *index* the index of this request in the array, and
+returns in *status* the status of that operation; if the request was
 allocated by a nonblocking communication call then the request is
 deallocated and the handle is set to ``MPI_REQUEST_NULL``. (The array is
 indexed from 0 in C, and from 1 in Fortran.) In the latter case (no
-operation completed), it returns ``*flag``* = false, returns a value of
-``MPI_UNDEFINED`` in ``*index``*, and ``*status``* is undefined.
+operation completed), it returns *flag* = false, returns a value of
+``MPI_UNDEFINED`` in *index*, and *status* is undefined.
 
 The array may contain null or inactive handles. If the array contains no
-active handles then the call returns immediately with ``*flag``* = true,
-``*index``* = ``MPI_UNDEFINED``, and an empty ``*status``*.
+active handles then the call returns immediately with *flag* = true,
+*index* = ``MPI_UNDEFINED``, and an empty *status*.
 
 If the array of requests contains active handles then the execution of
-``MPI_Testany``(count, array_of_requests, index, status) has the same effect
-as the execution of ``MPI_Test``(&\ ``*array``_of_requests[i*], ``*flag``*,
-``*status``*), for ``*i``*\ =0,1,...,count-1, in some arbitrary order, until one
-call returns ``*flag``* = true, or all fail. In the former case, ``*index``* is
-set to the last value of ``*i``*, and in the latter case, it is set to
+``MPI_Testany(count``, array_of_requests, index, status) has the same effect
+as the execution of ``MPI_Test(``&\ *array_of_requests[i*], *flag*,
+*status*), for *i*\ =0,1,...,count-1, in some arbitrary order, until one
+call returns *flag* = true, or all fail. In the former case, *index* is
+set to the last value of *i*, and in the latter case, it is set to
 ``MPI_UNDEFINED``. ``MPI_Testany`` with an array containing one active entry is
 equivalent to ``MPI_Test``.
 
-If your application does not need to examine the ``*status``* field, you can
+If your application does not need to examine the *status* field, you can
 save resources by using the predefined constant ``MPI_STATUS_IGNORE`` as a
-special value for the ``*status``* argument.
+special value for the *status* argument.
 
 ERRORS
 ------
@@ -127,4 +122,4 @@ SEE ALSO
 | ``MPI_Waitall``
 | ``MPI_Waitany``
 | ``MPI_Waitsome``
-| MPI_Win_set_errhandler
+| ``MPI_Win_set_errhandler``

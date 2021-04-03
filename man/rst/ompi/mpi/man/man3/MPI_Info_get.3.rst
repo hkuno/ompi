@@ -47,33 +47,28 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``info``: Info object (handle).
 
-* ``key``: Key (string).
 
-* ``valuelen``: Length of value arg (integer).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``value``: Value (string).
 
-* ``flag``: Returns true if key defined, false if not (boolean).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_Info_get`` retrieves the value associated with ``*key``* in a previous
-call to ``MPI_Info_set``. If such a key exists, it sets ``*flag``* to true and
-returns the value in ``*value``*; otherwise it sets ``*flag``* to false and
-leaves ``*value``* unchanged. ``*valuelen``* is the number of characters
+``MPI_Info_get`` retrieves the value associated with *key* in a previous
+call to ``MPI_Info_set``. If such a key exists, it sets *flag* to true and
+returns the value in *value*; otherwise it sets *flag* to false and
+leaves *value* unchanged. *valuelen* is the number of characters
 available in value. If it is less than the actual size of the value, the
-returned value is truncated. In C, ``*valuelen``* should be one less than
+returned value is truncated. In C, *valuelen* should be one less than
 the amount of allocated space to allow for the null terminator.
 
-If ``*key``* is larger than ``MPI_MAX_INFO_KEY``, the call is erroneous.
+If *key* is larger than ``MPI_MAX_INFO_KEY``, the call is erroneous.
 
 ERRORS
 ------
@@ -98,4 +93,4 @@ SEE ALSO
 | ``MPI_Info_get_valuelen``
 | ``MPI_Info_get_nkeys``
 | ``MPI_Info_get_nthkey``
-| MPI_Info_set
+| ``MPI_Info_set``

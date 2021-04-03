@@ -6,8 +6,6 @@ NAME
 SYNTAX
 ------
 
-.. code-block:: FOOBAR_ERROR
-   :linenos:
 
 C Syntax
 ~~~~~~~~
@@ -21,7 +19,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -45,26 +43,24 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``fh``: File handle (handle).
 
-* ``size``: Size to truncate or expand file (integer).
 
 OUTPUT PARAMETER
 ----------------
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-``MPI_File_set_size`` resizes the file associated with the file handle ``*fh``,*
+``MPI_File_set_size`` resizes the file associated with the file handle *fh,*
 truncating UNIX files as necessary. ``MPI_File_set_size`` is collective; all
 processes in the group must pass identical values for size.
 
-When using ``MPI_File_set_size`` on a UNIX file, if ``*size``* is larger than
-the current file size, the file size becomes ``*size``*. If ``*size``* is
+When using ``MPI_File_set_size`` on a UNIX file, if *size* is larger than
+the current file size, the file size becomes *size*. If *size* is
 smaller than the current file size, the file is truncated at the
-position defined by ``*size``* (from the beginning of the file and measured
+position defined by *size* (from the beginning of the file and measured
 in bytes). Regions of the file which have been previously written are
 unaffected.
 
@@ -84,8 +80,7 @@ The MPI standard prescribes portable Fortran syntax for the *SIZE*
 argument only for Fortran 90. FORTRAN 77 users may use the non-portable
 syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_OFFSET_KIND SIZE
 

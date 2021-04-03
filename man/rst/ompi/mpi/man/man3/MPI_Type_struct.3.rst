@@ -1,7 +1,7 @@
 NAME
 ----
 
-``MPI_Type_struct`` - Creates a ``*struct``* data type -- use of this
+``MPI_Type_struct`` - Creates a *struct* data type -- use of this
 routine is deprecated.
 
 SYNTAX
@@ -35,25 +35,20 @@ Fortran Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``count``: Number of blocks (integer) also number of entries in arrays
-* ``array_of_types, array_of_displacements, and array_of_blocklengths.``: 
-* ``array_of_blocklengths``: Number of elements in each block (array).
 
-* ``array_of_displacements``: Byte displacement of each block (array).
 
-* ``array_of_types``: Type of elements in each block (array of handles to datatype
-* ``objects).``: 
+
+
 OUTPUT PARAMETERS
 -----------------
 
-* ``newtype``: New datatype (handle).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
-Note that use of this routine is ``*deprecated``* as of MPI-2. Use
+Note that use of this routine is *deprecated* as of MPI-2. Use
 ``MPI_Type_create_struct`` instead.
 
 ``MPI_Type_struct`` is the most general type constructor. It further
@@ -62,8 +57,7 @@ replications of different datatypes.
 
 **Example:** Let type1 have type map
 
-.. code-block:: fortran
-   :linenos:
+::
 
 
        {(double, 0), (char, 8)}
@@ -72,8 +66,7 @@ with extent 16. Let B = (2, 1, 3), D = (0, 16, 26), and T = (MPI_FLOAT,
 type1, MPI_CHAR). Then a call to MPI_Type_struct(3, B, D, T, newtype)
 returns a datatype with type map
 
-.. code-block:: fortran
-   :linenos:
+::
 
 
        {(float, 0), (float,4), (double, 16), (char, 24),
@@ -96,15 +89,13 @@ alignment; this was intended to allow the simple definition of
 structures that could be sent with a count greater than one. For
 example,
 
-.. code-block:: fortran
-   :linenos:
+::
 
        struct {int a; char b;} foo;
 
 may have
 
-.. code-block:: fortran
-   :linenos:
+::
 
        sizeof(foo) = sizeof(int) + sizeof(char);
 
@@ -117,8 +108,7 @@ or receive multiple items, you should explicitly include an MPI_UB entry
 as the last member of the structure. For example, the following code can
 be used for the structure foo:
 
-.. code-block:: fortran
-   :linenos:
+::
 
 
        blen[0] = 1; indices[0] = 0; oldtypes[0] = MPI_INT;
@@ -143,4 +133,4 @@ SEE ALSO
 --------
 
 | ``MPI_Type_create_struct``
-| MPI_Type_create_hindexed
+| ``MPI_Type_create_hindexed``

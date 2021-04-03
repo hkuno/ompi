@@ -18,40 +18,37 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``session``: Performance experiment session.
 
-* ``handle``: Performance variable handle or MPI_T_PVAR_ALL_HANDLES.
 
 DESCRIPTION
 -----------
 
 ``MPI_T_pvar_reset`` sets the performance variable specified by the handle
-in ``*handle``* to its initial value. The special value
-``MPI_T_PVAR_ALL_HANDLES`` can be passed in ``*handle``* to reset all read-write
-handles in the session specified in ``*session``*.
+in *handle* to its initial value. The special value
+``MPI_T_PVAR_ALL_HANDLES`` can be passed in *handle* to reset all read-write
+handles in the session specified in *session*.
 
 ERRORS
 ------
 
-``MPI_T_pvar_reset``() will fail if:
+``MPI_T_pvar_reset()`` will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED``]
+[``MPI_T_ERR_NOT_INITIALIZED]``
    The MPI Tools interface not initialized
 
-[``MPI_T_ERR_INVALID_HANDLE``]
+[``MPI_T_ERR_INVALID_HANDLE]``
    The handle is invalid
 
-[``MPI_T_ERR_INVALID_SESSION``]
+[``MPI_T_ERR_INVALID_SESSION]``
    Session argument is not a valid session
 
-[``MPI_T_ERR_PVAR_NO_WRITE``]
+[``MPI_T_ERR_PVAR_NO_WRITE]``
    Variable cannot be reset
 
 SEE ALSO
 --------
 
-.. code-block:: c
-   :linenos:
+::
 
    MPI_T_pvar_handle_alloc
    MPI_T_pvar_get_info

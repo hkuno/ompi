@@ -1,9 +1,9 @@
 NAME
 ----
 
-``*shmem``_char_p*\ (3), ``*shmem``_float_p*\ (3), ``*shmem``_int_p*\ (3),
-``*shmem``_long_p*\ (3), ``*shmem``_short_p*\ (3), ``*shmem``_longlong_p*\ (3),
-``*shmem``_longdouble_p*\ (3) - These routines provide a low latency
+*shmem_char_p*\ (3), *shmem_float_p*\ (3), *shmem_int_p*\ (3),
+*shmem_long_p*\ (3), *shmem_short_p*\ (3), *shmem_longlong_p*\ (3),
+*shmem_longdouble_p*\ (3) - These routines provide a low latency
 mechanism to write basic types (char, short, int, float, double, long,
 long long, long double) to symmetric data objects on remote PEs.
 
@@ -12,7 +12,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -52,9 +52,9 @@ value
 pe
    The number of the remote PE.
 
-As with ``*shmem``_put*\ (3), these functions start the remote transfer and
+As with *shmem_put*\ (3), these functions start the remote transfer and
 may return before the data is delivered to the remote PE. Use
-``*shmem``_quiet*\ (3) to force completion of all remote PUT transfers.
+*shmem_quiet*\ (3) to force completion of all remote PUT transfers.
 
 SEE ALSO
 --------

@@ -28,7 +28,7 @@ C Syntax
 Fortran Syntax (see FORTRAN 77 NOTES)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: c
+.. code-block:: fortran
    :linenos:
 
    USE MPI
@@ -38,14 +38,14 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	<type> ORIGIN_ADDR(*)
    	INTEGER(KIND=MPI_ADDRESS_KIND) TARGET_DISP
    	INTEGER ORIGIN_COUNT, ORIGIN_DATATYPE, TARGET_RANK, TARGET_COUNT,
-   	TARGET_DATATYPE, OP, WIN, IERROR 
+   	TARGET_DATATYPE, OP, WIN, IERROR
 
    MPI_RACCUMULATE(ORIGIN_ADDR, ORIGIN_COUNT, ORIGIN_DATATYPE, TARGET_RANK,
    	TARGET_DISP, TARGET_COUNT, TARGET_DATATYPE, OP, WIN, REQUEST, IERROR)
    	<type> ORIGIN_ADDR(*)
    	INTEGER(KIND=MPI_ADDRESS_KIND) TARGET_DISP
    	INTEGER ORIGIN_COUNT, ORIGIN_DATATYPE, TARGET_RANK, TARGET_COUNT,
-   	TARGET_DATATYPE, OP, WIN, REQUEST, IERROR 
+   	TARGET_DATATYPE, OP, WIN, REQUEST, IERROR
 
 Fortran 2008 Syntax
 ~~~~~~~~~~~~~~~~~~~
@@ -79,53 +79,45 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``origin_addr``: Initial address of buffer (choice).
 
-* ``origin_count``: Number of entries in buffer (nonnegative integer).
 
-* ``origin_datatype``: Data type of each buffer entry (handle).
 
-* ``target_rank``: Rank of target (nonnegative integer).
 
-* ``target_disp``: Displacement from start of window to beginning of target buffer
-* ``(nonnegative integer).``: 
-* ``target_count``: Number of entries in target buffer (nonnegative integer).
 
-* ``target_datatype``: Data type of each entry in target buffer (handle).
 
-* ``op``: Reduce operation (handle).
 
-* ``win``: Window object (handle).
+
 
 OUTPUT PARAMETER
 ----------------
 
-* ``MPI_Raccumulate: RMA request``: 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``MPI_Raccumulate``: 
+
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
 
 ``MPI_Accumulate`` is a function used for one-sided MPI communication
 that adds the contents of the origin buffer (as defined by
-``*origin``_addr*, ``*origin``_count*, and ``*origin``_datatype*) to the buffer
-specified by the arguments ``*target``_count* and ``*target``_datatype*, at
-offset ``*target``_disp*, in the target window specified by ``*target``_rank*
-and ``*win``*, using the operation ``*op``*. The target window can only be
+*origin_addr*, *origin_count*, and *origin_datatype*) to the buffer
+specified by the arguments *target_count* and *target_datatype*, at
+offset *target_disp*, in the target window specified by *target_rank*
+and *win*, using the operation *op*. The target window can only be
 accessed by processes within the same node. This is similar to ``MPI_Put``,
 except that data is combined into the target area instead of overwriting
 it.
 
 Any of the predefined operations for ``MPI_Reduce`` can be used.
-User-defined functions cannot be used. For example, if ``*op``* is ``MPI_SUM``,
+User-defined functions cannot be used. For example, if *op* is ``MPI_SUM``,
 each element of the origin buffer is added to the corresponding element
 in the target, replacing the former value in the target.
 
 Each datatype argument must be a predefined data type or a derived data
 type, where all basic components are of the same predefined data type.
 Both datatype arguments must be constructed from the same predefined
-data type. The operation ``*op``* applies to elements of that predefined
-type. The ``*target``_datatype* argument must not specify overlapping
+data type. The operation *op* applies to elements of that predefined
+type. The *target_datatype* argument must not specify overlapping
 entries, and the target buffer must fit in the target window.
 
 A new predefined operation, ``MPI_REPLACE``, is defined. It corresponds to
@@ -134,9 +126,9 @@ target memory is replaced by the value supplied by the origin.
 
 ``MPI_Raccumulate`` is similar to ``MPI_Accumulate``, except that it
 allocates a communication request object and associates it with the
-request handle (the argument ``*request``*) that can be used to wait or test
+request handle (the argument *request*) that can be used to wait or test
 for completion. The completion of an ``MPI_Raccumulate`` operation
-indicates that the ``*origin``_addr* buffer is free to be updated. It does
+indicates that the *origin_addr* buffer is free to be updated. It does
 not indicate that the operation has completed at the target window.
 
 FORTRAN 77 NOTES
@@ -146,8 +138,7 @@ The MPI standard prescribes portable Fortran syntax for the
 *TARGET_DISP* argument only for Fortran 90. FORTRAN 77 users may use the
 non-portable syntax
 
-.. code-block:: fortran
-   :linenos:
+::
 
         INTEGER*MPI_ADDRESS_KIND TARGET_DISP
 
@@ -182,4 +173,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-MPI_Put MPI_Get_accumulate MPI_Reduce
+``MPI_Put`` ``MPI_Get_accumulate`` ``MPI_Reduce``

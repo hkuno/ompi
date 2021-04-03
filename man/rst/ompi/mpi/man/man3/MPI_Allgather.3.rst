@@ -71,28 +71,19 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``sendbuf``: Starting address of send buffer (choice).
 
-* ``sendcount``: Number of elements in send buffer (integer).
 
-* ``sendtype``: Datatype of send buffer elements (handle).
 
-* ``recvbuf``: Starting address of recv buffer (choice).
 
-* ``recvcount``: Number of elements received from any process (integer).
 
-* ``recvtype``: Datatype of receive buffer elements (handle).
 
-* ``comm``: Communicator (handle).
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``recvbuf``: Address of receive buffer (choice).
 
-* ``request``: Request (handle, non-blocking only).
 
-* ``IERROR``: Fortran only: Error status (integer).
+* ``Fortran only``: 
 
 DESCRIPTION
 -----------
@@ -106,11 +97,10 @@ The type signature associated with sendcount, sendtype at a process must
 be equal to the type signature associated with recvcount, recvtype at
 any other process.
 
-The outcome of a call to ``MPI_Allgather``(...) is as if all processes
+The outcome of a call to ``MPI_Allgather(``...) is as if all processes
 executed n calls to
 
-.. code-block:: fortran
-   :linenos:
+::
 
      MPI_Gather(sendbuf,sendcount,sendtype,recvbuf,recvcount,
                 recvtype,root,comm),
@@ -122,8 +112,7 @@ are easily found from the corresponding rules for MPI_Gather.
 MPI_Allgather, we will gather 100 ints from every process in the group
 to every process.
 
-.. code-block:: fortran
-   :linenos:
+::
 
    MPI_Comm comm;
        int gsize,sendarray[100];
@@ -141,15 +130,14 @@ USE OF IN-PLACE OPTION
 
 When the communicator is an intracommunicator, you can perform an
 all-gather operation in-place (the output buffer is used as the input
-buffer). Use the variable ``MPI_IN_PLACE`` as the value of ``*sendbuf``*. In
-this case, ``*sendcount``* and ``*sendtype``* are ignored. The input data of
+buffer). Use the variable ``MPI_IN_PLACE`` as the value of *sendbuf*. In
+this case, *sendcount* and *sendtype* are ignored. The input data of
 each process is assumed to be in the area where that process would
 receive its own contribution to the receive buffer. Specifically, the
 outcome of a call to ``MPI_Allgather`` that used the in-place option is
-identical to the case in which all processes executed ``*n``* calls to
+identical to the case in which all processes executed *n* calls to
 
-.. code-block:: fortran
-   :linenos:
+::
 
       MPI_ALLGATHER ( MPI_IN_PLACE, 0, MPI_DATATYPE_NULL, recvbuf,
       recvcount, recvtype, root, comm )
@@ -174,7 +162,7 @@ received by all the members of the first. The operation, however, need
 not be symmetric. The number of items sent by the processes in first
 group need not be equal to the number of items sent by the the processes
 in the second group. You can move data in only one direction by giving
-``*sendcount``* a value of 0 for communication in the reverse direction.
+*sendcount* a value of 0 for communication in the reverse direction.
 
 ERRORS
 ------
@@ -193,4 +181,4 @@ SEE ALSO
 --------
 
 | ``MPI_Allgatherv``
-| MPI_Gather
+| ``MPI_Gather``

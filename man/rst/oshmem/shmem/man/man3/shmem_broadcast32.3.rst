@@ -1,8 +1,8 @@
 NAME
 ----
 
-``*shmem``_broadcast4*\ (3), ``*shmem``_broadcast8*\ (3),
-``*shmem``_broadcast32*\ (3), ``*shmem``_broadcast64*\ (3) - Copy a data object
+*shmem_broadcast4*\ (3), *shmem_broadcast8*\ (3),
+*shmem_broadcast32*\ (3), *shmem_broadcast64*\ (3) - Copy a data object
 from a designated PE to a target location on all other PEs of the active
 set.
 
@@ -11,7 +11,7 @@ SYNOPSIS
 
 C or C++:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    #include <mpp/shmem.h>
@@ -26,7 +26,7 @@ C or C++:
 
 Fortran:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INCLUDE "mpp/shmem.fh"
@@ -50,9 +50,9 @@ DESCRIPTION
 -----------
 
 The broadcast routines write the data at address source of the PE
-specified by **PE_root** to address *``*target``** on all other PEs in the
+specified by **PE_root** to address **target** on all other PEs in the
 active set. The active set of PEs is defined by the triplet
-**PE_start**, *``*log``PE_stride** and **PE_size**. The data is not copied
+**PE_start**, **logPE_stride** and **PE_size**. The data is not copied
 to the target address on the PE specified by **PE_root**. Before
 returning, the broadcast routines ensure that the elements of the pSync
 array are restored to their initial values.
@@ -66,15 +66,15 @@ The arguments are as follows:
 target
    A symmetric data object with one of the following data types:
 
-   *``*shmem``_broadcast8, shmem_broadcast64**: Any noncharacter type that
+   **shmem_broadcast8, shmem_broadcast64**: Any noncharacter type that
       has an element size of 64 bits. No Fortran derived types or C/C++
       structures are allowed.
 
-   *``*shmem``_broadcast32**: Any noncharacter type that has an element size
+   **shmem_broadcast32**: Any noncharacter type that has an element size
       of 32 bits. No Fortran derived types or C/C++ structures are
       allowed.
 
-   *``*shmem``_broadcast4**: Any noncharacter type that has an element size
+   **shmem_broadcast4**: Any noncharacter type that has an element size
       of 32 bits.
 
 source
@@ -135,7 +135,7 @@ values.
 NOTES
 -----
 
-The terms collective and symmetric are defined in ``*intro``_shmem*\ (3).
+The terms collective and symmetric are defined in *intro_shmem*\ (3).
 
 All SHMEM broadcast routines restore pSync to its original contents.
 Multiple calls to SHMEM routines that use the same pSync array do not
@@ -163,7 +163,7 @@ on PE 4 to target on PEs 5, 6, and 7.
 
 C/C++ example:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: c++
    :linenos:
 
    for (i=0; i < _SHMEM_BCAST_SYNC_SIZE; i++) {
@@ -174,7 +174,7 @@ C/C++ example:
 
 Fortran example:
 
-.. code-block:: FOOBAR_ERROR
+.. code-block:: fortran
    :linenos:
 
    INTEGER PSYNC(SHMEM_BCAST_SYNC_SIZE)
