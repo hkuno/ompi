@@ -57,7 +57,7 @@ DESCRIPTION
 -----------
 
 If *flag* is set to true, then a subsequent call to
-``MPI_Test_cancelled(``status, flag*) will also return *flag* = true;
+``MPI_Test_cancelled(status, flag*)`` will also return *flag* = true;
 otherwise it will return false.
 
 NOTES

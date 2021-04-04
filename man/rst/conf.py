@@ -77,6 +77,13 @@ html_static_path = []
 
 # -- Options for MAN output -------------------------------------------------
 
+def string_is_int(s):
+  try: 
+    int(s)
+    return True
+  except ValueError:
+    return False
+
 # This works
 #man_pages=[("ompi/mpi/man/man3/MPI_Abort.3in","ompi/mpi/man/man3/MPI_Abort.3in","MPI_Abort.3in","",3)]
 
@@ -85,13 +92,14 @@ import os
 import glob
 from pathlib import Path
 man_pages=[]
-for path in Path('./').rglob('*in.rst'):
+for path in Path('./').rglob('*.rst'):
     sname=path.name
     os.makedirs('../_build/man/' + str(path.parent),exist_ok = True)
     print('../_build/man/' + str(path.parent))
     snum=os.path.basename(os.path.dirname(path)).replace('man','')
-    lname=(str(path.parent) + '/' + sname.replace('.rst',''))
-    man_pages.append((lname,sname,sname.replace('.rst',''),"",int(snum)))
+    if string_is_int(snum):
+      lname=(str(path.parent) + '/' + sname.replace('.rst',''))
+      man_pages.append((lname,sname,sname.replace('.rst',''),"",int(snum)))
 
 print(man_pages)
 

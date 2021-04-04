@@ -74,4 +74,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-``MPI_Win_set_info``, ``MPI_Win_free``
+``MPI_Win_set_info,`` ``MPI_Win_free``

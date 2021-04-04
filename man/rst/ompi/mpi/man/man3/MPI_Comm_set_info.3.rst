@@ -97,4 +97,4 @@ guarantee that an MPI program can continue past an error.
 SEE ALSO
 --------
 
-``MPI_Comm_get_info``, ``MPI_Info_create``, ``MPI_Info_set``, ``MPI_Info_free``
+``MPI_Comm_get_info,`` ``MPI_Info_create,`` ``MPI_Info_set,`` ``MPI_Info_free``
