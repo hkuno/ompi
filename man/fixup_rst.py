@@ -122,7 +122,7 @@ for i in range(len(in_lines)):
     prevline = in_lines[i-1].rstrip()
   if (i == len(in_lines) - 1):
     if ((not include_pat.match(curline)) and (not LITERAL)):
-      curline = re.sub(r'[\*]*[\`]*MPI_[A-Z][()\[\]0-9A-Za-z_]*[\`]*[\*]*',mpicmdrepl,curline)
+      curline = re.sub(r'[\*]*[\`]*MPI_[A-Z][\*,()\[\]0-9A-Za-z_]*[()\[\]0-9A-Za-z_]*[\`]*[\*]*',mpicmdrepl,curline)
     if (not SKIP):
       print(f"{curline}")
   else:
