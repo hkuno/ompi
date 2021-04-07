@@ -29,12 +29,14 @@ Fortran Syntax
 INPUT PARAMETER
 ---------------
 
+* ``datatype``: Datatype (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``displacement``: Displacement of upper bound from origin, in bytes (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

@@ -43,12 +43,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``info``: Options on how to establish an address (handle). No options currently supported. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``port_name``: Newly established port (string). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

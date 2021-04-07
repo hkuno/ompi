@@ -49,16 +49,22 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``base``: Initial address of window (choice). 
 
+* ``size``: Size of window in bytes (nonnegative integer). 
 
+* ``disp_unit``: Local unit size for displacements, in bytes (positive integer). 
 
+* ``info``: Info argument (handle). 
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``win``: Window object returned by the call (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -140,7 +146,7 @@ syntax
 
         INTEGER*MPI_ADDRESS_KIND SIZE
 
-where MPI_ADDRESS_KIND is a constant defined in mpif.h and gives the
+where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS

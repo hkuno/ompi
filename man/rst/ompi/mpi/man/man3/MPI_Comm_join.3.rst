@@ -41,12 +41,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``fd``: socket file descriptor (socket). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``intercomm``: Intercommunicator between processes (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

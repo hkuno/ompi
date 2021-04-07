@@ -40,9 +40,9 @@ Fortran 2008 Syntax
 OUTPUT PARAMETERS
 -----------------
 
-* ``C/Fortran only``: 
+* ``provided``: C/Fortran only: Level of thread support (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

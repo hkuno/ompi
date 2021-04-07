@@ -48,17 +48,24 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``buf``: Initial address of send buffer (choice). 
 
+* ``count``: Number of elements to send (integer). 
 
+* ``datatype``: Type of each element (handle). 
 
+* ``dest``: Rank of destination (integer). 
 
+* ``tag``: Message tag (integer). 
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``request``: Communication request (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

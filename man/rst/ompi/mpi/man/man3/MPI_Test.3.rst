@@ -43,13 +43,16 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``request``: Communication request (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``flag``: True if operation completed (logical). 
 
+* ``status``: Status object (status). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

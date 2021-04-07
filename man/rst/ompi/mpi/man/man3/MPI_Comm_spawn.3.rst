@@ -52,18 +52,26 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``command``: Name of program to be spawned (string, significant only at *root*). 
 
+* ``argv``: Arguments to *command* (array of strings, significant only at *root*). 
 
+* ``maxprocs``: Maximum number of processes to start (integer, significant only at *root*). 
 
+* ``info``: A set of key-value pairs telling the runtime system where and how to start the processes (handle, significant only at *root*). 
 
+* ``root``: Rank of process in which previous arguments are examined (integer). 
 
+* ``comm``: Intracommunicator containing group of spawning processes (handle). 
 
 OUTPUT PARAMETER
 ----------------
 
+* ``intercomm``: Intercommunicator between original group and the newly spawned group (handle). 
 
+* ``array_of_errcodes``: One code per process (array of integers). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -248,9 +256,9 @@ The *array_of_errcodes* Argument
 The *array_of_errcodes* is an array of length *maxprocs* in which MPI
 reports the status of the processes that MPI was requested to start. If
 all *maxprocs* processes were spawned, *array_of_errcodes* is filled in
-with the value MPI_SUCCESS. If anyof the processes are *not* spawned,
-*array_of_errcodes* is filled in with the value MPI_ERR_SPAWN. In C or
-Fortran, an application may pass MPI_ERRCODES_IGNORE if it is not
+with the value ``MPI_SUCCESS``. If anyof the processes are *not* spawned,
+*array_of_errcodes* is filled in with the value ``MPI_ERR_SPAWN``. In C or
+Fortran, an application may pass ``MPI_ERRCODES_IGNORE`` if it is not
 interested in the error codes.
 
 NOTES

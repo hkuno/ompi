@@ -46,16 +46,19 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``fh``: File handle (handle). 
 
 INPUT PARAMETER
 ---------------
 
+* ``buf``: Initial address of buffer (choice). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``status``: Status object (status). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

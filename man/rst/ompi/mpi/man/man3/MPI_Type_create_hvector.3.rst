@@ -49,15 +49,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``count``: Number of blocks (nonnegative integer). 
 
+* ``blocklength``: Number of elements in each block (nonnegative integer). 
 
+* ``stride``: Number of bytes between start of each block (integer). 
 
+* ``oldtype``: Old data type (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newtype``: New data type (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -79,7 +84,7 @@ syntax
 
         INTEGER*MPI_ADDRESS_KIND STRIDE
 
-where MPI_ADDRESS_KIND is a constant defined in mpif.h and gives the
+where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS

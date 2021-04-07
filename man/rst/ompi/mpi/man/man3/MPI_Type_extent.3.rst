@@ -30,12 +30,14 @@ Fortran Syntax
 INPUT PARAMETER
 ---------------
 
+* ``datatype``: Datatype (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``extent``: Datatype extent (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

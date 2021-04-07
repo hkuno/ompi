@@ -45,15 +45,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``count``: Number of blocks (nonnegative integer). 
 
+* ``blocklength``: Number of elements in each block (nonnegative integer). 
 
+* ``stride``: Number of elements between start of each block (integer). 
 
+* ``oldtype``: Old datatype (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newtype``: New datatype (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -78,7 +83,7 @@ newtype) will create the datatype with type map
 That is, two blocks with three copies each of the old type, with a
 stride of 4 elements (4 x 16 bytes) between the blocks.
 
-**Example 2:** A call to MPI_Type_vector(3, 1, -2, oldtype, newtype)
+**Example 2:** A call to ``MPI_Type_vector(3``, 1, -2, oldtype, newtype)
 will create the datatype
 
 ::
@@ -113,9 +118,9 @@ has a type map with count x bl x n entries:
        (type(0), disp(0) + (stride * (count -1) + bl -1) * ex), ...,
        (type(n-1), disp(n-1) + (stride * (count -1) + bl -1) * ex)}
 
-A call to MPI_Type_contiguous(count, oldtype, newtype) is equivalent to
-a call to MPI_Type_vector(count, 1, 1, oldtype, newtype), or to a call
-to MPI_Type_vector(1, count, n, oldtype, newtype), n arbitrary.
+A call to ``MPI_Type_contiguous(count``, oldtype, newtype) is equivalent to
+a call to ``MPI_Type_vector(count``, 1, 1, oldtype, newtype), or to a call
+to ``MPI_Type_vector(1``, count, n, oldtype, newtype), n arbitrary.
 
 ERRORS
 ------

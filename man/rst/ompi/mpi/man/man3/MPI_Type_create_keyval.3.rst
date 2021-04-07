@@ -50,14 +50,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``type_copy_attr_fn``: Copy callback function for *type_keyval* (function). 
 
+* ``type_delete_attr_fn``: Delete callback function for *type_keyval* (function). 
 
+* ``extra_state``: Extra state for callback functions. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``type_keyval``: Key value for future access (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -122,7 +126,7 @@ non-portable syntax
 
         INTEGER*MPI_ADDRESS_KIND EXTRA_STATE
 
-where MPI_ADDRESS_KIND is a constant defined in mpif.h and gives the
+where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS

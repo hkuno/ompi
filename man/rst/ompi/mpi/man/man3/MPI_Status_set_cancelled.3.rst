@@ -43,15 +43,17 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``status``: Status with which to associate cancel flag (status). 
 
 INPUT PARAMETER
 ---------------
 
+* ``flag``: If true, indicates request was canceled (logical). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

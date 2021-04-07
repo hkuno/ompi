@@ -42,12 +42,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``rank``: Rank of the calling process in group of comm (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

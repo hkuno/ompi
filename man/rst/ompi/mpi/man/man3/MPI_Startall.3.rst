@@ -41,15 +41,17 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``count``: List length (integer). 
 
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``array_of_requests``: Array of requests (array of handle). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

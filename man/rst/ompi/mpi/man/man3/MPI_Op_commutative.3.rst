@@ -42,12 +42,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``op``: Operation (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``commute``: True if op is commutative, false otherwise (logical). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

@@ -50,15 +50,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``count``: Number of blocks (integer) -- also number of entries in arrays *array_of_types*, *array_of_displacements*, and *array_of_blocklengths*. 
 
+* ``array_of_blocklengths``: Number of elements in each block (array of integers). 
 
+* ``array_of_displacements``: Byte displacement of each block (array of integers). 
 
+* ``array_of_types``: Type of elements in each block (array of handles to data-type objects). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newtype``: New data type (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -80,7 +85,7 @@ users may use the non-portable syntax
 
         INTEGER*MPI_ADDRESS_KIND ARRAY_OF_DISPLACEMENTS(*)
 
-where MPI_ADDRESS_KIND is a constant defined in mpif.h and gives the
+where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS

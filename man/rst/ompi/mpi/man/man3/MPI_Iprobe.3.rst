@@ -45,15 +45,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``source``: Source rank or MPI_ANY_SOURCE (integer). 
 
+* ``tag``: Tag value or MPI_ANY_TAG (integer). 
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``flag``: Message-waiting flag (logical). 
 
+* ``status``: Status object (status). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

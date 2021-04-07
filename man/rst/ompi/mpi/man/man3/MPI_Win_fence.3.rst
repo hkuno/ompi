@@ -41,12 +41,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``assert``: Program assertion (integer). 
 
+* ``win``: Window object (handle). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

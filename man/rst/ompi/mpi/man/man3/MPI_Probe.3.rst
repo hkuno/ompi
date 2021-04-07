@@ -42,14 +42,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``source``: Source rank or MPI_ANY_SOURCE (integer). 
 
+* ``tag``: Tag value or MPI_ANY_TAG (integer). 
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``status``: Status object (status). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -124,11 +128,11 @@ problem.
               END DO
           END IF
 
-We slightly modified Example 2, using MPI_ANY_SOURCE as the source
+We slightly modified Example 2, using ``MPI_ANY_SOURCE`` as the source
 argument in the two receive calls in statements labeled 100 and 200. The
 program is now incorrect: The receive operation may receive a message
 that is distinct from the message probed by the preceding call to
-MPI_Probe.
+``MPI_Probe``.
 
 ERRORS
 ------

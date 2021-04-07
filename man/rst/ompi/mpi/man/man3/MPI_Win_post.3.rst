@@ -43,13 +43,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``group``: The group of origin processes (handle) 
 
+* ``assert``: Program assertion (integer) 
 
+* ``win``: Window object (handle) 
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

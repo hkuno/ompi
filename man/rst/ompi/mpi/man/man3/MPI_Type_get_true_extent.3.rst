@@ -54,13 +54,16 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``datatype``: Data type for which information is wanted (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``true_lb``: True lower bound of data type (integer). 
 
+* ``true_extent``: True size of data type (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -96,7 +99,7 @@ use the non-portable syntax
    or
         INTEGER*MPI_ADDRESS_KIND TRUE_EXTENT
 
-MPI_Type_get_true_extent_x:
+``MPI_Type_get_true_extent_x``:
 
 ::
 
@@ -104,7 +107,7 @@ MPI_Type_get_true_extent_x:
    or
         INTEGER*MPI_COUNT_KIND TRUE_EXTENT
 
-where MPI_ADDRESS_KIND and MPI_COUNT_KIND are constants defined in
+where ``MPI_ADDRESS_KIND`` and ``MPI_COUNT_KIND`` are constants defined in
 mpif.h and give the length of the declared integer in bytes.
 
 ERRORS

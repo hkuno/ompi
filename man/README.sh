@@ -74,7 +74,7 @@ fi
 
 # fix up rst files
 SAVEME=$( pwd )
-if [[ 0 -eq 1 ]] ; then
+if [[ 1 -eq 1 ]] ; then
     echo "About to fix up rst"
     date
     for d in $MANDIRS ; do
@@ -82,8 +82,8 @@ if [[ 0 -eq 1 ]] ; then
             infile="$TMPRST2/$d/$f"
             out="$BUILDRST/$d/$f"
             mkdir -p $( dirname $out )
-            echo "Fixing $infile"
-            python3 fixup_rst.py $infile > $out
+            echo "Fixing $infile as $out"
+            python3 fixup_rst.py $infile $out
         done
     done
     date
@@ -105,8 +105,8 @@ fi
 
 
 # use sphinx-build to create man files
-if [[ 0 -eq 1 ]] ; then
-    echo "About to create html files"
+if [[ 1 -eq 1 ]] ; then
+    echo "About to create man files"
     date
     ERRORFILE=sphinx-build_rst2man.output
     SAVEME=$( pwd )

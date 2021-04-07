@@ -42,8 +42,9 @@ Fortran 2008 Syntax
 OUTPUT PARAMETERS
 -----------------
 
+* ``errorclass``: New error class (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

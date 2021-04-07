@@ -41,12 +41,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``type``: Data type (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newtype``: Copy of *type* (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

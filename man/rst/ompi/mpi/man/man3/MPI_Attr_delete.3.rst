@@ -29,12 +29,14 @@ Fortran Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``comm``: Communicator to which attribute is attached (handle). 
 
+* ``keyval``: The key value of the deleted attribute (integer). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

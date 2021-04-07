@@ -71,15 +71,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``count``: Number of blocks -- also number of entries in array_of_displacements and array_of_blocklengths (nonnegative integer). 
 
+* ``array_of_blocklengths``: Number of elements per block (array of nonnegative integers). 
 
+* ``array_of_displacements``: Displacement for each block, in multiples of oldtype extent for MPI_Type_indexed and bytes for MPI_Type_create_hindexed (array of integer for **MPI_TYPE_INDEXED**, array of *MPI_Aint* for **MPI_TYPE_CREATE_HINDEXED**). 
 
+* ``oldtype``: Old datatype (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newtype``: New datatype (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -127,8 +132,8 @@ In general, assume that oldtype has type map
        (type(0), disp(0) +  (D[count-1] + B[count-1] -1)* ex), ...,
        (type(n-1), disp(n-1) + (D[count-1] + B[count-1] -1)* ex)}
 
-A call to MPI_Type_vector(count, blocklength, stride, oldtype, newtype)
-is equivalent to a call to MPI_Type_indexed(count, B, D, oldtype,
+A call to ``MPI_Type_vector(count``, blocklength, stride, oldtype, newtype)
+is equivalent to a call to ``MPI_Type_indexed(count``, B, D, oldtype,
 newtype) where
 
 ::
@@ -139,7 +144,7 @@ newtype) where
 
        B[j] = blocklength, j = 0, .., count-1
 
-The function MPI_Type_create_hindexed is identical to MPI_Type_indexed,
+The function ``MPI_Type_create_hindexed`` is identical to ``MPI_Type_indexed``,
 except that block displacements in *array_of_displacements* are
 specified in bytes, rather than in multiples of the *oldtype* extent.
 

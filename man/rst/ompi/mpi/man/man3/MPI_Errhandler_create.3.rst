@@ -31,12 +31,14 @@ Fortran Syntax
 INPUT PARAMETER
 ---------------
 
+* ``function``: User-defined error handling procedure. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``errhandler``: MPI error handler (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -56,7 +58,7 @@ In the C language, the user routine should be a C function of type
 
 The first argument is the communicator in use. The second is the error
 code to be returned by the MPI routine that raised the error. If the
-routine would have returned MPI_ERR_IN_STATUS, it is the error code
+routine would have returned ``MPI_ERR_IN_STATUS``, it is the error code
 returned in the status for the request that caused the error handler to
 be invoked. The remaining arguments are stdargs arguments whose number
 and meaning is implementation-dependent. An implementation should

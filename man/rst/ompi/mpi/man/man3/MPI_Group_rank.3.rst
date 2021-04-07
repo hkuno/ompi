@@ -42,12 +42,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``group``: Group (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``rank``: Rank of the calling process in group, or MPI_UNDEFINED if the process is not a member (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

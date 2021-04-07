@@ -46,13 +46,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``fh``: File handle (handle). 
 
+* ``datatype``: Data type (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``extent``: Data type extent (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -74,7 +77,7 @@ syntax
 
         INTEGER*MPI_ADDRESS_KIND EXTENT
 
-where MPI_ADDRESS_KIND is a constant defined in mpif.h and gives the
+where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTES

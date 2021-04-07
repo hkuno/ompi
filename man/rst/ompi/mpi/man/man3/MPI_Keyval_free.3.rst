@@ -29,11 +29,12 @@ Fortran Syntax
 INPUT PARAMETER
 ---------------
 
+* ``keyval``: Frees the integer key value (integer). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

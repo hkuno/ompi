@@ -42,12 +42,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``status``: Status object (status). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``flag``: True if operation was cancelled (logical). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

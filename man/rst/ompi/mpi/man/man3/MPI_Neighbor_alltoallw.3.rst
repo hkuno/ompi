@@ -86,20 +86,30 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``sendbuf``: Starting address of send buffer. 
 
+* ``sendcounts``: Integer array, where entry i specifies the number of elements to send to neighbor i. 
 
+* ``sdispls``: Integer array, where entry i specifies the displacement (in bytes, offset from *sendbuf*) from which to send data to neighbor i. 
 
+* ``sendtypes``: Datatype array, where entry i specifies the datatype to use when sending data to neighbor i. 
 
+* ``recvcounts``: Integer array, where entry j specifies the number of elements to receive from neighbor j. 
 
+* ``rdispls``: Integer array, where entry j specifies the displacement (in bytes, offset from *recvbuf*) to which data from neighbor j should be written. 
 
+* ``recvtypes``: Datatype array, where entry j specifies the datatype to use when receiving data from neighbor j. 
 
+* ``comm``: Communicator over which data is to be exchanged. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``recvbuf``: Address of receive buffer. 
 
+* ``request``: Request (handle, non-blocking only). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status. 
 
 DESCRIPTION
 -----------

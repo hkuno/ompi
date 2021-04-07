@@ -31,14 +31,18 @@ Fortran Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``comm``: Communicator to which attribute is attached (handle). 
 
+* ``keyval``: Key value (integer). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``attribute_val``: Attribute value, unless flag = false. 
 
+* ``flag``: True if an attribute value was extracted; false if no attribute is associated with the key. 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

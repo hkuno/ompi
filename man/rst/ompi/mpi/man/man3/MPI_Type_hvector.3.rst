@@ -32,15 +32,20 @@ Fortran Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``count``: Number of blocks (nonnegative integer). 
 
+* ``blocklength``: Number of elements in each block (nonnegative integer). 
 
+* ``stride``: Number of bytes between start of each block (integer). 
 
+* ``oldtype``: Old datatype (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newtype``: New datatype (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

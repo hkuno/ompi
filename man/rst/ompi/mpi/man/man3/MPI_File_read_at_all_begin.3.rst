@@ -51,15 +51,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``fh``: File handle (handle). 
 
+* ``offset``: File offset (integer). 
 
+* ``count``: Number of elements in buffer (integer). 
 
+* ``datatype``: Data type of each buffer element. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``buf``: Initial address of buffer (choice). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -83,7 +88,7 @@ syntax
 
         INTEGER*MPI_OFFSET_KIND OFFSET
 
-where MPI_OFFSET_KIND is a constant defined in mpif.h and gives the
+where ``MPI_OFFSET_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTES

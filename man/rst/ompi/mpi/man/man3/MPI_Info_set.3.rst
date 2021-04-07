@@ -42,16 +42,19 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``info``: Info object (handle). 
 
 INPUT PARAMETERS
 ----------------
 
+* ``key``: Key (string). 
 
+* ``value``: Value (string). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

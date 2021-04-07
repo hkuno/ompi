@@ -55,15 +55,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``datarep``: Data representation identifier (string). 
 
+* ``read_conversion_fn``: Function invoked to convert from file representation to native representation (function). 
 
+* ``write_conversion_fn``: Function invoked to convert from native representation to file representation (function). 
 
+* ``dtype_file_extent_fn``: Function invoked to get the extent of a data type as represented in the file (function). 
 
+* ``extra_state``: Extra state. 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

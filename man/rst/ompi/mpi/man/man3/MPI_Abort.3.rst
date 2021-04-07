@@ -41,12 +41,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``comm``: Communicator of tasks to abort. 
 
+* ``errorcode``: Error code to return to invoking environment. 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

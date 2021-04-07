@@ -30,12 +30,14 @@ Fortran Syntax
 INPUT PARAMETER
 ---------------
 
+* ``location``: Location in caller memory (choice). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``address``: Address of location (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

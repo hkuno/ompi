@@ -42,16 +42,19 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``nnodes``: Number of nodes in a grid (integer). 
 
+* ``ndims``: Number of Cartesian dimensions (integer). 
 
 IN/OUT PARAMETER
 ----------------
 
+* ``dims``: Integer array of size ndims specifying the number of nodes in each dimension. 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

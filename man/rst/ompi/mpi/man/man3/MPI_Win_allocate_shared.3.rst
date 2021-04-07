@@ -49,16 +49,22 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``size``: Size of window in bytes (nonnegative integer). 
 
+* ``disp_unit``: Local unit size for displacements, in bytes (positive integer). 
 
+* ``info``: Info argument (handle). 
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``baseptr``: Initial address of window. 
 
+* ``win``: Window object returned by the call (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

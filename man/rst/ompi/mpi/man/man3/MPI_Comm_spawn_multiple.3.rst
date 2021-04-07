@@ -56,19 +56,28 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``count``: Number of commands (positive integer, significant to MPI only at *root* -- see NOTES). 
 
+* ``array_of_commands``: Programs to be executed (array of strings, significant only at *root*). 
 
+* ``array_of_argv``: Arguments for *commands* (array of array of strings, significant only at *root*). 
 
+* ``array_of_maxprocs``: Maximum number of processes to start for each command (array of integers, significant only at *root*). 
 
+* ``array_of_info``: Info objects telling the runtime system where and how to start processes (array of handles, significant only at *root*). 
 
+* ``root``: Rank of process in which previous arguments are examined (integer). 
 
+* ``comm``: Intracommunicator containing group of spawning processes (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``intercomm``: Intercommunicator between original group and the newly spawned group (handle). 
 
+* ``array_of_errcodes``: One code per process (array of integers). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -118,7 +127,7 @@ corresponds to the i contiguous slots in this array from element
    	/_ j=1   i      |  /_ j=1  j     |
                         |_              _|
 
-Error codes are treated as for MPI_Comm_spawn(3).
+Error codes are treated as for ``MPI_Comm_spawn(3)``.
 
 INFO ARGUMENTS
 --------------
@@ -213,7 +222,7 @@ and therefore false.
 
 Note that if any of the info handles have *ompi_non_mpi* set to true,
 then all info handles must have it set to true. If some are set to true,
-but others are set to false (or are unset), MPI_ERR_INFO will be
+but others are set to false (or are unset), ``MPI_ERR_INFO`` will be
 returned.
 
 Note that in "#PACKAGE_NAME#", the first array location in

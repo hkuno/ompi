@@ -45,15 +45,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``group1``: First group (handle). 
 
+* ``n``: Number of ranks in ranks1 and ranks2 arrays (integer). 
 
+* ``ranks1``: Array of zero or more valid ranks in group1. 
 
+* ``group2``: Second group (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``ranks2``: Array of corresponding ranks in group2, MPI_UNDEFINED when no correspondence exists. 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

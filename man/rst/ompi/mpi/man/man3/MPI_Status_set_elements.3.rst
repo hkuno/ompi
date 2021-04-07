@@ -53,16 +53,19 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``status``: Status to associate with *count (status).* 
 
 INPUT PARAMETERS
 ----------------
 
+* ``datatype``: Data type associated with *count (handle).* 
 
+* ``count``: Number of elements to associate with *status (integer).* 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -71,7 +74,7 @@ DESCRIPTION
 call to ``MPI_Get_elements`` or ``MPI_Get_elements_x`` will return count.
 ``MPI_Get_count`` will return a compatible value.*
 
-A subsequent call to ``MPI_Get_count(``status, datatype, count), to
+A subsequent call to ``MPI_Get_count(status``, datatype, count), to
 ``MPI_Get_elements(status``, datatype, count), or to
 ``MPI_Get_elements_x(status``, datatype, count) must use a data-type
 argument that has the same type signature as the data-type argument that

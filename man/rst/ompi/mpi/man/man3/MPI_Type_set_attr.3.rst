@@ -44,16 +44,19 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``type``: Data type to which attribute will be attached (handle). 
 
 INPUT PARAMETERS
 ----------------
 
+* ``type_keyval``: Key value (integer). 
 
+* ``attribute_val``: Attribute value. 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -72,7 +75,7 @@ the non-portable syntax
 
         INTEGER*MPI_ADDRESS_KIND ATTRIBUTE_VAL
 
-where MPI_ADDRESS_KIND is a constant defined in mpif.h and gives the
+where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS

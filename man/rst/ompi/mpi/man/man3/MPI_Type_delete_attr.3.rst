@@ -42,15 +42,17 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``type``: Data type from which the attribute is deleted (handle).n 
 
 INPUT PARAMETER
 ---------------
 
+* ``type_keyval``: Key value (integer). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

@@ -47,15 +47,20 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``datatype``: Data type to access (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``num_integers``: Number of input integers used in the call constructing *combiner* (nonnegative integer). 
 
+* ``num_addresses``: Number of input addresses used in the call constructing *combiner* (nonnegative integer). 
 
+* ``num_datatypes``: Number of input data types used in the call constructing *combiner* (nonnegative integer). 
 
+* ``combiner``: Combiner (state). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -103,11 +108,11 @@ associated calls:
    MPI_COMBINER_F90_INTEGER        MPI_Type_create_f90_integer
    MPI_COMBINER_RESIZED            MPI_Type_create_resized
 
-If *combiner* is MPI_COMBINER_NAMED, then *datatype* is a named
+If *combiner* is ``MPI_COMBINER_NAMED``, then *datatype* is a named
 predefined data type.
 
 The actual arguments used in the creation call for a data type can be
-obtained from the call MPI_Type_get_contents.
+obtained from the call ``MPI_Type_get_contents``.
 
 ERRORS
 ------

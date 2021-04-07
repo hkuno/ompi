@@ -45,14 +45,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``count``: List length (integer). 
 
+* ``array_of_requests``: Array of requests (array of handles). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``index``: Index of handle for operation that completed (integer). In the range 0 to count-1. In Fortran, the range is 1 to count. 
 
+* ``status``: Status object (status). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

@@ -42,13 +42,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``group1``: First group (handle). 
 
+* ``group2``: Second group (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newgroup``: Union group (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

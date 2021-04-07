@@ -31,14 +31,18 @@ Fortran Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``copy_fn``: Copy callback function for keyval. 
 
+* ``delete_fn``: Delete callback function for keyval. 
 
+* ``extra_state``: Extra state for callback functions. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``keyval``: Key value for future access (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -77,14 +81,14 @@ arbitrary order. Each call to the copy callback is made with a key value
 and its corresponding attribute. If it returns flag = 0, then the
 attribute is deleted in the duplicated communicator. Otherwise ( flag =
 1), the new attribute value is set to the value returned in
-attribute_val_out. The function returns MPI_SUCCESS on success and an
-error code on failure (in which case MPI_Comm_dup will fail).
+attribute_val_out. The function returns ``MPI_SUCCESS`` on success and an
+error code on failure (in which case ``MPI_Comm_dup`` will fail).
 
-copy_fn may be specified as MPI_NULL_COPY_FN or MPI_DUP_FN from either C
-or Fortran; MPI_NULL_COPY_FN is a function that does nothing other than
-return flag = 0, and MPI_SUCCESS. MPI_DUP_FN is a simple-minded copy
+copy_fn may be specified as ``MPI_NULL_COPY_FN`` or ``MPI_DUP_FN`` from either C
+or Fortran; ``MPI_NULL_COPY_FN`` is a function that does nothing other than
+return flag = 0, and ``MPI_SUCCESS``. ``MPI_DUP_FN`` is a simple-minded copy
 function that sets flag = 1, returns the value of attribute_val_in in
-attribute_val_out, and returns MPI_SUCCESS.
+attribute_val_out, and returns ``MPI_SUCCESS``.
 
 NOTES
 -----
@@ -130,17 +134,17 @@ A Fortran declaration for such a function is as follows:
      SUBROUTINE DELETE_FUNCTION(COMM, KEYVAL,ATTRIBUTE_VAL, EXTRA_STATE, IERR)
          INTEGER COMM, KEYVAL, ATTRIBUTE_VAL, EXTRA_STATE, IERR
 
-This function is called by MPI_Comm_free, MPI_Attr_delete, and
-MPI_Attr_put to do whatever is needed to remove an attribute. The
-function returns MPI_SUCCESS on success and an error code on failure (in
-which case MPI_COMM_FREE will fail).
+This function is called by ``MPI_Comm_free``, ``MPI_Attr_delete``, and
+``MPI_Attr_put`` to do whatever is needed to remove an attribute. The
+function returns ``MPI_SUCCESS`` on success and an error code on failure (in
+which case ``MPI_COMM_FREE`` will fail).
 
-delete_fn may be specified as MPI_NULL_DELETE_FN from either C or
-FORTRAN; MPI_NULL_DELETE_FN is a function that does nothing, other than
-returning MPI_SUCCESS.
+delete_fn may be specified as ``MPI_NULL_DELETE_FN`` from either C or
+FORTRAN; ``MPI_NULL_DELETE_FN`` is a function that does nothing, other than
+returning ``MPI_SUCCESS``.
 
-The special key value MPI_KEYVAL_INVALID is never returned by
-MPI_Keyval_create. Therefore, it can be used for static initialization
+The special key value ``MPI_KEYVAL_INVALID`` is never returned by
+``MPI_Keyval_create``. Therefore, it can be used for static initialization
 of key values.
 
 ERRORS

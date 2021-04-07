@@ -48,9 +48,13 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``base``: Base address (integer). 
 
+* ``disp``: Displacement (integer). 
 
+* ``addr1``: Minuend address (integer). 
 
+* ``addr2``: Subtrahend address (integer). 
 
 DESCRIPTION
 -----------
@@ -71,14 +75,14 @@ that originally produced *base* had called:
 
 **MPI_Aint_diff** produces a new MPI_Aint value that is equivalent to
 the difference between *addr1* and *addr2* arguments, where *addr1* and
-*addr2* represent addresses returned by calls to **MPI_Get_address**.
+*addr2* represent addresses returned by calls to ``MPI_Get_address``.
 The resulting address is valid only at the process that generated
 *addr1* and *addr2*, and *addr1* and *addr2* must correspond to
 locations in the same object in the same process, as described in
 MPI-3.1 � 4.1.12. The difference is calculated in a manner that results
 in the signed difference from *addr1* to *addr2*, as if the process that
 originally produced the addresses had called (char \*) *addr1* - (char
-\*) *addr2* on the addresses initially passed to **MPI_Get_address**.
+\*) *addr2* on the addresses initially passed to ``MPI_Get_address``.
 
 SEE ALSO
 --------

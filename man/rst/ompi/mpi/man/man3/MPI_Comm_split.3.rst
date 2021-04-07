@@ -43,14 +43,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``comm``: Communicator (handle). 
 
+* ``color``: Control of subset assignment (nonnegative integer). 
 
+* ``key``: Control of rank assignment (integer). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newcomm``: New communicator (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -73,8 +77,8 @@ processes on each side of the inter-communicator. The function returns
 the inter-communicator, or for those that specify ``MPI_UNDEFINED`` as the
 color.
 
-A call to ``MPI_Comm_create(``comm*, *group*, *newcomm*) is equivalent to a
-call to ``MPI_Comm_split(``comm*, *color*,\ *key*, *newcomm*), where all
+A call to ``MPI_Comm_create(comm``, *group*, *newcomm*) is equivalent to a
+call to ``MPI_Comm_split(comm``, *color*,\ *key*, *newcomm*), where all
 members of *group* provide *color* = 0 and *key* = rank in group, and
 all processes that are not members of *group* provide *color* =
 ``MPI_UNDEFINED``. The function ``MPI_Comm_split`` allows more general

@@ -20,19 +20,27 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``cat_index``: Index of the category to be queried. 
 
 INPUT/OUTPUT PARAMETERS
 -----------------------
 
+* ``name_len``: Length of the string and/or buffer for name. 
 
+* ``desc_len``: Length of the string and/or buffer for desc. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``name``: Buffer to return the string containing the name of the category. 
 
+* ``desc``: Buffer to return the string containing the description of the category. 
 
+* ``num_cvars``: Number of control variables in the category. 
 
+* ``num_pvars``: Number of performance variables in the category. 
 
+* ``num_categories``: Number of categories contained in the category. 
 
 DESCRIPTION
 -----------

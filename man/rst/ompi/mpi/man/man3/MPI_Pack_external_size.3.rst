@@ -48,14 +48,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``datarep``: Data representation (string). 
 
+* ``incount``: Number of input data items (integer). 
 
+* ``datatype``: Datatype of each input data item (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``size``: Upper bound on size of packed message, in bytes (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

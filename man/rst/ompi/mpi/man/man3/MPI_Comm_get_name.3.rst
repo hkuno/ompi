@@ -44,13 +44,16 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``comm``: Communicator the name of which is to be returned (handle). 
 
 OUTPUT PARAMETER
 ----------------
 
+* ``comm_name``: Name previously stored on the communicator, or an empty string if no such name exists (string). 
 
+* ``resultlen``: Length of returned name (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

@@ -40,6 +40,7 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``request``: Communication request (handle). 
 
 DESCRIPTION
 -----------
@@ -97,13 +98,13 @@ receive has completed and the receive buffer can be reused.
        END IF
 
 This routine is normally used to free persistent requests created with
-either *MPI_Recv_init* or *MPI_Send_init* and friends. However, it can
-be used to free a request created with *MPI_Irecv* or *MPI_Isend* and
+either ``MPI_Recv_init`` or ``MPI_Send_init`` and friends. However, it can
+be used to free a request created with ``MPI_Irecv`` or ``MPI_Isend`` and
 friends; in that case the use can not use the test/wait routines on the
 request.
 
 It **is** permitted to free an active request. However, once freed, you
-can not use the request in a wait or test routine (e.g., *MPI_Wait* ).
+can not use the request in a wait or test routine (e.g., ``MPI_Wait`` ).
 
 ERRORS
 ------

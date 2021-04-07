@@ -43,12 +43,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``errhandler``: New error handler for communicator (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

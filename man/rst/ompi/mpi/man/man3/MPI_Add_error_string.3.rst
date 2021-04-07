@@ -44,12 +44,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``errorcode``: MPI error class, or an error code returned by an MPI routine (integer). 
 
+* ``string``: Text that corresponds to the error code or class (string). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

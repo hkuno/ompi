@@ -42,12 +42,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``win``: Window object (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``group``: Group of processes that share access to the window (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

@@ -71,19 +71,28 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``sendbuf``: Address of send buffer (choice, significant only at root). 
 
+* ``sendcount``: Number of elements sent to each process (integer, significant only at root). 
 
+* ``sendtype``: Datatype of send buffer elements (handle, significant only at root). 
 
+* ``recvcount``: Number of elements in receive buffer (integer). 
 
+* ``recvtype``: Datatype of receive buffer elements (handle). 
 
+* ``root``: Rank of sending process (integer). 
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``recvbuf``: Address of receive buffer (choice). 
 
+* ``request``: Request (handle, non-blocking only). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -104,7 +113,7 @@ and each process executed a receive,
        MPI_Recv(recvbuf, recvcount, recvtype, i, ...).
 
 An alternative description is that the root sends a message with
-MPI_Send(*sendbuf*, *sendcount* \* *n*, *sendtype*, ...). This message
+``MPI_Send(sendbuf``, *sendcount* \* *n*, *sendtype*, ...). This message
 is split into *n* equal segments, the ith segment is sent to the ith
 process in the group, and each process receives this message as above.
 
@@ -126,10 +135,10 @@ The specification of counts and types should not cause any location on
 the root to be read more than once.
 
 **Rationale:** Though not needed, the last restriction is imposed so as
-to achieve symmetry with MPI_Gather, where the corresponding restriction
+to achieve symmetry with ``MPI_Gather``, where the corresponding restriction
 (a multiple-write restriction) is necessary.
 
-**Example:** The reverse of Example 1 in the MPI_Gather manpage. Scatter
+**Example:** The reverse of Example 1 in the ``MPI_Gather`` manpage. Scatter
 sets of 100 ints from the root to each process in the group.
 
 ::

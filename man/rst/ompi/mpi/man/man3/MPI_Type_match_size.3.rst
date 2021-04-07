@@ -43,13 +43,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``typeclass``: Generic type specifier (integer). 
 
+* ``size``: Size, in bytes, of representation (integer). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``type``: Datatype with correct type and size (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

@@ -39,6 +39,7 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``level``: Profiling level. 
 
 DESCRIPTION
 -----------

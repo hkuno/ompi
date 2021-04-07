@@ -46,14 +46,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``comm``: Communicator to which the attribute is attached (handle). 
 
+* ``comm_keyval``: Key value (integer). 
 
 OUTPUT PARAMETER
 ----------------
 
+* ``attribute_val``: Attribute value, unless f\ *lag* = false. 
 
+* ``flag``: False if no attribute is associated with the key (logical). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -79,7 +83,7 @@ use the non-portable syntax
 
         INTEGER*MPI_ADDRESS_KIND ATTRIBUTE_VAL
 
-where MPI_ADDRESS_KIND is a constant defined in mpif.h and gives the
+where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS

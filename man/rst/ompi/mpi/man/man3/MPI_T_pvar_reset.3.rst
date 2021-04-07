@@ -18,7 +18,9 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``session``: Performance experiment session. 
 
+* ``handle``: Performance variable handle or MPI_T_PVAR_ALL_HANDLES. 
 
 DESCRIPTION
 -----------

@@ -43,13 +43,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``count``: Replication count (nonnegative integer). 
 
+* ``oldtype``: Old datatype (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newtype``: New datatype (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

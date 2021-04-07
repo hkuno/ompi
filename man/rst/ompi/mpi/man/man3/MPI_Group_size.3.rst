@@ -41,12 +41,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``group``: Group (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``size``: Number of processes in the group (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

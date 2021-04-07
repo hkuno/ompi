@@ -42,12 +42,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``fh``: file with error handler (handle). 
 
+* ``errorcode``: MPI error code (integer). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

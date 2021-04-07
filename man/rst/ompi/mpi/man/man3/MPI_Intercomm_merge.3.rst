@@ -45,13 +45,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``intercomm``: Intercommunicator (type indicator). 
 
+* ``high``: Used to order the groups of the two intracommunicators within comm when creating the new communicator (type indicator). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newintracomm``: Created intracommunicator (type indicator). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

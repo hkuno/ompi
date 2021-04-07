@@ -44,14 +44,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``group``: Group (handle). 
 
+* ``n``: Number of triplets in array ranges (integer). 
 
+* ``ranges``: A one-dimensional array of integer triplets, of the form (first rank, last rank, stride) indicating ranks in group or processes to be included in newgroup. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newgroup``: New group derived from above, in the order defined by ranges (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -82,8 +86,8 @@ zero.
 The functionality of this routine is specified to be equivalent to
 expanding the array of ranges to an array of the included ranks and
 passing the resulting array of ranks and other arguments to
-MPI_Group_incl. A call to MPI_Group_incl is equivalent to a call to
-MPI_Group_range_incl with each rank i in ranks replaced by the triplet
+``MPI_Group_incl``. A call to ``MPI_Group_incl`` is equivalent to a call to
+``MPI_Group_range_incl`` with each rank i in ranks replaced by the triplet
 (i,i,1) in the argument ranges.
 
 NOTE

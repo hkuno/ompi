@@ -51,12 +51,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``datatype``: Datatype (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``size``: Datatype size (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -93,5 +95,5 @@ use the non-portable syntax
 
         INTEGER*MPI_COUNT_KIND SIZE
 
-where MPI_COUNT_KIND is a constant defined in mpif.h and gives the
+where ``MPI_COUNT_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.

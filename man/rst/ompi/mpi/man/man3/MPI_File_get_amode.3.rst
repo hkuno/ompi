@@ -43,12 +43,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``fh``: File handle (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``amode``: File access mode used to open the file (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

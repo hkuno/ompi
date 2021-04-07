@@ -53,17 +53,24 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``datatype``: Data type to access (handle). 
 
+* ``max_integers``: Number of elements in *array_of_integers (nonnegative integer).* 
 
+* ``max_addresses``: Number of elements in *array_of_addresses (nonnegative integer).* 
 
+* ``max_datatypes``: Number of elements in *array_of_datatypes (nonnegative integer).* 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``array_of_integers``: Contains integer arguments used in constructing *datatype (array of integers).* 
 
+* ``array_of_addresses``: Contains address arguments used in constructing *datatype (array of integers).* 
 
+* ``array_of_datatypes``: Contains data-type arguments used in constructing *datatype (array of integers).* 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -124,7 +131,7 @@ use the non-portable syntax
 
         INTEGER*MPI_ADDRESS_KIND ARRAY_OF_ADDRESSES(*)
 
-where MPI_ADDRESS_KIND is a constant defined in mpif.h and gives the
+where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS

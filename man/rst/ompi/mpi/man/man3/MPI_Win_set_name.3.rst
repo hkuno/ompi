@@ -42,15 +42,17 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``win``: Window whose identifier is to be set (handle). 
 
 INPUT PARAMETER
 ---------------
 
+* ``win_name``: The character string used as the name (string). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

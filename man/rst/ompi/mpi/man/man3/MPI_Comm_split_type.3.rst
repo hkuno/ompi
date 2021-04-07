@@ -45,15 +45,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``comm``: Communicator (handle). 
 
+* ``split_type``: Type of processes to be grouped together (integer). 
 
+* ``key``: Control of rank assignment (integer). 
 
+* ``info``: Info argument (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newcomm``: New communicator (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

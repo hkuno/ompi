@@ -52,19 +52,28 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``comm_old``: Input communicator without topology (handle). 
 
+* ``n``: Number of source nodes for which this process specifies edges (non-negative integer). 
 
+* ``sources``: Array containing the *n* source nodes for which this process specifies edges (array of non-negative integers). 
 
+* ``degrees``: Array specifying the number of destinations for each source node in the source node array (array of non-negative integers). 
 
+* ``destinations``: Destination nodes for the source nodes in the source node array (array of non-negative integers). 
 
+* ``weights``: Weights for source to destination edges (array of non-negative integers). 
 
+* ``info``: Hints on optimization and interpretation of weights (handle). 
 
+* ``reorder``: Ranking may be reordered (true) or not (false) (logical). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``comm_dist_graph``: Communicator with distributed graph topology added (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

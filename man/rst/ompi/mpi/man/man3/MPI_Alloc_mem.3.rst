@@ -44,13 +44,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``size``: Size of memory segment in bytes (nonnegative integer). 
 
+* ``info``: Info argument (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``baseptr``: Pointer to beginning of memory segment allocated. 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

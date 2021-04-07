@@ -41,12 +41,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``win``: Window on which to set info hints 
 
+* ``info``: Info object containing hints to be set on *win* 
 
 OUTPUT PARAMETERS
 -----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

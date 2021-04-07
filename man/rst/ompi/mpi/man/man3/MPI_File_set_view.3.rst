@@ -51,19 +51,25 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``fh``: File handle (handle). 
 
 INPUT PARAMETERS
 ----------------
 
+* ``disp``: Displacement (integer). 
 
+* ``etype``: Elementary data type (handle). 
 
+* ``filetype``: File type (handle). See Restrictions, below. 
 
+* ``datarep``: Data representation (string). 
 
+* ``info``: Info object (handle). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -151,7 +157,7 @@ syntax
 
         INTEGER*MPI_OFFSET_KIND DISP
 
-where MPI_OFFSET_KIND is a constant defined in mpif.h and gives the
+where ``MPI_OFFSET_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS

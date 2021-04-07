@@ -48,17 +48,24 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``comm``: Communicator with distributed graph topology (handle). 
 
+* ``maxindegree``: Size of *sources* and *sourceweights* arrays (non-negative integer). 
 
+* ``maxoutdegree``: Size of *destinations* and *destweights* arrays (non-negative integer). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``sources``: Processes for which the calling process is a destination (array of non-negative integers). 
 
+* ``sourceweights``: Weights of the edges into the calling process (array of non-negative integers). 
 
+* ``destinations``: Processes for which the calling process is a source (array of non-negative integers). 
 
+* ``destweights``: Weights of the edges out of the calling process (array of non-negative integers). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

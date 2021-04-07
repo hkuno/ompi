@@ -41,11 +41,12 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``request``: Communication request (handle). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

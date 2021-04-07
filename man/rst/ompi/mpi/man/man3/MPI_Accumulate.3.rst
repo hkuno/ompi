@@ -79,21 +79,31 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``origin_addr``: Initial address of buffer (choice). 
 
+* ``origin_count``: Number of entries in buffer (nonnegative integer). 
 
+* ``origin_datatype``: Data type of each buffer entry (handle). 
 
+* ``target_rank``: Rank of target (nonnegative integer). 
 
+* ``target_disp``: Displacement from start of window to beginning of target buffer (nonnegative integer). 
 
+* ``target_count``: Number of entries in target buffer (nonnegative integer). 
 
+* ``target_datatype``: Data type of each entry in target buffer (handle). 
 
+* ``op``: Reduce operation (handle). 
 
+* ``win``: Window object (handle). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``MPI_Raccumulate``: 
+* ``MPI_Raccumulate``:  RMA request
 
-* ``Fortran only``: 
+
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -142,7 +152,7 @@ non-portable syntax
 
         INTEGER*MPI_ADDRESS_KIND TARGET_DISP
 
-where MPI_ADDRESS_KIND is a constant defined in mpif.h and gives the
+where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTES

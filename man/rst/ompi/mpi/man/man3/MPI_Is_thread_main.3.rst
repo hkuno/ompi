@@ -41,8 +41,9 @@ Fortran 2008 Syntax
 OUTPUT PARAMETERS
 -----------------
 
+* ``flag``: True if calling thread is main thread (boolean). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

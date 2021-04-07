@@ -42,16 +42,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``C only``: 
+* ``argc``: C only: Pointer to the number of arguments. 
 
-* ``C only``: 
+* ``argv``: C only: Argument vector. 
 
+* ``required``: Desired level of thread support (integer). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``provided``: Available level of thread support (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -129,12 +131,12 @@ MPI was built supports threading. You can check the output of
              Thread support: posix (MPI_THREAD_MULTIPLE: yes, OPAL support: yes, OMPI progress: no, Event lib: yes)
    shell$
 
-The "MPI_THREAD_MULTIPLE: yes" portion of the above output indicates
-that Open MPI was compiled with MPI_THREAD_MULTIPLE support.
+The "``MPI_THREAD_MULTIPLE``: yes" portion of the above output indicates
+that Open MPI was compiled with ``MPI_THREAD_MULTIPLE`` support.
 
 Note that there is a small performance penalty for using
-MPI_THREAD_MULTIPLE support; latencies for short messages will be higher
-as compared to when using MPI_THREAD_SINGLE, for example.
+``MPI_THREAD_MULTIPLE`` support; latencies for short messages will be higher
+as compared to when using ``MPI_THREAD_SINGLE``, for example.
 
 ERRORS
 ------

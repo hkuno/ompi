@@ -47,15 +47,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``win``: Shared memory window object (handle). 
 
+* ``rank``: Rank in the group of window *win* (non-negative integer) or MPI_PROC_NULL. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``size``: Size of the window segment (non-negative integer). 
 
+* ``disp_unit``: Local unit size for displacements, in bytes (positive integer). 
 
+* ``baseptr``: Address for load/store access to window segment (choice). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

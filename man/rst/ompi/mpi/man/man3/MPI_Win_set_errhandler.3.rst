@@ -41,15 +41,17 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``win``: Window (handle). 
 
 INPUT PARAMETER
 ---------------
 
+* ``errhandler``: New error handler for window (handle). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

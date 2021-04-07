@@ -45,13 +45,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``function``: User-defined function (function). 
 
+* ``commute``: True if commutative; false otherwise. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``op``: Operation (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -89,7 +92,7 @@ The Fortran declaration of the user-defined function appears below.
       INTEGER LEN, TYPE
 
 The datatype argument is a handle to the data type that was passed into
-the call to MPI_Reduce. The user reduce function should be written such
+the call to ``MPI_Reduce``. The user reduce function should be written such
 that the following holds: Let u[0], ..., u[len-1] be the len elements in
 the communication buffer described by the arguments invec, len, and
 datatype when the function is invoked; let v[0], ..., v[len-1] be len
@@ -116,7 +119,7 @@ General datatypes may be passed to the user function. However, use of
 datatypes that are not contiguous is likely to lead to inefficiencies.
 
 No MPI communication function may be called inside the user function.
-MPI_Abort may be called inside the function in case of an error.
+``MPI_Abort`` may be called inside the function in case of an error.
 
 NOTES
 -----
@@ -186,7 +189,7 @@ Compute the product of an array of complex numbers, in C.
             * resides on process root
             */
 
-The Fortran version of MPI_Reduce will invoke a user-defined reduce
+The Fortran version of ``MPI_Reduce`` will invoke a user-defined reduce
 function using the Fortran calling conventions and will pass a
 Fortran-type datatype argument; the C version will use C calling
 convention and the C representation of a datatype handle. Users who plan

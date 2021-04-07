@@ -42,12 +42,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``size``: Number of processes in the remote group of comm (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

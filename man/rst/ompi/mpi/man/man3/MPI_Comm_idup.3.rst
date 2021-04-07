@@ -43,13 +43,16 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newcomm``: Copy of comm (handle). 
 
+* ``request``: Communication request (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

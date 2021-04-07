@@ -17,7 +17,6 @@
 #      .. code-block:: [LANGUAGE]
 #         :linenos:
 #  - Leave other verbatim blocks alone.
-#  - Fix indentation on bullet lists or (better?) join into a single line
 #  - Combine bullet items into a single line
 #
 #  TODO
@@ -42,12 +41,9 @@ def usage():
 in_fname = sys.argv[1]
 
 # TODO: optionally print to output file
+out_fname=""
 if (len(sys.argv) > 2):
     out_fname=sys.argv[2]
-    with open(out_fname,'w') as outfile:
-        indname=os.path.dirname(in_fname)
-else:
-    outfile=sys.stdout
 
 # TODO: append to output_lines instead of printing lines
 output_lines = list()
@@ -63,6 +59,11 @@ include_pat = re.compile("\.\. include::")
 
 # delimiter line (occurs after the heading text)
 dline=re.compile("^[=]+")
+
+# break out of a literal
+# This is an over-simplification because really a literal block
+# breaks when we return to the previous indentation level.
+unliteral=re.compile("^[A-Za-z]")
 
 # bullet item
 bullet=re.compile("^[\s]*\- ")
@@ -80,7 +81,6 @@ literalpat=re.compile("^::")
 fortran_lang=re.compile(".*Fortran", re.IGNORECASE)
 cpp_lang=re.compile(".*C\+\+", re.IGNORECASE)
 c_lang=re.compile(".*C[^a-zA-Z]", re.IGNORECASE)
-#mpi_lang=re.compile(".*MPI[^a-zA-Z]", re.IGNORECASE)
 
 # repl functions
 def mpicmdrepl(match):
@@ -103,28 +103,32 @@ def get_cb_language(aline):
       LANG="c++" 
     elif c_lang.match(aline):
       LANG="c" 
-#    elif mpi_lang.match(aline):
-#      LANG="mpi" 
     return(LANG)
 
 # for keeping track of state
 BULLETITEM=False
 LITERAL=False
 PARAM=False
-# for tracking combined lines
+
+# So we don't repeat combined or replaced lines
 SKIP=0
 
-
 # Walk through all the lines, working on a section at a time
+# Leave LITERAL sections alone.
+# In PARAMETER sections, combine bullets into a single line.
+# If not a LITERAL section, list MPI commands verbatim: ``MPI_Abort``
+# If a code-block section, add notation.
 for i in range(len(in_lines)):
   curline = in_lines[i].rstrip()
+  if unliteral.match(curline):
+    LITERAL=False
   if (i > 0):
     prevline = in_lines[i-1].rstrip()
   if (i == len(in_lines) - 1):
     if ((not include_pat.match(curline)) and (not LITERAL)):
       curline = re.sub(r'[\*]*[\`]*MPI_[A-Z][\*,()\[\]0-9A-Za-z_]*[()\[\]0-9A-Za-z_]*[\`]*[\*]*',mpicmdrepl,curline)
     if (not SKIP):
-      print(f"{curline}")
+      output_lines.append(f"{curline}")
   else:
     nextline = in_lines[i+1].rstrip()
     if (i + 3 < len(in_lines)):
@@ -133,21 +137,18 @@ for i in range(len(in_lines)):
       nextnextnextline = ""
     if dline.match(nextline):
       LITERAL=False
-#      print(f"136: SKIP is {SKIP}; LITERAL is {LITERAL}; PARAM is {PARAM}")
       PARAM=False
       SKIP+=1
       if paramsect.match(curline):
         PARAM=True
       if (curline.isupper()):
         # level 1 heading
-        print(f"{curline}\n{re.sub('=','-',nextline)}")
+        output_lines.append(f"{curline}\n{re.sub('=','-',nextline)}")
       else:
         # level 2 heading
-        print(f"{curline}\n{re.sub('=','~',nextline)}")
+        output_lines.append(f"{curline}\n{re.sub('=','~',nextline)}")
     elif literalpat.match(curline):
-#        print("LITERAL pat matched")
         LITERAL=True
-#        print(f"150: SKIP is {SKIP}; LITERAL is {LITERAL}; PARAM is {PARAM}")
         prevlangline=prevline
         nextlangline=nextline
         d=1
@@ -158,40 +159,38 @@ for i in range(len(in_lines)):
         LANGUAGE = get_cb_language(prevlangline)
         if (not LANGUAGE):
           if not dline.match(nextnextnextline):
-            print(f"{curline}")
+            output_lines.append(f"{curline}")
         else:
-          print(f".. code-block:: {LANGUAGE}\n   :linenos:\n")
+          output_lines.append(f".. code-block:: {LANGUAGE}\n   :linenos:\n")
           SKIP+=1
     else:
 #      print(f"166: SKIP is {SKIP}; LITERAL is {LITERAL}; PARAM is {PARAM}")
       if (SKIP == 0):
         if LITERAL:
-          print(f"{curline}")
+          output_lines.append(f"{curline}")
         elif PARAM:
           # combine into parameter bullet-item (Note: check if multiline param)
           if not curline:
-            print(f"{curline}") 
+            output_lines.append(f"{curline}") 
           else:
+            paramline2=""
             paramline1 = re.sub('^[ ]*','',curline)
             if (contains_colon.match(curline)):
               paramline1,paramline2 = re.split(r':',paramline1)
-              if not paramline2:
-                paramline2 = re.sub('^[ ]*','',nextline)
-                SKIP+=1
-              else:
-                paramline2 = re.sub('^[ ]*','',nextline)
-                SKIP+=1
-              d=1
+            if not paramline2:
+              paramline2 = re.sub('^[ ]*','',nextline)
+              SKIP+=1
+            d=1
+            nextpline=in_lines[i+d].rstrip()
+            while (nextpline):
+              d += 1
               nextpline=in_lines[i+d].rstrip()
-              while (nextpline):
-                d += 1
-                nextpline=in_lines[i+d].rstrip()
-                paramline2 += ' ' + re.sub('^[ ]*','',nextpline)
-                SKIP += 1
-              print(f"* ``{paramline1}``: {paramline2}\n")
+              paramline2 += ' ' + re.sub('^[ ]*','',nextpline)
+              SKIP += 1
+            output_lines.append(f"* ``{paramline1}``: {paramline2}\n")
               # e.g., turn **MPI_Abort** and *MPI_Abort* into ``MPI_Abort``
         elif ((not LITERAL) and (not dline.match(nextline))):
-          curline = re.sub(r'[\*]*[\`]*MPI_[A-Z][()\[\]0-9A-Za-z_]*[\`]*[\*]*',mpicmdrepl,curline)
+          curline = re.sub(r'[\*]*[\`]*MPI_[A-Z][\*,()\[\]0-9A-Za-z_]*[()\[\]0-9A-Za-z_][\`]*[\*]*',mpicmdrepl,curline)
           if bullet.match(curline):
             d=1
             nextbline=in_lines[i+d].rstrip()
@@ -201,8 +200,17 @@ for i in range(len(in_lines)):
               nextbline=in_lines[i+d].rstrip()
               bline2 += ' ' + re.sub('^[ ]*','',nextbline)
               SKIP += 1
-            print(f"{curline} {bline2}\n")
+            output_lines.append(f"{curline} {bline2}\n")
           else:
-            print(f"{curline}")
+            output_lines.append(f"{curline}")
       else: 
         SKIP-=1
+
+if (out_fname):
+  with open(out_fname,'w') as outfile:
+    sys.stdout = outfile
+    for line in output_lines:
+      print(line) 
+else:
+    for line in output_lines:
+      print(line) 

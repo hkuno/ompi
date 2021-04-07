@@ -43,13 +43,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``p``: Precision, in decimal digits (integer). 
 
+* ``r``: Decimal exponent range (integer). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newtype``: New data type (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -109,7 +112,7 @@ datatype, in these functions.
 If a variable is declared specifying a nondefault KIND value that was
 not obtained with SELECTED_REAL_KIND (i.e., *p* and/or *r* are unknown),
 the only way to obtain a matching MPI datatype is to use the functions
-MPI_Sizeof and MPI_Type_match_size.
+``MPI_Sizeof`` and ``MPI_Type_match_size``.
 
 ERRORS
 ------

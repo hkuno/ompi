@@ -18,6 +18,7 @@ C Syntax
 OUTPUT PARAMETERS
 -----------------
 
+* ``num_cat``: Current number of categories 
 
 DESCRIPTION
 -----------

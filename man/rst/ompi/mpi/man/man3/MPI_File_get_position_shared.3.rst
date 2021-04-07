@@ -44,12 +44,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``fh``: File handle (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``offset``: Offset of the shared file pointer (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -69,7 +71,7 @@ non-portable syntax
 
         INTEGER*MPI_OFFSET_KIND OFFSET
 
-where MPI_ADDRESS_KIND is a constant defined in mpif.h and gives the
+where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS

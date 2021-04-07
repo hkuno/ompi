@@ -42,12 +42,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``comm``: Communicator. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``group``: Remote group of communicator. 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

@@ -29,12 +29,14 @@ Fortran Syntax
 INPUT PARAMETER
 ---------------
 
+* ``comm``: Communicator to get the error handler from (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``errhandler``: MPI error handler currently associated with communicator (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

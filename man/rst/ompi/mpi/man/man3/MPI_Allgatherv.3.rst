@@ -74,19 +74,28 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``sendbuf``: Starting address of send buffer (choice). 
 
+* ``sendcount``: Number of elements in send buffer (integer). 
 
+* ``sendtype``: Datatype of send buffer elements (handle). 
 
+* ``recvcount``: Integer array (of length group size) containing the number of elements that are received from each process. 
 
+* ``displs``: Integer array (of length group size). Entry i specifies the displacement (relative to recvbuf) at which to place the incoming data from process i. 
 
+* ``recvtype``: Datatype of receive buffer elements (handle). 
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``recvbuf``: Address of receive buffer (choice). 
 
+* ``request``: Request (handle, non-blocking only). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -108,8 +117,8 @@ The outcome is as if all processes executed calls to
    MPI_Allgatherv(sendbuf,sendcount,sendtype,recvbuf,recvcount,
                displs,recvtype,root,comm)
 
-for root = 0 , ..., n-1. The rules for correct usage of MPI_Allgatherv
-are easily found from the corresponding rules for MPI_Gatherv.
+for root = 0 , ..., n-1. The rules for correct usage of ``MPI_Allgatherv``
+are easily found from the corresponding rules for ``MPI_Gatherv``.
 
 USE OF IN-PLACE OPTION
 ----------------------
@@ -130,8 +139,8 @@ identical to the case in which all processes executed *n* calls to
 
    for root =0, ... , n-1.
 
-Note that MPI_IN_PLACE is a special kind of value; it has the same
-restrictions on its use as MPI_BOTTOM.
+Note that ``MPI_IN_PLACE`` is a special kind of value; it has the same
+restrictions on its use as ``MPI_BOTTOM``.
 
 Because the in-place option converts the receive buffer into a
 send-and-receive buffer, a Fortran binding that includes INTENT must

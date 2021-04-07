@@ -82,20 +82,30 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``sendbuf``: Starting address of send buffer. 
 
+* ``sendcounts``: Integer array, where entry i specifies the number of elements to send to rank i. 
 
+* ``sdispls``: Integer array, where entry i specifies the displacement (offset from *sendbuf*, in units of *sendtype*) from which to send data to rank i. 
 
+* ``sendtype``: Datatype of send buffer elements. 
 
+* ``recvcounts``: Integer array, where entry j specifies the number of elements to receive from rank j. 
 
+* ``rdispls``: Integer array, where entry j specifies the displacement (offset from *recvbuf*, in units of *recvtype*) to which data from rank j should be written. 
 
+* ``recvtype``: Datatype of receive buffer elements. 
 
+* ``comm``: Communicator over which data is to be exchanged. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``recvbuf``: Address of receive buffer. 
 
+* ``request``: Request (handle, non-blocking only). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status. 
 
 DESCRIPTION
 -----------
@@ -139,9 +149,9 @@ the data is gathered from all the members of the second group and
 received by all the members of the first. The operation exhibits a
 symmetric, full-duplex behavior.
 
-The first group defines the root process. The root process uses MPI_ROOT
+The first group defines the root process. The root process uses ``MPI_ROOT``
 as the value of *root*. All other processes in the first group use
-MPI_PROC_NULL as the value of *root*. All processes in the second group
+``MPI_PROC_NULL`` as the value of *root*. All processes in the second group
 use the rank of the root process in the first group as the value of
 *root*.
 

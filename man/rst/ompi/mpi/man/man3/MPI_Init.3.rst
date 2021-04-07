@@ -39,14 +39,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
-* ``C only``: 
+* ``argc``: C only: Pointer to the number of arguments. 
 
-* ``C only``: 
+* ``argv``: C only: Argument vector. 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

@@ -29,13 +29,16 @@ Fortran Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``comm``: Communicator to which attribute will be attached (handle). 
 
+* ``keyval``: Key value, as returned by MPI_KEYVAL_CREATE (integer). 
 
+* ``attribute_val``: Attribute value. 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

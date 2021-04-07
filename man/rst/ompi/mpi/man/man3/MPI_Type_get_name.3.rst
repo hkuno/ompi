@@ -44,13 +44,16 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``type``: Data type whose name is to be returned (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``type_name``: The name previously stored on the data type, or an empty string if not such name exists (string). 
 
+* ``resultlen``: Length of returned name (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

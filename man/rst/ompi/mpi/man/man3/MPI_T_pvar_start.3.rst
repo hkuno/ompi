@@ -21,7 +21,9 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``session``: Performance experiment session. 
 
+* ``handle``: Performance variable handle. 
 
 DESCRIPTION
 -----------

@@ -72,20 +72,30 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``sendbuf``: Address of send buffer (choice, significant only at root). 
 
+* ``sendcounts``: Integer array (of length group size) specifying the number of elements to send to each processor. 
 
+* ``displs``: Integer array (of length group size). Entry i specifies the displacement (relative to sendbuf) from which to take the outgoing data to process i. 
 
+* ``sendtype``: Datatype of send buffer elements (handle). 
 
+* ``recvcount``: Number of elements in receive buffer (integer). 
 
+* ``recvtype``: Datatype of receive buffer elements (handle). 
 
+* ``root``: Rank of sending process (integer). 
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``recvbuf``: Address of receive buffer (choice). 
 
+* ``request``: Request (handle, non-blocking only). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -125,7 +135,7 @@ have identical values on all processes.
 The specification of counts, types, and displacements should not cause
 any location on the root to be read more than once.
 
-**Example 1:** The reverse of Example 5 in the MPI_Gatherv manpage. We
+**Example 1:** The reverse of Example 5 in the ``MPI_Gatherv`` manpage. We
 have a varying stride between blocks at sending (root) side, at the
 receiving side we receive 100 - *i* elements into the *i*\ th column of
 a 100 x 150 C array at process *i*.
@@ -167,7 +177,7 @@ a 100 x 150 C array at process *i*.
 **Example 2:** The reverse of Example 1 in the MPI_Gather manpage. The
 root process scatters sets of 100 ints to the other processes, but the
 sets of 100 are stride ints apart in the sending buffer. Requires use of
-MPI_Scatterv, where *stride* >= 100.
+``MPI_Scatterv``, where *stride* >= 100.
 
 ::
 

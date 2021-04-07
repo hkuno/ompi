@@ -20,21 +20,31 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``cvar_index``: Index of the control variable to be queried. 
 
 INPUT/OUTPUT PARAMETERS
 -----------------------
 
+* ``name_len``: Length of the string and/or buffer for name. 
 
+* ``desc_len``: Length of the string and/or buffer for desc. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``name``: Buffer to return the string containing the name of the control variable. 
 
+* ``verbosity``: Verbosity level of this variable. 
 
+* ``datatype``: MPI datatype of the information stored in the control variable. 
 
+* ``enumtype``: Optional descriptor for enumeration information. 
 
+* ``desc``: Buffer to return the string containing the description of the control variable. 
 
+* ``bind``: Type of MPI object to which this variable must be bound. 
 
+* ``scope``: Scope of when changes to this variable are possible. 
 
 DESCRIPTION
 -----------
@@ -89,7 +99,7 @@ DATATYPE
 The datatype returned by ``MPI_T_cvar_get_info`` is restricted to one of the
 following datatypes: ``MPI_INT``, ``MPI_UNSIGNED``, ``MPI_UNSIGNED_LONG``,
 ``MPI_UNSIGNED_LONG_LONG``, ``MPI_COUNT``, ``MPI_CHAR``, and ``MPI_DOUBLE``. For more
-information on datatypes in ``MPI_T`` see MPI-3 � 14.3.5.
+information on datatypes in MPI_T see MPI-3 � 14.3.5.
 
 SCOPE
 -----

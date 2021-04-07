@@ -48,15 +48,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``comm``: Communicator (handle). 
 
+* ``filename``: Name of file to open (string). 
 
+* ``amode``: File access mode (integer). 
 
+* ``info``: Info object (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``fh``: New file handle (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

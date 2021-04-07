@@ -21,24 +21,37 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``pvar_index``: Index of the performance variable to be queried. 
 
 INPUT/OUTPUT PARAMETERS
 -----------------------
 
+* ``name_len``: Length of the string and/or buffer for name. 
 
+* ``desc_len``: Length of the string and/or buffer for desc. 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``name``: Buffer to return the string containing the name of the performance variable. 
 
+* ``verbosity``: Verbosity level of this variable. 
 
+* ``var_class``: Class of performance variable. 
 
+* ``datatype``: MPI datatype of the information stored in the performance variable. 
 
+* ``enumtype``: Optional descriptor for enumeration information. 
 
+* ``desc``: Buffer to return the string containing the description of the performance variable. 
 
+* ``bind``: Type of MPI object to which this variable must be bound. 
 
+* ``readonly``: Flag indicating whether the variable can be written/reset. 
 
+* ``continuous``: Flag indicating whether the variable can be started and stopped or is continuously active. 
 
+* ``atomic``: Flag indicating whether the variable can be atomically read and reset. 
 
 DESCRIPTION
 -----------

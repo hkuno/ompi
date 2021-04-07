@@ -44,14 +44,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``comm``: Communicator with graph topology (handle). 
 
+* ``rank``: Rank of process in group of comm (integer). 
 
+* ``maxneighbors``: Size of array neighbors (integer). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``neighbors``: Ranks of processes that are neighbors to specified process (array of integers). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

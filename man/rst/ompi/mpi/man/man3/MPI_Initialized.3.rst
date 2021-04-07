@@ -41,8 +41,9 @@ Fortran 2008 Syntax
 OUTPUT PARAMETERS
 -----------------
 
+* ``flag``: True if MPI has been initialized, and false otherwise (logical). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

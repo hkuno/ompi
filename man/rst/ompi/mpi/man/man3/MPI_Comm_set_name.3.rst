@@ -42,15 +42,17 @@ Fortran 2008 Syntax
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``comm``: Communicator whose identifier is to be set (handle). 
 
 INPUT PARAMETER
 ---------------
 
+* ``comm_name``: Character string to be used as the identifier for the communicator (string). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

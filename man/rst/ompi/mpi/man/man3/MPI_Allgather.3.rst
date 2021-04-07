@@ -71,19 +71,28 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``sendbuf``: Starting address of send buffer (choice). 
 
+* ``sendcount``: Number of elements in send buffer (integer). 
 
+* ``sendtype``: Datatype of send buffer elements (handle). 
 
+* ``recvbuf``: Starting address of recv buffer (choice). 
 
+* ``recvcount``: Number of elements received from any process (integer). 
 
+* ``recvtype``: Datatype of receive buffer elements (handle). 
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``recvbuf``: Address of receive buffer (choice). 
 
+* ``request``: Request (handle, non-blocking only). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -105,11 +114,11 @@ executed n calls to
      MPI_Gather(sendbuf,sendcount,sendtype,recvbuf,recvcount,
                 recvtype,root,comm),
 
-for root = 0 , ..., n-1. The rules for correct usage of MPI_Allgather
-are easily found from the corresponding rules for MPI_Gather.
+for root = 0 , ..., n-1. The rules for correct usage of ``MPI_Allgather``
+are easily found from the corresponding rules for ``MPI_Gather``.
 
-**Example:** The all-gather version of Example 1 in MPI_Gather. Using
-MPI_Allgather, we will gather 100 ints from every process in the group
+**Example:** The all-gather version of Example 1 in ``MPI_Gather``. Using
+``MPI_Allgather``, we will gather 100 ints from every process in the group
 to every process.
 
 ::
@@ -144,8 +153,8 @@ identical to the case in which all processes executed *n* calls to
 
    for root =0, ... , n-1.
 
-Note that MPI_IN_PLACE is a special kind of value; it has the same
-restrictions on its use as MPI_BOTTOM.
+Note that ``MPI_IN_PLACE`` is a special kind of value; it has the same
+restrictions on its use as ``MPI_BOTTOM``.
 
 Because the in-place option converts the receive buffer into a
 send-and-receive buffer, a Fortran binding that includes INTENT must

@@ -43,12 +43,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``filename``: Name of file to delete (string). 
 
+* ``info``: Info object (handle). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

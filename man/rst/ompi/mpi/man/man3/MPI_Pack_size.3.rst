@@ -45,14 +45,18 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``incount``: Count argument to packing call (integer). 
 
+* ``datatype``: Datatype argument to packing call (handle). 
 
+* ``comm``: Communicator argument to packing call (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``size``: Upper bound on size of packed message, in bytes (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

@@ -53,17 +53,24 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``origin_addr``: Initial address of buffer (choice). 
 
+* ``result_addr``: Initial address of result buffer (choice). 
 
+* ``datatype``: Data type of the entry in origin, result, and target buffers (handle). 
 
+* ``target_rank``: Rank of target (nonnegative integer). 
 
+* ``target_disp``: Displacement from start of window to beginning of target buffer (nonnegative integer). 
 
+* ``op``: Reduce operation (handle). 
 
+* ``win``: Window object (handle). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -100,7 +107,7 @@ non-portable syntax
 
         INTEGER*MPI_ADDRESS_KIND TARGET_DISP
 
-where MPI_ADDRESS_KIND is a constant defined in mpif.h and gives the
+where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTES

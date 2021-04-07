@@ -18,7 +18,9 @@ C Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``handle``: Handle of the control variable to be read. 
 
+* ``buf``: Initial address of storage location for variable value. 
 
 DESCRIPTION
 -----------

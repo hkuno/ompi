@@ -69,17 +69,24 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``sendbuf``: Starting address of send buffer (choice). 
 
+* ``recvcounts``: Integer array specifying the number of elements in result distributed to each process. Array must be identical on all calling processes. 
 
+* ``datatype``: Datatype of elements of input buffer (handle). 
 
+* ``op``: Operation (handle). 
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``recvbuf``: Starting address of receive buffer (choice). 
 
+* ``request``: Request (handle, non-blocking only). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

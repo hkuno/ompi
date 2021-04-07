@@ -53,13 +53,16 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``datatype``: Data type (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``lb``: Lower bound of data type (integer). 
 
+* ``extent``: Data type extent (integer). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -91,7 +94,7 @@ non-portable syntax
    or
         INTEGER*MPI_ADDRESS_KIND EXTENT
 
-MPI_Type_get_extent_x:
+``MPI_Type_get_extent_x``:
 
 ::
 
@@ -99,7 +102,7 @@ MPI_Type_get_extent_x:
    or
         INTEGER*MPI_COUNT_KIND EXTENT
 
-where MPI_ADDRESS_KIND and MPI_COUNT_KIND are constants defined in
+where ``MPI_ADDRESS_KIND`` and ``MPI_COUNT_KIND`` are constants defined in
 mpif.h and give the length of the declared integer in bytes.
 
 ERRORS

@@ -47,15 +47,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``info``: Info object (handle). 
 
+* ``key``: Key (string). 
 
+* ``valuelen``: Length of value arg (integer). 
 
 OUTPUT PARAMETER
 ----------------
 
+* ``value``: Value (string). 
 
+* ``flag``: Returns true if key defined, false if not (boolean). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

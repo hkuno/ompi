@@ -18,6 +18,7 @@ C Syntax
 OUTPUT PARAMETERS
 -----------------
 
+* ``num_pvar``: Current number of performance variables. 
 
 DESCRIPTION
 -----------

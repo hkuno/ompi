@@ -70,18 +70,26 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``sendbuf``: Address of send buffer (choice). 
 
+* ``count``: Number of elements in send buffer (integer). 
 
+* ``datatype``: Data type of elements of send buffer (handle). 
 
+* ``op``: Reduce operation (handle). 
 
+* ``root``: Rank of root process (integer). 
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``recvbuf``: Address of receive buffer (choice, significant only at root). 
 
+* ``request``: Request (handle, non-blocking only). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -193,7 +201,7 @@ operations are invoked by placing the following in op:
    	MPI_MAXLOC          max value and location
    	MPI_MINLOC          min value and location
 
-The two operations MPI_MINLOC and MPI_MAXLOC are discussed separately
+The two operations ``MPI_MINLOC`` and ``MPI_MAXLOC`` are discussed separately
 below (MINLOC and MAXLOC). For the other predefined operations, we
 enumerate below the allowed combinations of op and datatype arguments.
 First, define groups of MPI basic datatypes in the following way:
@@ -326,14 +334,14 @@ The operation that defines ``MPI_MAXLOC`` is
             (
             (  j           if u > v)
 
-Both operations are associative and commutative. Note that if MPI_MAXLOC
+Both operations are associative and commutative. Note that if ``MPI_MAXLOC``
 is applied to reduce a sequence of pairs (u(0), 0), (u(1), 1), ...,
 (u(n-1), n-1), then the value returned is (u , r), where u= max(i) u(i)
 and r is the index of the first global maximum in the sequence. Thus, if
 each process supplies a value and its rank within the group, then a
-reduce operation with op = MPI_MAXLOC will return the maximum value and
-the rank of the first process with that value. Similarly, MPI_MINLOC can
-be used to return a minimum and its index. More generally, MPI_MINLOC
+reduce operation with op = ``MPI_MAXLOC`` will return the maximum value and
+the rank of the first process with that value. Similarly, ``MPI_MINLOC`` can
+be used to return a minimum and its index. More generally, ``MPI_MINLOC``
 computes a lexicographic minimum, where elements are ordered according
 to the first component of each pair, and ties are resolved according to
 the second component.
@@ -346,10 +354,10 @@ having the MPI-provided type consist of a pair of the same type as
 value, and coercing the index to this type also. In C, the MPI-provided
 pair type has distinct types and the index is an int.
 
-In order to use MPI_MINLOC and MPI_MAXLOC in a reduce operation, one
+In order to use ``MPI_MINLOC`` and ``MPI_MAXLOC`` in a reduce operation, one
 must provide a datatype argument that represents a pair (value and
 index). MPI provides nine such predefined datatypes. The operations
-MPI_MAXLOC and MPI_MINLOC can be used with each of the following
+``MPI_MAXLOC`` and ``MPI_MINLOC`` can be used with each of the following
 datatypes:
 
 ::
@@ -378,7 +386,7 @@ The data type MPI_2REAL is equivalent to:
 Similar statements apply for MPI_2INTEGER, MPI_2DOUBLE_PRECISION, and
 MPI_2INT.
 
-The datatype MPI_FLOAT_INT is as if defined by the following sequence of
+The datatype ``MPI_FLOAT_INT`` is as if defined by the following sequence of
 instructions.
 
 ::
@@ -391,7 +399,7 @@ instructions.
        block[1] = 1
        MPI_TYPE_STRUCT(2, block, disp, type, MPI_FLOAT_INT)
 
-Similar statements apply for MPI_LONG_INT and MPI_DOUBLE_INT.
+Similar statements apply for ``MPI_LONG_INT`` and ``MPI_DOUBLE_INT``.
 
 **Example 3:** Each process has an array of 30 doubles, in C. For each
 of the 30 locations, compute the value and rank of the process
@@ -498,7 +506,7 @@ index on this process.
            minrank = out.index / LEN;
            minindex = out.index % LEN;
 
-All MPI objects (e.g., MPI_Datatype, MPI_Comm) are of type INTEGER in
+All MPI objects (e.g., ``MPI_Datatype``, ``MPI_Comm)`` are of type INTEGER in
 Fortran.
 
 NOTES ON COLLECTIVE OPERATIONS

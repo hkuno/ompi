@@ -46,13 +46,16 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``service_name``: A service name (string). 
 
+* ``info``: Options to the name service functions (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``port_name``: a port name (string). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

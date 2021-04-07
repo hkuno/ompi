@@ -33,11 +33,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``X``: A Fortran variable of numeric intrinsic type (choice). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``SIZE``: Size of machine representation of that type (integer). 
 
+* ``IERROR``: Error status (integer). 
 
 DESCRIPTION
 -----------

@@ -48,20 +48,27 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``inbuf``: Input buffer start (choice). 
 
+* ``incount``: Number of input data items (integer). 
 
+* ``datatype``: Datatype of each input data item (handle). 
 
+* ``outsize``: Output buffer size, in bytes (integer). 
 
+* ``comm``: Communicator for packed message (handle). 
 
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``position``: Current position in buffer, in bytes (integer). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``outbuf``: Output buffer start (choice). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

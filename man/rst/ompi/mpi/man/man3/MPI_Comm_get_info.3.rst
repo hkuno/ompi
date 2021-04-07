@@ -41,12 +41,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``comm``: Communicator from which to receive active info hints 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``info_used``: New info object returned with all active hints on this communicator. 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

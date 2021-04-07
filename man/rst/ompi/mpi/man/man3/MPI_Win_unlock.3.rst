@@ -42,12 +42,14 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``rank``: Rank of window (nonnegative integer). 
 
+* ``win``: Window object (handle). 
 
 OUTPUT PARAMETER
 ----------------
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

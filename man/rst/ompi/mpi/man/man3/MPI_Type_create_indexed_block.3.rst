@@ -64,15 +64,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``count``: Length of array of displacements (integer). 
 
+* ``blocklength``: Size of block (integer). 
 
+* ``array_of_displacements``: Array of displacements (array of integers). In units of the extent of *oldtype* for MPI_Type_create_indexed_block and bytes for MPI_Type_create_hindexed_block. 
 
+* ``oldtype``: Old data type (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newtype``: New data type (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

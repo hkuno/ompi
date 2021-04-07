@@ -44,11 +44,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``request``: Communication request (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``flag``: Boolean flag, same as from MPI_Test (logical). 
 
+* ``status``: MPI_Status object if flag is true (status). 
 
 DESCRIPTION
 -----------

@@ -51,12 +51,14 @@ names (indeed, the \_fn names are typedefs to the \_function names).
 INPUT PARAMETER
 ---------------
 
+* ``function``: User-defined error-handling procedure (function). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``errhandler``: MPI error handler (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

@@ -47,20 +47,27 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``count``: Maximum number of elements to receive (integer). 
 
+* ``datatype``: Type of each entry (handle). 
 
+* ``source``: Rank of source (integer). 
 
+* ``tag``: Message tag (integer). 
 
+* ``comm``: Communicator (handle). 
 
 INPUT/OUTPUT PARAMETER
 ----------------------
 
+* ``buf``: Initial address of receive buffer (choice). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``request``: Communication request (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

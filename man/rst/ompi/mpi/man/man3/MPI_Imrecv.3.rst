@@ -46,15 +46,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``count``: Number of elements to receive (nonnegative integer). 
 
+* ``datatype``: Datatype of each send buffer element (handle). 
 
+* ``message``: Message (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``buf``: Initial address of receive buffer (choice). 
 
+* ``request``: Request (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

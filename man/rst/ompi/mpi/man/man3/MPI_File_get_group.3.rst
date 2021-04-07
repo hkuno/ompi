@@ -43,12 +43,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``fh``: File handle (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``group``: Group that opened the file (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

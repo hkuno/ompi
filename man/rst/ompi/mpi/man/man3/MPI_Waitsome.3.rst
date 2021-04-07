@@ -50,15 +50,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``incount``: Length of array_of_requests (integer). 
 
+* ``array_of_requests``: Array of requests (array of handles). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``outcount``: Number of completed requests (integer). 
 
+* ``array_of_indices``: Array of indices of operations that completed (array of integers). 
 
+* ``array_of_statuses``: Array of status objects for operations that completed (array of status). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------

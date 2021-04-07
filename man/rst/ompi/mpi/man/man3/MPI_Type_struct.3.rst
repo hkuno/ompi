@@ -35,15 +35,20 @@ Fortran Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``count``: Number of blocks (integer) also number of entries in arrays array_of_types, array_of_displacements, and array_of_blocklengths. 
 
+* ``array_of_blocklengths``: Number of elements in each block (array). 
 
+* ``array_of_displacements``: Byte displacement of each block (array). 
 
+* ``array_of_types``: Type of elements in each block (array of handles to datatype objects). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``newtype``: New datatype (handle). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -62,8 +67,8 @@ replications of different datatypes.
 
        {(double, 0), (char, 8)}
 
-with extent 16. Let B = (2, 1, 3), D = (0, 16, 26), and T = (MPI_FLOAT,
-type1, MPI_CHAR). Then a call to MPI_Type_struct(3, B, D, T, newtype)
+with extent 16. Let B = (2, 1, 3), D = (0, 16, 26), and T = (``MPI_FLOAT``,
+type1, ``MPI_CHAR)``. Then a call to ``MPI_Type_struct(3``, B, D, T, newtype)
 returns a datatype with type map
 
 ::
@@ -72,8 +77,8 @@ returns a datatype with type map
        {(float, 0), (float,4), (double, 16), (char, 24),
        (char, 26), (char, 27), (char, 28)}
 
-That is, two copies of MPI_FLOAT starting at 0, followed by one copy of
-type1 starting at 16, followed by three copies of MPI_CHAR, starting at
+That is, two copies of ``MPI_FLOAT`` starting at 0, followed by one copy of
+type1 starting at 16, followed by three copies of ``MPI_CHAR``, starting at
 26. (We assume that a float occupies 4 bytes.)
 
 For more information, see section 3.12.1 of the MPI-1.1 Standard.
@@ -104,7 +109,7 @@ have allowed an implementation to make the extent an MPI datatype for
 this structure equal to 2*sizeof(int). However, since different systems
 might define different paddings, a clarification to the standard made
 epsilon zero. Thus, if you define a structure datatype and wish to send
-or receive multiple items, you should explicitly include an MPI_UB entry
+or receive multiple items, you should explicitly include an ``MPI_UB`` entry
 as the last member of the structure. For example, the following code can
 be used for the structure foo:
 

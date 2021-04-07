@@ -43,12 +43,14 @@ Fortran 2008 Syntax
 INPUT PARAMETER
 ---------------
 
+* ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``flag (Logical.)``: 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
@@ -70,21 +72,21 @@ inter-communicator, however, they return the following values:
    MPI_Comm_rank	Returns the rank in the local group.
 
 To return the remote group and remote group size of an
-inter-communicator, use the MPI_Comm_remote_group and
-MPI_Comm_remote_size functions.
+inter-communicator, use the ``MPI_Comm_remote_group`` and
+``MPI_Comm_remote_size`` functions.
 
-The operation MPI_Comm_compare is valid for intercommunicators. Both
+The operation ``MPI_Comm_compare`` is valid for intercommunicators. Both
 communicators must be either intra- or intercommunicators, or else
-MPI_UNEQUAL results. Both corresponding local and remote groups must
-compare correctly to get the results MPI_CONGRUENT and MPI_SIMILAR. In
-particular, it is possible for MPI_SIMILAR to result because either the
+``MPI_UNEQUAL`` results. Both corresponding local and remote groups must
+compare correctly to get the results ``MPI_CONGRUENT`` and ``MPI_SIMILAR``. In
+particular, it is possible for ``MPI_SIMILAR`` to result because either the
 local or remote groups were similar but not identical.
 
 The following accessors provide consistent access to the remote group of
-an intercommunicator: MPI_Comm_remote_size, MPI_Comm_remote_group.
+an intercommunicator: ``MPI_Comm_remote_size``, ``MPI_Comm_remote_group``.
 
-The intercommunicator accessors (MPI_Comm_test_inter,
-MPI_Comm_remote_size, MPI_Comm_remote_group) are all local operations.
+The intercommunicator accessors (``MPI_Comm_test_inter``,
+``MPI_Comm_remote_size``, ``MPI_Comm_remote_group)`` are all local operations.
 
 ERRORS
 ------

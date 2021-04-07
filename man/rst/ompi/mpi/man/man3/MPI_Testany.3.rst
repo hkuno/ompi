@@ -48,15 +48,20 @@ Fortran 2008 Syntax
 INPUT PARAMETERS
 ----------------
 
+* ``count``: List length (integer). 
 
+* ``array_of_requests``: Array of requests (array of handles). 
 
 OUTPUT PARAMETERS
 -----------------
 
+* ``index``: Index of operation that completed, or MPI_UNDEFINED if none completed (integer). 
 
+* ``flag``: True if one of the operations is complete (logical). 
 
+* ``status``: Status object (status). 
 
-* ``Fortran only``: 
+* ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
 -----------
