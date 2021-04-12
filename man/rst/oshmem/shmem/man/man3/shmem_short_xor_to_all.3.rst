@@ -1,5 +1,5 @@
 NAME
-----
+~~~~
 
 *shmem_comp4_xor_to_all*\ (3), *shmem_int_xor_to_all*\ (3),
 *shmem_int4_xor_to_all*\ (3), *shmem_int8_xor_to_all*\ (3),
@@ -8,7 +8,7 @@ NAME
 symmetric arrays over the active set of PEs.
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -53,7 +53,7 @@ Fortran:
    & PE_start, logPE_stride, PE_size, pWrk, pSync)
 
 DESCRIPTION
------------
+===========
 
 The shared memory (SHMEM) reduction routines compute one or more
 reductions across symmetric arrays on multiple virtual PEs. A reduction
@@ -153,7 +153,7 @@ local PE: The target array is updated. The values in the pSync array are
 restored to the original values.
 
 NOTES
------
+=====
 
 The terms collective, symmetric, and cache aligned are defined in
 *intro_shmem*\ (3). All SHMEM reduction routines reset the values in
@@ -175,7 +175,7 @@ being called with the same active set, you can allocate two pSync and
 pWrk arrays and alternate between them on successive calls.
 
 EXAMPLES
---------
+========
 
 **Example 1:** This Fortran example statically initializes the pSync
 array and computes the exclusive OR of variable FOO across all even PEs.
@@ -220,6 +220,6 @@ Note that two sets of pWrk and pSync arrays are used alternately because
 no synchronization is done between calls.
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3)

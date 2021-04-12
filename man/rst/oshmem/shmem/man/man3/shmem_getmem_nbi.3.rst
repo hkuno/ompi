@@ -1,5 +1,5 @@
 NAME
-----
+~~~~
 
 *shmem_getmem_nbi*\ (3), *shmem_char_get_nbi*\ (3),
 *shmem_short_get_nbi*\ (3), *shmem_int_get_nbi*\ (3),
@@ -12,7 +12,7 @@ for copying data from a contiguous remote data object on the specified
 PE to the local data object.
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -97,7 +97,7 @@ Fortran:
    CALL SHMEM_GET128_NBI(dest, source, nelems, pe)
 
 DESCRIPTION
------------
+===========
 
 The get routines provide a method for copying a contiguous symmetric
 data object from a different PE to a contiguous data object on the local
@@ -130,12 +130,12 @@ example, a real variable must be declared as REAL, REAL*4, or
 REAL(KIND=4).
 
 NOTES
------
+=====
 
 See *intro_shmem*\ (3) for a definition of the term remotely accessible.
 
 EXAMPLES
---------
+========
 
 Consider this simple example for Fortran.
 
@@ -161,6 +161,6 @@ Consider this simple example for Fortran.
    END
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *shmem_quiet*\ (3)

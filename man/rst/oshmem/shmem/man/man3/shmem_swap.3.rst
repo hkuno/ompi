@@ -1,5 +1,5 @@
 NAME
-----
+~~~~
 
 *shmem_double_swap*\ (3), *shmem_float_swap*\ (3),
 *shmem_int_swap*\ (3), *shmem_long_swap*\ (3), *shmem_swap*\ (3),
@@ -8,7 +8,7 @@ NAME
 swap to a remote data object
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -56,7 +56,7 @@ Fortran:
    res = SHMEM_REAL8_SWAP(target, value, pe)
 
 DESCRIPTION
------------
+===========
 
 The atomic swap routines write **value** to address target on PE **pe**,
 and return the previous contents of **target** in one atomic operation.
@@ -89,17 +89,17 @@ pe
    value.
 
 NOTES
------
+=====
 
 The term remotely accessible is defined in *intro_shmem*\ (3).
 
 RETURN VALUES
--------------
+=============
 
 The contents that had been at the target address on the remote PE prior
 to the swap is returned.
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3)

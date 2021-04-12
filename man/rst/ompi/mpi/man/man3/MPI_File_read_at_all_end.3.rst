@@ -1,15 +1,15 @@
 NAME
-----
+~~~~
 
 ``MPI_File_read_at_all_end`` - Reads a file at explicitly specified
 offsets; ending part of a split collective routine (blocking).
 
 SYNTAX
-------
+======
 
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    	MPI_Status *status)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -31,7 +31,7 @@ Fortran Syntax
    	INTEGER	FH, STATUS(MPI_STATUS_SIZE), IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -44,12 +44,12 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``fh``: File handle (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``buf``: Initial address of buffer (choice). 
 
@@ -58,7 +58,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_File_read_at_all_end`` is a split collective routine that stores the
 number of elements actually read from the file associated with *fh* in
@@ -68,7 +68,7 @@ parts of the file specified by the current view. All other fields of
 *status* are undefined.
 
 NOTES
------
+=====
 
 All the nonblocking collective routines for data access are "split" into
 two routines, each with \_begin or \_end as a suffix. These split
@@ -76,7 +76,7 @@ collective routines are subject to the semantic rules described in
 Section 9.4.5 of the MPI-2 standard.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

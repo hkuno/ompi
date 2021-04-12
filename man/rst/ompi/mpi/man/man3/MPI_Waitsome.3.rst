@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Waitsome`` - Waits for some given communications to complete.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	MPI_Status array_of_statuses[])
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -33,7 +33,7 @@ Fortran Syntax
    	INTEGER	IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -48,14 +48,14 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``incount``: Length of array_of_requests (integer). 
 
 * ``array_of_requests``: Array of requests (array of handles). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``outcount``: Number of completed requests (integer). 
 
@@ -66,7 +66,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Waits until at least one of the operations associated with active
 handles in the list have completed. Returns in outcount the number of
@@ -128,13 +128,13 @@ using ``MPI_Waitsome``.
        END IF
 
 NOTES
------
+=====
 
 The array of indices are in the range 0 to incount-1 for C and in the
 range 1 to incount for Fortran.
 
 ERRORS
-------
+======
 
 For each invocation of ``MPI_Waitsome``, if one or more requests generate an
 MPI error, only the *first* MPI request that caused an error will be
@@ -157,7 +157,7 @@ caller, the value ``MPI_ERR_IN_STATUS`` will be returned in the C and
 Fortran bindings.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Comm_set_errhandler``
 | ``MPI_File_set_errhandler``

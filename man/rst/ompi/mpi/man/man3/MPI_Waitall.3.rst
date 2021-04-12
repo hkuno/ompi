@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Waitall`` - Waits for all given communications to complete.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    	MPI_Status *array_of_statuses)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax
    	INTEGER	ARRAY_OF_STATUSES(MPI_STATUS_SIZE,*), IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -42,21 +42,21 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``count``: Lists length (integer). 
 
 * ``array_of_requests``: Array of requests (array of handles). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``array_of_statuses``: Array of status objects (array of status). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Blocks until all communication operations associated with active handles
 in the list complete, and returns the status of all these operations
@@ -92,7 +92,7 @@ field, you can save resources by using the predefined constant
 *array_of_statuses* argument.
 
 ERRORS
-------
+======
 
 For each invocation of ``MPI_Waitall``, if one or more requests generate an
 MPI error, only the *first* MPI request that caused an error will be
@@ -115,7 +115,7 @@ the value ``MPI_ERR_IN_STATUS`` will be returned in the C and Fortran
 bindings.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Comm_set_errhandler``
 | ``MPI_File_set_errhandler``

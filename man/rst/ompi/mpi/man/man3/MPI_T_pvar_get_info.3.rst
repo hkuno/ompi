@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_T_pvar_get_info`` - Query information from a performance variable
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,19 +19,19 @@ C Syntax
                            int *atomic)
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``pvar_index``: Index of the performance variable to be queried. 
 
 INPUT/OUTPUT PARAMETERS
------------------------
+=======================
 
 * ``name_len``: Length of the string and/or buffer for name. 
 
 * ``desc_len``: Length of the string and/or buffer for desc. 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``name``: Buffer to return the string containing the name of the performance variable. 
 
@@ -54,7 +54,7 @@ OUTPUT PARAMETERS
 * ``atomic``: Flag indicating whether the variable can be atomically read and reset. 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_T_pvar_get_info`` can be used to query information from a performance
 variable. The function returns the verbosity, class, datatype,
@@ -66,7 +66,7 @@ continuous, or atomic are returns in *readonly*, *continuous*, and
 man page for ``MPI_T_cvar_get_info`` for information on variable verbosity.
 
 VARIABLE CLASS
---------------
+==============
 
 Performance variables are categorized into classes which describe their
 initial value, valid types, and behavior. The class returned in the
@@ -135,7 +135,7 @@ initial value, valid types, and behavior. The class returned in the
 For more information see MPI-3 � 14.3.7.
 
 DATATYPE
---------
+========
 
 The datatype returned by ``MPI_T_pvar_get_info`` is restricted to one of the
 following datatypes: ``MPI_INT``, ``MPI_UNSIGNED``, ``MPI_UNSIGNED_LONG``,
@@ -144,7 +144,7 @@ information on datatypes in the MPI Tool information interface see MPI-3
 � 14.3.5.
 
 BINDING
--------
+=======
 
 Performance variables may be bound to an MPI object. The binding
 returned in the *bind* parameter may be one of the following:
@@ -185,7 +185,7 @@ returned in the *bind* parameter may be one of the following:
 For more information see MPI-3 � 14.3.2.
 
 NOTES
------
+=====
 
 This MPI tool interface function returns two strings. This function
 takes two argument for each string: a buffer to store the string, and a
@@ -198,7 +198,7 @@ ignored and the string is not returned. For more information see MPI-3 �
 14.3.3.
 
 ERRORS
-------
+======
 
 ``MPI_T_pvar_get_info()`` will fail if:
 
@@ -209,7 +209,7 @@ ERRORS
    The performance variable index is invalid
 
 SEE ALSO
---------
+========
 
 ::
 

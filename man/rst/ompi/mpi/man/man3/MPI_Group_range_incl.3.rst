@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Group_range_incl`` - Creates a new group from ranges of ranks in
 an existing group.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	MPI_Group *newgroup)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax
    	INTEGER	GROUP, N, RANGES(3,*), NEWGROUP, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -42,7 +42,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``group``: Group (handle). 
 
@@ -51,14 +51,14 @@ INPUT PARAMETERS
 * ``ranges``: A one-dimensional array of integer triplets, of the form (first rank, last rank, stride) indicating ranks in group or processes to be included in newgroup. 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``newgroup``: New group derived from above, in the order defined by ranges (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 If ranges consist of the triplets
 
@@ -91,13 +91,13 @@ passing the resulting array of ranks and other arguments to
 (i,i,1) in the argument ranges.
 
 NOTE
-----
+====
 
 This implementation does not currently check to see that the list of
 ranges to include are valid ranks in the group.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -110,7 +110,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Group_incl``
 | ``MPI_Group_free``

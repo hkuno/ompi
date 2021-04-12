@@ -1,15 +1,15 @@
 NAME
-----
+~~~~
 
 ``MPI_Allgatherv``, ``MPI_Iallgatherv`` - Gathers data from all processes
 and delivers it to all. Each process may contribute a different amount
 of data.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -25,7 +25,7 @@ C Syntax
            MPI_Request *request)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -45,7 +45,7 @@ Fortran Syntax
    	INTEGER	DISPLS(*), RECVTYPE, COMM, REQUEST, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -72,7 +72,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``sendbuf``: Starting address of send buffer (choice). 
 
@@ -89,7 +89,7 @@ INPUT PARAMETERS
 * ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``recvbuf``: Address of receive buffer (choice). 
 
@@ -98,7 +98,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Allgatherv`` is similar to ``MPI_Allgather`` in that all processes gather
 data from all other processes, except that each process can send a
@@ -121,7 +121,7 @@ for root = 0 , ..., n-1. The rules for correct usage of ``MPI_Allgatherv``
 are easily found from the corresponding rules for ``MPI_Gatherv``.
 
 USE OF IN-PLACE OPTION
-----------------------
+======================
 
 When the communicator is an intracommunicator, you can perform an
 all-gather operation in-place (the output buffer is used as the input
@@ -147,7 +147,7 @@ send-and-receive buffer, a Fortran binding that includes INTENT must
 mark these as INOUT, not OUT.
 
 WHEN COMMUNICATOR IS AN INTER-COMMUNICATOR
-------------------------------------------
+==========================================
 
 When the communicator is an inter-communicator, the gather operation
 occurs in two phases. The data is gathered from all the members of the
@@ -159,7 +159,7 @@ receive buffer arguments in the other group, and vice versa. The
 operation must exhibit symmetric, full-duplex behavior.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -172,7 +172,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Gatherv``
 | ``MPI_Allgather``

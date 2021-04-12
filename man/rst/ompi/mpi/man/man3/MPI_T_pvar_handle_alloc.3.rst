@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_T_pvar_handle_alloc``, ``MPI_T_pvar_handle_free`` - Allocate/free
 MPI performance variable handles
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -20,7 +20,7 @@ C Syntax
    int MPI_T_pvar_handle_free(int session, MPI_T_pvar_handle *handle)
 
 DESCRIPTION
------------
+===========
 
 ``MPI_T_pvar_handle_alloc`` binds the performance variable specified in
 *pvar_index* to the MPI object specified in *obj_handle* in the session
@@ -44,7 +44,7 @@ the bind argument in a prior call to ``MPI_T_PVAR_GET_INFO``.
 ``MPI_T_PVAR_HANDLE_NULL``.
 
 ERRORS
-------
+======
 
 ``MPI_T_pvar_handle_alloc()`` will fail if:
 
@@ -67,7 +67,7 @@ ERRORS
    associated with the session argument
 
 SEE ALSO
---------
+========
 
 ::
 

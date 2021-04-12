@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_wait`` - Completes an RMA exposure epoch started by a call to
 ``MPI_Win_post`` on *win*
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Win_wait(MPI_Win win)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER  WIN, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -39,17 +39,17 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``win``: Window object (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Win_wait`` is a one-sided MPI communication synchronization call that
 completes an RMA exposure epoch started by a call to ``MPI_Win_post`` on
@@ -62,7 +62,7 @@ the call returns, all these RMA accesses will have completed at the
 target window.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -75,6 +75,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Win_post``

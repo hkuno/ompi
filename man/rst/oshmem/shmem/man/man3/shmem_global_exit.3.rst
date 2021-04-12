@@ -1,11 +1,11 @@
 NAME
-----
+~~~~
 
 shmem_global_exit - A routine that allows any PE to force termination of
 an entire program.
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -25,7 +25,7 @@ Fortran:
    CALL SHMEM_GLOBAL_EXIT(status)
 
 DESCRIPTION
------------
+===========
 
 shmem_global_exit() shmem_global_exit is a non-collective routine that
 allows any one PE to force termination of an Open- SHMEM program for all
@@ -41,6 +41,6 @@ return to the caller of shmem_global_exit; control is returned from the
 OpenSHMEM program to the execution environment for all PEs.
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *shmem_my_pe*\ (3), *shmem_init*\ (3)

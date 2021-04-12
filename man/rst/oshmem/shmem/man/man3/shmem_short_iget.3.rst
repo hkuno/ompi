@@ -1,5 +1,5 @@
 NAME
-----
+~~~~
 
 *shmem_complex_iget*\ (3), *shmem_double_iget*\ (3),
 *shmem_float_iget*\ (3), *shmem_iget4*\ (3), *shmem_iget8*\ (3),
@@ -11,7 +11,7 @@ NAME
 from a specified processing element (PE)
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -83,7 +83,7 @@ Fortran:
    CALL SHMEM_REAL_IGET(target, source, tst, sst, len, pe)
 
 DESCRIPTION
------------
+===========
 
 The strided get routines retrieve array data available at address source
 on remote PE (pe). The elements of the **source** array are separated by
@@ -174,12 +174,12 @@ example, a real variable must be declared as REAL, REAL*4, or
 REAL(KIND=4).
 
 NOTES
------
+=====
 
 See *intro_shmem*\ (3) for a definition of the term remotely accessible.
 
 EXAMPLES
---------
+========
 
 The following simple example uses shmem_logical_iget in a Fortran
 program. Compile this example with the -lsma compiler option.
@@ -201,6 +201,6 @@ program. Compile this example with the -lsma compiler option.
    END
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *shmem_get*\ (3), *shmem_quiet*\ (3)

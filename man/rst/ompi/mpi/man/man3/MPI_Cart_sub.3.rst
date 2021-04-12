@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Cart_sub`` - Partitions a communicator into subgroups, which form
 lower-dimensional Cartesian subgrids.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Cart_sub(MPI_Comm comm, const int remain_dims[], MPI_Comm *comm_new)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax
    	LOGICAL	REMAIN_DIMS(*)
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -42,21 +42,21 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``comm``: Communicator with Cartesian structure (handle). 
 
 * ``remain_dims``: The ith entry of remain_dims specifies whether the ith dimension is kept in the subgrid (true) or is dropped (false) (logical vector). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``comm_new``: Communicator containing the subgrid that includes the calling process (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 If a Cartesian topology has been created with ``MPI_Cart_create``, the
 function ``MPI_Cart_sub`` can be used to partition the communicator group
@@ -79,7 +79,7 @@ nonoverlapping communicators, each with four processes, in a
 one-dimensional Cartesian topology.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -92,7 +92,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ::
 

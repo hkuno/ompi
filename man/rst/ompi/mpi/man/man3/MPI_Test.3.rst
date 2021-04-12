@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Test`` - Tests for the completion of a specific send or receive.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Test(MPI_Request *request, int *flag, MPI_Status *status)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER	REQUEST, STATUS(MPI_STATUS_SIZE), IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,12 +41,12 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``request``: Communication request (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``flag``: True if operation completed (logical). 
 
@@ -55,7 +55,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 A call to ``MPI_Test`` returns flag = true if the operation identified by
 request is complete. In such a case, the status object is set to contain
@@ -83,7 +83,7 @@ The functions ``MPI_Wait`` and ``MPI_Test`` can be used to complete both sends
 and receives.
 
 NOTES
------
+=====
 
 The use of the nonblocking ``MPI_Test`` call allows the user to schedule
 alternative activities within a single thread of execution. An
@@ -91,7 +91,7 @@ event-driven thread scheduler can be emulated with periodic calls to
 ``MPI_Test``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -113,7 +113,7 @@ error handler returns it. The pre-defined MPI error handler
 ``MPI_ERRORS_RETURN`` exhibits this behavior, for example.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Comm_set_errhandler``
 | ``MPI_File_set_errhandler``

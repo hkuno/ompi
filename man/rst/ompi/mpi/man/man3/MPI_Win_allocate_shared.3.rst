@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_allocate_shared`` - One-sided MPI call that allocates shared
 memory and returns a window object for RMA operations.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
                                 MPI_Comm comm, void *baseptr, MPI_Win *win)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -30,7 +30,7 @@ Fortran Syntax
    	INTEGER DISP_UNIT, INFO, COMM, WIN, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -47,7 +47,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``size``: Size of window in bytes (nonnegative integer). 
 
@@ -58,7 +58,7 @@ INPUT PARAMETERS
 * ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``baseptr``: Initial address of window. 
 
@@ -67,7 +67,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Win_allocate_shared`` is a collective call executed by all
 processes in the group of *comm*. On each process, it allocates memory
@@ -111,7 +111,7 @@ blocking_fence
 For additional supported info keys see ``MPI_Win_create``.
 
 NOTES
------
+=====
 
 Common choices for *disp_unit* are 1 (no scaling), and (in C syntax)
 *sizeof(type)*, for a window that consists of an array of elements of
@@ -120,7 +120,7 @@ calls, and have those scaled correctly to byte displacements, even in a
 heterogeneous environment.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -133,7 +133,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ``MPI_Alloc_mem`` ``MPI_Free_mem`` ``MPI_Win_allocate`` ``MPI_Win_create``
 ``MPI_Win_shared_query``

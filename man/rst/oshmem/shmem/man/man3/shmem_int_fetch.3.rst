@@ -1,5 +1,5 @@
 NAME
-----
+~~~~
 
 *shmem_int4_fetch*\ (3), *shmem_int8_fetch*\ (3),
 *shmem_int_fetch*\ (3), *shmem_long_fetch*\ (3),
@@ -8,7 +8,7 @@ NAME
 object
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -50,7 +50,7 @@ Fortran:
    ires = SHMEM_REAL8_FETCH(target, pe)
 
 DESCRIPTION
------------
+===========
 
 The shmem_fetch functions perform an atomic fetch operation. They return
 the contents of the **target** as an atomic operation.
@@ -66,12 +66,12 @@ pe
    value.
 
 RETURN VALUES
--------------
+=============
 
 The contents at the *target* address on the remote PE. The data type of
 the return value is the same as the the type of the remote data object.
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3)

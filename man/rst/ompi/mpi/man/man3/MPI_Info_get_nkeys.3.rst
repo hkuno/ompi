@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Info_get_nkeys`` - Gets the number of keys currently defined in an
 info object.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Info_get_nkeys(MPI_Info info, int *nkeys)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER		INFO, NKEYS, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -40,25 +40,25 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``info``: Info object (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``nkeys``: Number of defined keys (integer). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Info_get_nkeys`` returns the number of currently defined keys in
 *info*.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -71,7 +71,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Info_get``
 | ``MPI_Info_get_nthkey``

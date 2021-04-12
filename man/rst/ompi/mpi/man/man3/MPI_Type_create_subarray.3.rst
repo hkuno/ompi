@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_create_subarray`` - Creates a data type describing an
 *n*-dimensional subarray of an *n*-dimensional array.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Type_create_subarray(int ndims, const int array_of_sizes[], const int array_of_subsizes[], const int array_of_starts[], int order, MPI_Datatype oldtype, MPI_Datatype *newtype)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -31,7 +31,7 @@ Fortran Syntax
    	ARRAY_OF_STARTS(*), ORDER, OLDTYPE, NEWTYPE, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -46,7 +46,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``ndims``: Number of array dimensions (positive integer). 
 
@@ -61,14 +61,14 @@ INPUT PARAMETERS
 * ``oldtype``: Array element data type (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``newtype``: New data type (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 The subarray type constructor creates an MPI data type describing an
 *n*-dimensional subarray of an *n*-dimensional array. The subarray may
@@ -145,14 +145,14 @@ For an example use of ``MPI_Type_create_subarray`` in the context of I/O,
 see Section 9.9.2 of the MPI-2 standard.
 
 NOTES
------
+=====
 
 In a Fortran program with arrays indexed starting from 1, if the
 starting coordinate of a particular dimension of the subarray is *n*,
 then the entry in array of starts for that dimension is *n*-1.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

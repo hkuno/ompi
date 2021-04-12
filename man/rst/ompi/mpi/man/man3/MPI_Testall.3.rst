@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Testall`` - Tests for the completion of all previously initiated
 communications in a list.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	int *flag, MPI_Status array_of_statuses[])
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -32,7 +32,7 @@ Fortran Syntax
    	INTEGER	ARRAY_OF_STATUSES(MPI_STATUS_SIZE,*), IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -46,14 +46,14 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``count``: Lists length (integer). 
 
 * ``array_of_requests``: Array of requests (array of handles). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``flag``: True if previously initiated communications are complete (logical.) 
 
@@ -62,7 +62,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Returns *flag* = true if all communications associated with active
 handles in the array have completed (this includes the case where no
@@ -85,14 +85,14 @@ Errors that occurred during the execution of ``MPI_Testall`` are handled in
 the same manner as errors in ``MPI_Waitall``.
 
 NOTE
-----
+====
 
 *flag* is true only if all requests have completed. Otherwise, *flag* is
 false, and neither *array_of_requests* nor *array_of_statuses* is
 modified.
 
 ERRORS
-------
+======
 
 For each invocation of ``MPI_Testall``, if one or more requests generate an
 MPI error, only the *first* MPI request that caused an error will be
@@ -115,7 +115,7 @@ the value ``MPI_ERR_IN_STATUS`` will be returned in the C and Fortran
 bindings.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Comm_set_errhandler``
 | ``MPI_File_set_errhandler``

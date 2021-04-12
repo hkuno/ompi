@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_T_pvar_session_create``, ``MPI_T_pvar_session_free`` - Create/free
 performance variable session
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    int MPI_T_pvar_session_free(MPI_T_pvar_session *session)
 
 DESCRIPTION
------------
+===========
 
 ``MPI_T_pvar_session_create`` creates a session for accessing performance
 variables. The new session is returned in the *session* parameter.
@@ -29,7 +29,7 @@ variables. The new session is returned in the *session* parameter.
 ``MPI_T_PVAR_SESSION_NULL``.
 
 ERRORS
-------
+======
 
 ``MPI_T_pvar_session_create()`` will fail if:
 

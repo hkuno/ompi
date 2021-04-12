@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_create_darray`` - Creates a distributed array datatype;
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    	int order, MPI_Datatype oldtype, MPI_Datatype *newtype)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -35,7 +35,7 @@ Fortran Syntax
    		NEWTYPE, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -52,7 +52,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``size``: Size of process group (positive integer). 
 
@@ -73,14 +73,14 @@ INPUT PARAMETERS
 * ``oldtype``: Old data type (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``newtype``: New data type (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Type_create_darray`` can be used to generate the data types
 corresponding to the distribution of an ndims-dimensional array of
@@ -150,7 +150,7 @@ Finally, ``MPI_DISTRIBUTE_CYCLIC`` with *array_of_dargs[i]* equal to
 *array_of_dargs[i]* set to 1.
 
 NOTES
------
+=====
 
 For both Fortran and C arrays, the ordering of processes in the process
 grid is assumed to be row-major. This is consistent with the ordering
@@ -160,7 +160,7 @@ the process grid, etc., users may use the corresponding functions
 provided in MPI-1.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

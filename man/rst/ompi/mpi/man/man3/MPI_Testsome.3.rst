@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Testsome`` - Tests for completion of one or more previously
 initiated communications in a list.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    	MPI_Status array_of_statuses[])
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -33,7 +33,7 @@ Fortran Syntax
    	INTEGER	ARRAY_OF_STATUSES(MPI_STATUS_SIZE,*), IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -48,14 +48,14 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``incount``: Length of array_of_requests (integer). 
 
 * ``array_of_requests``: Array of requests (array of handles). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``outcount``: Number of completed requests (integer). 
 
@@ -66,7 +66,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Behaves like ``MPI_Waitsome``, except that it returns immediately.
 
@@ -101,7 +101,7 @@ field, you can save resources by using the predefined constant
 *array_of_statuses* argument.
 
 NOTES
------
+=====
 
 The use of ``MPI_Testsome`` is likely to be more efficient than the use of
 ``MPI_Testany``. The former returns information on all completed
@@ -116,7 +116,7 @@ is used instead, then one client could starve while requests from
 another client always sneak in first.
 
 ERRORS
-------
+======
 
 For each invocation of ``MPI_Testsome``, if one or more requests generate an
 MPI error, only the *first* MPI request that caused an error will be
@@ -139,7 +139,7 @@ caller, the value ``MPI_ERR_IN_STATUS`` will be returned in the C and
 Fortran bindings.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Comm_set_errhandler``
 | ``MPI_File_set_errhandler``

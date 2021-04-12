@@ -1,15 +1,15 @@
 NAME
-----
+~~~~
 
 ``MPI_Neighbor_alltoallv``, ``MPI_Ineighbor_alltoallv`` - All processes send
 different amounts of data to, and receive different amounts of data
 from, all neighbors
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -27,7 +27,7 @@ C Syntax
    	MPI_Request *request)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -51,7 +51,7 @@ Fortran Syntax
    	INTEGER	COMM, REQUEST, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -81,7 +81,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``sendbuf``: Starting address of send buffer. 
 
@@ -100,7 +100,7 @@ INPUT PARAMETERS
 * ``comm``: Communicator over which data is to be exchanged. 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``recvbuf``: Address of receive buffer. 
 
@@ -109,7 +109,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status. 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Neighbor_alltoallv`` is a generalized collective operation in which
 all processes send data to and receive data from all neighbors. It adds
@@ -150,7 +150,7 @@ than it receives from process j. Also, a process may send entirely
 different amounts of data to different processes in the communicator.
 
 NEIGHBOR ORDERING
------------------
+=================
 
 For a distributed graph topology, created with ``MPI_Dist_graph_create``,
 the sequence of neighbors in the send and receive buffers at each
@@ -178,7 +178,7 @@ is still part of the sequence of neighbors but it is neither
 communicated nor updated.
 
 NOTES
------
+=====
 
 The ``MPI_IN_PLACE`` option for *sendbuf* is not meaningful for this
 operation.
@@ -194,7 +194,7 @@ The offsets of *sdispls* and *rdispls* are measured in units of
 ``MPI_Neighbor_alltoallw``, where these offsets are measured in bytes.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -207,7 +207,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ::
 

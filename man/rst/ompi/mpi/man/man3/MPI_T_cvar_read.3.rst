@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_T_cvar_read`` - Read the value of a control variable
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,14 +16,14 @@ C Syntax
    int MPI_T_cvar_read(MPI_T_cvar_handle handle, const void *buf)
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``handle``: Handle of the control variable to be read. 
 
 * ``buf``: Initial address of storage location for variable value. 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_T_cvar_read`` reads the value of the control variable identified by
 the handle specified in *handle* and stores the value in the buffer
@@ -32,7 +32,7 @@ by *buf* is large enough to hold the entire value of the control
 variable.
 
 ERRORS
-------
+======
 
 ``MPI_T_cvar_read()`` will fail if:
 
@@ -43,7 +43,7 @@ ERRORS
    The handle is invalid
 
 SEE ALSO
---------
+========
 
 ::
 

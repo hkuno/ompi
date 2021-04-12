@@ -1,10 +1,10 @@
 NAME
-----
+~~~~
 
 intro_shmem - Introduction to the OpenSHMEM programming model
 
 DESCRIPTION
------------
+===========
 
 The SHMEM programming model consists of library routines that provide
 low-latency, high-bandwidth communication for use in highly parallelized
@@ -35,7 +35,7 @@ atomic memory operation is an atomic read-and-update operation, such as
 a fetch-and-increment, on a remote or local data object.
 
 OPENSHMEM ROUTINES
-------------------
+==================
 
 This section lists the significant OpenSHMEM message-passing routines.
 
@@ -813,7 +813,7 @@ Collective Routines
       *shmem_xor*\ (3)
 
 USING THE SYMMETRIC WORK ARRAY, PSYNC
--------------------------------------
+=====================================
 
 Multiple pSync arrays are often needed if a particular PE calls as
 OpenSHMEM collective routine twice without intervening barrier
@@ -841,7 +841,7 @@ multiple calls that use the same pSync array do not require that pSync
 be reinitialized after the first call.
 
 SHMEM ENVIRONMENT VARIABLES
----------------------------
+===========================
 
 This section lists the significant SHMEM environment variables.
 
@@ -866,7 +866,7 @@ Calling any other SHMEM routines beforehand has undefined behavior.
 Multiple calls to this routine is not allowed.
 
 COMPILING AND RUNNING OPENSHMEM PROGRAMS
-----------------------------------------
+========================================
 
 The OpenSHMEM specification is silent regarding how OpenSHMEM programs
 are compiled, linked and run. This section shows some examples of how
@@ -902,7 +902,7 @@ purpose (named **oshrun** for this example):
    oshrun -np 32 ./a.out
 
 EXAMPLES
---------
+========
 
 **Example 1**: The following Fortran OpenSHMEM program directs all PEs
 to sum simultaneously the numbers in the VALUES variable across all PEs:
@@ -948,7 +948,7 @@ to sum simultaneously the numbers in the VALUES variable across all PEs:
    }
 
 SEE ALSO
---------
+========
 
 The following man pages also contain information on OpenSHMEM routines.
 See the specific man pages for implementation information.

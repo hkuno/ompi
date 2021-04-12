@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Topo_test`` - Determines the type of topology (if any) associated
 with a communicator.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Topo_test(MPI_Comm comm, int *top_type)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER	COMM, TOP_TYPE, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -42,19 +42,19 @@ Fortran 2008 Syntax
    		DOUBLE PRECISION MPI_Wtime()
 
 INPUT PARAMETER
----------------
+===============
 
 * ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``top_type``: Topology type of communicator comm (choice). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 The function ``MPI_Topo_test`` returns the type of topology that is assigned
 to a communicator.
@@ -69,7 +69,7 @@ The output value *top_type* is one of the following:
        MPI_UNDEFINED	no topology
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -82,7 +82,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Graph_create``
 | ``MPI_Cart_create``

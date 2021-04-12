@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Pack_size`` - Returns the upper bound on the amount of space
 needed to pack a message.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	int *size)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax
    	INTEGER	INCOUNT, DATATYPE, COMM, SIZE, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -43,7 +43,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``incount``: Count argument to packing call (integer). 
 
@@ -52,14 +52,14 @@ INPUT PARAMETERS
 * ``comm``: Communicator argument to packing call (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``size``: Upper bound on size of packed message, in bytes (integer). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Pack_size`` allows the application to find out how much space is
 needed to pack a message. A call to ``MPI_Pack_size(incount``, datatype,
@@ -73,7 +73,7 @@ depend on the context (e.g., first message packed in a packing unit may
 take more space).
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -86,7 +86,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Pack``
 | ``MPI_Unpack``

@@ -1,15 +1,15 @@
 NAME
-----
+~~~~
 
 ``MPI_File_read`` - Reads a file starting at the location specified by
 the individual file pointer (blocking, noncollective).
 
 SYNTAX
-------
+======
 
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    	int count, MPI_Datatype datatype, MPI_Status *status)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -32,7 +32,7 @@ Fortran Syntax
    	INTEGER	FH, COUNT, DATATYPE, STATUS(MPI_STATUS_SIZE),IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -47,7 +47,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``fh``: File handle (handle). 
 
@@ -56,7 +56,7 @@ INPUT PARAMETERS
 * ``datatype``: Data type of each buffer element (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``buf``: Initial address of buffer (integer). 
 
@@ -65,7 +65,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_File_read`` attempts to read from the file associated with *fh* (at
 the current individual file pointer position maintained by the system) a
@@ -79,7 +79,7 @@ It is erroneous to call this function if ``MPI_MODE_SEQUENTIAL`` mode was
 specified when the file was opened.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Comm_spawn_multiple`` - Spawns multiple binaries, or the same
 binary with multiple sets of arguments.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -20,7 +20,7 @@ C Syntax
    	int array_of_errcodes[])
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -35,7 +35,7 @@ Fortran Syntax
    	CHARACTER*(*) ARRAY_OF_COMMANDS(*), ARRAY_OF_ARGV(COUNT, *)
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -54,7 +54,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``count``: Number of commands (positive integer, significant to MPI only at *root* -- see NOTES). 
 
@@ -71,7 +71,7 @@ INPUT PARAMETERS
 * ``comm``: Intracommunicator containing group of spawning processes (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``intercomm``: Intercommunicator between original group and the newly spawned group (handle). 
 
@@ -80,7 +80,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Comm_spawn_multiple`` is identical to ``MPI_Comm_spawn(3)`` except that it
 can specify multiple executables. The first argument, *count*, indicates
@@ -130,7 +130,7 @@ corresponds to the i contiguous slots in this array from element
 Error codes are treated as for ``MPI_Comm_spawn(3)``.
 
 INFO ARGUMENTS
---------------
+==============
 
 The following keys for *info* are recognized in "#PACKAGE_NAME#". (The
 reserved values mentioned in Section 5.3.4 of the MPI-2 standard are not
@@ -229,7 +229,7 @@ Note that in "#PACKAGE_NAME#", the first array location in
 *array_of_info* is applied to all the commands in *array_of_commands*.
 
 NOTES
------
+=====
 
 The argument *count* is interpreted by MPI only at the root, as is
 *array_of_argv*. Since the leading dimension of *array_of_argv* is
@@ -267,7 +267,7 @@ you may get better performance by using ``MPI_Comm_spawn_multiple`` instead
 of calling ``MPI_Comm_spawn(3)`` several times.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -280,7 +280,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ::
 

@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Unpack`` - Unpacks a datatype into contiguous memory.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	MPI_Comm comm)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -32,7 +32,7 @@ Fortran Syntax
    		COMM, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -49,7 +49,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``inbuf``: Input buffer start (choice). 
 
@@ -62,19 +62,19 @@ INPUT PARAMETERS
 * ``comm``: Communicator for packed message (handle). 
 
 INPUT/OUTPUT PARAMETER
-----------------------
+======================
 
 * ``position``: Current position in bytes (integer). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``outbuf``: Output buffer start (choice). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Unpacks a message into the receive buffer specified by outbuf, outcount,
 datatype from the buffer space specified by inbuf and insize. The output
@@ -88,7 +88,7 @@ by the message that was unpacked. *comm* is the communicator used to
 receive the packed message.
 
 NOTES
------
+=====
 
 Note the difference between ``MPI_Recv`` and ``MPI_Unpack``: In ``MPI_Recv``, the
 *count* argument specifies the maximum number of items that can be
@@ -145,7 +145,7 @@ related sequence of pack calls or by a regular send must be unpacked as
 a unit, by a sequence of related unpack calls.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -158,7 +158,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Pack``
 | ``MPI_Pack_size``

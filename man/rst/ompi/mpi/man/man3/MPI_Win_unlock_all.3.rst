@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_unlock_all`` - Completes an RMA access epoch started by a call
 to ``MPI_Win_lock_all``.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Win_unlock_all(MPI_Win win)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER WIN, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -39,17 +39,17 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``win``: Window object (handle). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Win_unlock_all`` completes an RMA access epoch started by a call to
 ``MPI_Win_lock_all``. RMA operations issued during this period will have
@@ -65,7 +65,7 @@ shared lock will not be concurrent at the window site with accesses
 protected by an exclusive lock to the same window.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -78,6 +78,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Win_lock_all`` ``MPI_Win_unlock``

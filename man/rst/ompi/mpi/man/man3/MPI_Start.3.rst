@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Start`` - Initiates a communication using a persistent request
 handle.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Start(MPI_Request *request)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER	REQUEST, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -39,17 +39,17 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``request``: Communication request (handle). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 A communication (send or receive) that uses a persistent request is
 initiated by the function ``MPI_Start``.
@@ -74,7 +74,7 @@ created by ``MPI_Bsend_init`` starts a communication in the same manner as a
 call to ``MPI_Ibsend``; and so on.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -87,7 +87,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Bsend_init``
 | ``MPI_Rsend_init``

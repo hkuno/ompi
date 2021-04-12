@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_delete_attr`` - Deletes an attribute from a window.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Win_delete_attr(MPI_Win win, int win_keyval)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,7 +27,7 @@ Fortran Syntax
    	INTEGER WIN, WIN_KEYVAL, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -39,22 +39,22 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT/OUTPUT PARAMETER
-----------------------
+======================
 
 * ``win``: Window from which the attribute is deleted (handle). 
 
 INPUT PARAMETER
----------------
+===============
 
 * ``win_keyval``: Key value (integer). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 NOTES
------
+=====
 
 Note that it is not defined by the MPI standard what happens if the
 delete_fn callback invokes other MPI functions. In Open MPI, it is not
@@ -63,7 +63,7 @@ delete attributes on the same object on which the delete_fn callback is
 being invoked.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

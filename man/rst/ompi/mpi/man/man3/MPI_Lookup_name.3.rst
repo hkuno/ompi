@@ -1,15 +1,15 @@
 NAME
-----
+~~~~
 
 ::
 
    MPI_Lookup_name - Finds port associated with a service name
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    	char *port_name)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -31,7 +31,7 @@ Fortran Syntax
    	INTEGER		INFO, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -44,21 +44,21 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``service_name``: A service name (string). 
 
 * ``info``: Options to the name service functions (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``port_name``: a port name (string). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 This function retrieves a *port_name* published under *service_name* by
 a previous invocation of ``MPI_Publish_name``. The application must supply a
@@ -66,7 +66,7 @@ a previous invocation of ``MPI_Publish_name``. The application must supply a
 (i.e., ``MPI_MAX_PORT_NAME`` bytes).
 
 INFO ARGUMENTS
---------------
+==============
 
 The following keys for *info* are recognized:
 
@@ -99,7 +99,7 @@ search will default to global scope first, followed by local. Otherwise,
 the search will default to local.
 
 NAME SCOPE
-----------
+==========
 
 Open MPI supports two name scopes: *global* and *local*. Local scope
 values are placed in a data store located on the mpirun of the calling
@@ -112,7 +112,7 @@ For a more detailed description of scoping rules, please see the
 ``MPI_Publish_name`` man page.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -127,7 +127,7 @@ guarantee that an MPI program can continue past an error.
 See the MPI man page for a full list of MPI error codes.
 
 SEE ALSO
---------
+========
 
 ::
 

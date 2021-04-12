@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_create`` - One-sided MPI call that returns a window object for
 RMA operations.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	MPI_Info info, MPI_Comm comm, MPI_Win *win)
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -31,7 +31,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	INTEGER DISP_UNIT, INFO, COMM, WIN, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -47,7 +47,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``base``: Initial address of window (choice). 
 
@@ -60,14 +60,14 @@ INPUT PARAMETERS
 * ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``win``: Window object returned by the call (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Win_create`` is a one-sided MPI communication collective call executed
 by all processes in the group of *comm*. It returns a window object that
@@ -123,7 +123,7 @@ same_disp_unit
    processes have provided this info key with the same value.
 
 NOTES
------
+=====
 
 Common choices for *disp_unit* are 1 (no scaling), and (in C syntax)
 *sizeof(type)*, for a window that consists of an array of elements of
@@ -136,7 +136,7 @@ window boundaries (such as word, double-word, cache line, page frame,
 and so on).
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the *SIZE*
 argument only for Fortran 90. FORTRAN 77 users may use the non-portable
@@ -150,7 +150,7 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -163,6 +163,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ``MPI_Alloc_mem`` ``MPI_Free_mem`` ``MPI_Win_allocate`` ``MPI_Win_allocate_shared``

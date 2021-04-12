@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Pcontrol`` - Controls profiling.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Pcontrol(const int level, ... )
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,7 +27,7 @@ Fortran Syntax
    	INTEGER	LEVEL
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -37,12 +37,12 @@ Fortran 2008 Syntax
    	INTEGER, INTENT(IN) :: level
 
 INPUT PARAMETER
----------------
+===============
 
 * ``level``: Profiling level. 
 
 DESCRIPTION
------------
+===========
 
 MPI libraries themselves make no use of this routine; they simply return
 immediately to the user code. However the presence of calls to this
@@ -83,7 +83,7 @@ profiling information, but still be able to link exactly the same code
 against the standard MPI library.
 
 NOTES
------
+=====
 
 This routine provides a common interface for profiling control. The
 interpretation of level and any other arguments is left to the profiling

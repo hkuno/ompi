@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Pack_external_size`` - Calculates upper bound on space needed to
 write to a portable format
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	MPI_Datatype datatype, MPI_Aint *size)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -32,7 +32,7 @@ Fortran Syntax
    	CHARACTER*(*)	DATAREP
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -46,7 +46,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``datarep``: Data representation (string). 
 
@@ -55,14 +55,14 @@ INPUT PARAMETERS
 * ``datatype``: Datatype of each input data item (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``size``: Upper bound on size of packed message, in bytes (integer). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Pack_external_size`` allows the application to find out how much space
 is needed to pack a message in the portable format defined by the MPI
@@ -76,14 +76,14 @@ and alignment (e.g., the first message packed in a packing unit may take
 more space).
 
 NOTES
------
+=====
 
 The *datarep* argument specifies the data format. The only valid value
 in the current version of MPI is "external32". The argument is provided
 for future extensibility.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -98,7 +98,7 @@ guarantee that an MPI program can continue past an error.
 See the MPI man page for a full list of MPI error codes.
 
 SEE ALSO
---------
+========
 
 ::
 

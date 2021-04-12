@@ -1,11 +1,11 @@
 NAME
-----
+~~~~
 
 shmem_my_pe, my_pe, \_my_pe - Returns the virtual PE number of the
 calling PE.
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -26,7 +26,7 @@ Fortran:
    I = MY_PE ()
 
 DESCRIPTION
------------
+===========
 
 my_pe() or shmem_my_pe() return the processing element (PE) number of
 the calling PE. It accepts no arguments. The result is an integer
@@ -34,6 +34,6 @@ between 0 and npes - 1, where npes is the total number of PEs executing
 the current program.
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *shmem_n_pes*\ (3), *shmem_init*\ (3)

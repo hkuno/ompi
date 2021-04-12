@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Errhandler_create`` - Creates an MPI-style error handler -- use of
 this routine is deprecated.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	MPI_Errhandler *errhandler)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,19 +29,19 @@ Fortran Syntax
    	INTEGER	ERRHANDLER, IERROR
 
 INPUT PARAMETER
----------------
+===============
 
 * ``function``: User-defined error handling procedure. 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``errhandler``: MPI error handler (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Note that use of this routine is *deprecated* as of MPI-2. Please use
 ``MPI_Comm_create_errhandler`` instead.
@@ -66,7 +66,7 @@ clearly document these arguments. Addresses are used so that the handler
 may be written in Fortran.
 
 NOTE
-----
+====
 
 The MPI-1 Standard states that an implementation may make the output
 value (errhandler) simply the address of the function. However, the
@@ -76,7 +76,7 @@ addition, the actual error handler must remain until all communicators
 that use it are freed.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -89,7 +89,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 |
 | ``MPI_Comm_create_errhandler``

@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_set_name`` - Sets the name of a window.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Win_set_name(MPI_Win win, const char *win_name)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	CHARACTER*(*) WIN_NAME
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -40,25 +40,25 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT/OUTPUT PARAMETER
-----------------------
+======================
 
 * ``win``: Window whose identifier is to be set (handle). 
 
 INPUT PARAMETER
----------------
+===============
 
 * ``win_name``: The character string used as the name (string). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

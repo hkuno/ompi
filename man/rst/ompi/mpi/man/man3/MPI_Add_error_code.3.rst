@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Add_error_code`` - Creates a new error code associated with
 *errorclass*
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Add_error_code(int errorclass, int *errorcode)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER  ERRORCLASS, ERRORCODE, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -40,25 +40,25 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``errorclass``: MPI error class (integer). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``errorcode``: Error code returned by an MPI routine or an MPI error class (integer). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Creates a new error code associated with *errorclass* and returns its
 value in *errorcode*.
 
 NOTES
------
+=====
 
 No function is provided to free error codes, as it is not expected that
 an application will create them in significant numbers.
@@ -66,7 +66,7 @@ an application will create them in significant numbers.
 The value returned is always greater than or equal to ``MPI_ERR_LASTCODE``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -79,7 +79,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ::
 

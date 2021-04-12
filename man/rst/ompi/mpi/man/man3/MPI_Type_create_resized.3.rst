@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_create_resized`` - Returns a new data type with new extent
 and upper and lower bounds.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	MPI_Aint extent, MPI_Datatype *newtype)
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -30,7 +30,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	INTEGER(KIND=MPI_ADDRESS_KIND)	LB, EXTENT
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -43,7 +43,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``oldtype``: Input data type (handle). 
 
@@ -52,14 +52,14 @@ INPUT PARAMETERS
 * ``extent``: New extent of data type (integer). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``newtype``: Output data type (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Type_create_resized`` returns in *newtype* a handle to a new data type
 that is identical to *oldtype*, except that the lower bound of this new
@@ -71,7 +71,7 @@ of the data type when used in communication operations, with *count* >
 1, and when used in the construction of new derived data types.
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the *LB* and
 *EXTENT* arguments only for Fortran 90. FORTRAN 77 users may use the
@@ -87,13 +87,13 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTE
-----
+====
 
 Use of ``MPI_Type_create_resized`` is strongly recommended over the old
 MPI-1 functions ``MPI_Type_extent`` and ``MPI_Type_lb``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -106,6 +106,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ``MPI_Type_get_extent``

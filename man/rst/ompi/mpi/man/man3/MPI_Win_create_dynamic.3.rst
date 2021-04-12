@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_create_dynamic`` - One-sided MPI call that returns a window
 object for RMA operations.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    MPI_Win_create_dynamic(MPI_Info info, MPI_Comm comm, MPI_Win *win)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER INFO, COMM, WIN, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,21 +41,21 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``info``: Info argument (handle). 
 
 * ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``win``: Window object returned by the call (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Win_create_dynamic`` is a one-sided MPI communication collective call
 executed by all processes in the group of *comm*. It returns a window
@@ -89,7 +89,7 @@ accumulate_ops
    *same_op_no_op*.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

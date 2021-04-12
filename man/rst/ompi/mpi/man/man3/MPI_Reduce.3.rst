@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Reduce``, ``MPI_Ireduce`` - Reduces values on all processes within a
 group.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -23,7 +23,7 @@ C Syntax
                    MPI_Comm comm, MPI_Request *request)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,7 +41,7 @@ Fortran Syntax
    	INTEGER	COUNT, DATATYPE, OP, ROOT, COMM, REQUEST, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -68,7 +68,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``sendbuf``: Address of send buffer (choice). 
 
@@ -83,7 +83,7 @@ INPUT PARAMETERS
 * ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``recvbuf``: Address of receive buffer (choice, significant only at root). 
 
@@ -92,7 +92,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 The global reduce functions (``MPI_Reduce``, ``MPI_Op_create``, ``MPI_Op_free``,
 ``MPI_Allreduce``, ``MPI_Reduce_scatter``, ``MPI_Scan)`` perform a global reduce
@@ -122,7 +122,7 @@ and datatype = ``MPI_FLOAT)``, then recvbuf(1) = global max (sendbuf(1)) and
 recvbuf(2) = global max(sendbuf(2)).
 
 USE OF IN-PLACE OPTION
-----------------------
+======================
 
 When the communicator is an intracommunicator, you can perform a reduce
 operation in-place (the output buffer is used as the input buffer). Use
@@ -138,7 +138,7 @@ send-and-receive buffer, a Fortran binding that includes INTENT must
 mark these as INOUT, not OUT.
 
 WHEN COMMUNICATOR IS AN INTER-COMMUNICATOR
-------------------------------------------
+==========================================
 
 When the communicator is an inter-communicator, the root process in the
 first group combines data from all the processes in the second group and
@@ -152,7 +152,7 @@ the receive buffer arguments are significant in the root process of the
 first group.
 
 PREDEFINED REDUCE OPERATIONS
-----------------------------
+============================
 
 The set of predefined operations provided by MPI is listed below
 (Predefined Reduce Operations). That section also enumerates the
@@ -286,7 +286,7 @@ answer at process zero.
        RETURN
 
 MINLOC AND MAXLOC
------------------
+=================
 
 The operator ``MPI_MINLOC`` is used to compute a global minimum and also an
 index attached to the minimum value. ``MPI_MAXLOC`` similarly computes a
@@ -510,7 +510,7 @@ All MPI objects (e.g., ``MPI_Datatype``, ``MPI_Comm)`` are of type INTEGER in
 Fortran.
 
 NOTES ON COLLECTIVE OPERATIONS
-------------------------------
+==============================
 
 The reduction functions ( ``MPI_Op`` ) do not return an error value. As a
 result, if the functions detect an error, all they can do is either call
@@ -522,7 +522,7 @@ The reason for this is the performance problems in ensuring that all
 collective routines return the same error value.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -535,7 +535,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Allreduce``
 | ``MPI_Reduce_scatter``

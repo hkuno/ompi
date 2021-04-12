@@ -1,15 +1,15 @@
 NAME
-----
+~~~~
 
 ``MPI_File_get_info`` - Returns a new info object containing values for
 current hints associated with a file.
 
 SYNTAX
-------
+======
 
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    int MPI_File_get_info(MPI_File fh, MPI_Info *info_used)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax
    	INTEGER	FH, INFO_USED, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,19 +41,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``fh``: File handle (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``info_used``: New info object (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_File_get_info`` returns a new info object containing all the hints
 that the system currently associates with the file *fh*. The current
@@ -69,7 +69,7 @@ hints that the user has not requested to be set. See the HINTS section
 for a list of hints that can be set.
 
 HINTS
------
+=====
 
 The following hints can be used as values for the *info_used* argument.
 
@@ -116,7 +116,7 @@ NON-SETTABLE HINTS:
 
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

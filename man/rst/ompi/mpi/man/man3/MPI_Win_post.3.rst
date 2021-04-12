@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_post`` - Starts an RMA exposure epoch for the local window
 associated with *win*
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Win_post(MPI_Group group, int assert, MPI_Win win)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER GROUP, ASSERT, WIN, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,7 +41,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``group``: The group of origin processes (handle) 
 
@@ -50,12 +50,12 @@ INPUT PARAMETERS
 * ``win``: Window object (handle) 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Starts an RMA exposure epoch for the local window associated with *win*.
 Only the processes belonging to *group* should access the window with
@@ -63,7 +63,7 @@ RMA calls on *win* during this epoch. Each process in *group* must issue
 a matching call to ``MPI_Win_start``. ``MPI_Win_post`` does not block.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -76,6 +76,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Win_start`` ``MPI_Win_wait``

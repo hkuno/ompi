@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_match_size`` - Returns an MPI datatype of a given type and
 size
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	MPI_Datatype *type)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax
    	INTEGER	TYPECLASS, SIZE, TYPE, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,21 +41,21 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``typeclass``: Generic type specifier (integer). 
 
 * ``size``: Size, in bytes, of representation (integer). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``type``: Datatype with correct type and size (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 The function returns an MPI datatype matching a local variable of type
 (*typeclass*, *size*). The returned type is a reference (handle) to a
@@ -73,7 +73,7 @@ suitable datatype. In C use the sizeof builtin instead of ``MPI_Sizeof``.
 It is erroneous to specify a size not supported by the compiler.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -88,7 +88,7 @@ guarantee that an MPI program can continue past an error.
 See the MPI man page for a full list of MPI error codes.
 
 SEE ALSO
---------
+========
 
 ::
 

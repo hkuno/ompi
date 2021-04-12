@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Graph_neighbors`` - Returns the neighbors of a node associated
 with a graph topology.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	int neighbors[])
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax
    	INTEGER	COMM, RANK, MAXNEIGHBORS, NEIGHBORS(*), IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -42,7 +42,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``comm``: Communicator with graph topology (handle). 
 
@@ -51,14 +51,14 @@ INPUT PARAMETERS
 * ``maxneighbors``: Size of array neighbors (integer). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``neighbors``: Ranks of processes that are neighbors to specified process (array of integers). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 **Example:** Suppose that comm is a communicator with a shuffle-exchange
 topology. The group has 2n members. Each process is labeled by a(1),
@@ -102,7 +102,7 @@ and performs an appropriate permutation for each.
         +     neighbors(2), 0, comm, status, ierr)
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -115,6 +115,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ``MPI_Graph_neighbors_count``

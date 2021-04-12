@@ -1,15 +1,15 @@
 NAME
-----
+~~~~
 
 ``MPI_File_set_atomicity`` - Sets consistency semantics for data-access
 operations (collective).
 
 SYNTAX
-------
+======
 
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    int MPI_File_set_atomicity(MPI_File fh, int flag)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax
    	INTEGER	FH, FLAG, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,19 +41,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``fh``: File handle (handle). 
 
 * ``flag``: **true** to enable atomic mode, **false** to enable nonatomic mode (boolean). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 The consistency semantics for data-access operations using the set of
 file handles created by one collective ``MPI_File_open`` is set by
@@ -66,7 +66,7 @@ jobs running on more than one node, *false* for jobs running on a single
 SMP. For more information, see the MPI-2 standard.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

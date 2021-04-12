@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Op_free`` - Frees a user-defined combination function handle.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Op_free(MPI_Op *op)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,7 +27,7 @@ Fortran Syntax
    	INTEGER	OP, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -38,23 +38,23 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT/OUTPUT PARAMETER
-----------------------
+======================
 
 * ``op``: Operation (handle). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Marks a user-defined reduction operation for deallocation and sets *op*
 to ``MPI_OP_NULL``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -67,7 +67,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Op_create``
 | ``MPI_Reduce``

@@ -1,5 +1,5 @@
 NAME
-----
+~~~~
 
 *shmem_character_get*\ (3), *shmem_complex_get*\ (3),
 *shmem_double_get*\ (3), *shmem_float_get*\ (3), *shmem_get4*\ (3),
@@ -12,7 +12,7 @@ NAME
 
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -88,7 +88,7 @@ Fortran:
    CALL SHMEM_REAL_GET(target, source, len, pe)
 
 DESCRIPTION
------------
+===========
 
 The shmem_get routines transfer **nelems** elements of the data object
 at address **source** on the remote PE **pe**, to the data object at
@@ -162,12 +162,12 @@ example, a real variable must be declared as REAL, REAL*4, or
 REAL(KIND=4).
 
 NOTES
------
+=====
 
 See *intro_shmem*\ (3) for a definition of the term remotely accessible.
 
 EXAMPLES
---------
+========
 
 Consider this simple example for Fortran.
 
@@ -192,7 +192,7 @@ Consider this simple example for Fortran.
    END
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *shmem_put*\ (3), *shmem_iget*\ (3),
 *shmem_quiet*\ (3)

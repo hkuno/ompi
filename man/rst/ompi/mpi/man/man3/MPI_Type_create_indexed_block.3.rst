@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_create_indexed_block``, ``MPI_Type_create_hindexed_block`` -
 Creates an indexed data type with the same block length for all blocks.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    int MPI_Type_create_hindexed_block(int count, int blocklength, const MPI_Aint array_of_displacements[], MPI_Datatype oldtype, MPI_Datatype *newtype)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -38,7 +38,7 @@ Fortran Syntax
    	INTEGER	IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -62,7 +62,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``count``: Length of array of displacements (integer). 
 
@@ -73,14 +73,14 @@ INPUT PARAMETERS
 * ``oldtype``: Old data type (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``newtype``: New data type (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Type_create_indexed_block`` and ``MPI_Type_create_hindexed_block`` create
 an indexed data type with the same block length for all blocks. The only
@@ -89,7 +89,7 @@ takes an array of displacements in units of the extent of *oldtype*
 while ``MPI_Type_create_hindexed_block`` takes displacements in bytes.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -102,6 +102,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Type_indexed``

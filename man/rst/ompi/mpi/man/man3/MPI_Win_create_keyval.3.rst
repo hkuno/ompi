@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_create_keyval`` - Creates a keyval for a window.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	int *win_keyval, void *extra_state)
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -32,7 +32,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	INTEGER(KIND=MPI_ADDRESS_KIND) EXTRA_STATE
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -47,7 +47,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``win_copy_attr_fn``: Copy callback function for *win_keyval* (function). 
 
@@ -56,14 +56,14 @@ INPUT PARAMETERS
 * ``extra_state``: Extra state for callback functions. 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``win_keyval``: Key value for future access (integer). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 The argument *win_copy_attr_fn* may be specified as ``MPI_WIN_NULL_COPY_FN``
 or ``MPI_WIN_DUP_FN`` from either C or Fortran. ``MPI_WIN_NULL_COPY_FN`` is a
@@ -114,7 +114,7 @@ and
    	INTEGER(KIND=MPI_ADDRESS_KIND) ATTRIBUTE_VAL, EXTRA_STATE
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the
 *EXTRA_STATE* argument only for Fortran 90. FORTRAN 77 users may use the
@@ -128,7 +128,7 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

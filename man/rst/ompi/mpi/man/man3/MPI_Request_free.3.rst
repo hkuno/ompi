@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Request_free`` - Frees a communication request object.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Request_free(MPI_Request *request)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,7 +27,7 @@ Fortran Syntax
    	INTEGER	REQUEST, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -38,12 +38,12 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT/OUTPUT PARAMETER
-----------------------
+======================
 
 * ``request``: Communication request (handle). 
 
 DESCRIPTION
------------
+===========
 
 This operation allows a request object to be deallocated without waiting
 for the associated communication to complete.
@@ -54,7 +54,7 @@ associated with the request will be allowed to complete. The request
 will be deallocated only after its completion.
 
 NOTES
------
+=====
 
 Once a request is freed by a call to ``MPI_Request_free``, it is not
 possible to check for the successful completion of the associated
@@ -107,7 +107,7 @@ It **is** permitted to free an active request. However, once freed, you
 can not use the request in a wait or test routine (e.g., ``MPI_Wait`` ).
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -120,7 +120,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Isend``
 | ``MPI_Irecv``

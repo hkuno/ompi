@@ -1,11 +1,11 @@
 NAME
-----
+~~~~
 
 *shmem_ptr*\ (3) - Returns a pointer to a data object on a specified
 processing element (PE).
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -29,7 +29,7 @@ Fortran:
    PTR = SHMEM_PTR(target, pe)
 
 DESCRIPTION
------------
+===========
 
 The shmem_ptr routine returns an address that can be used to directly
 reference **target** on the remote PE **pe**. With this address we can
@@ -52,7 +52,7 @@ pe
    value.
 
 EXAMPLES
---------
+========
 
 This Fortran program calls shmem_ptr and then PE 0 writes to the BIGD
 array on PE 1:
@@ -112,19 +112,19 @@ This is the equivalent program written in C:
    }
 
 NOTES
------
+=====
 
 The shmem_ptr function is available only on systems where ordinary
 memory loads and stores are used to implement SHMEM put and get
 operations.
 
 RETURN VALUES
--------------
+=============
 
 shmem_ptr returns a pointer to the data object on the specified remote
 PE. If target is not remotely accessible, a NULL pointer is returned.
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *shmem_put*\ (3), *shmem_get*\ (3)

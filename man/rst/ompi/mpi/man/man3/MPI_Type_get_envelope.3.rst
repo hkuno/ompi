@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_get_envelope`` - Returns information about input arguments
 associated with a data type.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	int *num_addresses, int *num_datatypes, int *combiner)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -31,7 +31,7 @@ Fortran Syntax
    	INTEGER	NUM_DATATYPES, COMBINER, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -45,12 +45,12 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``datatype``: Data type to access (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``num_integers``: Number of input integers used in the call constructing *combiner* (nonnegative integer). 
 
@@ -63,7 +63,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 For the given data type, ``MPI_Type_get_envelope`` returns information on
 the number and type of input arguments used in the call that created the
@@ -74,7 +74,7 @@ is described below. The combiner reflects the MPI data type constructor
 call that was used in creating *datatype*.
 
 NOTES
------
+=====
 
 These are the values that can be returned in *combiner* and their
 associated calls:
@@ -115,7 +115,7 @@ The actual arguments used in the creation call for a data type can be
 obtained from the call ``MPI_Type_get_contents``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -128,6 +128,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Type_get_contents``

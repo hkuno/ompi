@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Comm_split`` - Creates new communicators based on colors and keys.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    	MPI_Comm *newcomm)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER	COMM, COLOR, KEY, NEWCOMM, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,7 +41,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``comm``: Communicator (handle). 
 
@@ -50,14 +50,14 @@ INPUT PARAMETERS
 * ``key``: Control of rank assignment (integer). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``newcomm``: New communicator (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 This function partitions the group associated with comm into disjoint
 subgroups, one for each value of color. Each subgroup contains all
@@ -88,7 +88,7 @@ reordering.
 The value of *color* must be nonnegative or ``MPI_UNDEFINED``.
 
 NOTES
------
+=====
 
 This is an extremely powerful mechanism for dividing a single
 communicating group of processes into k subgroups, with k chosen
@@ -115,7 +115,7 @@ color means that one needn't really pay attention to the rank-order of
 the processes in the new communicator.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -128,7 +128,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Comm_create``
 | ``MPI_Intercomm_create``

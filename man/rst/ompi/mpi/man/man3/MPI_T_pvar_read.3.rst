@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_T_pvar_read`` - Read the value of a performance variable
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_T_pvar_read(MPI_T_pvar_session session, MPI_T_pvar_handle handle, const void *buf)
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``session``: Performance experiment session. 
 
@@ -25,7 +25,7 @@ INPUT PARAMETERS
 * ``buf``: Initial address of storage location for variable value. 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_T_pvar_read`` queries the value of a performance variable identified
 by the handle specified in *handle* in the session specified in
@@ -34,7 +34,7 @@ caller must ensure that the buffer pointed to by *buf* is large enough
 to hold the entire value of the performance variable.
 
 ERRORS
-------
+======
 
 ``MPI_T_pvar_read()`` will fail if:
 
@@ -48,7 +48,7 @@ ERRORS
    Session argument is not a valid session
 
 SEE ALSO
---------
+========
 
 ::
 

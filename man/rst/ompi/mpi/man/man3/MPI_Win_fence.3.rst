@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_fence`` - Synchronizes RMA calls on a window.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Win_fence(int assert, MPI_Win win)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,7 +27,7 @@ Fortran Syntax
    	INTEGER ASSERT, WIN, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -39,19 +39,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``assert``: Program assertion (integer). 
 
 * ``win``: Window object (handle). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Win_fence`` synchronizes RMA calls on *win*. The call is collective on
 the group of *win*. All RMA operations on *win* originating at a given
@@ -78,16 +78,16 @@ A fence call usually entails a barrier synchronization: a process
 completes a call to ``MPI_Win_fence`` only after all other processes in the
 group have entered their matching call. However, a call to ``MPI_Win_fence``
 that is known not to end any epoch (in particular, a call with *assert*
-~ MPI_MODE_NOPRECEDE) does not necessarily act as a barrier.
+- MPI_MODE_NOPRECEDE) does not necessarily act as a barrier.
 
 NOTE
-----
+====
 
 Calls to ``MPI_Win_fence`` should both precede and follow calls to put, get
 or accumulate that are synchronized with fence calls.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -100,7 +100,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Win_create`` ``MPI_Win_start`` ``MPI_Win_post`` ``MPI_Win_complete``
   ``MPI_Win_wait``

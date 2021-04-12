@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_lb`` - Returns the lower bound of a data type -- use of this
 routine is deprecated.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Type_lb(MPI_Datatype datatype, MPI_Aint *displacement)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,19 +27,19 @@ Fortran Syntax
    	INTEGER	DATATYPE, DISPLACEMENT, IERROR
 
 INPUT PARAMETER
----------------
+===============
 
 * ``datatype``: Datatype (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``displacement``: Displacement of lower bound from origin, in bytes (integer). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Note that use of this routine is *deprecated* as of MPI-2. Please use
 ``MPI_Type_get_extent`` instead.
@@ -88,7 +88,7 @@ k(i), then e is the least nonnegative increment needed to round
 extent(Typemap) to the next multiple of max(i) k(i).
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -101,6 +101,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Type_get_extent``

@@ -1,11 +1,11 @@
 NAME
-----
+~~~~
 
 *shmalloc*\ (3), *shfree*\ (3), *shmemalign*\ (3), *shrealloc*\ (3) -
 Symmetric heap memory management functions.
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -25,7 +25,7 @@ C or C++:
    extern long malloc_error;
 
 DESCRIPTION
------------
+===========
 
 The **shmalloc** function returns a pointer to a block of at least size
 bytes suitably aligned for any use. This space is allocated from the
@@ -69,7 +69,7 @@ argument(s) on all PEs; if differing size arguments are used, subsequent
 calls may not return the same symmetric heap address on all PEs.
 
 NOTES
------
+=====
 
 The total size of the symmetric heap is determined at job startup. One
 can adjust the size of the heap using the SHMEM_SYMMETRIC_HEAP_SIZE
@@ -79,7 +79,7 @@ private heap allocation functions in that all PEs in an application must
 call them (a barrier is used to ensure this).
 
 RETURN VALUES
--------------
+=============
 
 The **shmalloc** function returns a pointer to the allocated space
 (which should be identical on all PEs); otherwise, it returns a null
@@ -89,6 +89,6 @@ space (which may have moved); otherwise, it returns a null pointer (with
 malloc_error set).
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *my_pe*\ (3I), *start_pes*\ (3)

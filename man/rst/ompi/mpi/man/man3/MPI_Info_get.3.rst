@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Info_get`` - Retrieves the value associated with a key in an info
 object.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Info_get(MPI_Info info, const char *key, int valuelen, char *value, int *flag)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -30,7 +30,7 @@ Fortran Syntax
    	LOGICAL FLAG
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -45,7 +45,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``info``: Info object (handle). 
 
@@ -54,7 +54,7 @@ INPUT PARAMETERS
 * ``valuelen``: Length of value arg (integer). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``value``: Value (string). 
 
@@ -63,7 +63,7 @@ OUTPUT PARAMETER
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Info_get`` retrieves the value associated with *key* in a previous
 call to ``MPI_Info_set``. If such a key exists, it sets *flag* to true and
@@ -76,7 +76,7 @@ the amount of allocated space to allow for the null terminator.
 If *key* is larger than ``MPI_MAX_INFO_KEY``, the call is erroneous.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -89,7 +89,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Info_create``
 | ``MPI_Info_delete``

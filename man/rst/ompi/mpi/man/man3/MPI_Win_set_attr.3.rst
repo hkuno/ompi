@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_set_attr`` - Sets the value of a window attribute.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Win_set_attr(MPI_Win win, int win_keyval, void *attribute_val)
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	INTEGER(KIND=MPI_ADDRESS_KIND) ATTRIBUTE_VAL
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,27 +41,27 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT/OUTPUT PARAMETER
-----------------------
+======================
 
 * ``win``: Window to which attribute will be attached (handle). 
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``win_keyval``: Key value (integer). 
 
 * ``attribute_val``: Attribute value. 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the
 *ATTRIBUTE_VAL* argument only for Fortran 90. FORTRAN 77 users may use
@@ -75,7 +75,7 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

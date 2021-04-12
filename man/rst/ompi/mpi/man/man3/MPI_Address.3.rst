@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Address`` - Gets the address of a location in memory -- use of
 this routine is deprecated.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Address(void *location, MPI_Aint *address)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,19 +28,19 @@ Fortran Syntax
    	INTEGER	ADDRESS, IERROR
 
 INPUT PARAMETER
----------------
+===============
 
 * ``location``: Location in caller memory (choice). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``address``: Address of location (integer). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Note that use of this routine is *deprecated* as of MPI-2. Please use
 ``MPI_Get_address`` instead.
@@ -63,7 +63,7 @@ Example: Using ``MPI_Address`` for an array.
 | ! implementation dependent.
 
 NOTES
------
+=====
 
 This routine is provided for both Fortran and C programmers and may be
 useful when writing portable code. In the current release, the address
@@ -80,7 +80,7 @@ with a segmented address space. The use of ``MPI_Address`` to "reference" C
 variables guarantees portability to such machines as well.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -93,6 +93,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Get_address``

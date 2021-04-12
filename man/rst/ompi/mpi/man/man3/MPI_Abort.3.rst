@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Abort`` - Terminates MPI execution environment.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Abort(MPI_Comm comm, int errorcode)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,7 +27,7 @@ Fortran Syntax
    	INTEGER		COMM, ERRORCODE, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -39,19 +39,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``comm``: Communicator of tasks to abort. 
 
 * ``errorcode``: Error code to return to invoking environment. 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 This routine makes a "best attempt" to abort all tasks in the group of
 comm. This function does not require that the invoking environment take
@@ -67,7 +67,7 @@ isn't fully implemented and ``MPI_Abort`` will terminate the entire job.*
 Note: All associated processes are sent a SIGTERM.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

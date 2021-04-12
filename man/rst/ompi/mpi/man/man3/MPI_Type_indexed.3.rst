@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_indexed``, ``MPI_Type_create_hindexed`` - Creates an indexed
 datatype.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -24,7 +24,7 @@ C Syntax
    	MPI_Datatype *newtype)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -45,7 +45,7 @@ Fortran Syntax
    	INTEGER	IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -69,7 +69,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``count``: Number of blocks -- also number of entries in array_of_displacements and array_of_blocklengths (nonnegative integer). 
 
@@ -80,14 +80,14 @@ INPUT PARAMETERS
 * ``oldtype``: Old datatype (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``newtype``: New datatype (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 The function ``MPI_Type_indexed`` allows replication of an old datatype into
 a sequence of blocks (each block is a concatenation of the old
@@ -149,7 +149,7 @@ except that block displacements in *array_of_displacements* are
 specified in bytes, rather than in multiples of the *oldtype* extent.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -162,6 +162,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Type_hindexed``

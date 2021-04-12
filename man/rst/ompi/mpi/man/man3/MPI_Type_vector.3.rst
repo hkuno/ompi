@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_vector`` - Creates a vector (strided) datatype.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    	MPI_Datatype oldtype, MPI_Datatype *newtype)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -30,7 +30,7 @@ Fortran Syntax
    	INTEGER	NEWTYPE, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -43,7 +43,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``count``: Number of blocks (nonnegative integer). 
 
@@ -54,14 +54,14 @@ INPUT PARAMETERS
 * ``oldtype``: Old datatype (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``newtype``: New datatype (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 The function ``MPI_Type_vector`` is a general constructor that allows
 replication of a datatype into locations that consist of equally spaced
@@ -123,7 +123,7 @@ a call to ``MPI_Type_vector(count``, 1, 1, oldtype, newtype), or to a call
 to ``MPI_Type_vector(1``, count, n, oldtype, newtype), n arbitrary.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -136,7 +136,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Type_create_hvector``
 | ``MPI_Type_hvector``

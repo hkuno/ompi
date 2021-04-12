@@ -1,11 +1,11 @@
 NAME
-----
+~~~~
 
 shmem_info_get_name - This routine returns the vendor defined character
 string.
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -25,7 +25,7 @@ Fortran:
    CHARACTER *(*)NAME
 
 DESCRIPTION
------------
+===========
 
 shmem_info_get_name() This routine returns the vendor defined character
 string of size defined by the constant SHMEM_MAX_NAME_LEN. The program
@@ -41,6 +41,6 @@ implementation, the major and minor version returned by these calls is
 consistent with the compile-time constants defined in its shmem.h.
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *shmem_my_pe*\ (3), *shmem_init*\ (3)

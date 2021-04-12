@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Allgather``, ``MPI_Iallgather`` - Gathers data from all processes and
 distributes it to all processes
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -23,7 +23,7 @@ C Syntax
    	 MPI_Datatype recvtype, MPI_Comm comm, MPI_Request *request)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -43,7 +43,7 @@ Fortran Syntax
    	INTEGER	REQUEST, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -69,7 +69,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``sendbuf``: Starting address of send buffer (choice). 
 
@@ -86,7 +86,7 @@ INPUT PARAMETERS
 * ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``recvbuf``: Address of receive buffer (choice). 
 
@@ -95,7 +95,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Allgather`` is similar to ``MPI_Gather``, except that all processes
 receive the result, instead of just the root. In other words, all
@@ -135,7 +135,7 @@ After the call, every process has the group-wide concatenation of the
 sets of data.
 
 USE OF IN-PLACE OPTION
-----------------------
+======================
 
 When the communicator is an intracommunicator, you can perform an
 all-gather operation in-place (the output buffer is used as the input
@@ -161,7 +161,7 @@ send-and-receive buffer, a Fortran binding that includes INTENT must
 mark these as INOUT, not OUT.
 
 WHEN COMMUNICATOR IS AN INTER-COMMUNICATOR
-------------------------------------------
+==========================================
 
 When the communicator is an inter-communicator, the gather operation
 occurs in two phases. The data is gathered from all the members of the
@@ -174,7 +174,7 @@ in the second group. You can move data in only one direction by giving
 *sendcount* a value of 0 for communication in the reverse direction.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -187,7 +187,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Allgatherv``
 | ``MPI_Gather``

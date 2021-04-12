@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Comm_set_attr`` - Stores attribute value associated with a key.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Comm_set_attr(MPI_Comm comm, int comm_keyval, void *attribute_val)
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	INTEGER(KIND=MPI_ADDRESS_KIND) ATTRIBUTE_VAL
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,24 +41,24 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT/OUTPUT PARAMETER
-----------------------
+======================
 
 * ``comm``: Communicator from which attribute will be attached (handle). 
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``comm_keyval``: Key value (integer). 
 
 * ``attribute_val``: Attribute value. 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Comm_set_attr`` stores the stipulated attribute value *attribute_val*
 for subsequent retrieval by ``MPI_Comm_get_attr``. If the value is already
@@ -74,7 +74,7 @@ C binding is identical. The Fortran binding differs in that
 *attribute_val* is an address-sized integer.
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the
 *ATTRIBUTE_VAL* argument only for Fortran 90. Sun FORTRAN 77 users may
@@ -88,7 +88,7 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTES
------
+=====
 
 Values of the permanent attributes ``MPI_TAG_UB``, ``MPI_HOST``, ``MPI_IO``, and
 ``MPI_WTIME_IS_GLOBAL`` may not be changed.
@@ -102,7 +102,7 @@ If an attribute is already present, the delete function (specified when
 the corresponding keyval was created) will be called.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

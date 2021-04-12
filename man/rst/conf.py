@@ -13,7 +13,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
+import re
 
 # -- Project information -----------------------------------------------------
 
@@ -94,12 +94,13 @@ from pathlib import Path
 man_pages=[]
 for path in Path('./').rglob('*.rst'):
     sname=path.name
+    vsname=re.sub('\.[0-9]*\.rst','',path.name)
     os.makedirs('../_build/man/' + str(path.parent),exist_ok = True)
     print('../_build/man/' + str(path.parent))
     snum=os.path.basename(os.path.dirname(path)).replace('man','')
     if string_is_int(snum):
       lname=(str(path.parent) + '/' + sname.replace('.rst',''))
-      man_pages.append((lname,sname,sname.replace('.rst',''),"",int(snum)))
+      man_pages.append((lname,vsname,vsname,"",int(snum)))
 
 print(man_pages)
 

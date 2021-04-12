@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Improbe`` - Non-blocking matched probe for a message.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    	int *flag, MPI_Message *message, MPI_Status *status)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -30,7 +30,7 @@ Fortran Syntax
    	INTEGER	STATUS(MPI_STATUS_SIZE), IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -45,7 +45,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``source``: Source rank or MPI_ANY_SOURCE (integer). 
 
@@ -54,7 +54,7 @@ INPUT PARAMETERS
 * ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``flag``: Flag (logical). 
 
@@ -65,7 +65,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Like ``MPI_Probe`` and ``MPI_Iprobe``, the ``MPI_Mprobe`` and ``MPI_Improbe`` operations
 allow incoming messages to be queried without actually receiving them,
@@ -78,14 +78,14 @@ receive buffer according to the length of the probed message.
 
 A matching probe with ``MPI_PROC_NULL`` as *source* returns *flag* = true,
 *message* = MPI_MESSAGE_NO_PROC, and the *status* object returns source
-~ MPI_PROC_NULL, tag ~ MPI_ANY_TAG, and count ~ 0.
+- MPI_PROC_NULL, tag - MPI_ANY_TAG, and count - 0.
 
 ``MPI_Iprobe`` returns a true value in *flag* if a message has been matched
 and can be received by passing the *message* handle to the ``MPI_Mrecv`` or
 ``MPI_Imrecv`` functions, provided the *source* was not ``MPI_PROC_NULL``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -98,7 +98,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ::
 

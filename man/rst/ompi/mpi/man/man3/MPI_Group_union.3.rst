@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Group_union`` - Produces a group by combining two groups.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    	MPI_Group *newgroup)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER	GROUP1, GROUP2, NEWGROUP, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -40,21 +40,21 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``group1``: First group (handle). 
 
 * ``group2``: Second group (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``newgroup``: Union group (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 The set-like operations are defined as follows:
 
@@ -78,7 +78,7 @@ intersection are commutative, but both are associative.
 The new group can be empty, that is, equal to ``MPI_GROUP_EMPTY``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -91,6 +91,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Group_free``

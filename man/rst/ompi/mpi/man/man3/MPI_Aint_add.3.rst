@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Aint_add``, ``MPI_Aint_diff`` - Portable functions for arithmetic
 on ``MPI_Aint`` values.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    MPI_Aint MPI_Aint_diff(MPI_Aint addr1, MPI_Aint addr2)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -33,7 +33,7 @@ Fortran Syntax
            INTEGER(KIND=MPI_ADDRESS_KIND) ADDR1, ADDR2
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -46,7 +46,7 @@ Fortran 2008 Syntax
            INTEGER(KIND=MPI_ADDRESS_KIND) ADDR1, ADDR2
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``base``: Base address (integer). 
 
@@ -57,7 +57,7 @@ INPUT PARAMETERS
 * ``addr2``: Subtrahend address (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Aint_add`` produces a new ``MPI_Aint`` value that is equivalent to the
 sum of the *base* and *disp* arguments, where *base* represents a base
@@ -85,6 +85,6 @@ originally produced the addresses had called (char \*) *addr1* - (char
 \*) *addr2* on the addresses initially passed to ``MPI_Get_address``.
 
 SEE ALSO
---------
+========
 
 ``MPI_Get_address``

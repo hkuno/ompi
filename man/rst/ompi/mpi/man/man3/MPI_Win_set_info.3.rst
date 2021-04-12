@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_set_info`` - Set window info hints
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Win_set_info(MPI_Win win, MPI_Info info)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,7 +27,7 @@ Fortran Syntax
    	INTEGER	WIN, INFO, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -39,19 +39,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``win``: Window on which to set info hints 
 
 * ``info``: Info object containing hints to be set on *win* 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_WIN_SET_INFO`` sets new values for the hints of the window associated
 with *win.* ``MPI_WIN_SET_INFO`` is a collective routine. The info object
@@ -60,7 +60,7 @@ implementation requires to be the same on all processes must appear with
 the same value in each process's *info* object.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -73,6 +73,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ``MPI_Win_get_info,`` ``MPI_Info_create,`` ``MPI_Info_set,`` ``MPI_Info_free``

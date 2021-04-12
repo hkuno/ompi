@@ -1,16 +1,16 @@
 NAME
-----
+~~~~
 
 ``MPI_File_read_all_begin`` - Reads a file starting at the locations
 specified by individual file pointers; beginning part of a split
 collective routine (nonblocking).
 
 SYNTAX
-------
+======
 
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -20,7 +20,7 @@ C Syntax
    	int count, MPI_Datatype datatype)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -32,7 +32,7 @@ Fortran Syntax
    	INTEGER	FH, COUNT, DATATYPE, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -46,26 +46,26 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT/OUTPUT PARAMETER
-----------------------
+======================
 
 * ``fh``: File handle (handle). 
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``count``: Number of elements in buffer (integer). 
 
 * ``datatype``: Data type of each buffer element (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``buf``: Initial address of buffer (choice). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_File_read_all_begin`` is the beginning part of a split collective
 operation that attempts to read from the file associated with *fh* (at
@@ -75,7 +75,7 @@ user's buffer *buf.* The data is taken out of those parts of the file
 specified by the current view.
 
 NOTES
------
+=====
 
 All the nonblocking collective routines for data access are "split" into
 two routines, each with \_begin or \_end as a suffix. These split
@@ -83,7 +83,7 @@ collective routines are subject to the semantic rules described in
 Section 9.4.5 of the MPI-2 standard.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

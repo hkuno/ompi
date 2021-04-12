@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_get_contents`` - Returns information about arguments used in
 creation of a data type.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	int max_addresses, int max_datatypes, int array_of_integers[], MPI_Aint array_of_addresses[], MPI_Datatype array_of_datatypes[])
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -33,7 +33,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	INTEGER(KIND=MPI_ADDRESS_KIND) ARRAY_OF_ADDRESSES(*)
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -51,7 +51,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``datatype``: Data type to access (handle). 
 
@@ -62,7 +62,7 @@ INPUT PARAMETERS
 * ``max_datatypes``: Number of elements in *array_of_datatypes (nonnegative integer).* 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``array_of_integers``: Contains integer arguments used in constructing *datatype (array of integers).* 
 
@@ -73,7 +73,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 For the given data type, ``MPI_Type_get_envelope`` returns information on
 the number and type of input arguments used in the call that created the
@@ -121,7 +121,7 @@ the new MPI-2 calls for data-type constructors for the deprecated MPI-1
 calls that involve addresses.
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the
 *ARRAY_OF_ADDRESSES argument only for Fortran 90. FORTRAN 77* users may
@@ -135,7 +135,7 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -148,6 +148,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Type_get_envelope``

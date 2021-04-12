@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Probe`` - Blocking test for a message.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Probe(int source, int tag, MPI_Comm comm, MPI_Status *status)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,7 +27,7 @@ Fortran Syntax
    	INTEGER	SOURCE, TAG, COMM, STATUS(MPI_STATUS_SIZE), IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -40,7 +40,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``source``: Source rank or MPI_ANY_SOURCE (integer). 
 
@@ -49,14 +49,14 @@ INPUT PARAMETERS
 * ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``status``: Status object (status). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 The ``MPI_Probe`` and ``MPI_Iprobe`` operations allow checking of incoming
 messages, without actual receipt of them. The user can then decide how
@@ -135,7 +135,7 @@ that is distinct from the message probed by the preceding call to
 ``MPI_Probe``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -148,7 +148,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Iprobe``
 | ``MPI_Cancel``

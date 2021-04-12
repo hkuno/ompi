@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Sendrecv`` - Sends and receives a message.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    	MPI_Comm comm, MPI_Status *status)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -35,7 +35,7 @@ Fortran Syntax
    	INTEGER	STATUS(MPI_STATUS_SIZE), IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -53,7 +53,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``sendbuf``: Initial address of send buffer (choice). 
 
@@ -76,7 +76,7 @@ INPUT PARAMETERS
 * ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``recvbuf``: Initial address of receive buffer (choice). 
 
@@ -85,7 +85,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 The send-receive operations combine in one call the sending of a message
 to one destination and the receiving of another message, from another
@@ -116,7 +116,7 @@ save resources by using the predefined constant ``MPI_STATUS_IGNORE`` as a
 special value for the *status* argument.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -129,6 +129,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ``MPI_Sendrecv_replace``

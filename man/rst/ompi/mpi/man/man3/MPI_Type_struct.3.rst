@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_struct`` - Creates a *struct* data type -- use of this
 routine is deprecated.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    	MPI_Datatype *newtype)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -33,7 +33,7 @@ Fortran Syntax
    	INTEGER	ARRAY_OF_TYPES(*), NEWTYPE, IERROR
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``count``: Number of blocks (integer) also number of entries in arrays array_of_types, array_of_displacements, and array_of_blocklengths. 
 
@@ -44,14 +44,14 @@ INPUT PARAMETERS
 * ``array_of_types``: Type of elements in each block (array of handles to datatype objects). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``newtype``: New datatype (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Note that use of this routine is *deprecated* as of MPI-2. Use
 ``MPI_Type_create_struct`` instead.
@@ -84,7 +84,7 @@ type1 starting at 16, followed by three copies of ``MPI_CHAR``, starting at
 For more information, see section 3.12.1 of the MPI-1.1 Standard.
 
 NOTES
------
+=====
 
 If an upperbound is set explicitly by using the MPI datatype ``MPI_UB``, the
 corresponding index must be positive.
@@ -122,7 +122,7 @@ be used for the structure foo:
        MPI_Type_struct( 3, blen, indices, oldtypes, &newtype );
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -135,7 +135,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Type_create_struct``
 | ``MPI_Type_create_hindexed``

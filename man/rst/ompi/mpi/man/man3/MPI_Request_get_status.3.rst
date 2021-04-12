@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Request_get_status`` - Access information associated with a
 request without freeing the request.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Request_get_status(MPI_Request request, int *flag, MPI_Status *status)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax
    	LOGICAL	FLAG
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -42,19 +42,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``request``: Communication request (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``flag``: Boolean flag, same as from MPI_Test (logical). 
 
 * ``status``: MPI_Status object if flag is true (status). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Request_get_status`` sets *flag*\ =\ *true* if the operation is
 complete or sets *flag*\ =\ *false* if it is not complete. If the
@@ -67,7 +67,7 @@ save resources by using the predefined constant ``MPI_STATUS_IGNORE`` as a
 special value for the *status* argument.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

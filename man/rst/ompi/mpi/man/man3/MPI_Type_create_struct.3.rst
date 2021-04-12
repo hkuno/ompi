@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_create_struct`` - Creates a structured data type.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	MPI_Datatype *newtype)
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -32,7 +32,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	INTEGER(KIND=MPI_ADDRESS_KIND) ARRAY_OF_DISPLACEMENTS(*)
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -48,7 +48,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``count``: Number of blocks (integer) -- also number of entries in arrays *array_of_types*, *array_of_displacements*, and *array_of_blocklengths*. 
 
@@ -59,14 +59,14 @@ INPUT PARAMETERS
 * ``array_of_types``: Type of elements in each block (array of handles to data-type objects). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``newtype``: New data type (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Type_create_struct`` creates a structured data type. This routine
 replaces ``MPI_Type_struct``, which is now deprecated.
@@ -75,7 +75,7 @@ NOTE - This routine replaces ``MPI_Type_struct``, which is deprecated. See
 the man page ``MPI_Type_struct(3)`` for information about that routine.
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the
 *ARRAY_OF_DISPLACEMENTS*\ (*) argument only for Fortran 90. FORTRAN 77
@@ -89,7 +89,7 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -102,7 +102,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Type_struct``
 | ``MPI_Type_create_hindexed``

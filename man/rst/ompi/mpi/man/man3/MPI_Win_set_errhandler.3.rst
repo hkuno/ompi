@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_set_errhandler`` - Attaches a new error handler to a window.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Win_set_errhandler(MPI_Win win, MPI_Errhandler errhandler)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,7 +27,7 @@ Fortran Syntax
    	INTEGER WIN, ERRHANDLER, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -39,29 +39,29 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT/OUTPUT PARAMETER
-----------------------
+======================
 
 * ``win``: Window (handle). 
 
 INPUT PARAMETER
----------------
+===============
 
 * ``errhandler``: New error handler for window (handle). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Win_set_errhandler`` attaches a new error handler to a window. The
 error handler must be either a predefined error handler or an error
 handler created by a call to ``MPI_Win_create_errhandler``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

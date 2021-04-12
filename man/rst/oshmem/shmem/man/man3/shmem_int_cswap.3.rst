@@ -1,5 +1,5 @@
 NAME
-----
+~~~~
 
 *shmem_int_cswap*\ (3), *shmem_int4_cswap*\ (3),
 *shmem_int8_cswap*\ (3), *shmem_long_cswap*\ (3),
@@ -7,7 +7,7 @@ NAME
 remote data object
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -40,7 +40,7 @@ Fortran:
    ires = SHMEM_INT8_CSWAP(target, cond, value, pe)
 
 DESCRIPTION
------------
+===========
 
 The conditional swap routines conditionally update a target data object
 on an arbitrary processing element (PE) and return the prior contents of
@@ -93,18 +93,18 @@ pe
    value.
 
 NOTES
------
+=====
 
 The term remotely accessible is defined in *intro_shmem*\ (3).
 
 RETURN VALUES
--------------
+=============
 
 The contents that had been in the target data object on the remote PE
 prior to the conditional swap.
 
 EXAMPLES
---------
+========
 
 The following call ensures that the first PE to execute the conditional
 swap will successfully write its PE number to race_winner on PE 0.
@@ -123,6 +123,6 @@ swap will successfully write its PE number to race_winner on PE 0.
    }
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *shmem_cache*\ (3), *shmem_swap*\ (3)

@@ -1,15 +1,15 @@
 NAME
-----
+~~~~
 
 ``MPI_File_iwrite_shared`` - Writes a file using the shared file pointer
 (nonblocking, noncollective).
 
 SYNTAX
-------
+======
 
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    	datatype, MPI_Request *request)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -31,7 +31,7 @@ Fortran Syntax
    	INTEGER	FH, COUNT, DATATYPE, REQUEST, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -46,19 +46,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT/OUTPUT PARAMETER
-----------------------
+======================
 
 * ``fh``: File handle (handle). 
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``count``: Number of elements in buffer (integer). 
 
 * ``datatype``: Data type of each buffer element (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``buf``: Initial address of buffer (choice). 
 
@@ -67,7 +67,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_File_iwrite_shared`` is a nonblocking routine that uses the shared
 file pointer to write files. The order of serialization is not
@@ -75,7 +75,7 @@ deterministic for this noncollective routine, so you need to use other
 methods of synchronization to impose a particular order.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

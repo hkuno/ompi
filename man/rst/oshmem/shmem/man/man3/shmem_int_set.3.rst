@@ -1,5 +1,5 @@
 NAME
-----
+~~~~
 
 *shmem_double_set*\ (3), *shmem_float_set*\ (3), *shmem_int_set*\ (3),
 *shmem_long_set*\ (3), *shmem_longlong_set*\ (3) *shmem_int4_set*\ (3),
@@ -7,7 +7,7 @@ NAME
 Atomically sets the value of a remote data object
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -41,7 +41,7 @@ Fortran:
    CALL SHMEM_REAL8_SET(target, value, pe)
 
 DESCRIPTION
------------
+===========
 
 The set routines write the **value** into the address **target** on
 **pe** as an atomic operation.
@@ -60,11 +60,11 @@ pe
    value.
 
 RETURN VALUES
--------------
+=============
 
 NONE
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3)

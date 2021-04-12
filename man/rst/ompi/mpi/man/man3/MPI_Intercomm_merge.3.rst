@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Intercomm_merge`` - Creates an intracommunicator from an
 intercommunicator.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
         MPI_Comm *newintracomm)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -30,7 +30,7 @@ Fortran Syntax
    	LOGICAL	HIGH
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -43,21 +43,21 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``intercomm``: Intercommunicator (type indicator). 
 
 * ``high``: Used to order the groups of the two intracommunicators within comm when creating the new communicator (type indicator). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``newintracomm``: Created intracommunicator (type indicator). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 This function creates an intracommunicator from the union of the two
 groups that are associated with intercomm. All processes should provide
@@ -69,7 +69,7 @@ argument, then the order of the union is arbitrary. This call is
 blocking and collective within the union of the two groups.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -82,7 +82,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Intercomm_create``
 | ``MPI_Comm_free``

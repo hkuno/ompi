@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Reduce_local`` - Perform a local reduction
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    	MPI_Datatype datatype, MPI_Op op)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax
    	INTEGER	COUNT, DATATYPE, OP, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -44,7 +44,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``inbuf``: Address of input buffer (choice). 
 
@@ -55,14 +55,14 @@ INPUT PARAMETERS
 * ``op``: Reduce operation (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``inoutbuf``: Address of in/out buffer (choice). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 The global reduce functions (``MPI_Reduce_local``, ``MPI_Op_create``,
 ``MPI_Op_free``, ``MPI_Allreduce``, ``MPI_Reduce_local_scatter``, ``MPI_Scan)`` perform
@@ -89,12 +89,12 @@ numbers (count = 2 and datatype = ``MPI_FLOAT)``, then inoutbuf(1) = global
 max (inbuf(1)) and inoutbuf(2) = global max(inbuf(2)).
 
 USE OF IN-PLACE OPTION
-----------------------
+======================
 
 The use of ``MPI_IN_PLACE`` is disallowed with ``MPI_Reduce_local``.
 
 PREDEFINED REDUCE OPERATIONS
-----------------------------
+============================
 
 The set of predefined operations provided by MPI is listed below
 (Predefined Reduce Operations). That section also enumerates the
@@ -180,7 +180,7 @@ Now, the valid datatypes for each option is specified below.
    	MPI_BXOR
 
 MINLOC AND MAXLOC
------------------
+=================
 
 The operator ``MPI_MINLOC`` is used to compute a global minimum and also an
 index attached to the minimum value. ``MPI_MAXLOC`` similarly computes a
@@ -299,7 +299,7 @@ All MPI objects (e.g., ``MPI_Datatype``, ``MPI_Comm)`` are of type INTEGER in
 Fortran.
 
 NOTES ON COLLECTIVE OPERATIONS
-------------------------------
+==============================
 
 The reduction operators ( ``MPI_Op`` ) do not return an error value. As a
 result, if the functions detect an error, all they can do is either call
@@ -311,7 +311,7 @@ The reason for this is the performance problems in ensuring that all
 collective routines return the same error value.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -324,7 +324,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Allreduce``
 | ``MPI_Reduce``

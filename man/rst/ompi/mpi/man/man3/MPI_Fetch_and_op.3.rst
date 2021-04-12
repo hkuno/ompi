@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Fetch_and_op`` - Combines the contents of the origin buffer with
 that of a target buffer and returns the target buffer value.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    	MPI_Op op, MPI_Win win)
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -33,7 +33,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	INTEGER DATATYPE, TARGET_RANK, OP, WIN, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -51,7 +51,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``origin_addr``: Initial address of buffer (choice). 
 
@@ -68,12 +68,12 @@ INPUT PARAMETERS
 * ``win``: Window object (handle). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Accumulate one element of type *datatype* from the origin buffer
 (*origin_addr*) to the buffer at offset *target_disp*, in the target
@@ -97,7 +97,7 @@ target memory is returned in the result buffer at the origin and no
 operation is performed on the target buffer.
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the
 *TARGET_DISP* argument only for Fortran 90. FORTRAN 77 users may use the
@@ -111,7 +111,7 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTES
------
+=====
 
 It is the user's responsibility to guarantee that, when using the
 accumulate functions, the target displacement argument is such that
@@ -119,7 +119,7 @@ accesses to the window are properly aligned according to the data type
 arguments in the call to the ``MPI_Fetch_and_op`` function.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -133,7 +133,7 @@ that MPI does not guarantee that an MPI program can continue past an
 error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Get_accumulate``
 | ``MPI_Reduce``

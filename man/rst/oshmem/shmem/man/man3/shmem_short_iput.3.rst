@@ -1,5 +1,5 @@
 NAME
-----
+~~~~
 
 *shmem_complex_iput*\ (3), *shmem_double_iput*\ (3),
 *shmem_float_iput*\ (3), *shmem_int_iput*\ (3),
@@ -11,7 +11,7 @@ NAME
 to a specified processing element (PE).
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -86,7 +86,7 @@ Fortran:
    CALL SHMEM_REAL_IPUT(target, source, tst, sst, len, pe)
 
 DESCRIPTION
------------
+===========
 
 The shmem_iput routines read the elements of a local array (**source**)
 and write them to a remote array (**target**) on the PE indicated by
@@ -169,12 +169,12 @@ example, a real variable must be declared as REAL, REAL*4 or
 REAL(KIND=4).
 
 NOTES
------
+=====
 
 See *intro_shmem*\ (3) for a definition of the term remotely accessible.
 
 EXAMPLES
---------
+========
 
 Consider the following simple shmem_long_iput example for C/C++
 programs.
@@ -205,7 +205,7 @@ programs.
    }
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *shmem_iget*\ (3), *shmem_put*\ (3),
 *shmem_quiet*\ (3)

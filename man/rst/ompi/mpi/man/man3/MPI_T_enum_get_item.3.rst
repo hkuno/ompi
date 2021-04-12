@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_T_enum_get_item`` - Query information about an enumerator
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,33 +17,33 @@ C Syntax
                            int *name_len)
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``enumtype``: Enumeration to be queried. 
 
 * ``index``: Number of the value to be queried in this enumeration. 
 
 INPUT/OUTPUT PARAMETERS
------------------------
+=======================
 
 * ``name_len``: Length of the string and/or buffer for name. 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``value``: Variable value. 
 
 * ``name``: Buffer to return the string containing the name of the category. 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_T_enum_get_item`` can be used to query information about an item in an
 enumerator. This function returns the enumeration value in the *value*
 parameter.
 
 NOTES
------
+=====
 
 This MPI tool interface function returns the name of the item as a
 string. This function takes two arguments for the string: a buffer to
@@ -55,7 +55,7 @@ or the value specified in the length is 0 the string buffer is ignored
 and the string is not returned. For more information see MPI-3 � 14.3.3.
 
 ERRORS
-------
+======
 
 ``MPI_T_enum_get_item()`` will fail if:
 

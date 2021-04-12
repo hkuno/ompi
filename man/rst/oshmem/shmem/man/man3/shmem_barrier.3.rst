@@ -1,11 +1,11 @@
 NAME
-----
+~~~~
 
 shmem_barrier - Performs a barrier operation on a subset of processing
 elements (PEs).
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -30,7 +30,7 @@ Fortran:
    CALL SHMEM_BARRIER(PE_start, logPE_stride, PE_size, pSync)
 
 DESCRIPTION
------------
+===========
 
 The shmem_barrier routine does not return until the subset of PEs
 specified by **PE_start**, **logPE_stride** and **PE_size**, has entered
@@ -77,7 +77,7 @@ The same pSync array may be reused on consecutive calls to shmem_barrier
 if the same active PE set is used.
 
 NOTES
------
+=====
 
 The term symmetric is defined in *intro_shmem*\ (3).
 
@@ -90,7 +90,7 @@ repeatedly with the same pSync array. No additional synchronization
 beyond that implied by shmem_barrier itself is necessary in this case.
 
 EXAMPLES
---------
+========
 
 C/C++ example:
 
@@ -111,6 +111,6 @@ Fortran example:
    CALL SHMEM_BARRIER(PE_START, LOGPE_STRIDE, PE_SIZE, PSYNC)
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *shmem_barrier_all*\ (3)

@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Dist_graph_create`` - Makes a new communicator to which topology
 information has been attached.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
            MPI_Info info, int reorder, MPI_Comm *comm_dist_graph)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -33,7 +33,7 @@ Fortran Syntax
    	LOGICAL   REORDER
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -50,7 +50,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``comm_old``: Input communicator without topology (handle). 
 
@@ -69,14 +69,14 @@ INPUT PARAMETERS
 * ``reorder``: Ranking may be reordered (true) or not (false) (logical). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``comm_dist_graph``: Communicator with distributed graph topology added (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Dist_graph_create`` creates a new communicator *comm_dist_graph* with
 distrubuted graph topology and returns a handle to the new communicator.
@@ -113,7 +113,7 @@ associated with each edge is a hint to the MPI library about the amount
 or intensity of communication on that edge, and may be used to compute a
 
 WEIGHTS
--------
+=======
 
 Weights are specied as non-negative integers and can be used to
 influence the process remapping strategy and other internal MPI
@@ -134,7 +134,7 @@ like ``MPI_BOTTOM`` (not usable for initialization or assignment). See MPI-3
 § 2.5.4.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -147,7 +147,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ``MPI_Dist_graph_create_adjacent`` ``MPI_Dist_graph_neighbors``
 ``MPI_Dist_graph_neighbors_count``

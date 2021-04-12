@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_attach``, ``MPI_Win_detach`` - One-sided MPI call that attaches /
 detaches a memory region to / from a window object for RMA operations.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    MPI_Win_detach(MPI_Win win, void *base)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -36,7 +36,7 @@ Fortran Syntax
    	INTEGER WIN, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -54,7 +54,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``win``: A window that was created with *MPI_Win_create_dynamic* 
 
@@ -63,14 +63,14 @@ INPUT PARAMETERS
 * ``size``: Size of window in bytes (nonnegative integer). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``win``: Window object returned by the call (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Win_attach`` is a one-sided MPI communication call used to attach a
 memory region of *size* bytes starting at address *base* to a window for
@@ -88,14 +88,14 @@ from *win*. The memory address *base* and *win* must match arguments
 passed to a previous call to ``MPI_Win_attach``.
 
 NOTES
------
+=====
 
 Use memory allocated by ``MPI_Alloc_mem`` to guarantee properly aligned
 window boundaries (such as word, double-word, cache line, page frame,
 and so on).
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

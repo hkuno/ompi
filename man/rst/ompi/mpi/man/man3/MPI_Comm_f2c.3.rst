@@ -1,5 +1,5 @@
 NAME
-----
+~~~~
 
 ``MPI_Comm_f2c``, ``MPI_Comm_c2f``, ``MPI_File_f2c``, ``MPI_File_c2f``, ``MPI_Info_f2c``,
 ``MPI_Info_c2f``, ``MPI_Message_f2c``, ``MPI_Message_c2f``, ``MPI_Op_f2c``, ``MPI_Op_c2f``,
@@ -8,10 +8,10 @@ NAME
 handle, or vice versa.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -45,7 +45,7 @@ C Syntax
    MPI_Fint MPI_Win_c2f(MPI_Win win)
 
 DESCRIPTION
------------
+===========
 
 Handles are passed between Fortran and C by using an explicit C wrapper
 to convert Fortran handles to C handles. There is no direct access to C
@@ -62,7 +62,7 @@ C handle; if *comm* is an invalid Fortran handle, then ``MPI_Comm_f2c``
 returns an invalid C handle.
 
 NOTE
-----
+====
 
 This function does not return an error value. Consequently, the result
 of calling it before ``MPI_Init`` or after ``MPI_Finalize`` is undefined.

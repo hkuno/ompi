@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Comm_free`` - Mark a communicator object for deallocation.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Comm_free(MPI_Comm *comm)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,7 +27,7 @@ Fortran Syntax
    	INTEGER	COMM, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -38,17 +38,17 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``comm``: Communicator to be destroyed (handle). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 This operation marks the communicator object for deallocation. The
 handle is set to ``MPI_COMM_NULL``. Any pending operations that use this
@@ -59,7 +59,7 @@ delete callback functions for all cached attributes (see Section 5.7 in
 the MPI-1 Standard, "Caching") are called in arbitrary order.
 
 NOTES
------
+=====
 
 Note that it is not defined by the MPI standard what happens if the
 delete_fn callback invokes other MPI functions. In Open MPI, it is not
@@ -68,7 +68,7 @@ delete attributes on the same object on which the delete_fn callback is
 being invoked.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -81,7 +81,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ::
 

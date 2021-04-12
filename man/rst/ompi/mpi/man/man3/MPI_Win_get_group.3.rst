@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_get_group`` - Returns a duplicate of the group of the
 communicator used to create the window.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    MPI_Win_get_group(MPI_Win win, MPI_Group *group)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER WIN, GROUP, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -40,26 +40,26 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``win``: Window object (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``group``: Group of processes that share access to the window (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Win_get_group`` returns a duplicate of the group of the communicator
 used to create the window associated with *win*. The group is returned
 in *group*.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

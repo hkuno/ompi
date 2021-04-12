@@ -1,15 +1,15 @@
 NAME
-----
+~~~~
 
 ``MPI_File_get_group`` - Returns a duplicate of the process group of a
 file.
 
 SYNTAX
-------
+======
 
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    int MPI_File_get_group(MPI_File fh, MPI_Group *group)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax
    	INTEGER	FH, GROUP, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,19 +41,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``fh``: File handle (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``group``: Group that opened the file (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_File_get_group`` returns a duplicate of the group of the communicator
 used to open the file associated with *fh.* The group is returned in
@@ -61,7 +61,7 @@ used to open the file associated with *fh.* The group is returned in
 ``MPI_Group_free``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

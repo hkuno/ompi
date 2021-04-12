@@ -1,11 +1,11 @@
 NAME
-----
+~~~~
 
 shmem_fence - Provides a separate ordering on the sequence of puts
 issued by this PE to each destination PE.
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -26,7 +26,7 @@ Fortran:
    CALL SHMEM_FENCE
 
 DESCRIPTION
------------
+===========
 
 The **shmem_fence()** routine provides an ordering on the put operations
 issued by the calling PE prior to the call to **shmem_fence()** relative
@@ -41,12 +41,12 @@ The **shmem_quiet()** routine should be used instead if ordering of puts
 is required when multiple destination PEs are involved.
 
 NOTES
------
+=====
 
 The shmem_quiet function should be called if ordering of puts is desired
 when multiple remote PEs are involved.
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3)

@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Accumulate``, ``MPI_Raccumulate`` - Combines the contents of the
 origin buffer with that of a target buffer.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -26,7 +26,7 @@ C Syntax
    	MPI_Request *request)
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -48,7 +48,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	TARGET_DATATYPE, OP, WIN, REQUEST, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -77,7 +77,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``origin_addr``: Initial address of buffer (choice). 
 
@@ -98,7 +98,7 @@ INPUT PARAMETERS
 * ``win``: Window object (handle). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``MPI_Raccumulate``:  RMA request
 
@@ -106,7 +106,7 @@ OUTPUT PARAMETER
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Accumulate`` is a function used for one-sided MPI communication
 that adds the contents of the origin buffer (as defined by
@@ -142,7 +142,7 @@ indicates that the *origin_addr* buffer is free to be updated. It does
 not indicate that the operation has completed at the target window.
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the
 *TARGET_DISP* argument only for Fortran 90. FORTRAN 77 users may use the
@@ -156,7 +156,7 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTES
------
+=====
 
 ``MPI_Put`` is a special case of ``MPI_Accumulate``, with the operation
 ``MPI_REPLACE``. Note, however, that ``MPI_Put`` and ``MPI_Accumulate`` have
@@ -168,7 +168,7 @@ accesses to the window are properly aligned according to the data type
 arguments in the call to the ``MPI_Accumulate`` function.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -181,6 +181,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ``MPI_Put`` ``MPI_Get_accumulate`` ``MPI_Reduce``

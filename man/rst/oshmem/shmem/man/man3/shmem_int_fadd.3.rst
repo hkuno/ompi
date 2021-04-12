@@ -1,12 +1,12 @@
 NAME
-----
+~~~~
 
 *shmem_int4_fadd*\ (3), *shmem_int8_fadd*\ (3), *shmem_int_fadd*\ (3),
 *shmem_long_fadd*\ (3), *shmem_longlong_fadd*\ (3) - Performs an atomic
 fetch-and-add operation on a remote data object
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -38,7 +38,7 @@ Fortran:
    ires = SHMEM_INT8_FADD(target, value, pe)
 
 DESCRIPTION
------------
+===========
 
 shmem_fadd functions perform an atomic fetch-and-add operation. An
 atomic fetch-and-add operation fetches the old target and adds value to
@@ -64,17 +64,17 @@ pe
    value.
 
 NOTES
------
+=====
 
 The term remotely accessible is defined in *intro_shmem*\ (3).
 
 RETURN VALUES
--------------
+=============
 
 The contents that had been at the target address on the remote PE prior
 to the atomic addition operation.
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3)

@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Compare_and_swap`` - Perform RMA compare-and-swap
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    	MPI_Aint target_disp, MPI_Win win)
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -32,7 +32,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	INTEGER DATATYPE, TARGET_RANK, WIN, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -49,7 +49,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``origin_addr``: Initial address of buffer (choice). 
 
@@ -66,12 +66,12 @@ INPUT PARAMETERS
 * ``win``: Window object (handle). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 This function compares one element of type *datatype* in the compare
 buffer *compare_addr* with the buffer at offset *target_disp* in the
@@ -87,7 +87,7 @@ The origin and result buffers (*origin_addr* and *result_addr*) must be
 disjoint.
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the
 *TARGET_DISP* argument only for Fortran 90. FORTRAN 77 users may use the
@@ -101,7 +101,7 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTES
------
+=====
 
 It is the user's responsibility to guarantee that, when using the
 accumulate functions, the target displacement argument is such that
@@ -109,7 +109,7 @@ accesses to the window are properly aligned according to the data type
 arguments in the call to the ``MPI_Compare_and_swap`` function.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

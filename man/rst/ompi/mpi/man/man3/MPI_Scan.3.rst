@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Scan``, ``MPI_Iscan`` - Computes an inclusive scan (partial reduction)
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -21,7 +21,7 @@ C Syntax
                  MPI_Request *request)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -37,7 +37,7 @@ Fortran Syntax
    	INTEGER	COUNT, DATATYPE, OP, COMM, REQUEST, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -63,7 +63,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``sendbuf``: Send buffer (choice). 
 
@@ -76,7 +76,7 @@ INPUT PARAMETERS
 * ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``recvbuf``: Receive buffer (choice). 
 
@@ -85,7 +85,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Scan`` is used to perform an inclusive prefix reduction on data
 distributed across the calling processes. The operation returns, in the
@@ -96,7 +96,7 @@ supported, their semantics, and the constraints on send and receive
 buffers are as for ``MPI_Reduce``.
 
 EXAMPLE
--------
+=======
 
 This example uses a user-defined operation to produce a segmented scan.
 A segmented scan takes, as input, a set of values and a set of logicals,
@@ -190,7 +190,7 @@ following:
    	MPI_Scan(a, answer, 1, sspair, myOp, comm);
 
 USE OF IN-PLACE OPTION
-----------------------
+======================
 
 When the communicator is an intracommunicator, you can perform a
 scanning operation in place (the output buffer is used as the input
@@ -199,7 +199,7 @@ argument. The input data is taken from the receive buffer and replaced
 by the output data.
 
 NOTES ON COLLECTIVE OPERATIONS
-------------------------------
+==============================
 
 The reduction functions of type ``MPI_Op`` do not return an error value. As
 a result, if the functions detect an error, all they can do is either
@@ -211,7 +211,7 @@ The reason for this is the performance problems in ensuring that all
 collective routines return the same error value.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -226,7 +226,7 @@ guarantee that an MPI program can continue past an error.
 See the MPI man page for a full list of MPI error codes.
 
 SEE ALSO
---------
+========
 
 ::
 

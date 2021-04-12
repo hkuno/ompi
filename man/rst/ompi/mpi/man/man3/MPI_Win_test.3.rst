@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Win_test`` - Attempts to complete an RMA exposure epoch; a
 nonblocking version of ``MPI_Win_wait``
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Win_test(MPI_Win win, int *flag)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER  WIN, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -40,19 +40,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``win``: Window object (handle) 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 * ``flag``: The returning state of the test for epoch closure. 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Win_test`` is a one-sided MPI communication synchronization call, a
 nonblocking version of ``MPI_Win_wait``. It returns *flag = true* if
@@ -66,7 +66,7 @@ call has returned *flag = true*, it must not be invoked anew, until the
 window is posted anew.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -79,6 +79,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Win_post`` ``MPI_Win_wait``

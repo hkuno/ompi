@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_get_attr`` - Returns the attribute associated with a data
 type.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Type_get_attr(MPI_Datatype type, int type_keyval, void *attribute_val, int *flag)
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -30,7 +30,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	LOGICAL FLAG
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -44,14 +44,14 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``type``: Data type to which the attribute is attached (handle). 
 
 * ``type_keyval``: Key value (integer). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``attribute_val``: Attribute value, unless *flag* = false 
 
@@ -60,13 +60,13 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 For the given data type, ``MPI_Type_get_attr`` returns an attribute value
 that corresponds to the specified key value.
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the
 *ATTRIBUTE_VAL* argument only for Fortran 90. Sun FORTRAN 77 users may
@@ -80,7 +80,7 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -93,6 +93,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Type_set_attr``

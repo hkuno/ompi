@@ -1,15 +1,15 @@
 NAME
-----
+~~~~
 
 ::
 
    MPI_Add_error_string - Associates a string with an error code or class
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    int MPI_Add_error_string(int errorcode, const char *string)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -30,7 +30,7 @@ Fortran Syntax
    	CHARACTER*(*)	STRING
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -42,19 +42,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``errorcode``: MPI error class, or an error code returned by an MPI routine (integer). 
 
 * ``string``: Text that corresponds to the error code or class (string). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 This routine associates an error string with an error code or class.
 Calling ``MPI_Add_error_string`` for an error code or class that already has
@@ -64,7 +64,7 @@ generated via ``MPI_Add_error_class`` or ``MPI_Add_error_code`` (e.g., an error
 code or class with a value not greater than ``MPI_LAST_ERRCODE)``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -77,7 +77,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ::
 

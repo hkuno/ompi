@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Comm_remote_group`` - Accesses the remote group associated with an
 intercommunicator.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Comm_remote_group(MPI_Comm comm, MPI_Group *group)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER	COMM, GROUP, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -40,19 +40,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``comm``: Communicator. 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``group``: Remote group of communicator. 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Comm_remote_group`` accesses the remote group associated with an
 intercommunicator.
@@ -61,7 +61,7 @@ The intercommunicator accessors (``MPI_Comm_test_inter``,
 ``MPI_Comm_remote_size``, ``MPI_Comm_remote_group)`` are all local operations.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -74,7 +74,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ::
 

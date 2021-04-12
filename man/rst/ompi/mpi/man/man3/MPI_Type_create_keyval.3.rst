@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_create_keyval`` - Generates a new attribute key for caching
 on data types.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    	int *type_keyval, void *extra_state)
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -33,7 +33,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	INTEGER(KIND=MPI_ADDRESS_KIND) EXTRA_STATE
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -48,7 +48,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``type_copy_attr_fn``: Copy callback function for *type_keyval* (function). 
 
@@ -57,14 +57,14 @@ INPUT PARAMETERS
 * ``extra_state``: Extra state for callback functions. 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``type_keyval``: Key value for future access (integer). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Type_create_keyval`` generates a new attribute key for caching on data
 types. This routine partially replaces ``MPI_Keyval_create``.
@@ -116,7 +116,7 @@ and
        INTEGER(KIND=MPI_ADDRESS_KIND) ATTRIBUTE VAL, EXTRA_STATE
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the
 *EXTRA_STATE* argument only for Fortran 90. FORTRAN 77 users may use the
@@ -130,7 +130,7 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -143,6 +143,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ``MPI_Type_free_keyval``

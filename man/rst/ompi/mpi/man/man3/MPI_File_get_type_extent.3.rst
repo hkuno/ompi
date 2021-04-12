@@ -1,15 +1,15 @@
 NAME
-----
+~~~~
 
 ``MPI_File_get_type_extent`` - Returns the extent of the data type in a
 file.
 
 SYNTAX
-------
+======
 
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -19,7 +19,7 @@ C Syntax
    	datatype, MPI_Aint *extent)
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -31,7 +31,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	INTEGER(KIND=MPI_ADDRESS_KIND)	EXTENT
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -44,21 +44,21 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``fh``: File handle (handle). 
 
 * ``datatype``: Data type (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``extent``: Data type extent (integer). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_File_get_type_extent`` can be used to calculate *extent* for
 *datatype* in the file. The extent is the same for all processes
@@ -67,7 +67,7 @@ user-defined data representation, ``MPI_File_get_type_extent`` uses the
 *dtype_file_extent_fn* callback to calculate the extent.
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the *EXTENT*
 argument only for Fortran 90. FORTRAN 77 users may use the non-portable
@@ -81,7 +81,7 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTES
------
+=====
 
 If the file data representation is other than "native," care must be
 taken in constructing etypes and file types. Any of the data-type
@@ -98,7 +98,7 @@ therefore, they must always be constructed using displacements
 corresponding to displacements in memory.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

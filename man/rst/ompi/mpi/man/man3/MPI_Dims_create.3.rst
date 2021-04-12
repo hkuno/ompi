@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Dims_create`` - Creates a division of processors in a Cartesian
 grid.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Dims_create(int nnodes, int ndims, int dims[])
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER	NNODES, NDIMS, DIMS(*), IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -40,24 +40,24 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``nnodes``: Number of nodes in a grid (integer). 
 
 * ``ndims``: Number of Cartesian dimensions (integer). 
 
 IN/OUT PARAMETER
-----------------
+================
 
 * ``dims``: Integer array of size ndims specifying the number of nodes in each dimension. 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 For Cartesian topologies, the function ``MPI_Dims_create`` helps the user
 select a balanced distribution of processes per coordinate direction,
@@ -98,7 +98,7 @@ order. Array dims is suitable for use as input to routine
    ------------------------------------------------------
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

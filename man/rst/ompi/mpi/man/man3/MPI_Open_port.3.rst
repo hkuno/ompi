@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Open_port`` - Establishes a network address for a server to accept
 connections from clients.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Open_port(MPI_Info info, char *port_name)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax
    	INTEGER		INFO, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,19 +41,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``info``: Options on how to establish an address (handle). No options currently supported. 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``port_name``: Newly established port (string). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Open_port`` establishes a network address, encoded in the *port_name*
 string, at which the server will be able to accept connections from
@@ -65,12 +65,12 @@ the server. The maximum size string that may be supplied by the system
 is ``MPI_MAX_PORT_NAME``.
 
 SUPPORTED INFO KEYS
--------------------
+===================
 
 None.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -83,6 +83,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Comm_accept`` ``MPI_Comm_connect``

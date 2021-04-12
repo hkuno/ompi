@@ -1,11 +1,11 @@
 NAME
-----
+~~~~
 
 *shmem_set_lock*\ (3), *shmem_clear_lock*\ (3), *shmem_test_lock*\ (3) -
 Releases, locks, and tests a mutual exclusion memory lock.
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -36,7 +36,7 @@ Fortran:
    I = SHMEM_TEST_LOCK(lock)
 
 DESCRIPTION
------------
+===========
 
 The shmem_set_lock routine sets a mutual exclusion lock after waiting
 for the lock to be freed by any other PE currently holding the lock.
@@ -61,12 +61,12 @@ lock
    If you are using Fortran, it must be of default kind.
 
 NOTES
------
+=====
 
 The term symmetric data object is defined on *intro_shmem*\ (3).
 
 RETURN VALUES
--------------
+=============
 
 The shmem_test_lock function returns 0 if the lock was originally
 cleared and this call was able to set the lock. A value of 1 is returned
@@ -74,6 +74,6 @@ if the lock had been set and the call returned without waiting to set
 the lock.
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3)

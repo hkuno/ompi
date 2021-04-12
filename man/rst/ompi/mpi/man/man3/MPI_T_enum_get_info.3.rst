@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_T_enum_get_info`` - Query information about an enumerator
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,31 +16,31 @@ C Syntax
    int MPI_T_enum_get_info(MPI_T_enum enumtype, int *num, char *name, int *name_len)
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``enumtype``: Enumerator to be queried. 
 
 INPUT/OUTPUT PARAMETERS
------------------------
+=======================
 
 * ``name_len``: Length of the string and/or buffer for name. 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``num``: number of discrete values represented by this enumeration. 
 
 * ``name``: Buffer to return the string containing the name of the category. 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_T_enum_get_info`` can be used to query information about an
 enumerator. The function returns the number of discrete values
 represented by this enumerator in the *num* parameter.
 
 NOTES
------
+=====
 
 This MPI tool interface function returns the name of the enumeration as
 a string. This function takes two argument for the string: *name* which
@@ -53,7 +53,7 @@ of the name and sets *name_len* to the number of characters returned +
 returned.
 
 ERRORS
-------
+======
 
 ``MPI_T_enum_get_info()`` will fail if:
 

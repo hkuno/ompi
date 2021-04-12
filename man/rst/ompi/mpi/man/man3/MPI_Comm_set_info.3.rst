@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Comm_set_info`` - Set communicator info hints
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Comm_set_info(MPI_Comm comm, MPI_Info info)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,7 +27,7 @@ Fortran Syntax
    	INTEGER	COMM, INFO, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -39,19 +39,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``comm``: Communicator on which to set info hints 
 
 * ``info``: Info object containing hints to be set on *comm* 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_COMM_SET_INFO`` sets new values for the hints of the communicator
 associated with *comm*. ``MPI_COMM_SET_INFO`` is a collective routine. The
@@ -84,7 +84,7 @@ operations are not required to be matched in the order in which they
 were performed by the receiver.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -97,6 +97,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ``MPI_Comm_get_info,`` ``MPI_Info_create,`` ``MPI_Info_set,`` ``MPI_Info_free``

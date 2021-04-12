@@ -1,12 +1,12 @@
 NAME
-----
+~~~~
 
 *shmem_clear_cache_inv*\ (3), *shmem_set_cache_inv*\ (3),
 *shmem_set_cache_line_inv*\ (3), *shmem_udcflush*\ (3),
 *shmem_udcflush_line*\ (3) - Controls data cache utilities
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -38,7 +38,7 @@ Fortran:
    CALL SHMEM_UDCFLUSH_LINE(target)
 
 DESCRIPTION
------------
+===========
 
 The following argument is passed to the cache line control routines:
 
@@ -68,12 +68,12 @@ previously enabled by shmem_set_cache_inv or shmem_set_cache_line_inv.
 with the address specified by target.
 
 NOTES
------
+=====
 
 These routines have been retained for improved backward compatability
 with legacy architectures.
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *shmem_put*\ (3), *shmem_swap*\ (3)

@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Comm_get_parent`` - Returns the parent intercommunicator of
 current spawned process.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Comm_get_parent(MPI_Comm *parent)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER	PARENT, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -39,14 +39,14 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``parent``: The parent communicator (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 If a process was started with ``MPI_Comm_spawn`` or ``MPI_Comm_spawn_multiple``,
 ``MPI_Comm_get_parent`` returns the "parent" intercommunicator of the
@@ -61,7 +61,7 @@ After the parent communicator is freed or disconnected,
 ``MPI_Comm_get_parent`` returns ``MPI_COMM_NULL``.
 
 NOTES
------
+=====
 
 ``MPI_Comm_get_parent`` returns a handle to a single intercommunicator.
 Calling ``MPI_Comm_get_parent`` a second time returns a handle to the same
@@ -71,7 +71,7 @@ become invalid (dangling). Note that calling ``MPI_Comm_free`` on the parent
 communicator is not useful.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -84,7 +84,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ::
 

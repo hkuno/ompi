@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_T_cvar_write`` - Write the value of a bound control variable
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,14 +16,14 @@ C Syntax
    int MPI_T_cvar_write(MPI_T_cvar_handle handle, const void *buf)
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``handle``: Handle of the control variable to be written. 
 
 * ``buf``: Initial address of storage location for variable value. 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_T_cvar_write`` sets the value the control variable identified by the
 handle specified in *handle* from the buffer provided in *buf*. The
@@ -33,7 +33,7 @@ global scope, any write call must be issued on all connected MPI
 processes. For more information see MPI-3 � 14.3.6.
 
 ERRORS
-------
+======
 
 ``MPI_T_cvar_write()`` will fail if:
 
@@ -50,7 +50,7 @@ ERRORS
    Variable cannot be set until end of execution
 
 SEE ALSO
---------
+========
 
 ::
 

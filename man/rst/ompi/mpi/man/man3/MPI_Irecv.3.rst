@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Irecv`` - Starts a standard-mode, nonblocking receive.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
            int source, int tag, MPI_Comm comm, MPI_Request *request)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -30,7 +30,7 @@ Fortran Syntax
    	INTEGER	COUNT, DATATYPE, SOURCE, TAG, COMM, REQUEST, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -45,7 +45,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``buf``: Initial address of receive buffer (choice). 
 
@@ -60,14 +60,14 @@ INPUT PARAMETERS
 * ``comm``: Communicator (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``request``: Communication request (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Nonblocking calls allocate a communication request object and associate
 it with the request handle (the argument request). The request can be
@@ -84,7 +84,7 @@ A receive request can be determined being completed by calling the
 this function.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -97,6 +97,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Recv`` ``MPI_Probe`` ``MPI_Test`` ``MPI_Testany`` ``MPI_Wait`` ``MPI_Waitany``

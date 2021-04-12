@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Comm_get_info`` - Retrieves active communicator info hints
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Comm_get_info(MPI_Comm comm, MPI_Info *info_used)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,7 +27,7 @@ Fortran Syntax
    	INTEGER	COMM, INFO_USED, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -39,19 +39,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``comm``: Communicator from which to receive active info hints 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``info_used``: New info object returned with all active hints on this communicator. 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Comm_get_info`` returns a new info object containing the hints of the
 communicator associated with *comm*. The current setting of all hints
@@ -61,7 +61,7 @@ object is returned that contains no key/value pair. The user is
 responsible for freeing info_used via ``MPI_Info_free``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -74,6 +74,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ``MPI_Comm_get_info,`` ``MPI_Info_free``

@@ -1,15 +1,15 @@
 NAME
-----
+~~~~
 
 ``MPI_Neighbor_alltoallw``, ``MPI_Ineighbor_alltoallw`` - All processes send
 data of different types to, and receive data of different types from,
 all processes
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -26,7 +26,7 @@ C Syntax
    	const MPI_Datatype recvtypes[], MPI_Comm comm, MPI_Request *request)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -52,7 +52,7 @@ Fortran Syntax
    	INTEGER	COMM, REQUEST, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -84,7 +84,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``sendbuf``: Starting address of send buffer. 
 
@@ -103,7 +103,7 @@ INPUT PARAMETERS
 * ``comm``: Communicator over which data is to be exchanged. 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``recvbuf``: Address of receive buffer. 
 
@@ -112,7 +112,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status. 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Neighbor_alltoallw`` is a generalized collective operation in which
 all processes send data to and receive data from all neighbors. It adds
@@ -164,7 +164,7 @@ different amounts and types of data to different processes in the
 communicator.
 
 NOTES
------
+=====
 
 The ``MPI_IN_PLACE`` option for *sendbuf* is not meaningful for this
 operation
@@ -180,7 +180,7 @@ this to ``MPI_Neighbor_alltoallv``, where these offsets are measured in
 units of *sendtype* and *recvtype*, respectively.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -193,7 +193,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ::
 

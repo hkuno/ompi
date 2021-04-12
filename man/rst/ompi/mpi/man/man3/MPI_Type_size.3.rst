@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Type_size``, ``MPI_Type_size_x`` - Returns the number of bytes
 occupied by entries in a data type.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    int MPI_Type_size_x(MPI_Datatype datatype, MPI_Count *size)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -33,7 +33,7 @@ Fortran Syntax
            INTEGER IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -49,19 +49,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``datatype``: Datatype (handle). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``size``: Datatype size (integer). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Type_size`` returns the total size, in bytes, of the entries in the
 type signature associated with datatype; i.e., the total size of the
@@ -72,7 +72,7 @@ express the value to be returned (e.g., if the parameter is too small to
 hold the output value), it is set to ``MPI_UNDEFINED``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -85,7 +85,7 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the *SIZE*
 argument of ``MPI_Type_size_x`` only for Fortran 90. FORTRAN 77 users may

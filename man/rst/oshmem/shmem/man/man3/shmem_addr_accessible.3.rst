@@ -1,11 +1,11 @@
 NAME
-----
+~~~~
 
 shmem_addr_accessible - Indicates if an address is accessible via
 OpenSHMEM operations from the specified remote PE.
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -29,7 +29,7 @@ Fortran:
    LOG = SHMEM_ADDR_ACCESSIBLE(addr, pe)
 
 DESCRIPTION
------------
+===========
 
 shmem_addr_accessible is a query function that indicates whether a local
 address is accessible via SHMEM operations from the specified remote PE.
@@ -39,7 +39,7 @@ transfer functions from the local PE, and that the specified address is
 in a symmetric data segment with respect to the remote PE.
 
 RETURN VALUES
--------------
+=============
 
 C: The return value is 1 if addr is a symmetric data object and
 accessible via SHMEM operations from the specified remote PE; otherwise,
@@ -50,6 +50,6 @@ and accessible via SHMEM operations from the specified remote PE;
 otherwise, it is .FALSE..
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *shmem_pe_accessible*\ (3)

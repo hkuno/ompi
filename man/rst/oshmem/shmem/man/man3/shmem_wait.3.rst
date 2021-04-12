@@ -1,5 +1,5 @@
 NAME
-----
+~~~~
 
 *shmem_int_wait*\ (3), *shmem_int_wait*\ (3)_until,
 *shmem_int4_wait*\ (3), *shmem_int4_wait*\ (3)_until,
@@ -11,7 +11,7 @@ NAME
 local processing element (PE) to change
 
 SYNOPSIS
---------
+========
 
 C or C++:
 
@@ -62,7 +62,7 @@ Fortran:
    CALL SHMEM_WAIT_UNTIL(ivar, cmp, cmp_value)
 
 DESCRIPTION
------------
+===========
 
 shmem_wait and shmem_wait_until wait for **ivar** to be changed by a
 remote write or atomic swap issued by a different processor. These
@@ -143,7 +143,7 @@ cmp_value
    operator, cmp.
 
 EXAMPLES
---------
+========
 
 **Example 1:** The following call returns when variable ivar is not
 equal to 100:
@@ -191,6 +191,6 @@ subroutine:
    END
 
 SEE ALSO
---------
+========
 
 *intro_shmem*\ (3), *shmem_put*\ (3)

@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_File_get_size`` - Returns the current size of the file.
 
 SYNTAX
-------
+======
 
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_File_get_size(MPI_File fh, MPI_Offset *size)
 
 Fortran Syntax (see FORTRAN 77 NOTES)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax (see FORTRAN 77 NOTES)
    	INTEGER(KIND=MPI_OFFSET_KIND)	SIZE
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,19 +41,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``fh``: File handle (handle). 
 
 * ``size``: Size of the file in bytes (integer). 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_File_get_size`` returns, in *size* , the current size in bytes of the
 file associated with the file handle *fh*. Note that the file size
@@ -62,7 +62,7 @@ allocated for the file in those cases where all bytes in this file have
 not been written at least once.
 
 FORTRAN 77 NOTES
-----------------
+================
 
 The MPI standard prescribes portable Fortran syntax for the *SIZE*
 argument only for Fortran 90. Sun FORTRAN 77 users may use the
@@ -76,7 +76,7 @@ where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -89,7 +89,7 @@ called. For MPI I/O function errors, the default error handler is set to
 does not guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 |
 | ``MPI_File_preallocate``

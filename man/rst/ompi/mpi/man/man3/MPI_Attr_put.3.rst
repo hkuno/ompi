@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Attr_put`` - Stores attribute value associated with a key -- use
 of this routine is deprecated.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -17,7 +17,7 @@ C Syntax
    int MPI_Attr_put(MPI_Comm comm, int keyval, void *attribute_val)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -27,7 +27,7 @@ Fortran Syntax
    	INTEGER	COMM, KEYVAL, ATTRIBUTE_VAL, IERROR
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``comm``: Communicator to which attribute will be attached (handle). 
 
@@ -36,12 +36,12 @@ INPUT PARAMETERS
 * ``attribute_val``: Attribute value. 
 
 OUTPUT PARAMETER
-----------------
+================
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Note that use of this routine is *deprecated as of MPI-2, and* was
 *deleted in MPI-3. Please use ``MPI_Comm_set_attr``. This* function does not
@@ -57,7 +57,7 @@ value. The call will fail if the delete_fn function returned an error
 code other than ``MPI_SUCCESS``.
 
 NOTES
------
+=====
 
 Values of the permanent attributes ``MPI_TAG_UB``, ``MPI_HOST``, ``MPI_IO``, and
 ``MPI_WTIME_IS_GLOBAL`` may not be changed.
@@ -72,7 +72,7 @@ If an attribute is already present, the delete function (specified when
 the corresponding keyval was created) will be called.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -85,6 +85,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 | ``MPI_Comm_set_attr``

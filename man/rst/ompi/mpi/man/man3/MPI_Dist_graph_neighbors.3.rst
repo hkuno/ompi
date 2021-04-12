@@ -1,14 +1,14 @@
 NAME
-----
+~~~~
 
 ``MPI_Dist_graph_neighbors`` - Returns the neighbors of the calling
 process in a distributed graph topology.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
                                 int maxoutdegree, int destinations[], int destweights[])
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -31,7 +31,7 @@ Fortran Syntax
                    DESTINATIONS(*), DESTWEIGHTS(*), IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -46,7 +46,7 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``comm``: Communicator with distributed graph topology (handle). 
 
@@ -55,7 +55,7 @@ INPUT PARAMETERS
 * ``maxoutdegree``: Size of *destinations* and *destweights* arrays (non-negative integer). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``sources``: Processes for which the calling process is a destination (array of non-negative integers). 
 
@@ -68,7 +68,7 @@ OUTPUT PARAMETERS
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 ``MPI_Dist_graph_neighbors`` returns the source and destination ranks in a
 distributed graph topology for the calling process. This call will
@@ -82,7 +82,7 @@ and *destinations* is identical to the input that was used by the
 process with the same rank in comm_old in the creation call.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -95,6 +95,6 @@ may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
---------
+========
 
 ``MPI_Dist_graph_neighbors_count``

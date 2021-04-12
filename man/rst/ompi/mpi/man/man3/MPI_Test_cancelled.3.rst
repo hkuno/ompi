@@ -1,13 +1,13 @@
 NAME
-----
+~~~~
 
 ``MPI_Test_cancelled`` - Tests whether a request was canceled.
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -16,7 +16,7 @@ C Syntax
    int MPI_Test_cancelled(const MPI_Status *status, int *flag)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -28,7 +28,7 @@ Fortran Syntax
    	INTEGER	STATUS(MPI_STATUS_SIZE), IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -40,19 +40,19 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETER
----------------
+===============
 
 * ``status``: Status object (status). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``flag``: True if operation was cancelled (logical). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 Returns *flag* = true if the communication associated with the status
 object was canceled successfully. In such a case, all other fields of
@@ -62,13 +62,13 @@ call ``MPI_Test_cancelled`` first, to check whether the operation was
 canceled, before checking on the other fields of the return status.
 
 NOTES
------
+=====
 
 Cancel can be an expensive operation that should be used only
 exceptionally.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.

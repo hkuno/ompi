@@ -1,15 +1,15 @@
 NAME
-----
+~~~~
 
 ::
 
    MPI_Type_create_f90_real - Returns a bounded MPI real datatype
 
 SYNTAX
-------
+======
 
 C Syntax
-~~~~~~~~
+--------
 
 .. code-block:: c
    :linenos:
@@ -18,7 +18,7 @@ C Syntax
    int MPI_Type_create_f90_real(int p, int r, MPI_Datatype *newtype)
 
 Fortran Syntax
-~~~~~~~~~~~~~~
+--------------
 
 .. code-block:: fortran
    :linenos:
@@ -29,7 +29,7 @@ Fortran Syntax
    	INTEGER	P, R, NEWTYPE, IERROR
 
 Fortran 2008 Syntax
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 .. code-block:: fortran
    :linenos:
@@ -41,21 +41,21 @@ Fortran 2008 Syntax
    	INTEGER, OPTIONAL, INTENT(OUT) :: ierror
 
 INPUT PARAMETERS
-----------------
+================
 
 * ``p``: Precision, in decimal digits (integer). 
 
 * ``r``: Decimal exponent range (integer). 
 
 OUTPUT PARAMETERS
------------------
+=================
 
 * ``newtype``: New data type (handle). 
 
 * ``IERROR``: Fortran only: Error status (integer). 
 
 DESCRIPTION
------------
+===========
 
 This function provides a way to declare KIND-parameterized REAL MPI
 datatypes. The arguments are interpreted in a similar fashion to the F90
@@ -70,7 +70,7 @@ SELECTED_REAL_KIND. Similarly, either argument to
 ``MPI_Type_create_f90_real`` may be set to ``MPI_UNDEFINED``.
 
 NOTES
------
+=====
 
 It is erroneous to supply values for *p* and *r* not supported by the
 compiler.
@@ -115,7 +115,7 @@ the only way to obtain a matching MPI datatype is to use the functions
 ``MPI_Sizeof`` and ``MPI_Type_match_size``.
 
 ERRORS
-------
+======
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -130,7 +130,7 @@ guarantee that an MPI program can continue past an error.
 See the MPI man page for a full list of MPI error codes.
 
 SEE ALSO
---------
+========
 
 ::
 
