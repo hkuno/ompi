@@ -142,11 +142,15 @@ for i in range(len(in_lines)):
       if paramsect.match(curline):
         PARAM=True
       if (curline.isupper()):
-        # level 1 heading
-        output_lines.append(f"{curline}\n{re.sub('=','-',nextline)}")
+        # Only substitute for the first NAME heading because build-doc
+        # seems to expect a single-rooted hierarchy.
+        if (curline == 'NAME'):
+          output_lines.append(f"{curline}\n{re.sub('=','~',nextline)}")
+        else:
+          output_lines.append(f"{curline}\n{nextline}")
       else:
         # level 2 heading
-        output_lines.append(f"{curline}\n{re.sub('=','~',nextline)}")
+        output_lines.append(f"{curline}\n{re.sub('=','-',nextline)}")
     elif literalpat.match(curline):
         LITERAL=True
         prevlangline=prevline

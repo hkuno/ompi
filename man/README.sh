@@ -11,11 +11,14 @@ BUILDRST=./rst/
 BUILDRST=$(cd $BUILDRST ; pwd -P )
 BUILDHTML=./_build/html/
 MANDIRS="ompi/mpi/man oshmem/shmem/man"
+TSTMAN_ORIG=./tmpman_orig/
+TSTMAN_NEW=./tmpman_new/
+TSTMAN_DIFF=./tmpman_diff/
 
 # For each man page, if the man page includes another,
 # convert nroff ".so" command to rst ".. include::"
 # else use pandoc to convert the man page to rst.
-if [[ 0 -eq 1 ]] ; then
+if [[ 1 -eq 1 ]] ; then
     echo "About to convert man to rst"
     SAVEME=$( pwd )
     ERRORFILE=pandoc_man2rst.output
@@ -49,7 +52,7 @@ fi
 
 # For each man md page, if the man page includes another,
 # use pandoc to convert the man page to rst.
-if [[ 0 -eq 1 ]] ; then
+if [[ 1 -eq 1 ]] ; then
     echo "About to convert md to rst"
     SAVEME=$( pwd )
     ERRORFILE=pandoc_md2rst.output
@@ -115,6 +118,56 @@ if [[ 1 -eq 1 ]] ; then
     cd $SAVEME
 date
 fi
+
+# check the man pages by comparing against original man pages
+if [[ 1 -eq 1 ]] ; then
+    SAVEME=$( pwd -P )
+    mkdir -p $TSTMAN_NEW
+    TSTMAN_NEW=$( cd $TSTMAN_NEW; pwd -P )
+    cd $BUILDMAN
+    for i in $( /bin/ls ) ; do
+        out=${TSTMAN_NEW}/${i}
+        man ./${i} >& $out
+    done
+    cd $SAVEME
+fi
+
+if [[ 1 -eq 1 ]] ; then
+    mkdir -p $TSTMAN_ORIG
+    TSTMAN_ORIG=$( cd $TSTMAN_ORIG; pwd -P )
+    SAVEME=$( pwd -P )
+    cd $MANHOME
+    for d in $MANDIRS ; do
+        for f in $( find $d -name \*.\*in ) ; do
+            sbname=$( basename $f | sed -e "s/in$//" )
+            out=$TSTMAN_ORIG/$sbname
+            man ${f} >& $out
+        done
+    done
+    cd $SAVEME
+fi
+
+if [[ 1 -eq 1 ]] ; then
+    SAVEME=$( pwd -P )
+    TSTMAN_ORIG=$( cd $TSTMAN_ORIG; pwd -P )
+    TSTMAN_NEW=$( cd $TSTMAN_NEW; pwd -P )
+    mkdir -p $TSTMAN_DIFF
+    TSTMAN_DIFF=$( cd $TSTMAN_DIFF; pwd -P )
+    echo "TSTMAN_DIFF is $TSTMAN_DIFF"
+    for i in $( /bin/ls $TSTMAN_NEW ) ; do
+        if [[ ! -d $TSTMAN_NEW/$i ]] ; then
+            out=${TSTMAN_DIFF}/$i
+            f1=${TSTMAN_NEW}/${i}
+            f2=${TSTMAN_ORIG}/${i}
+            if [[ -f $f1 ]] && [[ -f $f2 ]] ; then
+                diff $f1 $f2 >& $out
+            else
+                echo "Missing: $f1 or $f2"
+            fi
+        fi
+    done
+fi
+
 
 # TO DO LIST:
 # Decide what the directory structure should be with docs and man
