@@ -39,6 +39,7 @@ def usage():
 
 # Get input and optional output files
 in_fname = sys.argv[1]
+CMDNAME = os.path.basename(in_fname).rsplit('.',100)[0]
 
 # TODO: optionally print to output file
 out_fname=""
@@ -59,6 +60,9 @@ include_pat = re.compile("\.\. include::")
 
 # delimiter line (occurs after the heading text)
 dline=re.compile("^[=]+")
+
+# name
+name=re.compile("^name$", flags = re.IGNORECASE | re.MULTILINE)
 
 # break out of a literal
 # This is an over-simplification because really a literal block
@@ -142,10 +146,11 @@ for i in range(len(in_lines)):
       if paramsect.match(curline):
         PARAM=True
       if (curline.isupper()):
-        # Only substitute for the first NAME heading because build-doc
-        # seems to expect a single-rooted hierarchy.
-        if (curline == 'NAME'):
-          output_lines.append(f"{curline}\n{re.sub('=','~',nextline)}")
+        if name.match(curline): 
+          # Substitute program name because html index needs it.
+          # Only substitute delimeter for the first NAME heading because 
+          # build-doc seems to expect a single-rooted hierarchy.
+          output_lines.append(f"{CMDNAME}\n{re.sub('[A-Z,a-z,0-9,_,-]','~',CMDNAME)}")
         else:
           output_lines.append(f"{curline}\n{nextline}")
       else:
