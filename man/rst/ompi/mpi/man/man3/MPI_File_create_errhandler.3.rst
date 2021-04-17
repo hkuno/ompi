@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_create_errhandler
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_File_create_errhandler`` - Creates an MPI-style error handler that
 can be attached to a file.

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Start
+~~~~~~~~~
 
 ``MPI_Start`` - Initiates a communication using a persistent request
 handle.

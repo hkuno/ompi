@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_flush
+~~~~~~~~~~~~~
 
 ``MPI_Win_flush``, ``MPI_Win_flush_all`` - Complete all outstanding RMA
 operations at both the origin and the target

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Wait
+~~~~~~~~
 
 ``MPI_Wait`` - Waits for an MPI send or receive to complete.
 

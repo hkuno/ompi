@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Waitall
+~~~~~~~~~~~
 
 ``MPI_Waitall`` - Waits for all given communications to complete.
 

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Testsome
+~~~~~~~~~~~~
 
 ``MPI_Testsome`` - Tests for completion of one or more previously
 initiated communications in a list.

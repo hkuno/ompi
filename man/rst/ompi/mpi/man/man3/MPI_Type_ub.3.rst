@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_ub
+~~~~~~~~~~~
 
 ``MPI_Type_ub`` - Returns the upper bound of a datatype -- use of this
 routine is deprecated.

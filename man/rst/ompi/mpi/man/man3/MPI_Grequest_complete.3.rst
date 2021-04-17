@@ -1,5 +1,5 @@
-Name
-====
+MPI_Grequest_complete
+~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Grequest_complete`` - Reports that a generalized request is
 complete.

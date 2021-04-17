@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Send
+~~~~~~~~
 
 ``MPI_Send`` - Performs a standard-mode blocking send.
 

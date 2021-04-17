@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_set_attr
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_set_attr`` - Stores attribute value associated with a key.
 

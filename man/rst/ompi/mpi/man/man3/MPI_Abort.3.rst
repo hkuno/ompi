@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Abort
+~~~~~~~~~
 
 ``MPI_Abort`` - Terminates MPI execution environment.
 

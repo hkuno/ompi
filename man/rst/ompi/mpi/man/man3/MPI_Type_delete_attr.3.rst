@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_delete_attr
+~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_delete_attr`` - Deletes a datatype-caching attribute value
 associated with a key.

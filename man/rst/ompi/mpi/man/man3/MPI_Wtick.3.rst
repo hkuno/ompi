@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Wtick
+~~~~~~~~~
 
 ``MPI_Wtick`` - Returns the resolution of ``MPI_Wtime``.
 

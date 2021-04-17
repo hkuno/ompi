@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_sync
+~~~~~~~~~~~~
 
 ``MPI_Win_sync``, - Synchronize the private and public copies of the
 window

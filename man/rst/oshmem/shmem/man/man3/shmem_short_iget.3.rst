@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_short_iget
+~~~~~~~~~~~~~~~~
 
 *shmem_complex_iget*\ (3), *shmem_double_iget*\ (3),
 *shmem_float_iget*\ (3), *shmem_iget4*\ (3), *shmem_iget8*\ (3),

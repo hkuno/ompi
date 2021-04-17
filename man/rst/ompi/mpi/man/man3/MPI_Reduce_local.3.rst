@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Reduce_local
+~~~~~~~~~~~~~~~~
 
 ``MPI_Reduce_local`` - Perform a local reduction
 

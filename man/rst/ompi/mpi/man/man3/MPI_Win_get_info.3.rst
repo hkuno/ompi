@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_get_info
+~~~~~~~~~~~~~~~~
 
 ``MPI_Win_get_info`` - Retrieves active window info hints
 

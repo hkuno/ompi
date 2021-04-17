@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_category_get_categories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_T_category_get_categories`` - Query which categories are in a
 category

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_create
+~~~~~~~~~~~~~~
 
 ``MPI_Win_create`` - One-sided MPI call that returns a window object for
 RMA operations.

@@ -1,5 +1,5 @@
-Name
-====
+MPI_Bsend
+~~~~~~~~~
 
 ``MPI_Bsend`` - Basic send with user-specified buffering.
 

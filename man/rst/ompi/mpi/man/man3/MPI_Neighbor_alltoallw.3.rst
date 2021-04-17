@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Neighbor_alltoallw
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Neighbor_alltoallw``, ``MPI_Ineighbor_alltoallw`` - All processes send
 data of different types to, and receive data of different types from,

@@ -1,5 +1,5 @@
-Name
-====
+MPI_Finalized
+~~~~~~~~~~~~~
 
 ``MPI_Finalized`` - Checks whether MPI has been finalized
 

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_seek_shared
+~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_File_seek_shared`` - Updates the global shared file pointer
 (collective).

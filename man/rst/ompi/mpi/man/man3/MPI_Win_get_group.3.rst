@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_get_group
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Win_get_group`` - Returns a duplicate of the group of the
 communicator used to create the window.

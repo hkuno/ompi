@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Add_error_code
+~~~~~~~~~~~~~~~~~~
 
 ``MPI_Add_error_code`` - Creates a new error code associated with
 *errorclass*

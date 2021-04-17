@@ -1,5 +1,5 @@
-NAME
-====
+MPI_Barrier
+~~~~~~~~~~~
 
 MPI_Barrier, MPI_Ibarrier - Synchronization between MPI processes in a
 group

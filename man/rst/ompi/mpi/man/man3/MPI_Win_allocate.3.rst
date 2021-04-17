@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_allocate
+~~~~~~~~~~~~~~~~
 
 ``MPI_Win_allocate`` - One-sided MPI call that allocates memory and
 returns a window object for RMA operations.

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Info_dup
+~~~~~~~~~~~~
 
 ``MPI_Info_dup`` - Duplicates an info object.
 

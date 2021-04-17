@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Probe
+~~~~~~~~~
 
 ``MPI_Probe`` - Blocking test for a message.
 

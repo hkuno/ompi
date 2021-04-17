@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Op_create
+~~~~~~~~~~~~~
 
 ``MPI_Op_create`` - Creates a user-defined combination function handle.
 

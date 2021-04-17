@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Op_commutative
+~~~~~~~~~~~~~~~~~~
 
 ``MPI_Op_commutative`` - Query of commutativity of reduction operation.
 

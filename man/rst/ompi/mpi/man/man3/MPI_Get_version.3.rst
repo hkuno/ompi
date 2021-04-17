@@ -1,5 +1,5 @@
-Name
-====
+MPI_Get_version
+~~~~~~~~~~~~~~~
 
 ``MPI_Get_version`` - Returns the version of the standard corresponding
 to the current implementation.

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Put
+~~~~~~~
 
 ``MPI_Put``, ``MPI_Rput`` - Copies data from the origin memory to the
 target.

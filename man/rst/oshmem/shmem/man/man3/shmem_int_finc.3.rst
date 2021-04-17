@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_int_finc
+~~~~~~~~~~~~~~
 
 *shmem_int4_finc*\ (3), *shmem_int8_finc*\ (3), *shmem_int_finc*\ (3),
 *shmem_long_finc*\ (3), *shmem_longlong_finc*\ (3) - Performs an atomic

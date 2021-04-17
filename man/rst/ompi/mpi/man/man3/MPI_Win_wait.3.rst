@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_wait
+~~~~~~~~~~~~
 
 ``MPI_Win_wait`` - Completes an RMA exposure epoch started by a call to
 ``MPI_Win_post`` on *win*

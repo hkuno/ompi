@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_int_add
+~~~~~~~~~~~~~
 
 *shmem_int_add*\ (3), *shmem_int4_add*\ (3), *shmem_int8_add*\ (3),
 *shmem_long_add*\ (3), *shmem_longlong_add*\ (3) - Performs an atomic

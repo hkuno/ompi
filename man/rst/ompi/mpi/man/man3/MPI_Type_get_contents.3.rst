@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_get_contents
+~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_get_contents`` - Returns information about arguments used in
 creation of a data type.

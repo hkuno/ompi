@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_char_put
+~~~~~~~~~~~~~~
 
 *shmem_character_put*\ (3), *shmem_complex_put*\ (3),
 *shmem_double_put*\ (3), *shmem_float_put*\ (3), *shmem_int_put*\ (3),

@@ -1,5 +1,5 @@
-Name
-====
+MPI_Comm_delete_attr
+~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_delete_attr`` - Deletes attribute value associated with a
 key.
@@ -25,7 +25,7 @@ Fortran Syntax
    ! or the older form: INCLUDE 'mpif.h'
 
    MPI_COMM_DELETE_ATTR(COMM, COMM_KEYVAL, IERROR)
-       INTEGER COMM, COMM_KEYVAL, IERROR 
+       INTEGER COMM, COMM_KEYVAL, IERROR
 
 Fortran 2008 Syntax
 -------------------

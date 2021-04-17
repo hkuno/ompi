@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Group_range_incl
+~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Group_range_incl`` - Creates a new group from ranges of ranks in
 an existing group.

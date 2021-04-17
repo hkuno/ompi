@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_short_max_to_all
+~~~~~~~~~~~~~~~~~~~~~~
 
 *shmem_double_max_to_all*\ (3), *shmem_float_max_to_all*\ (3),
 *shmem_int_max_to_all*\ (3), *shmem_int4_max_to_all*\ (3),

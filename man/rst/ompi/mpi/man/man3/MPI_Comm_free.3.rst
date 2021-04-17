@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_free
+~~~~~~~~~~~~~
 
 ``MPI_Comm_free`` - Mark a communicator object for deallocation.
 

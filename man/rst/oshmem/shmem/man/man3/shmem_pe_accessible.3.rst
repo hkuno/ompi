@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_pe_accessible
+~~~~~~~~~~~~~~~~~~~
 
 shmem_pe_accessible - Determines whether a processing element (PE) is
 accessible via SHMEM data transfer operations.

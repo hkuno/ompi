@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_match_size
+~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_match_size`` - Returns an MPI datatype of a given type and
 size

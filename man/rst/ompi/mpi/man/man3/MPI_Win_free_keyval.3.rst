@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_free_keyval
+~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Win_free_keyval`` - Frees a window keyval.
 

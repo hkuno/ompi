@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Keyval_create
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Keyval_create`` - Generates a new attribute key -- use of this
 routine is deprecated.

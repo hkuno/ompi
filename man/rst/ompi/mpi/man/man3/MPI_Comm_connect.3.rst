@@ -1,5 +1,5 @@
-Name
-====
+MPI_Comm_connect
+~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_connect`` - Establishes communication with a server.
 

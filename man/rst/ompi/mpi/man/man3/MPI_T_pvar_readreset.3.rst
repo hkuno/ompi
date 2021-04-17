@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_pvar_readreset
+~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_T_pvar_readreset`` - Atomically read and reset the value of a
 performance variable

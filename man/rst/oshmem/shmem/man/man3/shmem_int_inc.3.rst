@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_int_inc
+~~~~~~~~~~~~~
 
 *shmem_int4_inc*\ (3), *shmem_int8_inc*\ (3), *shmem_int_inc*\ (3),
 *shmem_long_inc*\ (3), *shmem_longlong_inc*\ (3) - These routines

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Isend
+~~~~~~~~~
 
 ``MPI_Isend`` - Starts a standard-mode, nonblocking send.
 

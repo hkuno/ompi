@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_set_attr
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_set_attr`` - Sets a key value/attribute pair to a data type.
 

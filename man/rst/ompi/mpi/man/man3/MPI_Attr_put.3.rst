@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Attr_put
+~~~~~~~~~~~~
 
 ``MPI_Attr_put`` - Stores attribute value associated with a key -- use
 of this routine is deprecated.

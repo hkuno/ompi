@@ -1,5 +1,5 @@
-Name
-====
+MPI_Cart_create
+~~~~~~~~~~~~~~~
 
 ``MPI_Cart_create`` - Makes a new communicator to which Cartesian
 topology information has been attached.

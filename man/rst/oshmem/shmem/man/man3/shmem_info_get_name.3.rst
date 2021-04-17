@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_info_get_name
+~~~~~~~~~~~~~~~~~~~
 
 shmem_info_get_name - This routine returns the vendor defined character
 string.

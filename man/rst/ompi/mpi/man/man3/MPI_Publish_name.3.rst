@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Publish_name
+~~~~~~~~~~~~~~~~
 
 ::
 

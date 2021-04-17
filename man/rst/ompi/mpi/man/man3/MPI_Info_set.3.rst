@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Info_set
+~~~~~~~~~~~~
 
 ``MPI_Info_set`` - Adds a key/value pair to *info*.
 

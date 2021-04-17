@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_set_name
+~~~~~~~~~~~~~~~~
 
 ``MPI_Win_set_name`` - Sets the name of a window.
 

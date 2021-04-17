@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_global_exit
+~~~~~~~~~~~~~~~~~
 
 shmem_global_exit - A routine that allows any PE to force termination of
 an entire program.

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_cvar_get_info
+~~~~~~~~~~~~~~~~~~~
 
 ``MPI_T_cvar_get_info`` - Query information from a control variable
 

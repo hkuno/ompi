@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_start
+~~~~~~~~~~~~~
 
 ``MPI_Win_start`` - Starts an RMA access epoch for *win*
 

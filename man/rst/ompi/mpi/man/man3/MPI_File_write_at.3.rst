@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_write_at
+~~~~~~~~~~~~~~~~~
 
 ``MPI_File_write_at`` - Writes a file at an explicitly specified offset
 (blocking, noncollective).

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_category_get_cvars
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_T_category_get_cvars`` - Query which control variables are in a
 category

@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_short_or_to_all
+~~~~~~~~~~~~~~~~~~~~~
 
 *shmem_int_or_to_all*\ (3), *shmem_int4_or_to_all*\ (3),
 *shmem_int8_or_to_all*\ (3), *shmem_long_or_to_all*\ (3),

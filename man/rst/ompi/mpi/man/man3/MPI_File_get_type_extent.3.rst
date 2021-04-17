@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_get_type_extent
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_File_get_type_extent`` - Returns the extent of the data type in a
 file.

@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_alltoall32
+~~~~~~~~~~~~~~~~
 
 *shmem_alltoall32*\ (3), *shmem_alltoall64*\ (3),
 *shmem_alltoalls32*\ (3), *shmem_alltoalls64*\ (3) - collective routine

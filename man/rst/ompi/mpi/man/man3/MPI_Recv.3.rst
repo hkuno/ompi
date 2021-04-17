@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Recv
+~~~~~~~~
 
 ``MPI_Recv`` - Performs a standard-mode blocking receive.
 

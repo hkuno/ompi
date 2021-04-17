@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Scan
+~~~~~~~~
 
 ``MPI_Scan``, ``MPI_Iscan`` - Computes an inclusive scan (partial reduction)
 

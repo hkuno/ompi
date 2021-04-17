@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Query_thread
+~~~~~~~~~~~~~~~~
 
 ``MPI_Query_thread`` - Returns the current level of thread support
 

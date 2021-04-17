@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Group_size
+~~~~~~~~~~~~~~
 
 ``MPI_Group_size`` - Returns the size of a group.
 

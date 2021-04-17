@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_iwrite_shared
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_File_iwrite_shared`` - Writes a file using the shared file pointer
 (nonblocking, noncollective).

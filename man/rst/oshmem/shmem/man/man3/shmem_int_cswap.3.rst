@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_int_cswap
+~~~~~~~~~~~~~~~
 
 *shmem_int_cswap*\ (3), *shmem_int4_cswap*\ (3),
 *shmem_int8_cswap*\ (3), *shmem_long_cswap*\ (3),

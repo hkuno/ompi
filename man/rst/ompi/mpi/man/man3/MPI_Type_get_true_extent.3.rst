@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_get_true_extent
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_get_true_extent``, ``MPI_Type_get_true_extent_x`` - Returns
 the true lower bound and extent of a data type's corresponding typemap,

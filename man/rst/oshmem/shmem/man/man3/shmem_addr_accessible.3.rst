@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_addr_accessible
+~~~~~~~~~~~~~~~~~~~~~
 
 shmem_addr_accessible - Indicates if an address is accessible via
 OpenSHMEM operations from the specified remote PE.

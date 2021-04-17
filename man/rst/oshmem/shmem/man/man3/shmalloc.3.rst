@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmalloc
+~~~~~~~~
 
 *shmalloc*\ (3), *shfree*\ (3), *shmemalign*\ (3), *shrealloc*\ (3) -
 Symmetric heap memory management functions.

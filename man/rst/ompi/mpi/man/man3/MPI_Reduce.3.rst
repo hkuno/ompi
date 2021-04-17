@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Reduce
+~~~~~~~~~~
 
 ``MPI_Reduce``, ``MPI_Ireduce`` - Reduces values on all processes within a
 group.

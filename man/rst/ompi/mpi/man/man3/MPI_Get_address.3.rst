@@ -1,5 +1,5 @@
-Name
-====
+MPI_Get_address
+~~~~~~~~~~~~~~~
 
 ``MPI_Get_address`` - Gets the address of a location in memory.
 

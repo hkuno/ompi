@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_free
+~~~~~~~~~~~~
 
 ``MPI_Win_free`` - Frees the window object and returns a null handle.
 

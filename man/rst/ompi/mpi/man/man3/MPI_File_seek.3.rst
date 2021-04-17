@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_seek
+~~~~~~~~~~~~~
 
 ``MPI_File_seek`` - Updates individual file pointers (noncollective).
 

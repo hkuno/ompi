@@ -1,5 +1,5 @@
-Name
-====
+MPI_File_write_shared
+~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_File_write_shared`` - Writes a file using the shared file pointer
 (blocking, noncollective).

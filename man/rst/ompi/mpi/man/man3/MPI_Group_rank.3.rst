@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Group_rank
+~~~~~~~~~~~~~~
 
 ``MPI_Group_rank`` - Returns the rank of the calling process in the
 given group.

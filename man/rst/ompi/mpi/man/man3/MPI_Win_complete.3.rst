@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_complete
+~~~~~~~~~~~~~~~~
 
 ``MPI_Win_complete`` - Completes an RMA access epoch on *win* started by
 a call to ``MPI_Win_start``

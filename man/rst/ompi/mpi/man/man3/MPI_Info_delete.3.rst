@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Info_delete
+~~~~~~~~~~~~~~~
 
 ``MPI_Info_delete`` - Deletes a key/value pair from *info*.
 

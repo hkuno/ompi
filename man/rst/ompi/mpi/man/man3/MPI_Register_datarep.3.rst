@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Register_datarep
+~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Register_datarep`` - Defines data representation.
 

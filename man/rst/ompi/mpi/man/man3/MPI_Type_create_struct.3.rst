@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_create_struct
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_create_struct`` - Creates a structured data type.
 

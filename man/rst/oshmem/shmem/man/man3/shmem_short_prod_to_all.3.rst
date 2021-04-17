@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_short_prod_to_all
+~~~~~~~~~~~~~~~~~~~~~~~
 
 *shmem_comp4_prod_to_all*\ (3), *shmem_comp8_prod_to_all*\ (3),
 *shmem_complexd_prod_to_all*\ (3), *shmem_complexf_prod_to_all*\ (3),

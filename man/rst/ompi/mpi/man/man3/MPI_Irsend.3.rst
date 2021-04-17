@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Irsend
+~~~~~~~~~~
 
 ``MPI_Irsend`` - Starts a ready-mode nonblocking send.
 

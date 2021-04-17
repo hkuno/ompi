@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_pvar_handle_alloc
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_T_pvar_handle_alloc``, ``MPI_T_pvar_handle_free`` - Allocate/free
 MPI performance variable handles

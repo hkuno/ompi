@@ -1,5 +1,5 @@
-Name
-====
+MPI_Comm_create_group
+~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_create_group`` - Creates a new communicator.
 

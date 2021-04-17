@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Send_init
+~~~~~~~~~~~~~
 
 ``MPI_Send_init`` - Builds a handle for a standard send.
 

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_get_errhandler
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_File_get_errhandler`` - Gets the error handler for a file.
 

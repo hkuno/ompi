@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_ptr
+~~~~~~~~~
 
 *shmem_ptr*\ (3) - Returns a pointer to a data object on a specified
 processing element (PE).

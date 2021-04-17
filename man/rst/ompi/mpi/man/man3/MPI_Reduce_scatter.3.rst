@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Reduce_scatter
+~~~~~~~~~~~~~~~~~~
 
 ``MPI_Reduce_scatter``, ``MPI_Ireduce_scatter`` - Combines values and
 scatters the results.

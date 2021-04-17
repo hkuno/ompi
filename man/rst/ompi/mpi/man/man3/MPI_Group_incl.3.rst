@@ -1,5 +1,5 @@
-Name
-====
+MPI_Group_incl
+~~~~~~~~~~~~~~
 
 ``MPI_Group_incl`` - Produces a group by reordering an existing group
 and taking only listed members.

@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_short_iput
+~~~~~~~~~~~~~~~~
 
 *shmem_complex_iput*\ (3), *shmem_double_iput*\ (3),
 *shmem_float_iput*\ (3), *shmem_int_iput*\ (3),

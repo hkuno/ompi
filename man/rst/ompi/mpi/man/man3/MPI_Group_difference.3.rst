@@ -1,5 +1,5 @@
-Name
-====
+MPI_Group_difference
+~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Group_difference`` - Makes a group from the difference of two
 groups.

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Keyval_free
+~~~~~~~~~~~~~~~
 
 ``MPI_Keyval_free`` - Frees attribute key for communicator cache
 attribute -- use of this routine is deprecated.

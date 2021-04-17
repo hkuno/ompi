@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Mprobe
+~~~~~~~~~~
 
 ``MPI_Mprobe`` - Blocking matched probe for a message.
 

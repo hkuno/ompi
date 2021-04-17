@@ -1,5 +1,5 @@
-Name
-====
+MPI_Cart_rank
+~~~~~~~~~~~~~
 
 ``MPI_Cart_rank`` - Determines process rank in communicator given
 Cartesian location.

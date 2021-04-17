@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_set_size
+~~~~~~~~~~~~~~~~~
 
 ``MPI_File_set_size`` - Resizes a file (collective).
 

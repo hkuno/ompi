@@ -1,5 +1,5 @@
-Name
-====
+MPI_Buffer_attach
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Buffer_attach`` - Attaches a user-defined buffer for sending.
 

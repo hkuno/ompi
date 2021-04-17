@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_create_subarray
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_create_subarray`` - Creates a data type describing an
 *n*-dimensional subarray of an *n*-dimensional array.

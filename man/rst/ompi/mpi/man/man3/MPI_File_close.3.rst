@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_close
+~~~~~~~~~~~~~~
 
 ``MPI_File_close`` - Closes a file (collective).
 

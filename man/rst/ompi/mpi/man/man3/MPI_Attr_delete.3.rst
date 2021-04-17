@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Attr_delete
+~~~~~~~~~~~~~~~
 
 ``MPI_Attr_delete`` - Deletes attribute value associated with a key --
 use of this routine is deprecated.

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Aint_add
+~~~~~~~~~~~~
 
 ``MPI_Aint_add``, ``MPI_Aint_diff`` - Portable functions for arithmetic
 on ``MPI_Aint`` values.

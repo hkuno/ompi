@@ -1,5 +1,5 @@
-Name
-====
+MPI_Cart_map
+~~~~~~~~~~~~
 
 ``MPI_Cart_map`` - Maps process to Cartesian topology information.
 

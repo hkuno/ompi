@@ -1,5 +1,5 @@
-Name
-====
+MPI_Get_accumulate
+~~~~~~~~~~~~~~~~~~
 
 ``MPI_Get_accumulate``, ``MPI_Rget_accumulate`` - Combines the contents
 of the origin buffer with that of a target buffer and returns the target

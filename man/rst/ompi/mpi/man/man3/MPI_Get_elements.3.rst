@@ -1,5 +1,5 @@
-Name
-====
+MPI_Get_elements
+~~~~~~~~~~~~~~~~
 
 ``MPI_Get_elements``, ``MPI_Get_elements_x`` - Returns the number of
 basic elements in a data type.

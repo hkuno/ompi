@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Dist_graph_create_adjacent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Dist_graph_create_adjacent`` - Makes a new communicator to which
 topology information has been attached.

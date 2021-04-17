@@ -1,5 +1,5 @@
-Name
-====
+MPI_Graph_get
+~~~~~~~~~~~~~
 
 ``MPI_Graph_get`` - Retrieves graph topology information associated with
 a communicator.

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_split_type
+~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_split_type`` - Creates new communicators based on colors and
 keys.

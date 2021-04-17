@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Group_union
+~~~~~~~~~~~~~~~
 
 ``MPI_Group_union`` - Produces a group by combining two groups.
 

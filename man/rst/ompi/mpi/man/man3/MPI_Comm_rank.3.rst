@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_rank
+~~~~~~~~~~~~~
 
 ``MPI_Comm_rank`` - Determines the rank of the calling process in the
 communicator.

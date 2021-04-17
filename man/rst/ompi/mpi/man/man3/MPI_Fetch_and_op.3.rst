@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Fetch_and_op
+~~~~~~~~~~~~~~~~
 
 ``MPI_Fetch_and_op`` - Combines the contents of the origin buffer with
 that of a target buffer and returns the target buffer value.

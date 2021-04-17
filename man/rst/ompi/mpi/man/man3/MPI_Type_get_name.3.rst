@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_get_name
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_get_name`` - Gets the name of a data type.
 

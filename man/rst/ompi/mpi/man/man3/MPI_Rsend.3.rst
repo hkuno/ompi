@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Rsend
+~~~~~~~~~
 
 ``MPI_Rsend`` - Ready send.
 

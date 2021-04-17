@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Initialized
+~~~~~~~~~~~~~~~
 
 ``MPI_Initialized`` - Checks whether MPI has been initialized
 

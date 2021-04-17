@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_remote_group
+~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_remote_group`` - Accesses the remote group associated with an
 intercommunicator.

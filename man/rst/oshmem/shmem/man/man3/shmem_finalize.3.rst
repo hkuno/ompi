@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_finalize
+~~~~~~~~~~~~~~
 
 shmem_finalize - A collective operation that releases resources used by
 the OpenSHMEM library. This only terminates the Open-SHMEM portion of a

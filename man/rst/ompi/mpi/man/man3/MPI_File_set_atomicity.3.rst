@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_set_atomicity
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_File_set_atomicity`` - Sets consistency semantics for data-access
 operations (collective).

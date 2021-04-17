@@ -1,5 +1,5 @@
-Name
-====
+MPI_Comm_compare
+~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_compare`` - Compares two communicators.
 

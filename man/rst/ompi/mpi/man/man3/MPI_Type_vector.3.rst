@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_vector
+~~~~~~~~~~~~~~~
 
 ``MPI_Type_vector`` - Creates a vector (strided) datatype.
 

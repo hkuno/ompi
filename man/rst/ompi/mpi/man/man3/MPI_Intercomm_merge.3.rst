@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Intercomm_merge
+~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Intercomm_merge`` - Creates an intracommunicator from an
 intercommunicator.

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Scatterv
+~~~~~~~~~~~~
 
 ``MPI_Scatterv``, ``MPI_Iscatterv`` - Scatters a buffer in parts to all
 tasks in a group.

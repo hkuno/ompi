@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_dup
+~~~~~~~~~~~~
 
 ``MPI_Type_dup`` - Duplicates a data type with associated key values.
 

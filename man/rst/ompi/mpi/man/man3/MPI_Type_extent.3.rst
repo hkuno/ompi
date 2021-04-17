@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_extent
+~~~~~~~~~~~~~~~
 
 ``MPI_Type_extent`` - Returns the extent of a data type, the difference
 between the upper and lower bounds of the data type -- use of this

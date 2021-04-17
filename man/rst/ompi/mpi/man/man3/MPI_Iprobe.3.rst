@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Iprobe
+~~~~~~~~~~
 
 ``MPI_Iprobe`` - Nonblocking test for a message.
 

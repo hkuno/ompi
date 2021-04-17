@@ -1,5 +1,5 @@
-Name
-====
+MPI_Group_free
+~~~~~~~~~~~~~~
 
 ``MPI_Group_free`` - Frees a group.
 

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_set_info
+~~~~~~~~~~~~~~~~~
 
 ``MPI_File_set_info`` - Sets new values for hints (collective).
 

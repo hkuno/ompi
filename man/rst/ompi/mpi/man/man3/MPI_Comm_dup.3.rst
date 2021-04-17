@@ -1,5 +1,5 @@
-Name
-====
+MPI_Comm_dup
+~~~~~~~~~~~~
 
 ``MPI_Comm_dup`` - Duplicates an existing communicator with all its
 cached information.

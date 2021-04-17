@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_n_pes
+~~~~~~~~~~~
 
 num_pes, \_num_pes, shmem_n_pes - Returns the number of processing
 elements (PEs) used to run the application.

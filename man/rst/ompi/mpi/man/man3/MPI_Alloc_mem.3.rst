@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Alloc_mem
+~~~~~~~~~~~~~
 
 ``MPI_Alloc_mem`` - Allocates a specified memory segment.
 

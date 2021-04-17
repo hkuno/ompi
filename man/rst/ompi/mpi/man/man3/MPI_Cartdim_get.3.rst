@@ -1,5 +1,5 @@
-Name
-====
+MPI_Cartdim_get
+~~~~~~~~~~~~~~~
 
 ``MPI_Cartdim_get`` - Retrieves Cartesian topology information
 associated with a communicator.

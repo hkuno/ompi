@@ -1,5 +1,5 @@
-NAME
-====
+MPI_T
+~~~~~
 
 Open MPI's MPI_T interface - General information
 

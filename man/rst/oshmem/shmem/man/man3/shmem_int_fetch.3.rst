@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_int_fetch
+~~~~~~~~~~~~~~~
 
 *shmem_int4_fetch*\ (3), *shmem_int8_fetch*\ (3),
 *shmem_int_fetch*\ (3), *shmem_long_fetch*\ (3),

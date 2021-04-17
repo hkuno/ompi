@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_init
+~~~~~~~~~~
 
 shmem_init, start_pes - Allocates a block of memory from the symmetric
 heap.

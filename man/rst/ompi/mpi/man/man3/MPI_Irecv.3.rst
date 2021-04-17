@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Irecv
+~~~~~~~~~
 
 ``MPI_Irecv`` - Starts a standard-mode, nonblocking receive.
 

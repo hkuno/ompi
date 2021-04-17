@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Errhandler_create
+~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Errhandler_create`` - Creates an MPI-style error handler -- use of
 this routine is deprecated.

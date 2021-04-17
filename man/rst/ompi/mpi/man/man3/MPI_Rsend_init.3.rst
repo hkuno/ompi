@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Rsend_init
+~~~~~~~~~~~~~~
 
 ``MPI_Rsend_init`` - Builds a handle for a ready send.
 

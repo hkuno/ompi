@@ -1,5 +1,5 @@
-Name
-====
+MPI_Comm_create_keyval
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_create_keyval`` - Generates a new attribute key.
 
@@ -29,7 +29,7 @@ Fortran Syntax (See Fortran 77 Notes)
    MPI_COMM_CREATE_KEYVAL(COMM_COPY_ATTR_FN, COMM_DELETE_ATTR_FN,
        COMM_KEYVAL, EXTRA_STATE, IERROR)
        EXTERNAL COMM_COPY_ATTR_FN, COMM_DELETE_ATTR_FN
-       INTEGER COMM_KEYVAL, IERROR 
+       INTEGER COMM_KEYVAL, IERROR
 
        INTEGER(KIND=MPI_ADDRESS_KIND) EXTRA_STATE
 

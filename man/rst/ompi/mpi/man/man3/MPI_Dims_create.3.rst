@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Dims_create
+~~~~~~~~~~~~~~~
 
 ``MPI_Dims_create`` - Creates a division of processors in a Cartesian
 grid.

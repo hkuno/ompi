@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_test
+~~~~~~~~~~~~
 
 ``MPI_Win_test`` - Attempts to complete an RMA exposure epoch; a
 nonblocking version of ``MPI_Win_wait``

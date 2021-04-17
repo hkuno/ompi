@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_call_errhandler
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Win_call_errhandler`` - Passes the supplied error code to the
 error handler assigned to a window

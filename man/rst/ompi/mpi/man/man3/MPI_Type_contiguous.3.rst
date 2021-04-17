@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_contiguous
+~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_contiguous`` - Creates a contiguous datatype.
 

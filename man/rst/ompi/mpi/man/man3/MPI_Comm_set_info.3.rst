@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_set_info
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_set_info`` - Set communicator info hints
 

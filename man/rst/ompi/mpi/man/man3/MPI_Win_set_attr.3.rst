@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_set_attr
+~~~~~~~~~~~~~~~~
 
 ``MPI_Win_set_attr`` - Sets the value of a window attribute.
 

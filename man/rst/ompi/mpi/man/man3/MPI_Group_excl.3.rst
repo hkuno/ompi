@@ -1,5 +1,5 @@
-Name
-====
+MPI_Group_excl
+~~~~~~~~~~~~~~
 
 ``MPI_Group_excl`` - Produces a group by reordering an existing group
 and taking only unlisted members.

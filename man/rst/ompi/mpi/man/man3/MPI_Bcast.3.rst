@@ -1,5 +1,5 @@
-NAME
-====
+MPI_Bcast
+~~~~~~~~~
 
 ``MPI_Bcast``, ``MPI_Ibcast`` - Broadcasts a message from the process
 with rank *root* to all other processes of the group.

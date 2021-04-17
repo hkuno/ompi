@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Issend
+~~~~~~~~~~
 
 ``MPI_Issend`` - Starts a nonblocking synchronous send.
 

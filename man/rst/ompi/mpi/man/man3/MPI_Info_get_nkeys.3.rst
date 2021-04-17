@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Info_get_nkeys
+~~~~~~~~~~~~~~~~~~
 
 ``MPI_Info_get_nkeys`` - Gets the number of keys currently defined in an
 info object.

@@ -1,5 +1,5 @@
-Name
-====
+MPI_Cancel
+~~~~~~~~~~
 
 ``MPI_Cancel`` - Cancels a communication request.
 

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Allreduce
+~~~~~~~~~~~~~
 
 ``MPI_Allreduce``, ``MPI_Iallreduce`` - Combines values from all processes
 and distributes the result back to all processes.

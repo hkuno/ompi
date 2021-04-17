@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_create_keyval
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_create_keyval`` - Generates a new attribute key for caching
 on data types.

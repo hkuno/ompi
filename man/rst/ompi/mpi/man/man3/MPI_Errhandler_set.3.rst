@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Errhandler_set
+~~~~~~~~~~~~~~~~~~
 
 ``MPI_Errhandler_set`` - Sets the error handler for a communicator --
 use of this routine is deprecated.

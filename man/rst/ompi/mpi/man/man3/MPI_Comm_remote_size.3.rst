@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_remote_size
+~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_remote_size`` - Determines the size of the remote group
 associated with an intercommunicator.

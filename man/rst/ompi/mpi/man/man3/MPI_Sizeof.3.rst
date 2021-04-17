@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Sizeof
+~~~~~~~~~~
 
 ``MPI_Sizeof`` - Returns the size, in bytes, of the given type
 

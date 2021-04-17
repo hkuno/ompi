@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Group_range_excl
+~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Group_range_excl`` - Produces a group by excluding ranges of
 processes from an existing group.

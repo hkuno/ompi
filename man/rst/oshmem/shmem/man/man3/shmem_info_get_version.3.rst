@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_info_get_version
+~~~~~~~~~~~~~~~~~~~~~~
 
 shmem_info_get_version - Returns the major and minor version of the
 library implementation.

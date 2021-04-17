@@ -1,5 +1,5 @@
-Name
-====
+MPI_Cart_shift
+~~~~~~~~~~~~~~
 
 ``MPI_Cart_shift`` - Returns the shifted source and destination ranks,
 given a shift direction and amount.

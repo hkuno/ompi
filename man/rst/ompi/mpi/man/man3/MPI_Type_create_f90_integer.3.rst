@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_create_f90_integer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 

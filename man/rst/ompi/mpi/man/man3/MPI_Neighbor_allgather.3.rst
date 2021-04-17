@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Neighbor_allgather
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Neighbor_allgather``, ``MPI_Ineighbor_allgather`` - Gathers and
 distributes data from and to all neighbors

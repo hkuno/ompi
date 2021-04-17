@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Neighbor_alltoallv
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Neighbor_alltoallv``, ``MPI_Ineighbor_alltoallv`` - All processes send
 different amounts of data to, and receive different amounts of data

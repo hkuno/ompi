@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Dist_graph_neighbors_count
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Dist_graph_neighbors_count`` - Returns the number of in and out
 edges for the calling processes in a distributed graph topology and a

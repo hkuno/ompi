@@ -1,5 +1,5 @@
-NAME
-====
+Open-MPI
+~~~~~~~~
 
 Open MPI - General information
 

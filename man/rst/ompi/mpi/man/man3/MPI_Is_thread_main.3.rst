@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Is_thread_main
+~~~~~~~~~~~~~~~~~~
 
 ``MPI_Is_thread_main`` - Determines if thread called ``MPI_Init``
 

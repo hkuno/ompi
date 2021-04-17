@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_get_name
+~~~~~~~~~~~~~~~~
 
 ``MPI_Win_get_name`` - Obtains the name of a window.
 

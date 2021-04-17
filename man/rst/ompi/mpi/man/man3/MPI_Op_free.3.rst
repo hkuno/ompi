@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Op_free
+~~~~~~~~~~~
 
 ``MPI_Op_free`` - Frees a user-defined combination function handle.
 

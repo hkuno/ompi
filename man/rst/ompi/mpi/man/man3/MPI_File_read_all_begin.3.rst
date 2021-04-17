@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_read_all_begin
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_File_read_all_begin`` - Reads a file starting at the locations
 specified by individual file pointers; beginning part of a split

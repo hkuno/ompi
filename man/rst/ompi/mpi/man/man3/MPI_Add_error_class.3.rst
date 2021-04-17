@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Add_error_class
+~~~~~~~~~~~~~~~~~~~
 
 ::
 

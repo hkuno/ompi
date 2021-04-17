@@ -1,5 +1,5 @@
-Name
-====
+MPI_Comm_disconnect
+~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_disconnect`` - Deallocates communicator object and sets
 handle to ``MPI_COMM_NULL.``
@@ -25,7 +25,7 @@ Fortran Syntax
    ! or the older form: INCLUDE 'mpif.h'
 
    MPI_COMM_DISCONNECT(COMM, IERROR)
-       INTEGER COMM, IERROR 
+       INTEGER COMM, IERROR
 
 Fortran 2008 Syntax
 -------------------

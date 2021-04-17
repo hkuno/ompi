@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Request_free
+~~~~~~~~~~~~~~~~
 
 ``MPI_Request_free`` - Frees a communication request object.
 

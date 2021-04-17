@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Info_free
+~~~~~~~~~~~~~
 
 ``MPI_Info_free`` - Frees an info object.
 

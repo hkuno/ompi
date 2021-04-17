@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_get_size
+~~~~~~~~~~~~~~~~~
 
 ``MPI_File_get_size`` - Returns the current size of the file.
 

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Info_get
+~~~~~~~~~~~~
 
 ``MPI_Info_get`` - Retrieves the value associated with a key in an info
 object.

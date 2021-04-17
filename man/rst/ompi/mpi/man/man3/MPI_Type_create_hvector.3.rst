@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_create_hvector
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_create_hvector`` - Creates a vector (strided) data type with
 offset in bytes.

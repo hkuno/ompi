@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_get_info
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_get_info`` - Retrieves active communicator info hints
 

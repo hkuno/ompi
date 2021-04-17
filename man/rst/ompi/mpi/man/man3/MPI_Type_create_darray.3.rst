@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_create_darray
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_create_darray`` - Creates a distributed array datatype;
 

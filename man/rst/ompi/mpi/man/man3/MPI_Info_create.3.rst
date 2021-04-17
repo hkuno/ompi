@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Info_create
+~~~~~~~~~~~~~~~
 
 ``MPI_Info_create`` - Creates a new info object.
 

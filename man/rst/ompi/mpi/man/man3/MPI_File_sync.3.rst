@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_sync
+~~~~~~~~~~~~~
 
 ``MPI_File_sync`` - Makes semantics consistent for data-access
 operations (collective).

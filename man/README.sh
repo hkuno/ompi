@@ -90,7 +90,7 @@ fi
 
 # fix up rst files
 SAVEME=$( pwd )
-if [[ 1 -eq 1 ]] ; then
+if [[ 0 -eq 1 ]] ; then
     echo "About to fix up rst"
     date
     for d in $MANDIRS ; do

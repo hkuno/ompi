@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_get_parent
+~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_get_parent`` - Returns the parent intercommunicator of
 current spawned process.

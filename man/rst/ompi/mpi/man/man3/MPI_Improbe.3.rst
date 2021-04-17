@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Improbe
+~~~~~~~~~~~
 
 ``MPI_Improbe`` - Non-blocking matched probe for a message.
 

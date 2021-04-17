@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Unpack_external
+~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Unpack_external`` - Reads data from a portable format
 

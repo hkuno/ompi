@@ -1,5 +1,5 @@
-Name
-====
+MPI_Comm_call_errhandler
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_call_errhandler`` - Passes the supplied error code to the
 error handler assigned to a communicator

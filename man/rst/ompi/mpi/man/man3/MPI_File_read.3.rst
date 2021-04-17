@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_read
+~~~~~~~~~~~~~
 
 ``MPI_File_read`` - Reads a file starting at the location specified by
 the individual file pointer (blocking, noncollective).

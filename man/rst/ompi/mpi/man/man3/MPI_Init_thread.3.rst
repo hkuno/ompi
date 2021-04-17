@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Init_thread
+~~~~~~~~~~~~~~~
 
 ``MPI_Init_thread`` - Initializes the MPI execution environment
 

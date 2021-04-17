@@ -1,5 +1,5 @@
-Name
-====
+MPI_Comm_accept
+~~~~~~~~~~~~~~~
 
 ``MPI_Comm_accept`` - Establishes communication with a client.
 

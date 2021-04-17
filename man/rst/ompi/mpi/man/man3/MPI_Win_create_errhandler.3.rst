@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_create_errhandler
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Win_create_errhandler`` - Creates an error handler for a window.
 

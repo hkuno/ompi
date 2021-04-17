@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_pvar_reset
+~~~~~~~~~~~~~~~~
 
 ``MPI_T_pvar_reset`` - Reset the value of a performance variable
 

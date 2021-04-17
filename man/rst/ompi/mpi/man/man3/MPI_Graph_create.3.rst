@@ -1,5 +1,5 @@
-Name
-====
+MPI_Graph_create
+~~~~~~~~~~~~~~~~
 
 ``MPI_Graph_create`` - Makes a new communicator to which topology
 information has been attached.

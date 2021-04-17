@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Group_translate_ranks
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Group_translate_ranks`` - Translates the ranks of processes in one
 group to those in another group.

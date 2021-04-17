@@ -1,5 +1,5 @@
-Name
-====
+MPI_Finalize
+~~~~~~~~~~~~
 
 ``MPI_Finalize`` - Terminates MPI execution environment.
 

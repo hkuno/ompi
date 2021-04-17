@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Status_set_cancelled
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Status_set_cancelled`` - Sets *status* to indicate a request has
 been canceled.

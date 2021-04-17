@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_cvar_get_num
+~~~~~~~~~~~~~~~~~~
 
 ``MPI_T_cvar_get_num`` - Query the number of control variables
 

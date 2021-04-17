@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_shared_query
+~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Win_shared_query`` - Query a shared memory window
 

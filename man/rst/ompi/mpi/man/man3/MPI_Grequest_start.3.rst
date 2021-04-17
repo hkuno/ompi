@@ -1,5 +1,5 @@
-Name
-====
+MPI_Grequest_start
+~~~~~~~~~~~~~~~~~~
 
 ``MPI_Grequest_start`` - Starts a generalized request and returns a
 handle to it in ``request``.

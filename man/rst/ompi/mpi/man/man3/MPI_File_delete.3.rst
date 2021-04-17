@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_delete
+~~~~~~~~~~~~~~~
 
 ``MPI_File_delete`` - Deletes a file.
 

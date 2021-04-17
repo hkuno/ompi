@@ -1,5 +1,5 @@
-Name
-====
+MPI_Cart_coords
+~~~~~~~~~~~~~~~
 
 ``MPI_Cart_coords`` - Determines process coords in Cartesian topology
 given rank in group.

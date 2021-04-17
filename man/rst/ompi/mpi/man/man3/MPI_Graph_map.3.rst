@@ -1,5 +1,5 @@
-Name
-====
+MPI_Graph_map
+~~~~~~~~~~~~~
 
 ``MPI_Graph_map`` - Maps process to graph topology information.
 

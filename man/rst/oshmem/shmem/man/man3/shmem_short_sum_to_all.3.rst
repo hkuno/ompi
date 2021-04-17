@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_short_sum_to_all
+~~~~~~~~~~~~~~~~~~~~~~
 
 *shmem_comp4_sum_to_all*\ (3), *shmem_comp8_sum_to_all*\ (3),
 *shmem_complexd_sum_to_all*\ (3), *shmem_complexf_sum_to_all*\ (3),

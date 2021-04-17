@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_indexed
+~~~~~~~~~~~~~~~~
 
 ``MPI_Type_indexed``, ``MPI_Type_create_hindexed`` - Creates an indexed
 datatype.

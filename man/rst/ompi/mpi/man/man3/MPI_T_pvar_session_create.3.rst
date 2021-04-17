@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_pvar_session_create
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_T_pvar_session_create``, ``MPI_T_pvar_session_free`` - Create/free
 performance variable session

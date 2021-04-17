@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_write
+~~~~~~~~~~~~~~
 
 ``MPI_File_write`` - Writes a file starting at the location specified by
 the individual file pointer (blocking, noncollective).

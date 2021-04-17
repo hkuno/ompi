@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Sendrecv_replace
+~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Sendrecv_replace`` - Sends and receives a message using a single
 buffer.

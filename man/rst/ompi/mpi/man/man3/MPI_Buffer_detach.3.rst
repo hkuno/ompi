@@ -1,5 +1,5 @@
-Name
-====
+MPI_Buffer_detach
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Buffer_detach`` - Removes an existing buffer (for use in in
 ``MPI_Bsend``, etc.)

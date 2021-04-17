@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Ssend_init
+~~~~~~~~~~~~~~
 
 ``MPI_Ssend_init`` - Builds a handle for a synchronous send.
 

@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_int_set
+~~~~~~~~~~~~~
 
 *shmem_double_set*\ (3), *shmem_float_set*\ (3), *shmem_int_set*\ (3),
 *shmem_long_set*\ (3), *shmem_longlong_set*\ (3) *shmem_int4_set*\ (3),

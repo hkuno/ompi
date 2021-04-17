@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_set_info
+~~~~~~~~~~~~~~~~
 
 ``MPI_Win_set_info`` - Set window info hints
 

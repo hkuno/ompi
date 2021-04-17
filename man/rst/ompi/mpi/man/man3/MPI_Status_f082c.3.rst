@@ -1,5 +1,5 @@
-NAME
-====
+MPI_Status_f082c
+~~~~~~~~~~~~~~~~
 
 MPI_Status_f082c, MPI_Status_c2f08 - Translates a C status into a
 Fortran 2008 status, or vice versa.

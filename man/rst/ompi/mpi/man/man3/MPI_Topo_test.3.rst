@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Topo_test
+~~~~~~~~~~~~~
 
 ``MPI_Topo_test`` - Determines the type of topology (if any) associated
 with a communicator.

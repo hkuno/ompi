@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_cvar_write
+~~~~~~~~~~~~~~~~
 
 ``MPI_T_cvar_write`` - Write the value of a bound control variable
 

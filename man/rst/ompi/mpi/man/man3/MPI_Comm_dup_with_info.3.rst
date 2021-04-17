@@ -1,5 +1,5 @@
-Name
-====
+MPI_Comm_dup_with_info
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_dup_with_info`` - Duplicates an existing communicator using
 provided info.

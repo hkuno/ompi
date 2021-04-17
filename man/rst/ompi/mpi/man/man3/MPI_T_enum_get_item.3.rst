@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_enum_get_item
+~~~~~~~~~~~~~~~~~~~
 
 ``MPI_T_enum_get_item`` - Query information about an enumerator
 

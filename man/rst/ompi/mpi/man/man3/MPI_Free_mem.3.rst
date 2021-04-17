@@ -1,5 +1,5 @@
-Name
-====
+MPI_Free_mem
+~~~~~~~~~~~~
 
 ``MPI_Free_mem`` - Frees memory that has been allocated using
 ``MPI_Alloc_mem``.

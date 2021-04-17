@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Error_string
+~~~~~~~~~~~~~~~~
 
 ``MPI_Error_string`` - Returns a string for a given error code.
 

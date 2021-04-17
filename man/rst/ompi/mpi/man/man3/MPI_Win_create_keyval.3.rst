@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_create_keyval
+~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Win_create_keyval`` - Creates a keyval for a window.
 

@@ -1,5 +1,5 @@
-Name
-====
+MPI_Gather
+~~~~~~~~~~
 
 ``MPI_Gather``, ``MPI_Igather`` - Gathers values from a group of
 processes.

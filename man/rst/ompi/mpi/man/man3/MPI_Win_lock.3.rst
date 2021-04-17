@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_lock
+~~~~~~~~~~~~
 
 ``MPI_Win_lock`` - Starts an RMA access epoch locking access to a
 particular rank.

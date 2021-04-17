@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Open_port
+~~~~~~~~~~~~~
 
 ``MPI_Open_port`` - Establishes a network address for a server to accept
 connections from clients.

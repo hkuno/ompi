@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_udcflush
+~~~~~~~~~~~~~~
 
 *shmem_clear_cache_inv*\ (3), *shmem_set_cache_inv*\ (3),
 *shmem_set_cache_line_inv*\ (3), *shmem_udcflush*\ (3),

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_read_all
+~~~~~~~~~~~~~~~~~
 
 ``MPI_File_read_all`` - Reads a file starting at the locations specified
 by individual file pointers (blocking, collective).

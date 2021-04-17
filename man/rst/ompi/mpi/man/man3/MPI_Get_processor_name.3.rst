@@ -1,5 +1,5 @@
-Name
-====
+MPI_Get_processor_name
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Get_processor_name`` - Gets the name of the processor.
 

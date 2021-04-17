@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_get_attr
+~~~~~~~~~~~~~~~~
 
 ``MPI_Win_get_attr`` - Obtains the value of a window attribute.
 

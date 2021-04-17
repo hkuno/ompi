@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Compare_and_swap
+~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Compare_and_swap`` - Perform RMA compare-and-swap
 

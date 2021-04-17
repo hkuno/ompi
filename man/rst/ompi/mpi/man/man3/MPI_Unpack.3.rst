@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Unpack
+~~~~~~~~~~
 
 ``MPI_Unpack`` - Unpacks a datatype into contiguous memory.
 

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_free
+~~~~~~~~~~~~~
 
 ``MPI_Type_free`` - Frees a data type.
 

@@ -1,5 +1,5 @@
-Name
-====
+MPI_File_write_ordered_end
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_File_write_ordered_end`` - Writes a file at a location specified
 by a shared file pointer; ending part of a split collective routine

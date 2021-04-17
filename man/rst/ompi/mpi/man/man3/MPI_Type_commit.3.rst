@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_commit
+~~~~~~~~~~~~~~~
 
 ``MPI_Type_commit`` - Commits a data type.
 

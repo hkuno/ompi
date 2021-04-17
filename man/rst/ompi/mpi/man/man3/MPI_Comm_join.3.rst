@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_join
+~~~~~~~~~~~~~
 
 ``MPI_Comm_join`` - Establishes communication between MPI jobs
 

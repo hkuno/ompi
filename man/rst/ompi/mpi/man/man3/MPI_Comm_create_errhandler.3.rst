@@ -1,5 +1,5 @@
-Name
-====
+MPI_Comm_create_errhandler
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_create_errhandler`` - Creates an error handler that can be
 attached to communicators.

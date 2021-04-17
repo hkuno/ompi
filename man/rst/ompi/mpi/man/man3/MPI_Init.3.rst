@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Init
+~~~~~~~~
 
 ``MPI_Init`` - Initializes the MPI execution environment
 

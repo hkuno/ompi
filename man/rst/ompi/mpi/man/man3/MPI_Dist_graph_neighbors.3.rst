@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Dist_graph_neighbors
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Dist_graph_neighbors`` - Returns the neighbors of the calling
 process in a distributed graph topology.

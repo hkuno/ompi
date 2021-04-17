@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_post
+~~~~~~~~~~~~
 
 ``MPI_Win_post`` - Starts an RMA exposure epoch for the local window
 associated with *win*

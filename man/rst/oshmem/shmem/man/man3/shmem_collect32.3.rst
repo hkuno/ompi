@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_collect32
+~~~~~~~~~~~~~~~
 
 *shmem_collect4*\ (3), *shmem_collect8*\ (3), *shmem_collect32*\ (3),
 *shmem_collect64*\ (3), *shmem_fcollect*\ (3), *shmem_fcollect4*\ (3),

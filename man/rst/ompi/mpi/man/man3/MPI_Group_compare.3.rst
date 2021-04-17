@@ -1,5 +1,5 @@
-Name
-====
+MPI_Group_compare
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Group_compare`` - Compares two groups.
 

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_write_at_all_begin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_File_write_at_all_begin`` - Writes a file at explicitly specified
 offsets; beginning part of a split collective routine (nonblocking).

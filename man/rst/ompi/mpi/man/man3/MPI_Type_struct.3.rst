@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_struct
+~~~~~~~~~~~~~~~
 
 ``MPI_Type_struct`` - Creates a *struct* data type -- use of this
 routine is deprecated.

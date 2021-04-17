@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Test_cancelled
+~~~~~~~~~~~~~~~~~~
 
 ``MPI_Test_cancelled`` - Tests whether a request was canceled.
 

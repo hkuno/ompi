@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Allgatherv
+~~~~~~~~~~~~~~
 
 ``MPI_Allgatherv``, ``MPI_Iallgatherv`` - Gathers data from all processes
 and delivers it to all. Each process may contribute a different amount

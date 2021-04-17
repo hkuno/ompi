@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Address
+~~~~~~~~~~~
 
 ``MPI_Address`` - Gets the address of a location in memory -- use of
 this routine is deprecated.

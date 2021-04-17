@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_finalize
+~~~~~~~~~~~~~~
 
 ``MPI_T_finalize`` - Finalize the MPI tool information interface
 

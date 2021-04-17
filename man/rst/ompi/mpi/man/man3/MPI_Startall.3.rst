@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Startall
+~~~~~~~~~~~~
 
 ``MPI_Startall`` - Starts a collection of requests.
 

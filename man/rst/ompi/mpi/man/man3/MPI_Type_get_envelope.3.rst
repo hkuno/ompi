@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_get_envelope
+~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_get_envelope`` - Returns information about input arguments
 associated with a data type.

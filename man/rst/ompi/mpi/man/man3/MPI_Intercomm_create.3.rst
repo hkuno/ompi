@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Intercomm_create
+~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Intercomm_create`` - Creates an intercommunicator from two
 intracommunicators.

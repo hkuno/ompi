@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_f2c
+~~~~~~~~~~~~
 
 ``MPI_Comm_f2c``, ``MPI_Comm_c2f``, ``MPI_File_f2c``, ``MPI_File_c2f``, ``MPI_Info_f2c``,
 ``MPI_Info_c2f``, ``MPI_Message_f2c``, ``MPI_Message_c2f``, ``MPI_Op_f2c``, ``MPI_Op_c2f``,

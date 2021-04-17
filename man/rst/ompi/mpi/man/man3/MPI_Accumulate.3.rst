@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Accumulate
+~~~~~~~~~~~~~~
 
 ``MPI_Accumulate``, ``MPI_Raccumulate`` - Combines the contents of the
 origin buffer with that of a target buffer.

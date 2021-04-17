@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Waitany
+~~~~~~~~~~~
 
 ``MPI_Waitany`` - Waits for any specified send or receive to complete.
 

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_cvar_handle_alloc
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_T_cvar_handle_alloc``, ``MPI_T_cvar_handle_free`` - Allocate/free
 contol variable handles

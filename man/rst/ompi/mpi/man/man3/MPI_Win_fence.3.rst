@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Win_fence
+~~~~~~~~~~~~~
 
 ``MPI_Win_fence`` - Synchronizes RMA calls on a window.
 

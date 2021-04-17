@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_set_lock
+~~~~~~~~~~~~~~
 
 *shmem_set_lock*\ (3), *shmem_clear_lock*\ (3), *shmem_test_lock*\ (3) -
 Releases, locks, and tests a mutual exclusion memory lock.

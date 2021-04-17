@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_pvar_read
+~~~~~~~~~~~~~~~
 
 ``MPI_T_pvar_read`` - Read the value of a performance variable
 

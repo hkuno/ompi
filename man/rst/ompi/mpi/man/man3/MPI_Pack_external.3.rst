@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Pack_external
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Pack_external`` - Writes data to a portable format
 

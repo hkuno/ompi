@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Pack_size
+~~~~~~~~~~~~~
 
 ``MPI_Pack_size`` - Returns the upper bound on the amount of space
 needed to pack a message.

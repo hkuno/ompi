@@ -1,5 +1,5 @@
-NAME
-====
+MPI_T_init_thread
+~~~~~~~~~~~~~~~~~
 
 MPI_T_init_thread - Initializes the MPI Tool information interface
 

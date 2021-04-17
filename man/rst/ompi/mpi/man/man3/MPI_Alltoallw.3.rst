@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Alltoallw
+~~~~~~~~~~~~~
 
 ``MPI_Alltoallw``, ``MPI_Ialltoallw`` - All processes send data of different
 types to, and receive data of different types from, all processes

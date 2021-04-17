@@ -1,5 +1,5 @@
-Name
-====
+MPI_Group_intersection
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Group_intersection`` - Produces a group at the intersection of two
 existing groups.

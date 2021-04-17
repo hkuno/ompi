@@ -1,5 +1,5 @@
-Name
-====
+MPI_Get_library_version
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Get_library_version`` - Returns a string of the current Open MPI
 version

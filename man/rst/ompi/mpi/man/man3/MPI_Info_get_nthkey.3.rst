@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Info_get_nthkey
+~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Info_get_nthkey`` - Returns the *n*\ th defined key in *info*.
 

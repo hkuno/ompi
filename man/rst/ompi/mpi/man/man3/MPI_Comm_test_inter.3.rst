@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_test_inter
+~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_test_inter`` - Tests to see if a comm is an
 intercommunicator.

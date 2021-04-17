@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Imrecv
+~~~~~~~~~~
 
 ``MPI_Imrecv`` - Non-blocking receive for a matched message
 

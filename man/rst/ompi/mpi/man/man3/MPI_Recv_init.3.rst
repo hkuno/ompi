@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Recv_init
+~~~~~~~~~~~~~
 
 ``MPI_Recv_init`` - Builds a handle for a receive.
 

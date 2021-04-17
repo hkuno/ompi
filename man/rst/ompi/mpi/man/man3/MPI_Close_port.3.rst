@@ -1,5 +1,5 @@
-Name
-====
+MPI_Close_port
+~~~~~~~~~~~~~~
 
 ``MPI_Close_port`` - Releases the specified network address.
 

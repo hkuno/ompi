@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_category_changed
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_T_category_changed`` - Get a timestamp for the categories
 

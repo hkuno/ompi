@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Info_env
+~~~~~~~~~~~~
 
 ``MPI_INFO_ENV`` - Static ``MPI_Info`` object containing info about the
 application

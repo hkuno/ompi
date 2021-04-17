@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Scatter
+~~~~~~~~~~~
 
 ``MPI_Scatter``, ``MPI_Iscatter`` - Sends data from one task to all tasks in
 a group.

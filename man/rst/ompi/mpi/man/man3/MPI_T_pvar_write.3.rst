@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_pvar_write
+~~~~~~~~~~~~~~~~
 
 ``MPI_T_pvar_write`` - Write the value of a control variable
 

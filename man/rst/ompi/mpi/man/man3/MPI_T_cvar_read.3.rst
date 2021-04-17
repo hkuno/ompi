@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_cvar_read
+~~~~~~~~~~~~~~~
 
 ``MPI_T_cvar_read`` - Read the value of a control variable
 

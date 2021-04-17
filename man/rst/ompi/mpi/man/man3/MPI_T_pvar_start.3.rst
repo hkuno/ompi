@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_pvar_start
+~~~~~~~~~~~~~~~~
 
 ``MPI_T_pvar_start``, ``MPI_T_pvar_stop`` - Start/stop a performance
 variable

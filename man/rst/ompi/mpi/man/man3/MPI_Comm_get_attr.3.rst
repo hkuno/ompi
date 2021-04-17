@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_get_attr
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_get_attr`` - Retrieves attribute value by key.
 

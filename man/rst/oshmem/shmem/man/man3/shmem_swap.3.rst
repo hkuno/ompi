@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_swap
+~~~~~~~~~~
 
 *shmem_double_swap*\ (3), *shmem_float_swap*\ (3),
 *shmem_int_swap*\ (3), *shmem_long_swap*\ (3), *shmem_swap*\ (3),

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Ibsend
+~~~~~~~~~~
 
 ``MPI_Ibsend`` - Starts a nonblocking buffered send.
 

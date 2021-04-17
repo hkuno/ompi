@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_short_xor_to_all
+~~~~~~~~~~~~~~~~~~~~~~
 
 *shmem_comp4_xor_to_all*\ (3), *shmem_int_xor_to_all*\ (3),
 *shmem_int4_xor_to_all*\ (3), *shmem_int8_xor_to_all*\ (3),

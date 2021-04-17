@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_get_atomicity
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_File_get_atomicity`` - Returns current consistency semantics for
 data-access operations.

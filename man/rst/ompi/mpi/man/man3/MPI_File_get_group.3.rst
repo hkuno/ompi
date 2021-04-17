@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_get_group
+~~~~~~~~~~~~~~~~~~
 
 ``MPI_File_get_group`` - Returns a duplicate of the process group of a
 file.

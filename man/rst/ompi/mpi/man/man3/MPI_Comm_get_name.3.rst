@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_get_name
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_get_name`` - Returns the name that was most recently
 associated with a communicator.

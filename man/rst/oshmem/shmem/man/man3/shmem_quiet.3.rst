@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_quiet
+~~~~~~~~~~~
 
 *shmem_quiet*\ (3) - Waits for completion of all outstanding remote
 writes issued by a processing element (PE).

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Test
+~~~~~~~~
 
 ``MPI_Test`` - Tests for the completion of a specific send or receive.
 

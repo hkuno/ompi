@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Graph_neighbors
+~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Graph_neighbors`` - Returns the neighbors of a node associated
 with a graph topology.

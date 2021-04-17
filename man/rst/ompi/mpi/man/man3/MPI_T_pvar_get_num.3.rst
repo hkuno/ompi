@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_T_pvar_get_num
+~~~~~~~~~~~~~~~~~~
 
 ``MPI_T_pvar_get_num`` - Query the number of performance variables
 

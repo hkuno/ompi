@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_spawn
+~~~~~~~~~~~~~~
 
 ``MPI_Comm_spawn`` - Spawns a number of identical binaries.
 

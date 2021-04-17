@@ -1,5 +1,5 @@
-NAME
-~~~~
+shmem_broadcast32
+~~~~~~~~~~~~~~~~~
 
 *shmem_broadcast4*\ (3), *shmem_broadcast8*\ (3),
 *shmem_broadcast32*\ (3), *shmem_broadcast64*\ (3) - Copy a data object

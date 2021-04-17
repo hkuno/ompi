@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_open
+~~~~~~~~~~~~~
 
 ``MPI_File_open`` - Opens a file (collective).
 

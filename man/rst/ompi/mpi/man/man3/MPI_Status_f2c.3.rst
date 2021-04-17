@@ -1,5 +1,5 @@
-NAME
-====
+MPI_Status_f2c
+~~~~~~~~~~~~~~
 
 MPI_Status_f2c, MPI_Status_f2c - Translates a C status into a Fortran
 INTEGER-style status, or vice versa.

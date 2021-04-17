@@ -1,5 +1,5 @@
-Name
-====
+MPI_Get
+~~~~~~~
 
 ``MPI_Get``, ``MPI_Rget`` - Copies data from the target memory to the
 origin.

@@ -1,5 +1,5 @@
-Name
-====
+MPI_Get_count
+~~~~~~~~~~~~~
 
 ``MPI_Get_count`` - Gets the number of top-level elements received.
 

@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_size
+~~~~~~~~~~~~~
 
 ``MPI_Type_size``, ``MPI_Type_size_x`` - Returns the number of bytes
 occupied by entries in a data type.

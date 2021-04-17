@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_group
+~~~~~~~~~~~~~~
 
 ``MPI_Comm_group`` - Returns the group associated with a communicator.
 

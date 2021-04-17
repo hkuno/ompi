@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Type_create_resized
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Type_create_resized`` - Returns a new data type with new extent
 and upper and lower bounds.

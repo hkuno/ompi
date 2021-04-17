@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Comm_set_name
+~~~~~~~~~~~~~~~~~
 
 ``MPI_Comm_set_name`` - Associates a name with a communicator.
 

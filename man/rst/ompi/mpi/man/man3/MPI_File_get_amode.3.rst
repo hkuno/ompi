@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_File_get_amode
+~~~~~~~~~~~~~~~~~~
 
 ``MPI_File_get_amode`` - Returns access mode associated with an open
 file.

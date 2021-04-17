@@ -1,5 +1,5 @@
-NAME
-~~~~
+intro_shmem
+~~~~~~~~~~~
 
 intro_shmem - Introduction to the OpenSHMEM programming model
 

@@ -1,5 +1,5 @@
-Name
-====
+MPI_Graph_neighbors_count
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Graph_neighbors_count`` - Returns the number of neighbors of a
 node associated with a graph topology.

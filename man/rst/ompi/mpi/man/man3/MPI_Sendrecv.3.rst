@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Sendrecv
+~~~~~~~~~~~~
 
 ``MPI_Sendrecv`` - Sends and receives a message.
 

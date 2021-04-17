@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Status_set_elements
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ``MPI_Status_set_elements``, ``MPI_Status_set_elements_x`` - Modifies
 opaque part of *status* to allow ``MPI_Get_elements`` to return *count*.

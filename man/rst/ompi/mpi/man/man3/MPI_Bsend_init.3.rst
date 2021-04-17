@@ -1,5 +1,5 @@
-Name
-====
+MPI_Bsend_init
+~~~~~~~~~~~~~~
 
 ``MPI_Bsend_init`` - Builds a handle for a buffered send.
 

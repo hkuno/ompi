@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Exscan
+~~~~~~~~~~
 
 ``MPI_Exscan``, ``MPI_Iexscan`` - Computes an exclusive scan (partial
 reduction)

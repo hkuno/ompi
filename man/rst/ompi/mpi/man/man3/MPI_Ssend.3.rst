@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Ssend
+~~~~~~~~~
 
 ``MPI_Ssend`` - Standard synchronous send.
 

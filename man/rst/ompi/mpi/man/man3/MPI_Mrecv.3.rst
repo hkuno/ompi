@@ -1,5 +1,5 @@
-NAME
-~~~~
+MPI_Mrecv
+~~~~~~~~~
 
 ``MPI_Mrecv`` - Blocking receive for a matched message
 

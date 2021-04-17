@@ -59,7 +59,7 @@ for i in range(len(in_lines)):
       # Substitute program name because html index needs it.
       # Only substitute delimeter for the first NAME heading because 
       # build-doc seems to expect a single-rooted hierarchy.
-      output_lines.append(f"{CMDNAME}\n{re.sub('[A-Z,a-z,0-9,_,\-]','~',CMDNAME)}")
+      output_lines.append(f"{CMDNAME}\n{re.sub('[A-Z,a-z,0-9,_,-]','~',CMDNAME)}")
       SKIP += 1
   elif (SKIP == 0):
       output_lines.append(f"{curline}")

@@ -1,5 +1,5 @@
-Name
-====
+MPI_Gatherv
+~~~~~~~~~~~
 
 ``MPI_Gatherv``, ``MPI_Igatherv`` - Gathers varying amounts of data from
 all processes to the root process
@@ -113,7 +113,7 @@ and the root executes n receives,
 
 .. code:: c
 
-   MPI_Recv(recvbuf + disp[i] * extent(recvtype), 
+   MPI_Recv(recvbuf + disp[i] * extent(recvtype),
        recvcounts[i], recvtype, i, ...)
 
 Messages are placed in the receive buffer of the root process in rank
