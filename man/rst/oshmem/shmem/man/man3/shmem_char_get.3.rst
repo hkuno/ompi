@@ -8,8 +8,7 @@ shmem_char_get
 *shmem_integer_get*\ (3), *shmem_logical_get*\ (3),
 *shmem_long_get*\ (3), *shmem_longdouble_get*\ (3),
 *shmem_longlong_get*\ (3), *shmem_real_get*\ (3), *shmem_short_get*\ (3)
-- Transfers data from a specified processing element (PE). 
-
+- Transfers data from a specified processing element (PE).
 
 SYNOPSIS
 ========

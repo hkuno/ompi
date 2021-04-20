@@ -70,7 +70,7 @@ name=re.compile("^name$", flags = re.IGNORECASE | re.MULTILINE)
 unliteral=re.compile("^[A-Za-z]")
 
 # bullet item
-bullet=re.compile("^[\s]*\- ")
+bullet=re.compile("^[\s]*[^*]\- ")
 
 # Indicates parameters in body
 paramsect=re.compile(".*PARAMETER")

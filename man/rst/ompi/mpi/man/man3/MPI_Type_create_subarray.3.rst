@@ -110,11 +110,10 @@ or
 The *order* argument specifies the storage order for the subarray as
 well as the full array. It must be set to one of the following:
 
-- ``MPI_ORDER_C``: The ordering used by C arrays, (that is, row-major order) 
+- ``MPI_ORDER_C``: The ordering used by C arrays, (that is, row-major order)
 
-
-- ``MPI_ORDER_FORTRAN``: The ordering used by Fortran arrays, (that is, column-major order) 
-
+- ``MPI_ORDER_FORTRAN``: The ordering used by Fortran arrays, (that is,
+column-major order)
 
 A *ndims*-dimensional subarray (*newtype*) with no extra padding can be
 defined by the function Subarray() as follows:

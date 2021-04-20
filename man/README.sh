@@ -90,7 +90,7 @@ fi
 
 # fix up rst files
 SAVEME=$( pwd )
-if [[ 0 -eq 1 ]] ; then
+if [[ 1 -eq 1 ]] ; then
     echo "About to fix up rst"
     date
     for d in $MANDIRS ; do
@@ -107,7 +107,7 @@ fi
 
 # fix up rst files generated from md
 SAVEME=$( pwd )
-if [[ 0 -eq 1 ]] ; then
+if [[ 1 -eq 1 ]] ; then
     echo "About to fix up rst generated from md files"
     date
     for d in $MANDIRS ; do
@@ -151,53 +151,69 @@ date
 fi
 
 # check the man pages by comparing against original man pages
-if [[ 0 -eq 1 ]] ; then
+j=0
+if [[ 1 -eq 1 ]] ; then
     SAVEME=$( pwd -P )
     mkdir -p $TSTMAN_NEW
     TSTMAN_NEW=$( cd $TSTMAN_NEW; pwd -P )
     cd $BUILDMAN
     for i in $( /bin/ls ) ; do
-        out=${TSTMAN_NEW}/${i}
-        man ./${i} >& $out
+        if [[ ! -d $TSTMAN_NEW/$i ]] ; then
+            out=${TSTMAN_NEW}/${i}
+            ( man ./${i} >& $out ) &
+            j=$(( j + 1 ))
+            [[ $(( $j%5 )) -eq 0 ]] && wait
+        fi
     done
     cd $SAVEME
 fi
+wait
 
-if [[ 0 -eq 1 ]] ; then
+if [[ 1 -eq 1 ]] ; then
     mkdir -p $TSTMAN_ORIG
     TSTMAN_ORIG=$( cd $TSTMAN_ORIG; pwd -P )
     SAVEME=$( pwd -P )
     cd $MANHOME
+    i=0
     for d in $MANDIRS ; do
-        for f in $( find $d -name \*.\*in ) ; do
-            sbname=$( basename $f | sed -e "s/in$//" )
-            out=$TSTMAN_ORIG/$sbname
-            man ${f} >& $out
+        for f in $( find $d -name \*.\*in -type f ) ; do
+            if [[ ! -d $TSTMAN_NEW/$i ]] ; then
+                sbname=$( basename $f | sed -e "s/in$//" )
+                out=$TSTMAN_ORIG/$sbname
+                (man ${f} >& $out) &
+                i=$(( i + 1 ))
+                [[ $(( $i%5 )) -eq 0 ]] && wait
+            fi
         done
     done
     cd $SAVEME
 fi
+wait
 
-if [[ 0 -eq 1 ]] ; then
+if [[ 1 -eq 1 ]] ; then
     SAVEME=$( pwd -P )
     TSTMAN_ORIG=$( cd $TSTMAN_ORIG; pwd -P )
     TSTMAN_NEW=$( cd $TSTMAN_NEW; pwd -P )
     mkdir -p $TSTMAN_DIFF
     TSTMAN_DIFF=$( cd $TSTMAN_DIFF; pwd -P )
     echo "TSTMAN_DIFF is $TSTMAN_DIFF"
+    j=0
     for i in $( /bin/ls $TSTMAN_NEW ) ; do
         if [[ ! -d $TSTMAN_NEW/$i ]] ; then
             out=${TSTMAN_DIFF}/$i
             f1=${TSTMAN_NEW}/${i}
             f2=${TSTMAN_ORIG}/${i}
             if [[ -f $f1 ]] && [[ -f $f2 ]] ; then
-                diff $f1 $f2 >& $out
+                ( diff $f1 $f2 >& $out ) &
+                j=$(( j + 1 ))
+                [[ $(( $j%5 )) -eq 0 ]] && wait
             else
                 echo "Missing: $f1 or $f2"
             fi
         fi
     done
 fi
+wait
 
 
 # TO DO LIST:
