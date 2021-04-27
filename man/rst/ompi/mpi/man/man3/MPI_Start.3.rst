@@ -1,7 +1,9 @@
+.. _MPI_Start:
+
 MPI_Start
 ~~~~~~~~~
 
-``MPI_Start`` - Initiates a communication using a persistent request
+:ref:`MPI_Start`  - Initiates a communication using a persistent request
 handle.
 
 SYNTAX
@@ -52,11 +54,11 @@ DESCRIPTION
 ===========
 
 A communication (send or receive) that uses a persistent request is
-initiated by the function ``MPI_Start``.
+initiated by the function :ref:`MPI_Start` .
 
 The argument, request, is a handle returned by one of the persistent
-communication-request initialization functions (``MPI_Send_init``,
-``MPI_Bsend_init``, ``MPI_Ssend_init``, ``MPI_Rsend_init``, ``MPI_Recv_init)``. The
+communication-request initialization functions (:ref:`MPI_Send_init` ,
+:ref:`MPI_Bsend_init` , :ref:`MPI_Ssend_init` , :ref:`MPI_Rsend_init` , :ref:`MPI_Recv_init)` . The
 associated request should be inactive and becomes active once the call
 is made.
 
@@ -67,11 +69,11 @@ be accessed.
 
 The call is local, with semantics similar to the nonblocking
 communication operations (see Section 3.7 in the MPI-1 Standard,
-"Nonblocking Communication.") That is, a call to ``MPI_Start`` with a
-request created by ``MPI_Send_init`` starts a communication in the same
-manner as a call to ``MPI_Isend``; a call to ``MPI_Start`` with a request
-created by ``MPI_Bsend_init`` starts a communication in the same manner as a
-call to ``MPI_Ibsend``; and so on.
+"Nonblocking Communication.") That is, a call to :ref:`MPI_Start`  with a
+request created by :ref:`MPI_Send_init`  starts a communication in the same
+manner as a call to :ref:`MPI_Isend` ; a call to :ref:`MPI_Start`  with a request
+created by :ref:`MPI_Bsend_init`  starts a communication in the same manner as a
+call to :ref:`MPI_Ibsend` ; and so on.
 
 ERRORS
 ======
@@ -82,16 +84,18 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Bsend_init``
-| ``MPI_Rsend_init``
-| ``MPI_Send_init``
-| ``MPI_Sssend_init``
-| ``MPI_Recv_init``
-| ``MPI_Startall``
+| :ref:`MPI_Bsend_init` 
+| :ref:`MPI_Rsend_init` 
+| :ref:`MPI_Send_init` 
+| :ref:`MPI_Sssend_init` 
+| :ref:`MPI_Recv_init` 
+| :ref:`MPI_Startall` 
+
+.. seealso:: :ref:`MPI_Send_init` :ref:`MPI_Bsend_init` :ref:`MPI_Ssend_init` :ref:`MPI_Rsend_init` :ref:`MPI_Recv_init)` :ref:`MPI_Isend` :ref:`MPI_Ibsend` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Sssend_init` :ref:`MPI_Recv_init` :ref:`MPI_Startall`

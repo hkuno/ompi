@@ -1,7 +1,9 @@
+.. _MPI_Request_get_status:
+
 MPI_Request_get_status
 ~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Request_get_status`` - Access information associated with a
+:ref:`MPI_Request_get_status`  - Access information associated with a
 request without freeing the request.
 
 SYNTAX
@@ -56,14 +58,14 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Request_get_status`` sets *flag*\ =\ *true* if the operation is
+:ref:`MPI_Request_get_status`  sets *flag*\ =\ *true* if the operation is
 complete or sets *flag*\ =\ *false* if it is not complete. If the
 operation is complete, it returns in *status* the request status. It
 does not deallocate or inactivate the request; a subsequent call to
 test, wait, or free should be executed with that request.
 
 If your application does not need to examine the *status* field, you can
-save resources by using the predefined constant ``MPI_STATUS_IGNORE`` as a
+save resources by using the predefined constant :ref:`MPI_STATUS_IGNORE`  as a
 special value for the *status* argument.
 
 ERRORS
@@ -75,6 +77,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler`

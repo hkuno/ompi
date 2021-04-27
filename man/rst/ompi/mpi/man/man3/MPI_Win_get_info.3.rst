@@ -1,7 +1,9 @@
+.. _MPI_Win_get_info:
+
 MPI_Win_get_info
 ~~~~~~~~~~~~~~~~
 
-``MPI_Win_get_info`` - Retrieves active window info hints
+:ref:`MPI_Win_get_info`  - Retrieves active window info hints
 
 SYNTAX
 ======
@@ -53,12 +55,12 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Win_get_info`` returns a new info object containing the hints of the
+:ref:`MPI_Win_get_info`  returns a new info object containing the hints of the
 window associated with *win*. The current setting of all hints actually
 used by the system related to this window is returned in *info_used*. If
 no such hints exist, a handle to a newly created info object is returned
 that contains no key/value pair. The user is responsible for freeing
-info_used via ``MPI_Info_free``.
+info_used via :ref:`MPI_Info_free` .
 
 ERRORS
 ======
@@ -69,11 +71,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-``MPI_Win_set_info,`` ``MPI_Win_free``
+:ref:`MPI_Win_set_info,`  :ref:`MPI_Win_free` 
+
+.. seealso:: :ref:`MPI_Info_free` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Win_set_info,` :ref:`MPI_Win_free`

@@ -1,7 +1,9 @@
+.. _MPI_Comm_test_inter:
+
 MPI_Comm_test_inter
 ~~~~~~~~~~~~~~~~~~~
 
-``MPI_Comm_test_inter`` - Tests to see if a comm is an
+:ref:`MPI_Comm_test_inter`  - Tests to see if a comm is an
 intercommunicator.
 
 SYNTAX
@@ -72,21 +74,21 @@ inter-communicator, however, they return the following values:
    MPI_Comm_rank	Returns the rank in the local group.
 
 To return the remote group and remote group size of an
-inter-communicator, use the ``MPI_Comm_remote_group`` and
-``MPI_Comm_remote_size`` functions.
+inter-communicator, use the :ref:`MPI_Comm_remote_group`  and
+:ref:`MPI_Comm_remote_size`  functions.
 
-The operation ``MPI_Comm_compare`` is valid for intercommunicators. Both
+The operation :ref:`MPI_Comm_compare`  is valid for intercommunicators. Both
 communicators must be either intra- or intercommunicators, or else
-``MPI_UNEQUAL`` results. Both corresponding local and remote groups must
-compare correctly to get the results ``MPI_CONGRUENT`` and ``MPI_SIMILAR``. In
-particular, it is possible for ``MPI_SIMILAR`` to result because either the
+:ref:`MPI_UNEQUAL`  results. Both corresponding local and remote groups must
+compare correctly to get the results :ref:`MPI_CONGRUENT`  and :ref:`MPI_SIMILAR` . In
+particular, it is possible for :ref:`MPI_SIMILAR`  to result because either the
 local or remote groups were similar but not identical.
 
 The following accessors provide consistent access to the remote group of
-an intercommunicator: ``MPI_Comm_remote_size``, ``MPI_Comm_remote_group``.
+an intercommunicator: :ref:`MPI_Comm_remote_size` , :ref:`MPI_Comm_remote_group` .
 
-The intercommunicator accessors (``MPI_Comm_test_inter``,
-``MPI_Comm_remote_size``, ``MPI_Comm_remote_group)`` are all local operations.
+The intercommunicator accessors (:ref:`MPI_Comm_test_inter` ,
+:ref:`MPI_Comm_remote_size` , :ref:`MPI_Comm_remote_group)`  are all local operations.
 
 ERRORS
 ======
@@ -97,7 +99,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -110,3 +112,5 @@ SEE ALSO
    MPI_Comm_remote_size
    MPI_Intercomm_create
    MPI_Intercomm_merge
+
+.. seealso:: :ref:`MPI_Comm_remote_group` :ref:`MPI_Comm_remote_size` :ref:`MPI_Comm_compare` :ref:`MPI_Comm_remote_group)` :ref:`MPI_Comm_set_errhandler`

@@ -1,10 +1,12 @@
+.. _MPI_Comm_f2c:
+
 MPI_Comm_f2c
 ~~~~~~~~~~~~
 
-``MPI_Comm_f2c``, ``MPI_Comm_c2f``, ``MPI_File_f2c``, ``MPI_File_c2f``, ``MPI_Info_f2c``,
-``MPI_Info_c2f``, ``MPI_Message_f2c``, ``MPI_Message_c2f``, ``MPI_Op_f2c``, ``MPI_Op_c2f``,
-``MPI_Request_f2c``, ``MPI_Request_c2f``, ``MPI_Type_f2c``, ``MPI_Type_c2f``,
-``MPI_Win_f2c``, ``MPI_Win_c2f`` - Translates a C handle into a Fortran
+:ref:`MPI_Comm_f2c` , :ref:`MPI_Comm_c2f` , :ref:`MPI_File_f2c` , :ref:`MPI_File_c2f` , :ref:`MPI_Info_f2c` ,
+:ref:`MPI_Info_c2f` , :ref:`MPI_Message_f2c` , :ref:`MPI_Message_c2f` , :ref:`MPI_Op_f2c` , :ref:`MPI_Op_c2f` ,
+:ref:`MPI_Request_f2c` , :ref:`MPI_Request_c2f` , :ref:`MPI_Type_f2c` , :ref:`MPI_Type_c2f` ,
+:ref:`MPI_Win_f2c` , :ref:`MPI_Win_c2f`  - Translates a C handle into a Fortran
 handle, or vice versa.
 
 SYNTAX
@@ -49,20 +51,22 @@ DESCRIPTION
 
 Handles are passed between Fortran and C by using an explicit C wrapper
 to convert Fortran handles to C handles. There is no direct access to C
-handles in Fortran. The type definition ``MPI_Fint`` is provided in C for
+handles in Fortran. The type definition :ref:`MPI_Fint`  is provided in C for
 an integer of the size that matches a Fortran *INTEGER*; usually,
-``MPI_Fint`` will be equivalent to *int*. The handle translation functions
+:ref:`MPI_Fint`  will be equivalent to *int*. The handle translation functions
 are provided in C to convert from a Fortran handle (which is an integer)
 to a C handle, and vice versa.
 
 For example, if *comm* is a valid Fortran handle to a communicator, then
-``MPI_Comm_f2c`` returns a valid C handle to that same communicator; if
-*comm* = ``MPI_COMM_NULL`` (Fortran value), then ``MPI_Comm_f2c`` returns a null
-C handle; if *comm* is an invalid Fortran handle, then ``MPI_Comm_f2c``
+:ref:`MPI_Comm_f2c`  returns a valid C handle to that same communicator; if
+*comm* = :ref:`MPI_COMM_NULL`  (Fortran value), then :ref:`MPI_Comm_f2c`  returns a null
+C handle; if *comm* is an invalid Fortran handle, then :ref:`MPI_Comm_f2c` 
 returns an invalid C handle.
 
 NOTE
 ====
 
 This function does not return an error value. Consequently, the result
-of calling it before ``MPI_Init`` or after ``MPI_Finalize`` is undefined.
+of calling it before :ref:`MPI_Init`  or after :ref:`MPI_Finalize`  is undefined.
+
+.. seealso:: :ref:`MPI_Comm_c2f` :ref:`MPI_File_f2c` :ref:`MPI_File_c2f` :ref:`MPI_Info_f2c` :ref:`MPI_Info_c2f` :ref:`MPI_Message_f2c` :ref:`MPI_Message_c2f` :ref:`MPI_Op_f2c` :ref:`MPI_Op_c2f` :ref:`MPI_Request_f2c` :ref:`MPI_Request_c2f` :ref:`MPI_Type_f2c` :ref:`MPI_Type_c2f` :ref:`MPI_Win_f2c` :ref:`MPI_Win_c2f` :ref:`MPI_Fint` :ref:`MPI_Init` :ref:`MPI_Finalize`

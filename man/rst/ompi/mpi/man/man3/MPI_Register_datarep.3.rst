@@ -1,7 +1,9 @@
+.. _MPI_Register_datarep:
+
 MPI_Register_datarep
 ~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Register_datarep`` - Defines data representation.
+:ref:`MPI_Register_datarep`  - Defines data representation.
 
 SYNTAX
 ======
@@ -73,27 +75,27 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_Register_datarep`` defines a data representation. It associates the
+:ref:`MPI_Register_datarep`  defines a data representation. It associates the
 data representation's identifier (a string) with the functions that
 convert from file representation to the native representation and vice
 versa, with the function that gets the extent of a data type as
 represented in the file, as well as with "extra state," which is used
 for passing arguments. Once a data representation has been registered
 using this routine, you may specify its identifier as an argument to
-``MPI_File_set_view``, causing subsequent data-access operations to call the
+:ref:`MPI_File_set_view` , causing subsequent data-access operations to call the
 specified conversion functions.
 
 The call associates *read_conversion_fn*, *write_conversion_fn*, and
 *dtype_file_extent_fn* with the data representation identifier
 *datarep*. *datarep* can then be used as an argument to
-``MPI_File_set_view``, causing subsequent data access operations to call the
+:ref:`MPI_File_set_view` , causing subsequent data access operations to call the
 conversion functions to convert all data items accessed between file
-data representation and native representation. ``MPI_Register_datarep`` is a
+data representation and native representation. :ref:`MPI_Register_datarep`  is a
 local operation and only registers the data representation for the
 calling MPI process. If *datarep* is already defined, an error in the
-error class ``MPI_ERR_DUP_DATAREP`` is raised using the default file error
+error class :ref:`MPI_ERR_DUP_DATAREP`  is raised using the default file error
 handler. The length of a data representation string is limited to the
-value of ``MPI_MAX_DATAREP_STRING``. ``MPI_MAX_DATAREP_STRING`` must have a
+value of :ref:`MPI_MAX_DATAREP_STRING` . :ref:`MPI_MAX_DATAREP_STRING`  must have a
 value of at least 64. No routines are provided to delete data
 representations and free the associated resources; it is not expected
 that an application will generate them in significant numbers.
@@ -119,7 +121,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_set_view` :ref:`MPI_File_set_errhandler`

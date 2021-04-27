@@ -1,7 +1,9 @@
+.. _MPI_Errhandler_free:
+
 MPI_Errhandler_free
 ~~~~~~~~~~~~~~~~~~~
 
-``MPI_Errhandler_free`` - Frees an MPI-style error handler.
+:ref:`MPI_Errhandler_free`  - Frees an MPI-style error handler.
 
 SYNTAX
 ======
@@ -51,7 +53,7 @@ DESCRIPTION
 ===========
 
 Marks the error handler associated with errhandler for deallocation and
-sets errhandler to ``MPI_ERRHANDLER_NULL``. The error handler will be
+sets errhandler to :ref:`MPI_ERRHANDLER_NULL` . The error handler will be
 deallocated after all communicators associated with it have been
 deallocated.
 
@@ -64,13 +66,15 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Comm_create_errhandler``
-| ``MPI_Comm_get_errhandler``
-| ``MPI_Comm_set_errhandler``
+| :ref:`MPI_Comm_create_errhandler` 
+| :ref:`MPI_Comm_get_errhandler` 
+| :ref:`MPI_Comm_set_errhandler` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Comm_create_errhandler` :ref:`MPI_Comm_get_errhandler`

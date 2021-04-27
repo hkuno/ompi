@@ -1,7 +1,9 @@
+.. _MPI_Win_attach:
+
 MPI_Win_attach
 ~~~~~~~~~~~~~~
 
-``MPI_Win_attach``, ``MPI_Win_detach`` - One-sided MPI call that attaches /
+:ref:`MPI_Win_attach` , :ref:`MPI_Win_detach`  - One-sided MPI call that attaches /
 detaches a memory region to / from a window object for RMA operations.
 
 SYNTAX
@@ -72,25 +74,25 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Win_attach`` is a one-sided MPI communication call used to attach a
+:ref:`MPI_Win_attach`  is a one-sided MPI communication call used to attach a
 memory region of *size* bytes starting at address *base* to a window for
 RMA access. The window *win* must have been created using
-``MPI_Win_create_dynamic``. Multiple non-overlapping memory regions may be
+:ref:`MPI_Win_create_dynamic` . Multiple non-overlapping memory regions may be
 attached to the same dynamic window. Attaching overlapping memory
 regions to the same dynamic window is erroneous.
 
-If the *base* value used by ``MPI_Win_attach`` was allocated by
-``MPI_Alloc_mem``, the size of the window can be no larger than the value
-set by the ``MPI_ALLOC_MEM`` function.
+If the *base* value used by :ref:`MPI_Win_attach`  was allocated by
+:ref:`MPI_Alloc_mem` , the size of the window can be no larger than the value
+set by the :ref:`MPI_ALLOC_MEM`  function.
 
-``MPI_Win_detach`` can be used to detach a previously attached memory region
+:ref:`MPI_Win_detach`  can be used to detach a previously attached memory region
 from *win*. The memory address *base* and *win* must match arguments
-passed to a previous call to ``MPI_Win_attach``.
+passed to a previous call to :ref:`MPI_Win_attach` .
 
 NOTES
 =====
 
-Use memory allocated by ``MPI_Alloc_mem`` to guarantee properly aligned
+Use memory allocated by :ref:`MPI_Alloc_mem`  to guarantee properly aligned
 window boundaries (such as word, double-word, cache line, page frame,
 and so on).
 
@@ -103,6 +105,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Win_detach` :ref:`MPI_Win_create_dynamic` :ref:`MPI_Alloc_mem` :ref:`MPI_Comm_set_errhandler`

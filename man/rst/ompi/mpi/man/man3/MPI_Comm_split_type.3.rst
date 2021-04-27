@@ -1,7 +1,9 @@
+.. _MPI_Comm_split_type:
+
 MPI_Comm_split_type
 ~~~~~~~~~~~~~~~~~~~
 
-``MPI_Comm_split_type`` - Creates new communicators based on colors and
+:ref:`MPI_Comm_split_type`  - Creates new communicators based on colors and
 keys.
 
 SYNTAX
@@ -72,59 +74,59 @@ communicator is created for each subgroup and returned in newcomm. This
 is a collective call; all processes must provide the same *split_type*,
 but each process is permitted to provide different values for key. An
 exception to this rule is that a process may supply the type value
-``MPI_UNDEFINED``, in which case newcomm returns ``MPI_COMM_NULL``.
+:ref:`MPI_UNDEFINED` , in which case newcomm returns :ref:`MPI_COMM_NULL` .
 
 SPLIT TYPES
 ===========
 
-``MPI_COMM_TYPE_SHARED``
+:ref:`MPI_COMM_TYPE_SHARED` 
    This type splits the communicator into subcommunicators, each of
    which can create a shared memory region.
 
-O``MPI_COMM_TYPE_NODE``
-   Synonym for ``MPI_COMM_TYPE_SHARED``.
+O:ref:`MPI_COMM_TYPE_NODE` 
+   Synonym for :ref:`MPI_COMM_TYPE_SHARED` .
 
-O``MPI_COMM_TYPE_HWTHREAD``
+O:ref:`MPI_COMM_TYPE_HWTHREAD` 
    This type splits the communicator into subcommunicators, each of
    which belongs to the same hardware thread.
 
-O``MPI_COMM_TYPE_CORE``
+O:ref:`MPI_COMM_TYPE_CORE` 
    This type splits the communicator into subcommunicators, each of
    which belongs to the same core/processing unit.
 
-O``MPI_COMM_TYPE_L1CACHE``
+O:ref:`MPI_COMM_TYPE_L1CACHE` 
    This type splits the communicator into subcommunicators, each of
    which belongs to the same L1 cache.
 
-O``MPI_COMM_TYPE_L2CACHE``
+O:ref:`MPI_COMM_TYPE_L2CACHE` 
    This type splits the communicator into subcommunicators, each of
    which belongs to the same L2 cache.
 
-O``MPI_COMM_TYPE_L3CACHE``
+O:ref:`MPI_COMM_TYPE_L3CACHE` 
    This type splits the communicator into subcommunicators, each of
    which belongs to the same L3 cache.
 
-O``MPI_COMM_TYPE_SOCKET``
+O:ref:`MPI_COMM_TYPE_SOCKET` 
    This type splits the communicator into subcommunicators, each of
    which belongs to the same socket.
 
-O``MPI_COMM_TYPE_NUMA``
+O:ref:`MPI_COMM_TYPE_NUMA` 
    This type splits the communicator into subcommunicators, each of
    which belongs to the same NUMA-node.
 
-O``MPI_COMM_TYPE_BOARD``
+O:ref:`MPI_COMM_TYPE_BOARD` 
    This type splits the communicator into subcommunicators, each of
    which belongs to the same board.
 
-O``MPI_COMM_TYPE_HOST``
+O:ref:`MPI_COMM_TYPE_HOST` 
    This type splits the communicator into subcommunicators, each of
    which belongs to the same host.
 
-O``MPI_COMM_TYPE_CU``
+O:ref:`MPI_COMM_TYPE_CU` 
    This type splits the communicator into subcommunicators, each of
    which belongs to the same computational unit.
 
-O``MPI_COMM_TYPE_CLUSTER``
+O:ref:`MPI_COMM_TYPE_CLUSTER` 
    This type splits the communicator into subcommunicators, each of
    which belongs to the same cluster.
 
@@ -145,15 +147,17 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Comm_create``
-| ``MPI_Intercomm_create``
-| ``MPI_Comm_dup``
-| ``MPI_Comm_free``
-| ``MPI_Comm_split``
+| :ref:`MPI_Comm_create` 
+| :ref:`MPI_Intercomm_create` 
+| :ref:`MPI_Comm_dup` 
+| :ref:`MPI_Comm_free` 
+| :ref:`MPI_Comm_split` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Comm_create` :ref:`MPI_Intercomm_create` :ref:`MPI_Comm_dup` :ref:`MPI_Comm_free` :ref:`MPI_Comm_split`

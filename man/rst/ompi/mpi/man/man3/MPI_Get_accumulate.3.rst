@@ -1,3 +1,5 @@
+.. _MPI_Get_accumulate:
+
 MPI_Get_accumulate
 ~~~~~~~~~~~~~~~~~~
 

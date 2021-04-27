@@ -1,7 +1,9 @@
+.. _MPI_Type_delete_attr:
+
 MPI_Type_delete_attr
 ~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Type_delete_attr`` - Deletes a datatype-caching attribute value
+:ref:`MPI_Type_delete_attr`  - Deletes a datatype-caching attribute value
 associated with a key.
 
 SYNTAX
@@ -57,8 +59,8 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_Type_delete_attr`` deletes a datatype-caching attribute value
-associated with a key. This routines partially replaces ``MPI_Attr_delete``,
+:ref:`MPI_Type_delete_attr`  deletes a datatype-caching attribute value
+associated with a key. This routines partially replaces :ref:`MPI_Attr_delete` ,
 which is now deprecated.
 
 NOTES
@@ -79,6 +81,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Attr_delete` :ref:`MPI_Comm_set_errhandler`

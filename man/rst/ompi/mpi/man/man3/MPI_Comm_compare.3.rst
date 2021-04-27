@@ -1,3 +1,5 @@
+.. _MPI_Comm_compare:
+
 MPI_Comm_compare
 ~~~~~~~~~~~~~~~~
 

@@ -1,7 +1,9 @@
+.. _MPI_Comm_get_attr:
+
 MPI_Comm_get_attr
 ~~~~~~~~~~~~~~~~~
 
-``MPI_Comm_get_attr`` - Retrieves attribute value by key.
+:ref:`MPI_Comm_get_attr`  - Retrieves attribute value by key.
 
 SYNTAX
 ======
@@ -62,13 +64,13 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_Comm_get_attr`` retrieves an attribute value by key. The call is
+:ref:`MPI_Comm_get_attr`  retrieves an attribute value by key. The call is
 erroneous if there is no key with value *keyval*. On the other hand, the
 call is correct if the key value exists, but no attribute is attached on
 *comm* for that key; in that case, the call returns *flag* = false. In
-particular, ``MPI_KEYVAL_INVALID`` is an erroneous key value.
+particular, :ref:`MPI_KEYVAL_INVALID`  is an erroneous key value.
 
-This function replaces ``MPI_Attr_get``, the use of which is deprecated. The
+This function replaces :ref:`MPI_Attr_get` , the use of which is deprecated. The
 C binding is identical. The Fortran binding differs in that
 *attribute_val* is an address-sized integer.
 
@@ -83,7 +85,7 @@ use the non-portable syntax
 
         INTEGER*MPI_ADDRESS_KIND ATTRIBUTE_VAL
 
-where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_ADDRESS_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
@@ -95,6 +97,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Attr_get` :ref:`MPI_Comm_set_errhandler`

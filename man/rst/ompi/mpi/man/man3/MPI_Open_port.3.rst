@@ -1,7 +1,9 @@
+.. _MPI_Open_port:
+
 MPI_Open_port
 ~~~~~~~~~~~~~
 
-``MPI_Open_port`` - Establishes a network address for a server to accept
+:ref:`MPI_Open_port`  - Establishes a network address for a server to accept
 connections from clients.
 
 SYNTAX
@@ -55,14 +57,14 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Open_port`` establishes a network address, encoded in the *port_name*
+:ref:`MPI_Open_port`  establishes a network address, encoded in the *port_name*
 string, at which the server will be able to accept connections from
 clients. *port_name* is supplied by the system.
 
 MPI copies a system-supplied port name into *port_name*. *port_name*
 identifies the newly opened port and can be used by a client to contact
 the server. The maximum size string that may be supplied by the system
-is ``MPI_MAX_PORT_NAME``.
+is :ref:`MPI_MAX_PORT_NAME` .
 
 SUPPORTED INFO KEYS
 ===================
@@ -78,11 +80,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Comm_accept`` ``MPI_Comm_connect``
+| :ref:`MPI_Comm_accept`  :ref:`MPI_Comm_connect` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Comm_accept` :ref:`MPI_Comm_connect`

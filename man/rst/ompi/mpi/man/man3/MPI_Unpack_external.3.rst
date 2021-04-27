@@ -1,7 +1,9 @@
+.. _MPI_Unpack_external:
+
 MPI_Unpack_external
 ~~~~~~~~~~~~~~~~~~~
 
-``MPI_Unpack_external`` - Reads data from a portable format
+:ref:`MPI_Unpack_external`  - Reads data from a portable format
 
 SYNTAX
 ======
@@ -80,14 +82,14 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Unpack_external`` unpacks data from the external32 format, a universal
+:ref:`MPI_Unpack_external`  unpacks data from the external32 format, a universal
 data representation defined by the MPI Forum. This format is useful for
 exchanging data between MPI implementations, or when writing data to a
 file.
 
 The input buffer is a contiguous storage area pointed to by *inbuf*
 containing *insize* bytes. The output buffer can be any communication
-buffer allowed in ``MPI_Recv``, and is specified by *outbuf*, *outcount*,
+buffer allowed in :ref:`MPI_Recv` , and is specified by *outbuf*, *outcount*,
 and *datatype*.
 
 The input value of *position* is the first position in *inbuf* to be
@@ -95,17 +97,17 @@ read for unpacking (measured in bytes, not elements, relative to the
 start of the buffer). When the function returns, *position* is
 incremented by the size of the packed message, so that it points to the
 first location in *inbuf* following the message that was unpacked. This
-way it may be used as input to a subsequent call to ``MPI_Unpack_external``.
+way it may be used as input to a subsequent call to :ref:`MPI_Unpack_external` .
 
 NOTES
 =====
 
-Note the difference between ``MPI_Recv`` and ``MPI_Unpack_external``: In
-``MPI_Recv``, the *count* argument specifies the maximum number of items
-that can be received. In ``MPI_Unpack_external``, the *outcount* argument
+Note the difference between :ref:`MPI_Recv`  and :ref:`MPI_Unpack_external` : In
+:ref:`MPI_Recv` , the *count* argument specifies the maximum number of items
+that can be received. In :ref:`MPI_Unpack_external` , the *outcount* argument
 specifies the actual number of items that are to be unpacked. With a
 regular receive operation, the incoming message size determines the
-number of components that will be received. With ``MPI_Unpack_external``, it
+number of components that will be received. With :ref:`MPI_Unpack_external` , it
 is up to the user to specify how many components to unpack, since the
 user may wish to unpack the received message multiple times into various
 buffers.
@@ -120,7 +122,7 @@ helpful to think of internal Fortran files or sscanf in C for a similar
 function.)
 
 Several messages can be successively packed into one packing unit. This
-is effected by several successive related calls to ``MPI_Pack_external``,
+is effected by several successive related calls to :ref:`MPI_Pack_external` ,
 where the first call provides *position*\ =0, and each successive call
 inputs the value of *position* that was output by the previous call,
 along with the same values for *outbuf* and *outcount*. This packing
@@ -128,15 +130,15 @@ unit now contains the equivalent information that would have been stored
 in a message by one send call with a send buffer that is the
 "concatenation" of the individual send buffers.
 
-A packing unit can be sent using type ``MPI_BYTE``. Any point-to-point or
+A packing unit can be sent using type :ref:`MPI_BYTE` . Any point-to-point or
 collective communication function can be used to move the sequence of
 bytes that forms the packing unit from one process to another. This
 packing unit can now be received using any receive operation, with any
 datatype: The type-matching rules are relaxed for messages sent with
-type ``MPI_BYTE``.
+type :ref:`MPI_BYTE` .
 
 A packing unit can be unpacked into several successive messages. This is
-effected by several successive related calls to ``MPI_Unpack_external``,
+effected by several successive related calls to :ref:`MPI_Unpack_external` ,
 where the first call provides *position*\ =0, and each successive call
 inputs the value of position that was output by the previous call, and
 the same values for *inbuf* and *insize*.
@@ -158,7 +160,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -173,3 +175,5 @@ SEE ALSO
    MPI_Pack_external_size
    MPI_Recv
    sscanf(3C)
+
+.. seealso:: :ref:`MPI_Recv` :ref:`MPI_Pack_external` :ref:`MPI_Comm_set_errhandler`

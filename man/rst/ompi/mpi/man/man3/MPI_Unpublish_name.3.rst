@@ -1,3 +1,5 @@
+.. _MPI_Unpublish_name:
+
 MPI_Unpublish_name
 ~~~~~~~~~~~~~~~~~~
 
@@ -61,10 +63,10 @@ DESCRIPTION
 
 This routine removes the pair (*service_name, port_name*) so that
 applications may no longer retrieve *port_name* by calling
-``MPI_Lookup_name``. It is an error to unpublish a *service_name* that was
-not published via ``MPI_Publish_name``. Both the *service_name* and
-*port_name* arguments to ``MPI_Unpublish_name`` must be identical to the
-arguments to the previous call to ``MPI_Publish_name``.
+:ref:`MPI_Lookup_name` . It is an error to unpublish a *service_name* that was
+not published via :ref:`MPI_Publish_name` . Both the *service_name* and
+*port_name* arguments to :ref:`MPI_Unpublish_name`  must be identical to the
+arguments to the previous call to :ref:`MPI_Publish_name` .
 
 INFO ARGUMENTS
 ==============
@@ -100,12 +102,12 @@ NAME SCOPE
 Open MPI supports two name scopes: *global* and *local*. Local scope
 values are placed in a data store located on the mpirun of the calling
 process' job, while global scope values reside on a central server.
-Calls to ``MPI_Unpublish_name`` must correctly specify the scope to be used
+Calls to :ref:`MPI_Unpublish_name`  must correctly specify the scope to be used
 in finding the value to be removed. The function will return an error if
 the specified service name is not found on the indicated location.
 
 For a more detailed description of scoping rules, please see the
-``MPI_Publish_name`` man page.
+:ref:`MPI_Publish_name`  man page.
 
 ERRORS
 ======
@@ -116,7 +118,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -130,3 +132,5 @@ SEE ALSO
    MPI_Publish_name
    MPI_Lookup_name
    MPI_Open_port
+
+.. seealso:: :ref:`MPI_Lookup_name` :ref:`MPI_Publish_name` :ref:`MPI_Comm_set_errhandler`

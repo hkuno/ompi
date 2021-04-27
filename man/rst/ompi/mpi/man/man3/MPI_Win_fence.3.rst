@@ -1,7 +1,9 @@
+.. _MPI_Win_fence:
+
 MPI_Win_fence
 ~~~~~~~~~~~~~
 
-``MPI_Win_fence`` - Synchronizes RMA calls on a window.
+:ref:`MPI_Win_fence`  - Synchronizes RMA calls on a window.
 
 SYNTAX
 ======
@@ -53,13 +55,13 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_Win_fence`` synchronizes RMA calls on *win*. The call is collective on
+:ref:`MPI_Win_fence`  synchronizes RMA calls on *win*. The call is collective on
 the group of *win*. All RMA operations on *win* originating at a given
 process and started before the fence call will complete at that process
 before the fence call returns. They will be completed at their target
 before the fence call returns at the target. RMA operations on *win*
 started by a process after the fence call returns will access their
-target window only after ``MPI_Win_fence`` has been called by the target
+target window only after :ref:`MPI_Win_fence`  has been called by the target
 process.
 
 The call completes an RMA access epoch if it was preceded by another
@@ -75,15 +77,15 @@ fence call is equivalent to calls to a subset of *post, start, complete,
 wait*.
 
 A fence call usually entails a barrier synchronization: a process
-completes a call to ``MPI_Win_fence`` only after all other processes in the
-group have entered their matching call. However, a call to ``MPI_Win_fence``
+completes a call to :ref:`MPI_Win_fence`  only after all other processes in the
+group have entered their matching call. However, a call to :ref:`MPI_Win_fence` 
 that is known not to end any epoch (in particular, a call with *assert*
 - MPI_MODE_NOPRECEDE) does not necessarily act as a barrier.
 
 NOTE
 ====
 
-Calls to ``MPI_Win_fence`` should both precede and follow calls to put, get
+Calls to :ref:`MPI_Win_fence`  should both precede and follow calls to put, get
 or accumulate that are synchronized with fence calls.
 
 ERRORS
@@ -95,12 +97,14 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Win_create`` ``MPI_Win_start`` ``MPI_Win_post`` ``MPI_Win_complete``
-  ``MPI_Win_wait``
+| :ref:`MPI_Win_create`  :ref:`MPI_Win_start`  :ref:`MPI_Win_post`  :ref:`MPI_Win_complete` 
+  :ref:`MPI_Win_wait` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Win_create` :ref:`MPI_Win_start` :ref:`MPI_Win_post` :ref:`MPI_Win_complete` :ref:`MPI_Win_wait`

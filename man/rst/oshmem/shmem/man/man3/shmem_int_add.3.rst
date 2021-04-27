@@ -1,3 +1,5 @@
+.. _shmem_int_add:
+
 shmem_int_add
 ~~~~~~~~~~~~~
 
@@ -68,3 +70,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_cache*\ (3)
+
+.. seealso::

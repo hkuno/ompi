@@ -1,7 +1,9 @@
+.. _MPI_Group_range_excl:
+
 MPI_Group_range_excl
 ~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Group_range_excl`` - Produces a group by excluding ranges of
+:ref:`MPI_Group_range_excl`  - Produces a group by excluding ranges of
 processes from an existing group.
 
 SYNTAX
@@ -66,8 +68,8 @@ must be distinct, or else the program is erroneous.
 The functionality of this routine is specified to be equivalent to
 expanding the array of ranges to an array of the excluded ranks and
 passing the resulting array of ranks and other arguments to
-``MPI_Group_excl``. A call to ``MPI_Group_excl`` is equivalent to a call to
-``MPI_Group_range_excl`` with each rank i in ranks replaced by the triplet
+:ref:`MPI_Group_excl` . A call to :ref:`MPI_Group_excl`  is equivalent to a call to
+:ref:`MPI_Group_range_excl`  with each rank i in ranks replaced by the triplet
 (i,i,1) in the argument ranges.
 
 ERRORS
@@ -79,12 +81,14 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Group_excl``
-| ``MPI_Group_free``
+| :ref:`MPI_Group_excl` 
+| :ref:`MPI_Group_free` 
+
+.. seealso:: :ref:`MPI_Group_excl` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Group_free`

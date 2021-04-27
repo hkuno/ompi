@@ -1,7 +1,9 @@
+.. _MPI_Sizeof:
+
 MPI_Sizeof
 ~~~~~~~~~~
 
-``MPI_Sizeof`` - Returns the size, in bytes, of the given type
+:ref:`MPI_Sizeof`  - Returns the size, in bytes, of the given type
 
 SYNTAX
 ======
@@ -45,7 +47,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_SIZEOF`` returns the size (in bytes) of the machine representation of
+:ref:`MPI_SIZEOF`  returns the size (in bytes) of the machine representation of
 the given variable. It is a generic Fortran type and has a Fortran
 binding only. This routine is similar to the sizeof builtin in C.
 However, if given an array argument, it returns the size of the base
@@ -65,8 +67,10 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 See the MPI man page for a full list of MPI error codes.
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler`

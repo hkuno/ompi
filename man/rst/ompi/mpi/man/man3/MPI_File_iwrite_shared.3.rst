@@ -1,7 +1,9 @@
+.. _MPI_File_iwrite_shared:
+
 MPI_File_iwrite_shared
 ~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_File_iwrite_shared`` - Writes a file using the shared file pointer
+:ref:`MPI_File_iwrite_shared`  - Writes a file using the shared file pointer
 (nonblocking, noncollective).
 
 SYNTAX
@@ -69,7 +71,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_File_iwrite_shared`` is a nonblocking routine that uses the shared
+:ref:`MPI_File_iwrite_shared`  is a nonblocking routine that uses the shared
 file pointer to write files. The order of serialization is not
 deterministic for this noncollective routine, so you need to use other
 methods of synchronization to impose a particular order.
@@ -82,7 +84,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_set_errhandler`

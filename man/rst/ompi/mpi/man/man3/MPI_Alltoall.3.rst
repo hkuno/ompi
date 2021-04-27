@@ -1,7 +1,9 @@
+.. _MPI_Alltoall:
+
 MPI_Alltoall
 ~~~~~~~~~~~~
 
-``MPI_Alltoall``, ``MPI_Ialltoall`` - All processes send data to all
+:ref:`MPI_Alltoall` , :ref:`MPI_Ialltoall`  - All processes send data to all
 processes
 
 SYNTAX
@@ -99,7 +101,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Alltoall`` is a collective operation in which all processes send the
+:ref:`MPI_Alltoall`  is a collective operation in which all processes send the
 same amount of data to each other, and receive the same amount of data
 from each other. The operation of this routine can be represented as
 follows, where each process performs 2n (n being the number of processes
@@ -133,9 +135,9 @@ the data is gathered from all the members of the second group and
 received by all the members of the first. The operation exhibits a
 symmetric, full-duplex behavior.
 
-The first group defines the root process. The root process uses ``MPI_ROOT``
+The first group defines the root process. The root process uses :ref:`MPI_ROOT` 
 as the value of *root*. All other processes in the first group use
-``MPI_PROC_NULL`` as the value of *root*. All processes in the second group
+:ref:`MPI_PROC_NULL`  as the value of *root*. All processes in the second group
 use the rank of the root process in the first group as the value of
 *root*.
 
@@ -147,7 +149,7 @@ USE OF IN-PLACE OPTION
 
 When the communicator is an intracommunicator, you can perform an
 all-to-all operation in-place (the output buffer is used as the input
-buffer). Use the variable ``MPI_IN_PLACE`` as the value of *sendbuf*. In
+buffer). Use the variable :ref:`MPI_IN_PLACE`  as the value of *sendbuf*. In
 this case, *sendcount* and *sendtype* are ignored. The input data of
 each process is assumed to be in the area where that process would
 receive its own contribution to the receive buffer.
@@ -159,9 +161,9 @@ All arguments on all processes are significant. The *comm* argument, in
 particular, must describe the same communicator on all processes.
 
 There are two MPI library functions that are more general than
-``MPI_Alltoall``. ``MPI_Alltoallv`` allows all-to-all communication to and from
+:ref:`MPI_Alltoall` . :ref:`MPI_Alltoallv`  allows all-to-all communication to and from
 buffers that need not be contiguous; different processes may send and
-receive different amounts of data. ``MPI_Alltoallw`` expands ``MPI_Alltoallv``'s
+receive different amounts of data. :ref:`MPI_Alltoallw`  expands :ref:`MPI_Alltoallv` 's
 functionality to allow the exchange of data with different datatypes.
 
 ERRORS
@@ -173,7 +175,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -184,3 +186,5 @@ SEE ALSO
 
    MPI_Alltoallv
    MPI_Alltoallw
+
+.. seealso:: :ref:`MPI_Ialltoall` :ref:`MPI_Alltoallv` :ref:`MPI_Alltoallw` :ref:`MPI_Comm_set_errhandler`

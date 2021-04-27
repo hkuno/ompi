@@ -1,3 +1,5 @@
+.. _shmem_wait:
+
 shmem_wait
 ~~~~~~~~~~
 
@@ -194,3 +196,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_put*\ (3)
+
+.. seealso::

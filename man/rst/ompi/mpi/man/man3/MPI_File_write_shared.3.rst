@@ -1,3 +1,5 @@
+.. _MPI_File_write_shared:
+
 MPI_File_write_shared
 ~~~~~~~~~~~~~~~~~~~~~
 

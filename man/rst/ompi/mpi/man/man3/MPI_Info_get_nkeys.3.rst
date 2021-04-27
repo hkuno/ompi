@@ -1,7 +1,9 @@
+.. _MPI_Info_get_nkeys:
+
 MPI_Info_get_nkeys
 ~~~~~~~~~~~~~~~~~~
 
-``MPI_Info_get_nkeys`` - Gets the number of keys currently defined in an
+:ref:`MPI_Info_get_nkeys`  - Gets the number of keys currently defined in an
 info object.
 
 SYNTAX
@@ -54,7 +56,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Info_get_nkeys`` returns the number of currently defined keys in
+:ref:`MPI_Info_get_nkeys`  returns the number of currently defined keys in
 *info*.
 
 ERRORS
@@ -66,13 +68,15 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Info_get``
-| ``MPI_Info_get_nthkey``
-| ``MPI_Info_get_valuelen``
+| :ref:`MPI_Info_get` 
+| :ref:`MPI_Info_get_nthkey` 
+| :ref:`MPI_Info_get_valuelen` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Info_get` :ref:`MPI_Info_get_nthkey` :ref:`MPI_Info_get_valuelen`

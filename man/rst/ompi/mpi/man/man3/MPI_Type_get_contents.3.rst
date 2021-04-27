@@ -1,7 +1,9 @@
+.. _MPI_Type_get_contents:
+
 MPI_Type_get_contents
 ~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Type_get_contents`` - Returns information about arguments used in
+:ref:`MPI_Type_get_contents`  - Returns information about arguments used in
 creation of a data type.
 
 SYNTAX
@@ -75,11 +77,11 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-For the given data type, ``MPI_Type_get_envelope`` returns information on
+For the given data type, :ref:`MPI_Type_get_envelope`  returns information on
 the number and type of input arguments used in the call that created the
 data type. The number-of-arguments values returned can be used to
 provide sufficiently large arrays in the decoding routine
-``MPI_Type_get_contents``. This call and the meaning of the returned values
+:ref:`MPI_Type_get_contents` . This call and the meaning of the returned values
 is described below. The combiner reflects the MPI data type constructor
 call that was used in creating *datatype.*
 
@@ -90,13 +92,13 @@ type.*
 The values given for *max_integers, max_addresses, and max_datatypes
 must be at least as large as the value returned in num_integers,
 num_addresses, and num_datatypes, respectively, in the call
-``MPI_Type_get_envelope`` for the same datatype argument.*
+:ref:`MPI_Type_get_envelope`  for the same datatype argument.*
 
 The data types returned in *array_of_datatypes are handles to data-type
 objects that are equivalent to the data types used in the original
 construction call. If these were derived data types, then the returned
 data types are new data-type objects, and the user is responsible for
-freeing these datatypes with ``MPI_Type_free``. If these were predefined
+freeing these datatypes with :ref:`MPI_Type_free` . If these were predefined
 data types, then the returned data type is equal to that (constant)
 predefined data type and cannot be freed.*
 
@@ -104,17 +106,17 @@ The committed state of returned derived data types is undefined, that
 is, the data types may or may not be committed. Furthermore, the content
 of attributes of returned data types is undefined.
 
-Note that ``MPI_Type_get_contents`` can be invoked with a data-type argument
-that was constructed using ``MPI_Type_create_f90_real``,
-``MPI_Type_create_f90_integer``, or ``MPI_Type_create_f90_complex`` (an unnamed
+Note that :ref:`MPI_Type_get_contents`  can be invoked with a data-type argument
+that was constructed using :ref:`MPI_Type_create_f90_real` ,
+:ref:`MPI_Type_create_f90_integer` , or :ref:`MPI_Type_create_f90_complex`  (an unnamed
 predefined data type). In such a case, an empty *array_of_datatypes is
 returned.*
 
 In the MPI-1 data-type constructor calls, the address arguments in
 Fortran are of type INTEGER. In the new MPI-2 calls, the address
-arguments are of type INTEGER(KIND=``MPI_ADDRESS_KIND)``. The call
-``MPI_Type_get_contents`` returns all addresses in an argument of type
-INTEGER(KIND=``MPI_ADDRESS_KIND)``. This is true even if the old MPI-1 calls
+arguments are of type INTEGER(KIND=:ref:`MPI_ADDRESS_KIND)` . The call
+:ref:`MPI_Type_get_contents`  returns all addresses in an argument of type
+INTEGER(KIND=:ref:`MPI_ADDRESS_KIND)` . This is true even if the old MPI-1 calls
 were used. Thus, the location of values returned can be thought of as
 being returned by the C bindings. It can also be determined by examining
 the new MPI-2 calls for data-type constructors for the deprecated MPI-1
@@ -131,7 +133,7 @@ use the non-portable syntax
 
         INTEGER*MPI_ADDRESS_KIND ARRAY_OF_ADDRESSES(*)
 
-where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_ADDRESS_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
@@ -143,11 +145,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Type_get_envelope``
+| :ref:`MPI_Type_get_envelope` 
+
+.. seealso:: :ref:`MPI_Type_get_envelope` :ref:`MPI_Type_free` :ref:`MPI_Type_create_f90_real` :ref:`MPI_Type_create_f90_integer` :ref:`MPI_Type_create_f90_complex` :ref:`MPI_Comm_set_errhandler`

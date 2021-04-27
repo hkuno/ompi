@@ -1,7 +1,9 @@
+.. _MPI_Type_vector:
+
 MPI_Type_vector
 ~~~~~~~~~~~~~~~
 
-``MPI_Type_vector`` - Creates a vector (strided) datatype.
+:ref:`MPI_Type_vector`  - Creates a vector (strided) datatype.
 
 SYNTAX
 ======
@@ -63,14 +65,14 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-The function ``MPI_Type_vector`` is a general constructor that allows
+The function :ref:`MPI_Type_vector`  is a general constructor that allows
 replication of a datatype into locations that consist of equally spaced
 blocks. Each block is obtained by concatenating the same number of
 copies of the old datatype. The spacing between blocks is a multiple of
 the extent of the old datatype.
 
 **Example 1:** Assume, again, that oldtype has type map {(double, 0),
-(char, 8)}, with extent 16. A call to ``MPI_Type_vector(2``, 3, 4, oldtype,
+(char, 8)}, with extent 16. A call to :ref:`MPI_Type_vector(2` , 3, 4, oldtype,
 newtype) will create the datatype with type map
 
 ::
@@ -83,7 +85,7 @@ newtype) will create the datatype with type map
 That is, two blocks with three copies each of the old type, with a
 stride of 4 elements (4 x 16 bytes) between the blocks.
 
-**Example 2:** A call to ``MPI_Type_vector(3``, 1, -2, oldtype, newtype)
+**Example 2:** A call to :ref:`MPI_Type_vector(3` , 1, -2, oldtype, newtype)
 will create the datatype
 
 ::
@@ -118,9 +120,9 @@ has a type map with count x bl x n entries:
        (type(0), disp(0) + (stride * (count -1) + bl -1) * ex), ...,
        (type(n-1), disp(n-1) + (stride * (count -1) + bl -1) * ex)}
 
-A call to ``MPI_Type_contiguous(count``, oldtype, newtype) is equivalent to
-a call to ``MPI_Type_vector(count``, 1, 1, oldtype, newtype), or to a call
-to ``MPI_Type_vector(1``, count, n, oldtype, newtype), n arbitrary.
+A call to :ref:`MPI_Type_contiguous(count` , oldtype, newtype) is equivalent to
+a call to :ref:`MPI_Type_vector(count` , 1, 1, oldtype, newtype), or to a call
+to :ref:`MPI_Type_vector(1` , count, n, oldtype, newtype), n arbitrary.
 
 ERRORS
 ======
@@ -131,12 +133,14 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Type_create_hvector``
-| ``MPI_Type_hvector``
+| :ref:`MPI_Type_create_hvector` 
+| :ref:`MPI_Type_hvector` 
+
+.. seealso:: :ref:`MPI_Type_vector(2` :ref:`MPI_Type_vector(3` :ref:`MPI_Type_contiguous(count` :ref:`MPI_Type_vector(count` :ref:`MPI_Type_vector(1` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Type_create_hvector` :ref:`MPI_Type_hvector`

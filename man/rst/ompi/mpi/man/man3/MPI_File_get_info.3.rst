@@ -1,7 +1,9 @@
+.. _MPI_File_get_info:
+
 MPI_File_get_info
 ~~~~~~~~~~~~~~~~~
 
-``MPI_File_get_info`` - Returns a new info object containing values for
+:ref:`MPI_File_get_info`  - Returns a new info object containing values for
 current hints associated with a file.
 
 SYNTAX
@@ -55,15 +57,15 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_File_get_info`` returns a new info object containing all the hints
+:ref:`MPI_File_get_info`  returns a new info object containing all the hints
 that the system currently associates with the file *fh*. The current
 setting of all hints actually used by the system related to this open
 file is returned in *info_used*. The user is responsible for freeing
-*info_used* via ``MPI_Info_free``.
+*info_used* via :ref:`MPI_Info_free` .
 
 Note that the set of hints returned in *info_used* may be greater or
-smaller than the set of hints passed in to ``MPI_File_open``,
-``MPI_File_set_view``, and ``MPI_File_set_info``, as the system may not
+smaller than the set of hints passed in to :ref:`MPI_File_open` ,
+:ref:`MPI_File_set_view` , and :ref:`MPI_File_set_info` , as the system may not
 recognize some hints set by the user, and may automatically set other
 hints that the user has not requested to be set. See the HINTS section
 for a list of hints that can be set.
@@ -76,11 +78,11 @@ The following hints can be used as values for the *info_used* argument.
 SETTABLE HINTS:
 
 - shared_file_timeout: Amount of time (in seconds) to wait for access to
-the shared file pointer before exiting with ``MPI_ERR_TIMEDOUT``.
+the shared file pointer before exiting with :ref:`MPI_ERR_TIMEDOUT` .
 
 - rwlock_timeout: Amount of time (in seconds) to wait for obtaining a
 read or write lock on a contiguous chunk of a UNIX file before exiting
-with ``MPI_ERR_TIMEDOUT``.
+with :ref:`MPI_ERR_TIMEDOUT` .
 
 - noncoll_read_bufsize: Maximum size of the buffer used by MPI I/O to
 satisfy read requests in the noncollective data-access routines. (See
@@ -128,7 +130,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Info_free` :ref:`MPI_File_open` :ref:`MPI_File_set_view` :ref:`MPI_File_set_info` :ref:`MPI_File_set_errhandler`

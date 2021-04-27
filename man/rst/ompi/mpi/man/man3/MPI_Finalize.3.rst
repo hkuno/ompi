@@ -1,3 +1,5 @@
+.. _MPI_Finalize:
+
 MPI_Finalize
 ~~~~~~~~~~~~
 

@@ -1,3 +1,5 @@
+.. _shmem_alltoall32:
+
 shmem_alltoall32
 ~~~~~~~~~~~~~~~~
 
@@ -234,3 +236,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3)
+
+.. seealso::

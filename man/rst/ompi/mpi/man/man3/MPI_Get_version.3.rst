@@ -1,3 +1,5 @@
+.. _MPI_Get_version:
+
 MPI_Get_version
 ~~~~~~~~~~~~~~~
 

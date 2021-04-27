@@ -1,3 +1,5 @@
+.. _MPI_T_init_thread:
+
 MPI_T_init_thread
 ~~~~~~~~~~~~~~~~~
 

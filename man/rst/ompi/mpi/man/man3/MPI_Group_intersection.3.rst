@@ -1,3 +1,5 @@
+.. _MPI_Group_intersection:
+
 MPI_Group_intersection
 ~~~~~~~~~~~~~~~~~~~~~~
 

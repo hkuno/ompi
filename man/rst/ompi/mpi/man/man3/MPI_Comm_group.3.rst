@@ -1,7 +1,9 @@
+.. _MPI_Comm_group:
+
 MPI_Comm_group
 ~~~~~~~~~~~~~~
 
-``MPI_Comm_group`` - Returns the group associated with a communicator.
+:ref:`MPI_Comm_group`  - Returns the group associated with a communicator.
 
 SYNTAX
 ======
@@ -55,7 +57,7 @@ DESCRIPTION
 
 If the communicator is an intercommunicator (enables communication
 between two groups of processes), this function returns the local group.
-To return the remote group, use the ``MPI_Comm_remote_group`` function.
+To return the remote group, use the :ref:`MPI_Comm_remote_group`  function.
 
 ERRORS
 ======
@@ -66,6 +68,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Comm_remote_group` :ref:`MPI_Comm_set_errhandler`

@@ -1,7 +1,9 @@
+.. _MPI_Abort:
+
 MPI_Abort
 ~~~~~~~~~
 
-``MPI_Abort`` - Terminates MPI execution environment.
+:ref:`MPI_Abort`  - Terminates MPI execution environment.
 
 SYNTAX
 ======
@@ -62,7 +64,7 @@ abort (errorcode).
 The long-term goal of the Open MPI implementation is to terminate all
 processes in all tasks that contain a process in *comm, and the error
 code is not returned to the invoking environment. At the moment, this
-isn't fully implemented and ``MPI_Abort`` will terminate the entire job.*
+isn't fully implemented and :ref:`MPI_Abort`  will terminate the entire job.*
 
 Note: All associated processes are sent a SIGTERM.
 
@@ -75,6 +77,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler`

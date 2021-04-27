@@ -1,3 +1,5 @@
+.. _MPI_Cart_map:
+
 MPI_Cart_map
 ~~~~~~~~~~~~
 

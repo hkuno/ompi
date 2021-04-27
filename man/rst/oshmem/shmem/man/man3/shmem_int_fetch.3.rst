@@ -1,3 +1,5 @@
+.. _shmem_int_fetch:
+
 shmem_int_fetch
 ~~~~~~~~~~~~~~~
 
@@ -75,3 +77,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3)
+
+.. seealso::

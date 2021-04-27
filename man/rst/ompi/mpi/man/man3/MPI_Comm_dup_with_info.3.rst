@@ -1,3 +1,5 @@
+.. _MPI_Comm_dup_with_info:
+
 MPI_Comm_dup_with_info
 ~~~~~~~~~~~~~~~~~~~~~~
 

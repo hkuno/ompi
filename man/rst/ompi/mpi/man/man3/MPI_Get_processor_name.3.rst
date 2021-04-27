@@ -1,3 +1,5 @@
+.. _MPI_Get_processor_name:
+
 MPI_Get_processor_name
 ~~~~~~~~~~~~~~~~~~~~~~
 

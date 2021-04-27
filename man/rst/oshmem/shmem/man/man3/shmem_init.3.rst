@@ -1,3 +1,5 @@
+.. _shmem_init:
+
 shmem_init
 ~~~~~~~~~~
 
@@ -83,3 +85,5 @@ SEE ALSO
 
 *intro_shmem*\ (3), *shmem_barrier*\ (3), *shmem_barrier_all*\ (3),
 *shmem_put*\ (3), *my_pe*\ (3I), *shmem_n_pes*\ (3I)
+
+.. seealso::

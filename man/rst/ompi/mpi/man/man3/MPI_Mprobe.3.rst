@@ -1,7 +1,9 @@
+.. _MPI_Mprobe:
+
 MPI_Mprobe
 ~~~~~~~~~~
 
-``MPI_Mprobe`` - Blocking matched probe for a message.
+:ref:`MPI_Mprobe`  - Blocking matched probe for a message.
 
 SYNTAX
 ======
@@ -63,22 +65,22 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-Like ``MPI_Probe`` and ``MPI_Iprobe``, the ``MPI_Mprobe`` and ``MPI_Improbe`` operations
+Like :ref:`MPI_Probe`  and :ref:`MPI_Iprobe` , the :ref:`MPI_Mprobe`  and :ref:`MPI_Improbe`  operations
 allow incoming messages to be queried without actually receiving them,
-except that ``MPI_Mprobe`` and ``MPI_Improbe`` provide a mechanism to receive
+except that :ref:`MPI_Mprobe`  and :ref:`MPI_Improbe`  provide a mechanism to receive
 the specific message that was matched regardless of other intervening
 probe or receive operations. This gives the application an opportunity
 to decide how to receive the message, based on the information returned
 by the probe. In particular, the application may allocate memory for the
 receive buffer according to the length of the probed message.
 
-A matching probe with ``MPI_PROC_NULL`` as *source* returns *message* =
-``MPI_MESSAGE_NO_PROC``, and the *status* object returns source =
-``MPI_PROC_NULL``, tag = ``MPI_ANY_TAG``, and count = 0.
+A matching probe with :ref:`MPI_PROC_NULL`  as *source* returns *message* =
+:ref:`MPI_MESSAGE_NO_PROC` , and the *status* object returns source =
+:ref:`MPI_PROC_NULL` , tag = :ref:`MPI_ANY_TAG` , and count = 0.
 
-When ``MPI_Mprobe`` returns (from a non-``MPI_PROC_NULL`` *source*), the matched
+When :ref:`MPI_Mprobe`  returns (from a non-:ref:`MPI_PROC_NULL`  *source*), the matched
 message can then be received by passing the *message* handle to the
-``MPI_Mrecv`` or ``MPI_Imrecv`` functions.
+:ref:`MPI_Mrecv`  or :ref:`MPI_Imrecv`  functions.
 
 ERRORS
 ======
@@ -89,7 +91,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -104,3 +106,5 @@ SEE ALSO
    MPI_Mrecv
    MPI_Imrecv
    MPI_Cancel
+
+.. seealso:: :ref:`MPI_Probe` :ref:`MPI_Iprobe` :ref:`MPI_Improbe` :ref:`MPI_Mrecv` :ref:`MPI_Imrecv` :ref:`MPI_Comm_set_errhandler`

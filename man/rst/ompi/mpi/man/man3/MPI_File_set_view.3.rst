@@ -1,7 +1,9 @@
+.. _MPI_File_set_view:
+
 MPI_File_set_view
 ~~~~~~~~~~~~~~~~~
 
-``MPI_File_set_view`` - Changes process's view of data in file
+:ref:`MPI_File_set_view`  - Changes process's view of data in file
 (collective).
 
 SYNTAX
@@ -74,12 +76,12 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-The ``MPI_File_set_view`` routine changes the process's view of the data in
+The :ref:`MPI_File_set_view`  routine changes the process's view of the data in
 the file -- the beginning of the data accessible in the file through
 that view is set to *disp;* the type of data is set to *etype;* and the
 distribution of data to processes is set to *filetype.* In addition,
-``MPI_File_set_view`` resets the independent file pointers and the shared
-file pointer to zero. ``MPI_File_set_view`` is collective across the *fh*;
+:ref:`MPI_File_set_view`  resets the independent file pointers and the shared
+file pointer to zero. :ref:`MPI_File_set_view`  is collective across the *fh*;
 all processes in the group must pass identical values for *datarep* and
 provide an *etype* with an identical extent. The values for *disp*,
 *filetype*, and *info* may vary. It is erroneous to use the shared file
@@ -90,7 +92,7 @@ pointer data-access routines unless identical values for *disp* and
 The *disp* displacement argument specifies the position (absolute offset
 in bytes from the beginning of the file) where the view begins.
 
-The ``MPI_File_set_view`` interface allows the user to pass a
+The :ref:`MPI_File_set_view`  interface allows the user to pass a
 data-representation string to MPI I/O via the *datarep* argument. To
 obtain the default value pass the value "native". The user can also pass
 information via the *info* argument. See the HINTS section for a list of
@@ -103,14 +105,14 @@ The following hints can be used as values for the *info* argument.
 
 SETTABLE HINTS:
 
-- ``MPI_INFO_NULL``
+- :ref:`MPI_INFO_NULL` 
 
 - shared_file_timeout: Amount of time (in seconds) to wait for access to
-the shared file pointer before exiting with ``MPI_ERR_TIMEDOUT``.
+the shared file pointer before exiting with :ref:`MPI_ERR_TIMEDOUT` .
 
 - rwlock_timeout: Amount of time (in seconds) to wait for obtaining a
 read or write lock on a contiguous chunk of a UNIX file before exiting
-with ``MPI_ERR_TIMEDOUT``.
+with :ref:`MPI_ERR_TIMEDOUT` .
 
 - noncoll_read_bufsize: Maximum size of the buffer used by MPI I/O to
 satisfy read requests in the noncollective data-access routines. (See
@@ -161,7 +163,7 @@ syntax
 
         INTEGER*MPI_OFFSET_KIND DISP
 
-where ``MPI_OFFSET_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_OFFSET_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
@@ -172,7 +174,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_set_errhandler`

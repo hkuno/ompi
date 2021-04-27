@@ -1,7 +1,9 @@
+.. _MPI_Op_free:
+
 MPI_Op_free
 ~~~~~~~~~~~
 
-``MPI_Op_free`` - Frees a user-defined combination function handle.
+:ref:`MPI_Op_free`  - Frees a user-defined combination function handle.
 
 SYNTAX
 ======
@@ -51,7 +53,7 @@ DESCRIPTION
 ===========
 
 Marks a user-defined reduction operation for deallocation and sets *op*
-to ``MPI_OP_NULL``.
+to :ref:`MPI_OP_NULL` .
 
 ERRORS
 ======
@@ -62,15 +64,17 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Op_create``
-| ``MPI_Reduce``
-| ``MPI_Allreduce``
-| ``MPI_Reduce_scatter``
-| ``MPI_Scan``
+| :ref:`MPI_Op_create` 
+| :ref:`MPI_Reduce` 
+| :ref:`MPI_Allreduce` 
+| :ref:`MPI_Reduce_scatter` 
+| :ref:`MPI_Scan` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Op_create` :ref:`MPI_Reduce` :ref:`MPI_Allreduce` :ref:`MPI_Reduce_scatter` :ref:`MPI_Scan`

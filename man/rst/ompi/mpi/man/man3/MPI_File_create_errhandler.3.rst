@@ -1,7 +1,9 @@
+.. _MPI_File_create_errhandler:
+
 MPI_File_create_errhandler
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_File_create_errhandler`` - Creates an MPI-style error handler that
+:ref:`MPI_File_create_errhandler`  - Creates an MPI-style error handler that
 can be attached to a file.
 
 SYNTAX
@@ -44,8 +46,8 @@ Fortran 2008 Syntax
 DEPRECATED TYPE NAME NOTE
 =========================
 
-MPI-2.2 deprecated the ``MPI_File_errhandler_fn`` and
-MPI::file::Errhandler_fn types in favor of ``MPI_File_errhandler_function``
+MPI-2.2 deprecated the :ref:`MPI_File_errhandler_fn`  and
+MPI::file::Errhandler_fn types in favor of :ref:`MPI_File_errhandler_function` 
 and MPI::File::Errhandler_function, respectively. Open MPI supports both
 names (indeed, the \_fn names are typedefs to the \_function names).
 
@@ -68,7 +70,7 @@ Registers the user routine *function* for use as an MPI error handler.
 Returns in errhandler a handle to the registered error handler.
 
 In the C language, the user routine *function* should be a C function of
-type ``MPI_File_errhandler_function``, which is defined as
+type :ref:`MPI_File_errhandler_function` , which is defined as
 
 ::
 
@@ -94,7 +96,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_errhandler_fn` :ref:`MPI_File_errhandler_function` :ref:`MPI_File_set_errhandler`

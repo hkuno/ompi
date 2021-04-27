@@ -1,7 +1,9 @@
+.. _MPI_Win_lock_all:
+
 MPI_Win_lock_all
 ~~~~~~~~~~~~~~~~
 
-``MPI_Win_lock_all`` - Starts an RMA access epoch locking access to all
+:ref:`MPI_Win_lock_all`  - Starts an RMA access epoch locking access to all
 processes in the window
 
 SYNTAX
@@ -55,10 +57,10 @@ DESCRIPTION
 ===========
 
 Starts an RMA access epoch to all processes in *win*, with a lock type
-of ``MPI_LOCK_SHARED``. During the epoch, the calling process can access the
+of :ref:`MPI_LOCK_SHARED` . During the epoch, the calling process can access the
 window memory on all processes in *win* by using RMA operations. A
-window locked with ``MPI_Win_lock_all`` must be unlocked with
-``MPI_Win_unlock_all``. This routine is not collective — the ALL refers to a
+window locked with :ref:`MPI_Win_lock_all`  must be unlocked with
+:ref:`MPI_Win_unlock_all` . This routine is not collective — the ALL refers to a
 lock on all members of the group of the window.
 
 Locks are used to protect accesses to the locked target window effected
@@ -80,7 +82,7 @@ NOTES
 In a client/server environment in which clients connect to a server and
 create windows that span both the client and the server, if a client or
 server that has obtained a lock on such a window and then terminates
-abnormally, the server or other clients may hang in a ``MPI_Win_lock_all``
+abnormally, the server or other clients may hang in a :ref:`MPI_Win_lock_all` 
 call, failing to notice that the peer MPI job has terminated.
 
 ERRORS
@@ -92,11 +94,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Win_unlock_all`` ``MPI_Win_lock``
+| :ref:`MPI_Win_unlock_all`  :ref:`MPI_Win_lock` 
+
+.. seealso:: :ref:`MPI_Win_unlock_all` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Win_lock`

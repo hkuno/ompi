@@ -1,7 +1,9 @@
+.. _MPI_Pcontrol:
+
 MPI_Pcontrol
 ~~~~~~~~~~~~
 
-``MPI_Pcontrol`` - Controls profiling.
+:ref:`MPI_Pcontrol`  - Controls profiling.
 
 SYNTAX
 ======
@@ -50,7 +52,7 @@ routine allows a profiling package to be explicitly called by the user.
 
 Since MPI has no control of the implementation of the profiling code, we
 are unable to specify precisely the semantics that will be provided by
-calls to ``MPI_Pcontrol``. This vagueness extends to the number of arguments
+calls to :ref:`MPI_Pcontrol` . This vagueness extends to the number of arguments
 to the function, and their datatypes.
 
 However to provide some level of portability of user codes to different
@@ -71,13 +73,13 @@ values of level:
    All other values of level have profile library-defined effects and
    additional arguments.
 
-We also request that the default state after ``MPI_Init`` has been called is
+We also request that the default state after :ref:`MPI_Init`  has been called is
 for profiling to be enabled at the normal default level (i.e., as if
-``MPI_Pcontrol`` had just been called with the argument 1). This allows
+:ref:`MPI_Pcontrol`  had just been called with the argument 1). This allows
 users to link with a profiling library and obtain profile output without
 having to modify their source code at all.
 
-The provision of ``MPI_Pcontrol`` as a no-op in the standard MPI library
+The provision of :ref:`MPI_Pcontrol`  as a no-op in the standard MPI library
 allows users to modify their source code to obtain more detailed
 profiling information, but still be able to link exactly the same code
 against the standard MPI library.
@@ -90,4 +92,6 @@ interpretation of level and any other arguments is left to the profiling
 library.
 
 This function does not return an error value. Consequently, the result
-of calling it before ``MPI_Init`` or after ``MPI_Finalize`` is undefined.
+of calling it before :ref:`MPI_Init`  or after :ref:`MPI_Finalize`  is undefined.
+
+.. seealso:: :ref:`MPI_Init` :ref:`MPI_Finalize`

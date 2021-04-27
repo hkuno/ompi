@@ -1,3 +1,5 @@
+.. _MPI_Comm_accept:
+
 MPI_Comm_accept
 ~~~~~~~~~~~~~~~
 

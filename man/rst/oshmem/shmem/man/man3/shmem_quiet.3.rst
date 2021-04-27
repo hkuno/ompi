@@ -1,3 +1,5 @@
+.. _shmem_quiet:
+
 shmem_quiet
 ~~~~~~~~~~~
 
@@ -78,3 +80,5 @@ SEE ALSO
 
 *intro_shmem*\ (3), *shmem_barrier*\ (3), *shmem_barrier_all*\ (3),
 *shmem_fence*\ (3), *shmem_put*\ (3), *shmem_wait*\ (3)
+
+.. seealso::

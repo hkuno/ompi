@@ -1,3 +1,5 @@
+.. _MPI_Gather:
+
 MPI_Gather
 ~~~~~~~~~~
 

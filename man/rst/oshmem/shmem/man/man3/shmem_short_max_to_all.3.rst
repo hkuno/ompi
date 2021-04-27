@@ -1,3 +1,5 @@
+.. _shmem_short_max_to_all:
+
 shmem_short_max_to_all
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -246,3 +248,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3)
+
+.. seealso::

@@ -1,7 +1,9 @@
+.. _MPI_Probe:
+
 MPI_Probe
 ~~~~~~~~~
 
-``MPI_Probe`` - Blocking test for a message.
+:ref:`MPI_Probe`  - Blocking test for a message.
 
 SYNTAX
 ======
@@ -58,26 +60,26 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-The ``MPI_Probe`` and ``MPI_Iprobe`` operations allow checking of incoming
+The :ref:`MPI_Probe`  and :ref:`MPI_Iprobe`  operations allow checking of incoming
 messages, without actual receipt of them. The user can then decide how
 to receive them, based on the information returned by the probe in the
 status variable. For example, the user may allocate memory for the
 receive buffer, according to the length of the probed message.
 
-``MPI_Probe`` behaves like ``MPI_Iprobe`` except that it is a blocking call that
+:ref:`MPI_Probe`  behaves like :ref:`MPI_Iprobe`  except that it is a blocking call that
 returns only after a matching message has been found.
 
 If your application does not need to examine the *status* field, you can
-save resources by using the predefined constant ``MPI_STATUS_IGNORE`` as a
+save resources by using the predefined constant :ref:`MPI_STATUS_IGNORE`  as a
 special value for the *status* argument.
 
-The semantics of ``MPI_Probe`` and ``MPI_Iprobe`` guarantee progress: If a call
-to ``MPI_Probe`` has been issued by a process, and a send that matches the
-probe has been initiated by some process, then the call to ``MPI_Probe``
+The semantics of :ref:`MPI_Probe`  and :ref:`MPI_Iprobe`  guarantee progress: If a call
+to :ref:`MPI_Probe`  has been issued by a process, and a send that matches the
+probe has been initiated by some process, then the call to :ref:`MPI_Probe` 
 will return, unless the message is received by another concurrent
 receive operation (that is executed by another thread at the probing
-process). Similarly, if a process busy waits with ``MPI_Iprobe`` and a
-matching message has been issued, then the call to ``MPI_Iprobe`` will
+process). Similarly, if a process busy waits with :ref:`MPI_Iprobe`  and a
+matching message has been issued, then the call to :ref:`MPI_Iprobe`  will
 eventually return flag = true unless the message is received by another
 concurrent receive operation.
 
@@ -128,11 +130,11 @@ problem.
               END DO
           END IF
 
-We slightly modified Example 2, using ``MPI_ANY_SOURCE`` as the source
+We slightly modified Example 2, using :ref:`MPI_ANY_SOURCE`  as the source
 argument in the two receive calls in statements labeled 100 and 200. The
 program is now incorrect: The receive operation may receive a message
 that is distinct from the message probed by the preceding call to
-``MPI_Probe``.
+:ref:`MPI_Probe` .
 
 ERRORS
 ======
@@ -143,12 +145,14 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Iprobe``
-| ``MPI_Cancel``
+| :ref:`MPI_Iprobe` 
+| :ref:`MPI_Cancel` 
+
+.. seealso:: :ref:`MPI_Iprobe` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Cancel`

@@ -1,7 +1,9 @@
+.. _MPI_T_pvar_write:
+
 MPI_T_pvar_write
 ~~~~~~~~~~~~~~~~
 
-``MPI_T_pvar_write`` - Write the value of a control variable
+:ref:`MPI_T_pvar_write`  - Write the value of a control variable
 
 SYNTAX
 ======
@@ -27,7 +29,7 @@ INPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_T_pvar_write`` attempts to set the value of the performance variable
+:ref:`MPI_T_pvar_write`  attempts to set the value of the performance variable
 identified by the handle specified in *handle* in the session specified
 in *session*. The value to be written is specified in *buf*. The caller
 must ensure that the buffer specified in *buf* is large enough to hold
@@ -36,18 +38,18 @@ the entire value of the performance variable.
 ERRORS
 ======
 
-``MPI_T_pvar_write()`` will fail if:
+:ref:`MPI_T_pvar_write()`  will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED]``
+[:ref:`MPI_T_ERR_NOT_INITIALIZED]` 
    The MPI Tools interface not initialized
 
-[``MPI_T_ERR_INVALID_HANDLE]``
+[:ref:`MPI_T_ERR_INVALID_HANDLE]` 
    The handle is invalid or not associated with the session
 
-[``MPI_T_ERR_INVALID_SESSION]``
+[:ref:`MPI_T_ERR_INVALID_SESSION]` 
    Session argument is not a valid session
 
-[``MPI_T_ERR_PVAR_NO_WRITE]``
+[:ref:`MPI_T_ERR_PVAR_NO_WRITE]` 
    Variable cannot be written
 
 SEE ALSO
@@ -58,3 +60,5 @@ SEE ALSO
    MPI_T_pvar_handle_alloc
    MPI_T_pvar_get_info
    MPI_T_pvar_session_create
+
+.. seealso:: :ref:`MPI_T_pvar_write()`

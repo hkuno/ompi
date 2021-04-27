@@ -1,3 +1,5 @@
+.. _MPI_Cart_rank:
+
 MPI_Cart_rank
 ~~~~~~~~~~~~~
 

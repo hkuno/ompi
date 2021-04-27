@@ -1,3 +1,5 @@
+.. _shmem_swap:
+
 shmem_swap
 ~~~~~~~~~~
 
@@ -103,3 +105,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3)
+
+.. seealso::

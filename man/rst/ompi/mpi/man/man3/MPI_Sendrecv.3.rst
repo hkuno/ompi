@@ -1,7 +1,9 @@
+.. _MPI_Sendrecv:
+
 MPI_Sendrecv
 ~~~~~~~~~~~~
 
-``MPI_Sendrecv`` - Sends and receives a message.
+:ref:`MPI_Sendrecv`  - Sends and receives a message.
 
 SYNTAX
 ======
@@ -106,13 +108,13 @@ A message sent by a send-receive operation can be received by a regular
 receive operation or probed by a probe operation; a send-receive
 operation can receive a message sent by a regular send operation.
 
-``MPI_Sendrecv`` executes a blocking send and receive operation. Both send
+:ref:`MPI_Sendrecv`  executes a blocking send and receive operation. Both send
 and receive use the same communicator, but possibly different tags. The
 send buffer and receive buffers must be disjoint, and may have different
 lengths and datatypes.
 
 If your application does not need to examine the *status* field, you can
-save resources by using the predefined constant ``MPI_STATUS_IGNORE`` as a
+save resources by using the predefined constant :ref:`MPI_STATUS_IGNORE`  as a
 special value for the *status* argument.
 
 ERRORS
@@ -124,11 +126,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-``MPI_Sendrecv_replace``
+:ref:`MPI_Sendrecv_replace` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Sendrecv_replace`

@@ -1,7 +1,9 @@
+.. _MPI_Scatterv:
+
 MPI_Scatterv
 ~~~~~~~~~~~~
 
-``MPI_Scatterv``, ``MPI_Iscatterv`` - Scatters a buffer in parts to all
+:ref:`MPI_Scatterv` , :ref:`MPI_Iscatterv`  - Scatters a buffer in parts to all
 tasks in a group.
 
 SYNTAX
@@ -100,9 +102,9 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Scatterv`` is the inverse operation to ``MPI_Gatherv``.
+:ref:`MPI_Scatterv`  is the inverse operation to :ref:`MPI_Gatherv` .
 
-``MPI_Scatterv`` extends the functionality of ``MPI_Scatter`` by allowing a
+:ref:`MPI_Scatterv`  extends the functionality of :ref:`MPI_Scatter`  by allowing a
 varying count of data to be sent to each process, since *sendcounts* is
 now an array. It also allows more flexibility as to where the data is
 taken from on the root, by providing the new argument, *displs*.
@@ -135,7 +137,7 @@ have identical values on all processes.
 The specification of counts, types, and displacements should not cause
 any location on the root to be read more than once.
 
-**Example 1:** The reverse of Example 5 in the ``MPI_Gatherv`` manpage. We
+**Example 1:** The reverse of Example 5 in the :ref:`MPI_Gatherv`  manpage. We
 have a varying stride between blocks at sending (root) side, at the
 receiving side we receive 100 - *i* elements into the *i*\ th column of
 a 100 x 150 C array at process *i*.
@@ -177,7 +179,7 @@ a 100 x 150 C array at process *i*.
 **Example 2:** The reverse of Example 1 in the MPI_Gather manpage. The
 root process scatters sets of 100 ints to the other processes, but the
 sets of 100 are stride ints apart in the sending buffer. Requires use of
-``MPI_Scatterv``, where *stride* >= 100.
+:ref:`MPI_Scatterv` , where *stride* >= 100.
 
 ::
 
@@ -204,12 +206,12 @@ USE OF IN-PLACE OPTION
 
 When the communicator is an intracommunicator, you can perform a scatter
 operation in-place (the output buffer is used as the input buffer). Use
-the variable ``MPI_IN_PLACE`` as the value of the root process *recvbuf*. In
+the variable :ref:`MPI_IN_PLACE`  as the value of the root process *recvbuf*. In
 this case, *recvcount* and *recvtype* are ignored, and the root process
 sends no data to itself.
 
-Note that ``MPI_IN_PLACE`` is a special kind of value; it has the same
-restrictions on its use as ``MPI_BOTTOM``.
+Note that :ref:`MPI_IN_PLACE`  is a special kind of value; it has the same
+restrictions on its use as :ref:`MPI_BOTTOM` .
 
 Because the in-place option converts the receive buffer into a
 send-and-receive buffer, a Fortran binding that includes INTENT must
@@ -220,8 +222,8 @@ WHEN COMMUNICATOR IS AN INTER-COMMUNICATOR
 
 When the communicator is an inter-communicator, the root process in the
 first group sends data to all processes in the second group. The first
-group defines the root process. That process uses ``MPI_ROOT`` as the value
-of its *root* argument. The remaining processes use ``MPI_PROC_NULL`` as the
+group defines the root process. That process uses :ref:`MPI_ROOT`  as the value
+of its *root* argument. The remaining processes use :ref:`MPI_PROC_NULL`  as the
 value of their *root* argument. All processes in the second group use
 the rank of that root process in the first group as the value of their
 *root* argument. The receive buffer argument of the root process in the
@@ -237,7 +239,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -250,3 +252,5 @@ SEE ALSO
    MPI_Gatherv
    MPI_Scatter
 
+
+.. seealso:: :ref:`MPI_Iscatterv` :ref:`MPI_Gatherv` :ref:`MPI_Scatter` :ref:`MPI_Comm_set_errhandler`

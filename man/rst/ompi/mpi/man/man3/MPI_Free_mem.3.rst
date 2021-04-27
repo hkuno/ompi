@@ -1,3 +1,5 @@
+.. _MPI_Free_mem:
+
 MPI_Free_mem
 ~~~~~~~~~~~~
 

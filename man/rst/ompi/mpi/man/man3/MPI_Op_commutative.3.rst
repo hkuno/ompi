@@ -1,7 +1,9 @@
+.. _MPI_Op_commutative:
+
 MPI_Op_commutative
 ~~~~~~~~~~~~~~~~~~
 
-``MPI_Op_commutative`` - Query of commutativity of reduction operation.
+:ref:`MPI_Op_commutative`  - Query of commutativity of reduction operation.
 
 SYNTAX
 ======
@@ -65,11 +67,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-``MPI_Op_create``
+:ref:`MPI_Op_create` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Op_create`

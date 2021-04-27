@@ -1,7 +1,9 @@
+.. _MPI_File_iread_all:
+
 MPI_File_iread_all
 ~~~~~~~~~~~~~~~~~~
 
-``MPI_File_iread_all`` - Reads a file starting at the location specified
+:ref:`MPI_File_iread_all`  - Reads a file starting at the location specified
 by the individual file pointer (nonblocking, collective).
 
 SYNTAX
@@ -69,15 +71,15 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_File_iread_all`` is a nonblocking version of ``MPI_File_read_all``. It
+:ref:`MPI_File_iread_all`  is a nonblocking version of :ref:`MPI_File_read_all` . It
 attempts to read from the file associated with *fh* at the current
 individual file pointer position maintained by the system in which a
 total number of *count* data items having *datatype* type are read into
 the user's buffer *buf.* The data is taken out of those parts of the
-file specified by the current view. ``MPI_File_iread_all`` stores the number
+file specified by the current view. :ref:`MPI_File_iread_all`  stores the number
 of data-type elements actually read in *status.* All other fields of
 *status* are undefined. It is erroneous to call this function if
-``MPI_MODE_SEQUENTIAL`` mode was specified when the file was opened.
+:ref:`MPI_MODE_SEQUENTIAL`  mode was specified when the file was opened.
 
 ERRORS
 ======
@@ -87,7 +89,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_read_all` :ref:`MPI_File_set_errhandler`

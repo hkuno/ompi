@@ -1,7 +1,9 @@
+.. _MPI_Type_struct:
+
 MPI_Type_struct
 ~~~~~~~~~~~~~~~
 
-``MPI_Type_struct`` - Creates a *struct* data type -- use of this
+:ref:`MPI_Type_struct`  - Creates a *struct* data type -- use of this
 routine is deprecated.
 
 SYNTAX
@@ -54,10 +56,10 @@ DESCRIPTION
 ===========
 
 Note that use of this routine is *deprecated* as of MPI-2. Use
-``MPI_Type_create_struct`` instead.
+:ref:`MPI_Type_create_struct`  instead.
 
-``MPI_Type_struct`` is the most general type constructor. It further
-generalizes ``MPI_Type_hindexed`` in that it allows each block to consist of
+:ref:`MPI_Type_struct`  is the most general type constructor. It further
+generalizes :ref:`MPI_Type_hindexed`  in that it allows each block to consist of
 replications of different datatypes.
 
 **Example:** Let type1 have type map
@@ -67,8 +69,8 @@ replications of different datatypes.
 
        {(double, 0), (char, 8)}
 
-with extent 16. Let B = (2, 1, 3), D = (0, 16, 26), and T = (``MPI_FLOAT``,
-type1, ``MPI_CHAR)``. Then a call to ``MPI_Type_struct(3``, B, D, T, newtype)
+with extent 16. Let B = (2, 1, 3), D = (0, 16, 26), and T = (:ref:`MPI_FLOAT` ,
+type1, :ref:`MPI_CHAR)` . Then a call to :ref:`MPI_Type_struct(3` , B, D, T, newtype)
 returns a datatype with type map
 
 ::
@@ -77,8 +79,8 @@ returns a datatype with type map
        {(float, 0), (float,4), (double, 16), (char, 24),
        (char, 26), (char, 27), (char, 28)}
 
-That is, two copies of ``MPI_FLOAT`` starting at 0, followed by one copy of
-type1 starting at 16, followed by three copies of ``MPI_CHAR``, starting at
+That is, two copies of :ref:`MPI_FLOAT`  starting at 0, followed by one copy of
+type1 starting at 16, followed by three copies of :ref:`MPI_CHAR` , starting at
 26. (We assume that a float occupies 4 bytes.)
 
 For more information, see section 3.12.1 of the MPI-1.1 Standard.
@@ -86,7 +88,7 @@ For more information, see section 3.12.1 of the MPI-1.1 Standard.
 NOTES
 =====
 
-If an upperbound is set explicitly by using the MPI datatype ``MPI_UB``, the
+If an upperbound is set explicitly by using the MPI datatype :ref:`MPI_UB` , the
 corresponding index must be positive.
 
 The MPI-1 Standard originally made vague statements about padding and
@@ -109,7 +111,7 @@ have allowed an implementation to make the extent an MPI datatype for
 this structure equal to 2*sizeof(int). However, since different systems
 might define different paddings, a clarification to the standard made
 epsilon zero. Thus, if you define a structure datatype and wish to send
-or receive multiple items, you should explicitly include an ``MPI_UB`` entry
+or receive multiple items, you should explicitly include an :ref:`MPI_UB`  entry
 as the last member of the structure. For example, the following code can
 be used for the structure foo:
 
@@ -130,12 +132,14 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Type_create_struct``
-| ``MPI_Type_create_hindexed``
+| :ref:`MPI_Type_create_struct` 
+| :ref:`MPI_Type_create_hindexed` 
+
+.. seealso:: :ref:`MPI_Type_create_struct` :ref:`MPI_Type_hindexed` :ref:`MPI_Type_struct(3` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Type_create_hindexed`

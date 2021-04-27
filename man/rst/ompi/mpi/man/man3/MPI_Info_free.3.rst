@@ -1,7 +1,9 @@
+.. _MPI_Info_free:
+
 MPI_Info_free
 ~~~~~~~~~~~~~
 
-``MPI_Info_free`` - Frees an info object.
+:ref:`MPI_Info_free`  - Frees an info object.
 
 SYNTAX
 ======
@@ -50,7 +52,7 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_Info_free`` frees *info* and sets it to ``MPI_INFO_NULL``.
+:ref:`MPI_Info_free`  frees *info* and sets it to :ref:`MPI_INFO_NULL` .
 
 ERRORS
 ======
@@ -61,15 +63,17 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Info_create``
-| ``MPI_Info_delete``
-| ``MPI_Info_dup``
-| ``MPI_Info_get``
-| ``MPI_Info_set``
+| :ref:`MPI_Info_create` 
+| :ref:`MPI_Info_delete` 
+| :ref:`MPI_Info_dup` 
+| :ref:`MPI_Info_get` 
+| :ref:`MPI_Info_set` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Info_create` :ref:`MPI_Info_delete` :ref:`MPI_Info_dup` :ref:`MPI_Info_get` :ref:`MPI_Info_set`

@@ -1,3 +1,5 @@
+.. _MPI_Get_address:
+
 MPI_Get_address
 ~~~~~~~~~~~~~~~
 

@@ -1,7 +1,9 @@
+.. _MPI_Query_thread:
+
 MPI_Query_thread
 ~~~~~~~~~~~~~~~~
 
-``MPI_Query_thread`` - Returns the current level of thread support
+:ref:`MPI_Query_thread`  - Returns the current level of thread support
 
 SYNTAX
 ======
@@ -48,32 +50,32 @@ DESCRIPTION
 ===========
 
 This routine returns in *provided* the current level of thread support.
-If MPI was initialized by a call to ``MPI_Init_thread``, *provided* will
+If MPI was initialized by a call to :ref:`MPI_Init_thread` , *provided* will
 have the same value as was returned by that function.
 
 The possible values of *provided* are as follows:
 
-``MPI_THREAD_SINGLE``
+:ref:`MPI_THREAD_SINGLE` 
    Only one thread may execute.
 
-``MPI_THREAD_FUNNELED``
+:ref:`MPI_THREAD_FUNNELED` 
    If the process is multithreaded, only the thread that called
-   ``MPI_Init[_thread]`` may make MPI calls.
+   :ref:`MPI_Init[_thread]`  may make MPI calls.
 
-``MPI_THREAD_SERIALIZED``
+:ref:`MPI_THREAD_SERIALIZED` 
    If the process is multithreaded, only one thread may make MPI library
    calls at one time.
 
-``MPI_THREAD_MULTIPLE``
+:ref:`MPI_THREAD_MULTIPLE` 
    If the process is multithreaded, multiple threads may call MPI at
    once with no restrictions.
 
 NOTES
 =====
 
-In Open MPI, *provided* is always ``MPI_THREAD_SINGLE``, unless the program
+In Open MPI, *provided* is always :ref:`MPI_THREAD_SINGLE` , unless the program
 has been linked with the multithreaded library, in which case *provided*
-is ``MPI_THREAD_MULTIPLE``.
+is :ref:`MPI_THREAD_MULTIPLE` .
 
 ERRORS
 ======
@@ -84,7 +86,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -97,3 +99,5 @@ SEE ALSO
 
    MPI_Init
    MPI_Init_thread
+
+.. seealso:: :ref:`MPI_Init_thread` :ref:`MPI_Init[_thread]` :ref:`MPI_Comm_set_errhandler`

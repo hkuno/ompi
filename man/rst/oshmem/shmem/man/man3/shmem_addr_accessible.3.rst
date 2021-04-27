@@ -1,3 +1,5 @@
+.. _shmem_addr_accessible:
+
 shmem_addr_accessible
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -53,3 +55,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_pe_accessible*\ (3)
+
+.. seealso::

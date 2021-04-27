@@ -1,3 +1,5 @@
+.. _MPI_Comm_connect:
+
 MPI_Comm_connect
 ~~~~~~~~~~~~~~~~
 

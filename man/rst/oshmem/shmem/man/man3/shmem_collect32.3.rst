@@ -1,3 +1,5 @@
+.. _shmem_collect32:
+
 shmem_collect32
 ~~~~~~~~~~~~~~~
 
@@ -206,3 +208,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3)
+
+.. seealso::

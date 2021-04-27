@@ -1,7 +1,9 @@
+.. _MPI_Unpack:
+
 MPI_Unpack
 ~~~~~~~~~~
 
-``MPI_Unpack`` - Unpacks a datatype into contiguous memory.
+:ref:`MPI_Unpack`  - Unpacks a datatype into contiguous memory.
 
 SYNTAX
 ======
@@ -78,7 +80,7 @@ DESCRIPTION
 
 Unpacks a message into the receive buffer specified by outbuf, outcount,
 datatype from the buffer space specified by inbuf and insize. The output
-buffer can be any communication buffer allowed in ``MPI_Recv``. The input
+buffer can be any communication buffer allowed in :ref:`MPI_Recv` . The input
 buffer is a contiguous storage area containing insize bytes, starting at
 address inbuf. The input value of position is the first location in the
 input buffer occupied by the packed message. *position* is incremented
@@ -90,10 +92,10 @@ receive the packed message.
 NOTES
 =====
 
-Note the difference between ``MPI_Recv`` and ``MPI_Unpack``: In ``MPI_Recv``, the
+Note the difference between :ref:`MPI_Recv`  and :ref:`MPI_Unpack` : In :ref:`MPI_Recv` , the
 *count* argument specifies the maximum number of items that can be
 received. The actual number of items received is determined by the
-length of the incoming message. In ``MPI_Unpack``, the count argument
+length of the incoming message. In :ref:`MPI_Unpack` , the count argument
 specifies the actual number of items that are to be unpacked; the "size"
 of the corresponding message is the increment in position. The reason
 for this change is that the "incoming message size" is not predetermined
@@ -110,7 +112,7 @@ helpful to think of internal Fortran files or sscanf in C for a similar
 function.)
 
 Several messages can be successively packed into one packing unit. This
-is effected by several successive related calls to ``MPI_Pack``, where the
+is effected by several successive related calls to :ref:`MPI_Pack` , where the
 first call provides position = 0, and each successive call inputs the
 value of position that was output by the previous call, and the same
 values for outbuf, outcount, and comm. This packing unit now contains
@@ -118,20 +120,20 @@ the equivalent information that would have been stored in a message by
 one send call with a send buffer that is the "concatenation" of the
 individual send buffers.
 
-A packing unit can be sent using type ``MPI_Packed``. Any point-to-point or
+A packing unit can be sent using type :ref:`MPI_Packed` . Any point-to-point or
 collective communication function can be used to move the sequence of
 bytes that forms the packing unit from one process to another. This
 packing unit can now be received using any receive operation, with any
 datatype: The type-matching rules are relaxed for messages sent with
-type ``MPI_Packed``.
+type :ref:`MPI_Packed` .
 
-A message sent with any type (including ``MPI_Packed)`` can be received
-using the type ``MPI_Packed``. Such a message can then be unpacked by calls
-to ``MPI_Unpack``.
+A message sent with any type (including :ref:`MPI_Packed)`  can be received
+using the type :ref:`MPI_Packed` . Such a message can then be unpacked by calls
+to :ref:`MPI_Unpack` .
 
 A packing unit (or a message created by a regular, "typed" send) can be
 unpacked into several successive messages. This is effected by several
-successive related calls to ``MPI_Unpack``, where the first call provides
+successive related calls to :ref:`MPI_Unpack` , where the first call provides
 position = 0, and each successive call inputs the value of position that
 was output by the previous call, and the same values for inbuf, insize,
 and comm.
@@ -153,12 +155,14 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Pack``
-| ``MPI_Pack_size``
+| :ref:`MPI_Pack` 
+| :ref:`MPI_Pack_size` 
+
+.. seealso:: :ref:`MPI_Recv` :ref:`MPI_Pack` :ref:`MPI_Packed` :ref:`MPI_Packed)` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Pack_size`

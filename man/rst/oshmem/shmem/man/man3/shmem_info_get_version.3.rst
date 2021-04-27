@@ -1,3 +1,5 @@
+.. _shmem_info_get_version:
+
 shmem_info_get_version
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -38,3 +40,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_my_pe*\ (3), *shmem_init*\ (3)
+
+.. seealso::

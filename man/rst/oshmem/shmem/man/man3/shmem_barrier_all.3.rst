@@ -1,3 +1,5 @@
+.. _shmem_barrier_all:
+
 shmem_barrier_all
 ~~~~~~~~~~~~~~~~~
 
@@ -54,3 +56,5 @@ SEE ALSO
 ========
 
 *shmem_barrier*\ (3), *shmem_init*\ (3)
+
+.. seealso::

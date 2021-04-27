@@ -1,7 +1,9 @@
+.. _MPI_Type_indexed:
+
 MPI_Type_indexed
 ~~~~~~~~~~~~~~~~
 
-``MPI_Type_indexed``, ``MPI_Type_create_hindexed`` - Creates an indexed
+:ref:`MPI_Type_indexed` , :ref:`MPI_Type_create_hindexed`  - Creates an indexed
 datatype.
 
 SYNTAX
@@ -89,7 +91,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-The function ``MPI_Type_indexed`` allows replication of an old datatype into
+The function :ref:`MPI_Type_indexed`  allows replication of an old datatype into
 a sequence of blocks (each block is a concatenation of the old
 datatype), where each block can contain a different number of copies and
 have a different displacement. All block displacements are multiples of
@@ -97,7 +99,7 @@ the old data type's extent.
 
 **Example:** Let oldtype have type map {(double, 0), (char, 8)}, with
 extent 16. Let B = (3, 1) and let D = (4, 0). A call to
-``MPI_Type_indexed(2``, B, D, oldtype, newtype) returns a datatype with type
+:ref:`MPI_Type_indexed(2` , B, D, oldtype, newtype) returns a datatype with type
 map
 
 ::
@@ -132,8 +134,8 @@ In general, assume that oldtype has type map
        (type(0), disp(0) +  (D[count-1] + B[count-1] -1)* ex), ...,
        (type(n-1), disp(n-1) + (D[count-1] + B[count-1] -1)* ex)}
 
-A call to ``MPI_Type_vector(count``, blocklength, stride, oldtype, newtype)
-is equivalent to a call to ``MPI_Type_indexed(count``, B, D, oldtype,
+A call to :ref:`MPI_Type_vector(count` , blocklength, stride, oldtype, newtype)
+is equivalent to a call to :ref:`MPI_Type_indexed(count` , B, D, oldtype,
 newtype) where
 
 ::
@@ -144,7 +146,7 @@ newtype) where
 
        B[j] = blocklength, j = 0, .., count-1
 
-The function ``MPI_Type_create_hindexed`` is identical to ``MPI_Type_indexed``,
+The function :ref:`MPI_Type_create_hindexed`  is identical to :ref:`MPI_Type_indexed` ,
 except that block displacements in *array_of_displacements* are
 specified in bytes, rather than in multiples of the *oldtype* extent.
 
@@ -157,11 +159,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Type_hindexed``
+| :ref:`MPI_Type_hindexed` 
+
+.. seealso:: :ref:`MPI_Type_create_hindexed` :ref:`MPI_Type_indexed(2` :ref:`MPI_Type_vector(count` :ref:`MPI_Type_indexed(count` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Type_hindexed`

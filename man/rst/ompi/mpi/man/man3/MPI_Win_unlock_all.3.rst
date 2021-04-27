@@ -1,8 +1,10 @@
+.. _MPI_Win_unlock_all:
+
 MPI_Win_unlock_all
 ~~~~~~~~~~~~~~~~~~
 
-``MPI_Win_unlock_all`` - Completes an RMA access epoch started by a call
-to ``MPI_Win_lock_all``.
+:ref:`MPI_Win_unlock_all`  - Completes an RMA access epoch started by a call
+to :ref:`MPI_Win_lock_all` .
 
 SYNTAX
 ======
@@ -51,8 +53,8 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_Win_unlock_all`` completes an RMA access epoch started by a call to
-``MPI_Win_lock_all``. RMA operations issued during this period will have
+:ref:`MPI_Win_unlock_all`  completes an RMA access epoch started by a call to
+:ref:`MPI_Win_lock_all` . RMA operations issued during this period will have
 completed both at the origin and at the target when the call returns.
 
 Locks are used to protect accesses to the locked target window effected
@@ -73,11 +75,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Win_lock_all`` ``MPI_Win_unlock``
+| :ref:`MPI_Win_lock_all`  :ref:`MPI_Win_unlock` 
+
+.. seealso:: :ref:`MPI_Win_lock_all` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Win_unlock`

@@ -1,7 +1,9 @@
+.. _MPI_Reduce_scatter:
+
 MPI_Reduce_scatter
 ~~~~~~~~~~~~~~~~~~
 
-``MPI_Reduce_scatter``, ``MPI_Ireduce_scatter`` - Combines values and
+:ref:`MPI_Reduce_scatter` , :ref:`MPI_Ireduce_scatter`  - Combines values and
 scatters the results.
 
 SYNTAX
@@ -91,7 +93,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Reduce_scatter`` first does an element-wise reduction on vector of
+:ref:`MPI_Reduce_scatter`  first does an element-wise reduction on vector of
 *count* = S(i)\ *recvcounts*\ [i] elements in the send buffer defined by
 *sendbuf*, *count*, and *datatype*. Next, the resulting vector of
 results is split into n disjoint segments, where n is the number of
@@ -104,7 +106,7 @@ USE OF IN-PLACE OPTION
 
 When the communicator is an intracommunicator, you can perform a
 reduce-scatter operation in-place (the output buffer is used as the
-input buffer). Use the variable ``MPI_IN_PLACE`` as the value of the
+input buffer). Use the variable :ref:`MPI_IN_PLACE`  as the value of the
 *sendbuf*. In this case, the input data is taken from the top of the
 receive buffer. The area occupied by the input data may be either longer
 or shorter than the data filled by the output data.
@@ -125,11 +127,11 @@ groups.
 NOTES ON COLLECTIVE OPERATIONS
 ==============================
 
-The reduction functions ( ``MPI_Op`` ) do not return an error value. As a
+The reduction functions ( :ref:`MPI_Op`  ) do not return an error value. As a
 result, if the functions detect an error, all they can do is either call
-``MPI_Abort`` or silently skip the problem. Thus, if you change the error
-handler from ``MPI_ERRORS_ARE_FATAL`` to something else, for example,
-``MPI_ERRORS_RETURN`` , then no error may be indicated.
+:ref:`MPI_Abort`  or silently skip the problem. Thus, if you change the error
+handler from :ref:`MPI_ERRORS_ARE_FATAL`  to something else, for example,
+:ref:`MPI_ERRORS_RETURN`  , then no error may be indicated.
 
 The reason for this is the performance problems in ensuring that all
 collective routines return the same error value.
@@ -143,6 +145,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Ireduce_scatter` :ref:`MPI_Op` :ref:`MPI_Abort` :ref:`MPI_Comm_set_errhandler`

@@ -1,7 +1,9 @@
+.. _MPI_Type_size:
+
 MPI_Type_size
 ~~~~~~~~~~~~~
 
-``MPI_Type_size``, ``MPI_Type_size_x`` - Returns the number of bytes
+:ref:`MPI_Type_size` , :ref:`MPI_Type_size_x`  - Returns the number of bytes
 occupied by entries in a data type.
 
 SYNTAX
@@ -63,13 +65,13 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Type_size`` returns the total size, in bytes, of the entries in the
+:ref:`MPI_Type_size`  returns the total size, in bytes, of the entries in the
 type signature associated with datatype; i.e., the total size of the
 data in a message that would be created with this datatype. Entries that
 occur multiple times in the datatype are counted with their
 multiplicity. For either function, if the *size* parameter cannot
 express the value to be returned (e.g., if the parameter is too small to
-hold the output value), it is set to ``MPI_UNDEFINED``.
+hold the output value), it is set to :ref:`MPI_UNDEFINED` .
 
 ERRORS
 ======
@@ -80,7 +82,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -88,12 +90,14 @@ FORTRAN 77 NOTES
 ================
 
 The MPI standard prescribes portable Fortran syntax for the *SIZE*
-argument of ``MPI_Type_size_x`` only for Fortran 90. FORTRAN 77 users may
+argument of :ref:`MPI_Type_size_x`  only for Fortran 90. FORTRAN 77 users may
 use the non-portable syntax
 
 ::
 
         INTEGER*MPI_COUNT_KIND SIZE
 
-where ``MPI_COUNT_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_COUNT_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
+
+.. seealso:: :ref:`MPI_Type_size_x` :ref:`MPI_Comm_set_errhandler`

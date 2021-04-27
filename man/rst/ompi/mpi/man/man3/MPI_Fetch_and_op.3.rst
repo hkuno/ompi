@@ -1,7 +1,9 @@
+.. _MPI_Fetch_and_op:
+
 MPI_Fetch_and_op
 ~~~~~~~~~~~~~~~~
 
-``MPI_Fetch_and_op`` - Combines the contents of the origin buffer with
+:ref:`MPI_Fetch_and_op`  - Combines the contents of the origin buffer with
 that of a target buffer and returns the target buffer value.
 
 SYNTAX
@@ -82,16 +84,16 @@ and return in the result buffer *result_addr* the contents of the target
 buffer before the accumulation.
 
 The origin and result buffers (*origin_addr* and *result_addr*) must be
-disjoint. Any of the predefined operations for ``MPI_Rreduce``, as well
-as ``MPI_NO_OP`` or ``MPI_REPLACE``, can be specified as *op*; user-defined
+disjoint. Any of the predefined operations for :ref:`MPI_Rreduce` , as well
+as :ref:`MPI_NO_OP`  or :ref:`MPI_REPLACE` , can be specified as *op*; user-defined
 functions cannot be used. The *datatype* argument must be a predefined
 datatype. The operation is executed atomically.
 
-A new predefined operation, ``MPI_REPLACE``, is defined. It corresponds to
+A new predefined operation, :ref:`MPI_REPLACE` , is defined. It corresponds to
 the associative function f(a, b) =b; that is, the current value in the
 target memory is replaced by the value supplied by the origin.
 
-A new predefined operation, ``MPI_NO_OP``, is defined. It corresponds to the
+A new predefined operation, :ref:`MPI_NO_OP` , is defined. It corresponds to the
 assiciative function f(a, b) = a; that is the current value in the
 target memory is returned in the result buffer at the origin and no
 operation is performed on the target buffer.
@@ -107,7 +109,7 @@ non-portable syntax
 
         INTEGER*MPI_ADDRESS_KIND TARGET_DISP
 
-where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_ADDRESS_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTES
@@ -116,7 +118,7 @@ NOTES
 It is the user's responsibility to guarantee that, when using the
 accumulate functions, the target displacement argument is such that
 accesses to the window are properly aligned according to the data type
-arguments in the call to the ``MPI_Fetch_and_op`` function.
+arguments in the call to the :ref:`MPI_Fetch_and_op`  function.
 
 ERRORS
 ======
@@ -127,13 +129,15 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned. Note
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned. Note
 that MPI does not guarantee that an MPI program can continue past an
 error.
 
 SEE ALSO
 ========
 
-| ``MPI_Get_accumulate``
-| ``MPI_Reduce``
+| :ref:`MPI_Get_accumulate` 
+| :ref:`MPI_Reduce` 
+
+.. seealso:: :ref:`MPI_Rreduce` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Get_accumulate` :ref:`MPI_Reduce`

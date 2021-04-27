@@ -1,7 +1,9 @@
+.. _MPI_Errhandler_set:
+
 MPI_Errhandler_set
 ~~~~~~~~~~~~~~~~~~
 
-``MPI_Errhandler_set`` - Sets the error handler for a communicator --
+:ref:`MPI_Errhandler_set`  - Sets the error handler for a communicator --
 use of this routine is deprecated.
 
 SYNTAX
@@ -42,7 +44,7 @@ DESCRIPTION
 ===========
 
 Note that use of this routine is *deprecated* as of MPI-2. Please use
-``MPI_Comm_set_errhandler`` instead.
+:ref:`MPI_Comm_set_errhandler`  instead.
 
 Associates the new error handler errhandler with communicator comm at
 the calling process. Note that an error handler is always associated
@@ -57,13 +59,15 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Comm_create_errhandler``
-| ``MPI_Comm_get_errhandler``
-| ``MPI_Comm_set_errhandler``
+| :ref:`MPI_Comm_create_errhandler` 
+| :ref:`MPI_Comm_get_errhandler` 
+| :ref:`MPI_Comm_set_errhandler` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Comm_create_errhandler` :ref:`MPI_Comm_get_errhandler`

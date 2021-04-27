@@ -1,3 +1,5 @@
+.. _MPI_Graph_get:
+
 MPI_Graph_get
 ~~~~~~~~~~~~~
 

@@ -1,7 +1,9 @@
+.. _MPI_Comm_idup:
+
 MPI_Comm_idup
 ~~~~~~~~~~~~~
 
-``MPI_Comm_idup`` - Start the nonblocking duplication of an existing
+:ref:`MPI_Comm_idup`  - Start the nonblocking duplication of an existing
 communicator with all its cached information.
 
 SYNTAX
@@ -57,7 +59,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Comm_idup`` starts the nonblocking duplication of an existing
+:ref:`MPI_Comm_idup`  starts the nonblocking duplication of an existing
 communicator comm with associated key values. For each key value, the
 respective copy callback function determines the attribute value
 associated with this key in the new communicator; one particular action
@@ -68,7 +70,7 @@ the MPI-1 Standard, "Functionality"). The communicator returned in
 *newcomm* will not be available until the request is complete.
 
 The completion of a communicator duplication request can be determined
-by calling any of ``MPI_Wait``, ``MPI_Waitany``, ``MPI_Test``, or ``MPI_Testany`` with
+by calling any of :ref:`MPI_Wait` , :ref:`MPI_Waitany` , :ref:`MPI_Test` , or :ref:`MPI_Testany`  with
 the request returned by this function.
 
 NOTES
@@ -80,8 +82,8 @@ original communicator. This includes any attributes (see below) and
 topologies (see Chapter 6, "Process Topologies," in the MPI-1 Standard).
 This call is valid even if there are pending point-to-point
 communications involving the communicator comm. A typical call might
-involve an ``MPI_Comm_idup`` at the beginning of the parallel call, and an
-``MPI_Comm_free`` of that duplicated communicator at the end of the call.
+involve an :ref:`MPI_Comm_idup`  at the beginning of the parallel call, and an
+:ref:`MPI_Comm_free`  of that duplicated communicator at the end of the call.
 Other models of communicator management are also possible.
 
 This call applies to both intra- and intercommunicators.
@@ -101,11 +103,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-``MPI_Comm_dup`` ``MPI_Comm_dup_with_info``
+:ref:`MPI_Comm_dup`  :ref:`MPI_Comm_dup_with_info` 
+
+.. seealso:: :ref:`MPI_Wait` :ref:`MPI_Waitany` :ref:`MPI_Test` :ref:`MPI_Testany` :ref:`MPI_Comm_free` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Comm_dup` :ref:`MPI_Comm_dup_with_info`

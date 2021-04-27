@@ -1,3 +1,5 @@
+.. _MPI_Comm_create_group:
+
 MPI_Comm_create_group
 ~~~~~~~~~~~~~~~~~~~~~
 

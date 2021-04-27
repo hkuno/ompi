@@ -1,3 +1,5 @@
+.. _MPI_Graph_create:
+
 MPI_Graph_create
 ~~~~~~~~~~~~~~~~
 

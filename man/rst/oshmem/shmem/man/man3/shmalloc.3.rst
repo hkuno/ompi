@@ -1,3 +1,5 @@
+.. _shmalloc:
+
 shmalloc
 ~~~~~~~~
 
@@ -92,3 +94,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *my_pe*\ (3I), *start_pes*\ (3)
+
+.. seealso::

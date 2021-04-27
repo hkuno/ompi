@@ -1,7 +1,9 @@
+.. _MPI_Ibsend:
+
 MPI_Ibsend
 ~~~~~~~~~~
 
-``MPI_Ibsend`` - Starts a nonblocking buffered send.
+:ref:`MPI_Ibsend`  - Starts a nonblocking buffered send.
 
 SYNTAX
 ======
@@ -68,7 +70,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Ibsend`` posts a buffered-mode, nonblocking send. Nonblocking calls
+:ref:`MPI_Ibsend`  posts a buffered-mode, nonblocking send. Nonblocking calls
 allocate a communication request object and associate it with the
 request handle (the argument request). The request can be used later to
 query the status of the communication or wait for its completion.
@@ -87,11 +89,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Test`` ``MPI_Wait``
+| :ref:`MPI_Test`  :ref:`MPI_Wait` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Test` :ref:`MPI_Wait`

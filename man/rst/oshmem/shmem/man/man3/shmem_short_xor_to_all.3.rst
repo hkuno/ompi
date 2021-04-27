@@ -1,3 +1,5 @@
+.. _shmem_short_xor_to_all:
+
 shmem_short_xor_to_all
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -223,3 +225,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3)
+
+.. seealso::

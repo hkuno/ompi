@@ -1,3 +1,5 @@
+.. _shmem_my_pe:
+
 shmem_my_pe
 ~~~~~~~~~~~
 
@@ -37,3 +39,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_n_pes*\ (3), *shmem_init*\ (3)
+
+.. seealso::

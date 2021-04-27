@@ -1,7 +1,9 @@
+.. _MPI_Type_set_name:
+
 MPI_Type_set_name
 ~~~~~~~~~~~~~~~~~
 
-``MPI_Type_set_name`` - Sets the name of a data type.
+:ref:`MPI_Type_set_name`  - Sets the name of a data type.
 
 SYNTAX
 ======
@@ -57,7 +59,7 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_Type_set_name`` associates a printable identifier with an MPI data
+:ref:`MPI_Type_set_name`  associates a printable identifier with an MPI data
 type.
 
 ERRORS
@@ -69,11 +71,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Type_get_name``
+| :ref:`MPI_Type_get_name` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Type_get_name`

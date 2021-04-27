@@ -1,7 +1,9 @@
+.. _MPI_File_get_view:
+
 MPI_File_get_view
 ~~~~~~~~~~~~~~~~~
 
-``MPI_File_get_view`` - Returns the process's view of data in the file.
+:ref:`MPI_File_get_view`  - Returns the process's view of data in the file.
 
 SYNTAX
 ======
@@ -67,11 +69,11 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-The ``MPI_File_get_view`` routine returns the process's view of the data in
+The :ref:`MPI_File_get_view`  routine returns the process's view of the data in
 the file. The current values of the displacement, etype, and filetype
 are returned in *disp,* *etype,* and *filetype,* respectively.
 
-The ``MPI_File_get_view`` interface allows the user to pass a
+The :ref:`MPI_File_get_view`  interface allows the user to pass a
 data-representation string via the *datarep* argument.
 
 FORTRAN 77 NOTES
@@ -85,7 +87,7 @@ syntax.
 
         INTEGER*MPI_OFFSET_KIND DISP
 
-where ``MPI_OFFSET_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_OFFSET_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
@@ -96,7 +98,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_set_errhandler`

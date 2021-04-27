@@ -1,7 +1,9 @@
+.. _MPI_Neighbor_allgather:
+
 MPI_Neighbor_allgather
 ~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Neighbor_allgather``, ``MPI_Ineighbor_allgather`` - Gathers and
+:ref:`MPI_Neighbor_allgather` , :ref:`MPI_Ineighbor_allgather`  - Gathers and
 distributes data from and to all neighbors
 
 SYNTAX
@@ -97,7 +99,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Neighbor_allgather`` is similar to ``MPI_Allgather``, except that only the
+:ref:`MPI_Neighbor_allgather`  is similar to :ref:`MPI_Allgather` , except that only the
 neighboring processes receive the result, instead of all processes. The
 neighbors and buffer layout is determined by the topology of *comm*.
 
@@ -108,35 +110,35 @@ any other process.
 NEIGHBOR ORDERING
 =================
 
-For a distributed graph topology, created with ``MPI_Dist_graph_create``,
+For a distributed graph topology, created with :ref:`MPI_Dist_graph_create` ,
 the sequence of neighbors in the send and receive buffers at each
-process is defined as the sequence returned by ``MPI_Dist_graph_neighbors``
+process is defined as the sequence returned by :ref:`MPI_Dist_graph_neighbors` 
 for destinations and sources, respectively. For a general graph
-topology, created with ``MPI_Graph_create``, the order of neighbors in the
+topology, created with :ref:`MPI_Graph_create` , the order of neighbors in the
 send and receive buffers is defined as the sequence of neighbors as
-returned by ``MPI_Graph_neighbors``. Note that general graph topologies
+returned by :ref:`MPI_Graph_neighbors` . Note that general graph topologies
 should generally be replaced by the distributed graph topologies.
 
-For a Cartesian topology, created with ``MPI_Cart_create``, the sequence of
+For a Cartesian topology, created with :ref:`MPI_Cart_create` , the sequence of
 neighbors in the send and receive buffers at each process is defined by
 order of the dimensions, first the neighbor in the negative direction
 and then in the positive direction with displacement 1. The numbers of
 sources and destinations in the communication routines are 2*ndims with
-ndims defined in ``MPI_Cart_create``. If a neighbor does not exist, i.e., at
+ndims defined in :ref:`MPI_Cart_create` . If a neighbor does not exist, i.e., at
 the border of a Cartesian topology in the case of a non-periodic virtual
 grid dimension (i.e., periods[...]==false), then this neighbor is
-defined to be ``MPI_PROC_NULL``.
+defined to be :ref:`MPI_PROC_NULL` .
 
-If a neighbor in any of the functions is ``MPI_PROC_NULL``, then the
+If a neighbor in any of the functions is :ref:`MPI_PROC_NULL` , then the
 neighborhood collective communication behaves like a point-to-point
-communication with ``MPI_PROC_NULL`` in this direction. That is, the buffer
+communication with :ref:`MPI_PROC_NULL`  in this direction. That is, the buffer
 is still part of the sequence of neighbors but it is neither
 communicated nor updated.
 
 NOTES
 =====
 
-The ``MPI_IN_PLACE`` option for *sendbuf* is not meaningful for this
+The :ref:`MPI_IN_PLACE`  option for *sendbuf* is not meaningful for this
 operation.
 
 ERRORS
@@ -148,13 +150,15 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Neighbor_allgatherv`` ``MPI_Cart_create`` ``MPI_Garph_create``
-  ``MPI_Dist_graph_create``
-| ``MPI_Gather``
+| :ref:`MPI_Neighbor_allgatherv`  :ref:`MPI_Cart_create`  :ref:`MPI_Garph_create` 
+  :ref:`MPI_Dist_graph_create` 
+| :ref:`MPI_Gather` 
+
+.. seealso:: :ref:`MPI_Ineighbor_allgather` :ref:`MPI_Allgather` :ref:`MPI_Dist_graph_create` :ref:`MPI_Dist_graph_neighbors` :ref:`MPI_Graph_create` :ref:`MPI_Graph_neighbors` :ref:`MPI_Cart_create` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Neighbor_allgatherv` :ref:`MPI_Garph_create` :ref:`MPI_Gather`

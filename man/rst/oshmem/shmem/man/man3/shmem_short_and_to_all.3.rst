@@ -1,3 +1,5 @@
+.. _shmem_short_and_to_all:
+
 shmem_short_and_to_all
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -212,3 +214,5 @@ SEE ALSO
 ========
 
 *f90*\ (1), *intro_shmem*\ (3)
+
+.. seealso::

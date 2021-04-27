@@ -1,3 +1,5 @@
+.. _shmem_int_cswap:
+
 shmem_int_cswap
 ~~~~~~~~~~~~~~~
 
@@ -126,3 +128,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_cache*\ (3), *shmem_swap*\ (3)
+
+.. seealso::

@@ -1,3 +1,5 @@
+.. _shmem_short_iget:
+
 shmem_short_iget
 ~~~~~~~~~~~~~~~~
 
@@ -204,3 +206,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_get*\ (3), *shmem_quiet*\ (3)
+
+.. seealso::

@@ -1,7 +1,9 @@
+.. _MPI_Op_create:
+
 MPI_Op_create
 ~~~~~~~~~~~~~
 
-``MPI_Op_create`` - Creates a user-defined combination function handle.
+:ref:`MPI_Op_create`  - Creates a user-defined combination function handle.
 
 SYNTAX
 ======
@@ -59,9 +61,9 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Op_create`` binds a user-defined global operation to an op handle that
-can subsequently be used in ``MPI_Reduce``, ``MPI_Allreduce``,
-``MPI_Reduce_scatter``, and ``MPI_Scan``. The user-defined operation is assumed
+:ref:`MPI_Op_create`  binds a user-defined global operation to an op handle that
+can subsequently be used in :ref:`MPI_Reduce` , :ref:`MPI_Allreduce` ,
+:ref:`MPI_Reduce_scatter` , and :ref:`MPI_Scan` . The user-defined operation is assumed
 to be associative. If commute = true, then the operation should be both
 commutative and associative. If commute = false, then the order of
 operands is fixed and is defined to be in ascending, process rank order,
@@ -92,7 +94,7 @@ The Fortran declaration of the user-defined function appears below.
       INTEGER LEN, TYPE
 
 The datatype argument is a handle to the data type that was passed into
-the call to ``MPI_Reduce``. The user reduce function should be written such
+the call to :ref:`MPI_Reduce` . The user reduce function should be written such
 that the following holds: Let u[0], ..., u[len-1] be the len elements in
 the communication buffer described by the arguments invec, len, and
 datatype when the function is invoked; let v[0], ..., v[len-1] be len
@@ -119,7 +121,7 @@ General datatypes may be passed to the user function. However, use of
 datatypes that are not contiguous is likely to lead to inefficiencies.
 
 No MPI communication function may be called inside the user function.
-``MPI_Abort`` may be called inside the function in case of an error.
+:ref:`MPI_Abort`  may be called inside the function in case of an error.
 
 NOTES
 =====
@@ -189,7 +191,7 @@ Compute the product of an array of complex numbers, in C.
             * resides on process root
             */
 
-The Fortran version of ``MPI_Reduce`` will invoke a user-defined reduce
+The Fortran version of :ref:`MPI_Reduce`  will invoke a user-defined reduce
 function using the Fortran calling conventions and will pass a
 Fortran-type datatype argument; the C version will use C calling
 convention and the C representation of a datatype handle. Users who plan
@@ -198,11 +200,11 @@ to mix languages should define their reduction functions accordingly.
 NOTES ON COLLECTIVE OPERATIONS
 ==============================
 
-The reduction functions ( ``MPI_Op`` ) do not return an error value. As a
+The reduction functions ( :ref:`MPI_Op`  ) do not return an error value. As a
 result, if the functions detect an error, all they can do is either call
-``MPI_Abort`` or silently skip the problem. Thus, if you change the error
-handler from ``MPI_ERRORS_ARE_FATAL`` to something else, for example,
-``MPI_ERRORS_RETURN`` , then no error may be indicated.
+:ref:`MPI_Abort`  or silently skip the problem. Thus, if you change the error
+handler from :ref:`MPI_ERRORS_ARE_FATAL`  to something else, for example,
+:ref:`MPI_ERRORS_RETURN`  , then no error may be indicated.
 
 The reason for this is the performance problems in ensuring that all
 collective routines return the same error value.
@@ -216,7 +218,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -230,3 +232,5 @@ SEE ALSO
    MPI_Allreduce
    MPI_Scan
    MPI_Op_free
+
+.. seealso:: :ref:`MPI_Reduce` :ref:`MPI_Allreduce` :ref:`MPI_Reduce_scatter` :ref:`MPI_Scan` :ref:`MPI_Abort` :ref:`MPI_Op` :ref:`MPI_Comm_set_errhandler`

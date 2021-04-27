@@ -1,7 +1,9 @@
+.. _MPI_Put:
+
 MPI_Put
 ~~~~~~~
 
-``MPI_Put``, ``MPI_Rput`` - Copies data from the origin memory to the
+:ref:`MPI_Put` , :ref:`MPI_Rput`  - Copies data from the origin memory to the
 target.
 
 SYNTAX
@@ -101,7 +103,7 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_Put`` transfers *origin_count* successive entries of the type
+:ref:`MPI_Put`  transfers *origin_count* successive entries of the type
 specified by *origin_datatype*, starting at address *origin_addr* on the
 origin node to the target node specified by the *win*, *target_rank*
 pair. The data are written in the target buffer at address *target_addr*
@@ -135,14 +137,14 @@ the origin process. The target data type must contain only relative
 displacements, not absolute addresses. The same holds for get and
 accumulate.
 
-``MPI_Rput`` is similar to ``MPI_Put``, except that it allocates a
+:ref:`MPI_Rput`  is similar to :ref:`MPI_Put` , except that it allocates a
 communication request object and associates it with the request handle
-(the argument *request*). The completion of an ``MPI_Rput`` operation (i.e.,
+(the argument *request*). The completion of an :ref:`MPI_Rput`  operation (i.e.,
 after the corresponding test or wait) indicates that the sender is now
 free to update the locations in the *origin_addr* buffer. It does not
 indicate that the data is available at the target window. If remote
-completion is required, ``MPI_Win_flush``, ``MPI_Win_flush_all``,
-``MPI_Win_unlock``, or ``MPI_Win_unlock_all`` can be used.
+completion is required, :ref:`MPI_Win_flush` , :ref:`MPI_Win_flush_all` ,
+:ref:`MPI_Win_unlock` , or :ref:`MPI_Win_unlock_all`  can be used.
 
 NOTES
 =====
@@ -157,7 +159,7 @@ Standard).
 The performance of a put transfer can be significantly affected, on some
 systems, from the choice of window location and the shape and location
 of the origin and target buffer: Transfers to a target window in memory
-allocated by ``MPI_Alloc_mem`` may be much faster on shared memory systems;
+allocated by :ref:`MPI_Alloc_mem`  may be much faster on shared memory systems;
 transfers from contiguous buffers will be faster on most, if not all,
 systems; the alignment of the communication buffers may also impact
 performance.
@@ -173,7 +175,7 @@ non-portable syntax
 
         INTEGER*MPI_ADDRESS_KIND TARGET_DISP
 
-where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_ADDRESS_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
@@ -185,13 +187,15 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Get`` ``MPI_Rget``
-| ``MPI_Accumulate`` ``MPI_Win_flush`` ``MPI_Win_flush_all`` ``MPI_Win_unlock``
-  ``MPI_Win_unlock_all``
+| :ref:`MPI_Get`  :ref:`MPI_Rget` 
+| :ref:`MPI_Accumulate`  :ref:`MPI_Win_flush`  :ref:`MPI_Win_flush_all`  :ref:`MPI_Win_unlock` 
+  :ref:`MPI_Win_unlock_all` 
+
+.. seealso:: :ref:`MPI_Rput` :ref:`MPI_Win_flush` :ref:`MPI_Win_flush_all` :ref:`MPI_Win_unlock` :ref:`MPI_Win_unlock_all` :ref:`MPI_Alloc_mem` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Get` :ref:`MPI_Rget` :ref:`MPI_Accumulate`

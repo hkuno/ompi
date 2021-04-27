@@ -1,3 +1,5 @@
+.. _shmem_broadcast32:
+
 shmem_broadcast32
 ~~~~~~~~~~~~~~~~~
 
@@ -190,3 +192,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3)
+
+.. seealso::

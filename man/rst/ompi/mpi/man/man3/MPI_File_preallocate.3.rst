@@ -1,7 +1,9 @@
+.. _MPI_File_preallocate:
+
 MPI_File_preallocate
 ~~~~~~~~~~~~~~~~~~~~
 
-``MPI_File_preallocate`` - Preallocates a specified amount of storage
+:ref:`MPI_File_preallocate`  - Preallocates a specified amount of storage
 space at the beginning of a file (collective).
 
 SYNTAX
@@ -59,21 +61,21 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_File_preallocate`` ensures that storage space is allocated for the
+:ref:`MPI_File_preallocate`  ensures that storage space is allocated for the
 first *size* bytes of the file associated with *fh*.
-``MPI_File_preallocate`` can be a very time-consuming operation.
+:ref:`MPI_File_preallocate`  can be a very time-consuming operation.
 
-``MPI_File_preallocate`` is collective; all processes in the group must pass
+:ref:`MPI_File_preallocate`  is collective; all processes in the group must pass
 identical values for *size*. Regions of the file that have previously
 been written are unaffected. For newly allocated regions of the file,
-``MPI_File_preallocate`` has the same effect as writing undefined data. If
+:ref:`MPI_File_preallocate`  has the same effect as writing undefined data. If
 size is larger than the current file size, the file size increases to
 *size*. If *size* is less than or equal to the current file size, the
 file size is unchanged.
 
 The treatment of file pointers, pending nonblocking accesses, and file
-consistency is the same as with ``MPI_File_set_size``. If
-``MPI_MODE_SEQUENTIAL`` mode was specified when the file was opened, it is
+consistency is the same as with :ref:`MPI_File_set_size` . If
+:ref:`MPI_MODE_SEQUENTIAL`  mode was specified when the file was opened, it is
 erroneous to call this routine.
 
 FORTRAN 77 NOTES
@@ -87,22 +89,22 @@ syntax
 
         INTEGER*MPI_OFFSET_KIND SIZE
 
-where ``MPI_OFFSET_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_OFFSET_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTES
 =====
 
-When using the collective routine ``MPI_File_set_size`` on a UNIX file, if
+When using the collective routine :ref:`MPI_File_set_size`  on a UNIX file, if
 the size that is set is smaller than the current file size, the file is
 truncated at the position defined by size. If the size is set to be
 larger than the current file size, the file size becomes the set size.
-When the file size is increased this way with ``MPI_File_set_size``, new
+When the file size is increased this way with :ref:`MPI_File_set_size` , new
 regions are created in the file with displacements between the old file
 size and the larger, newly set file size.
 
 Sun MPI I/O does not necessarily allocate file space for such new
-regions. You may reserve file space either by using ``MPI_File_preallocate``
+regions. You may reserve file space either by using :ref:`MPI_File_preallocate` 
 or by performing a read or write to certain bytes.
 
 ERRORS
@@ -113,7 +115,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_set_size` :ref:`MPI_File_set_errhandler`

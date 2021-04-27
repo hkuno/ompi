@@ -1,7 +1,9 @@
+.. _MPI_Win_get_errhandler:
+
 MPI_Win_get_errhandler
 ~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Win_get_errhandler`` - Retrieves the error handler currently
+:ref:`MPI_Win_get_errhandler`  - Retrieves the error handler currently
 associated with a window.
 
 SYNTAX
@@ -54,7 +56,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Win_get_errhandler`` retrieves the error handler currently associated
+:ref:`MPI_Win_get_errhandler`  retrieves the error handler currently associated
 with a window.
 
 ERRORS
@@ -66,6 +68,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler`

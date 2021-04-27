@@ -1,3 +1,5 @@
+.. _shmem_malloc:
+
 shmem_malloc
 ~~~~~~~~~~~~
 
@@ -97,3 +99,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_my_pe*\ (3I), *shmem_init*\ (3)
+
+.. seealso::

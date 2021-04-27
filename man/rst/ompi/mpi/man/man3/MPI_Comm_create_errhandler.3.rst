@@ -1,3 +1,5 @@
+.. _MPI_Comm_create_errhandler:
+
 MPI_Comm_create_errhandler
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 

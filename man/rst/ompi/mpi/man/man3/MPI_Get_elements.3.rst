@@ -1,3 +1,5 @@
+.. _MPI_Get_elements:
+
 MPI_Get_elements
 ~~~~~~~~~~~~~~~~
 

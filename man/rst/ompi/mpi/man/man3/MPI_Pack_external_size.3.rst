@@ -1,7 +1,9 @@
+.. _MPI_Pack_external_size:
+
 MPI_Pack_external_size
 ~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Pack_external_size`` - Calculates upper bound on space needed to
+:ref:`MPI_Pack_external_size`  - Calculates upper bound on space needed to
 write to a portable format
 
 SYNTAX
@@ -64,10 +66,10 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Pack_external_size`` allows the application to find out how much space
+:ref:`MPI_Pack_external_size`  allows the application to find out how much space
 is needed to pack a message in the portable format defined by the MPI
 Forum. It returns in *size* an upper bound on the increment in
-*position* that would occur in a call to ``MPI_Pack_external`` with the same
+*position* that would occur in a call to :ref:`MPI_Pack_external`  with the same
 values for *datarep*, *incount*, and *datatype*.
 
 The call returns an upper bound, rather than an exact bound, as the
@@ -91,7 +93,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -104,3 +106,5 @@ SEE ALSO
 
    MPI_Pack_external
    MPI_Unpack_external
+
+.. seealso:: :ref:`MPI_Pack_external` :ref:`MPI_Comm_set_errhandler`

@@ -1,7 +1,9 @@
+.. _MPI_File_set_size:
+
 MPI_File_set_size
 ~~~~~~~~~~~~~~~~~
 
-``MPI_File_set_size`` - Resizes a file (collective).
+:ref:`MPI_File_set_size`  - Resizes a file (collective).
 
 SYNTAX
 ======
@@ -55,24 +57,24 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_File_set_size`` resizes the file associated with the file handle *fh,*
-truncating UNIX files as necessary. ``MPI_File_set_size`` is collective; all
+:ref:`MPI_File_set_size`  resizes the file associated with the file handle *fh,*
+truncating UNIX files as necessary. :ref:`MPI_File_set_size`  is collective; all
 processes in the group must pass identical values for size.
 
-When using ``MPI_File_set_size`` on a UNIX file, if *size* is larger than
+When using :ref:`MPI_File_set_size`  on a UNIX file, if *size* is larger than
 the current file size, the file size becomes *size*. If *size* is
 smaller than the current file size, the file is truncated at the
 position defined by *size* (from the beginning of the file and measured
 in bytes). Regions of the file which have been previously written are
 unaffected.
 
-``MPI_File_set_size`` does not affect the individual file pointers or the
+:ref:`MPI_File_set_size`  does not affect the individual file pointers or the
 shared file pointer.
 
 Note that the actual amount of storage space cannot be allocated by
-``MPI_File_set_size``. Use ``MPI_File_preallocate`` to accomplish this.
+:ref:`MPI_File_set_size` . Use :ref:`MPI_File_preallocate`  to accomplish this.
 
-It is erroneous to call this function if ``MPI_MODE_SEQUENTIAL`` mode was
+It is erroneous to call this function if :ref:`MPI_MODE_SEQUENTIAL`  mode was
 specified when the file was opened.
 
 FORTRAN 77 NOTES
@@ -86,7 +88,7 @@ syntax
 
         INTEGER*MPI_OFFSET_KIND SIZE
 
-where ``MPI_OFFSET_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_OFFSET_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
@@ -97,7 +99,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_preallocate` :ref:`MPI_File_set_errhandler`

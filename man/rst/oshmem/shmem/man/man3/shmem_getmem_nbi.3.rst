@@ -1,3 +1,5 @@
+.. _shmem_getmem_nbi:
+
 shmem_getmem_nbi
 ~~~~~~~~~~~~~~~~
 
@@ -164,3 +166,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_quiet*\ (3)
+
+.. seealso::

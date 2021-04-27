@@ -1,7 +1,9 @@
+.. _MPI_Pack_size:
+
 MPI_Pack_size
 ~~~~~~~~~~~~~
 
-``MPI_Pack_size`` - Returns the upper bound on the amount of space
+:ref:`MPI_Pack_size`  - Returns the upper bound on the amount of space
 needed to pack a message.
 
 SYNTAX
@@ -61,10 +63,10 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Pack_size`` allows the application to find out how much space is
-needed to pack a message. A call to ``MPI_Pack_size(incount``, datatype,
+:ref:`MPI_Pack_size`  allows the application to find out how much space is
+needed to pack a message. A call to :ref:`MPI_Pack_size(incount` , datatype,
 comm, size) returns in size an upper bound on the increment in position
-that would occur in a call to ``MPI_Pack``, with the same values for
+that would occur in a call to :ref:`MPI_Pack` , with the same values for
 *incount*, *datatype*, and *comm*.
 
 **Rationale:** The call returns an upper bound, rather than an exact
@@ -81,12 +83,14 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Pack``
-| ``MPI_Unpack``
+| :ref:`MPI_Pack` 
+| :ref:`MPI_Unpack` 
+
+.. seealso:: :ref:`MPI_Pack_size(incount` :ref:`MPI_Pack` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Unpack`

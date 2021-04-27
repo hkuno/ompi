@@ -1,7 +1,9 @@
+.. _MPI_Type_create_struct:
+
 MPI_Type_create_struct
 ~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Type_create_struct`` - Creates a structured data type.
+:ref:`MPI_Type_create_struct`  - Creates a structured data type.
 
 SYNTAX
 ======
@@ -68,11 +70,11 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Type_create_struct`` creates a structured data type. This routine
-replaces ``MPI_Type_struct``, which is now deprecated.
+:ref:`MPI_Type_create_struct`  creates a structured data type. This routine
+replaces :ref:`MPI_Type_struct` , which is now deprecated.
 
-NOTE - This routine replaces ``MPI_Type_struct``, which is deprecated. See
-the man page ``MPI_Type_struct(3)`` for information about that routine.
+NOTE - This routine replaces :ref:`MPI_Type_struct` , which is deprecated. See
+the man page :ref:`MPI_Type_struct(3)`  for information about that routine.
 
 FORTRAN 77 NOTES
 ================
@@ -85,7 +87,7 @@ users may use the non-portable syntax
 
         INTEGER*MPI_ADDRESS_KIND ARRAY_OF_DISPLACEMENTS(*)
 
-where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_ADDRESS_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
@@ -97,12 +99,14 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Type_struct``
-| ``MPI_Type_create_hindexed``
+| :ref:`MPI_Type_struct` 
+| :ref:`MPI_Type_create_hindexed` 
+
+.. seealso:: :ref:`MPI_Type_struct` :ref:`MPI_Type_struct(3)` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Type_create_hindexed`

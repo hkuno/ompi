@@ -1,7 +1,9 @@
+.. _MPI_File_write:
+
 MPI_File_write
 ~~~~~~~~~~~~~~
 
-``MPI_File_write`` - Writes a file starting at the location specified by
+:ref:`MPI_File_write`  - Writes a file starting at the location specified by
 the individual file pointer (blocking, noncollective).
 
 SYNTAX
@@ -71,15 +73,15 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_File_write`` attempts to write into the file associated with *fh* (at
+:ref:`MPI_File_write`  attempts to write into the file associated with *fh* (at
 the current individual file pointer position maintained by the system) a
 total number of *count* data items having *datatype* type from the
 user's buffer *buf.* The data is written into those parts of the file
-specified by the current view. ``MPI_File_write`` stores the number of
+specified by the current view. :ref:`MPI_File_write`  stores the number of
 *datatype* elements actually written in *status.* All other fields of
 *status* are undefined.
 
-It is erroneous to call this function if ``MPI_MODE_SEQUENTIAL`` mode was
+It is erroneous to call this function if :ref:`MPI_MODE_SEQUENTIAL`  mode was
 specified when the file was opened.
 
 ERRORS
@@ -90,7 +92,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_set_errhandler`

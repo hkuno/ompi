@@ -1,3 +1,5 @@
+.. _shmem_char_p:
+
 shmem_char_p
 ~~~~~~~~~~~~
 
@@ -60,3 +62,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_put*\ (3)
+
+.. seealso::

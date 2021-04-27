@@ -1,7 +1,9 @@
+.. _MPI_File_get_size:
+
 MPI_File_get_size
 ~~~~~~~~~~~~~~~~~
 
-``MPI_File_get_size`` - Returns the current size of the file.
+:ref:`MPI_File_get_size`  - Returns the current size of the file.
 
 SYNTAX
 ======
@@ -55,7 +57,7 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_File_get_size`` returns, in *size* , the current size in bytes of the
+:ref:`MPI_File_get_size`  returns, in *size* , the current size in bytes of the
 file associated with the file handle *fh*. Note that the file size
 returned by Solaris may not represent the number of bytes physically
 allocated for the file in those cases where all bytes in this file have
@@ -72,7 +74,7 @@ non-portable syntax
 
         INTEGER*MPI_OFFSET_KIND SIZE
 
-where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_ADDRESS_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
@@ -83,13 +85,15 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
 |
-| ``MPI_File_preallocate``
+| :ref:`MPI_File_preallocate` 
+
+.. seealso:: :ref:`MPI_File_set_errhandler` :ref:`MPI_File_preallocate`

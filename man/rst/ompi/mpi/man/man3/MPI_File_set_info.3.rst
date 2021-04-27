@@ -1,7 +1,9 @@
+.. _MPI_File_set_info:
+
 MPI_File_set_info
 ~~~~~~~~~~~~~~~~~
 
-``MPI_File_set_info`` - Sets new values for hints (collective).
+:ref:`MPI_File_set_info`  - Sets new values for hints (collective).
 
 SYNTAX
 ======
@@ -57,10 +59,10 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_File_set_info`` is a collective routine that sets new values for the
+:ref:`MPI_File_set_info`  is a collective routine that sets new values for the
 hints of the file associated with *fh*. These hints are set for each
-file, using the ``MPI_File_open``, ``MPI_File_delete``, ``MPI_File_set_view``, and
-``MPI_File_set_info`` routines. The opaque *info* object, which allows you
+file, using the :ref:`MPI_File_open` , :ref:`MPI_File_delete` , :ref:`MPI_File_set_view` , and
+:ref:`MPI_File_set_info`  routines. The opaque *info* object, which allows you
 to provide hints for optimization of your code, may be different on each
 process, but some *info* entries are required to be the same on all
 processes: In these cases, they must appear with the same value in each
@@ -75,11 +77,11 @@ The following hints can be used as values for the *info* argument.
 SETTABLE HINTS:
 
 - shared_file_timeout: Amount of time (in seconds) to wait for access to
-the shared file pointer before exiting with ``MPI_ERR_TIMEDOUT``.
+the shared file pointer before exiting with :ref:`MPI_ERR_TIMEDOUT` .
 
 - rwlock_timeout: Amount of time (in seconds) to wait for obtaining a
 read or write lock on a contiguous chunk of a UNIX file before exiting
-with ``MPI_ERR_TIMEDOUT``.
+with :ref:`MPI_ERR_TIMEDOUT` .
 
 - noncoll_read_bufsize: Maximum size of the buffer used by MPI I/O to
 satisfy read requests in the noncollective data-access routines. (See
@@ -127,7 +129,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_open` :ref:`MPI_File_delete` :ref:`MPI_File_set_view` :ref:`MPI_File_set_errhandler`

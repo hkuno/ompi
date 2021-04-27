@@ -1,7 +1,9 @@
+.. _MPI_Ssend_init:
+
 MPI_Ssend_init
 ~~~~~~~~~~~~~~
 
-``MPI_Ssend_init`` - Builds a handle for a synchronous send.
+:ref:`MPI_Ssend_init`  - Builds a handle for a synchronous send.
 
 SYNTAX
 ======
@@ -73,7 +75,7 @@ Creates a persistent communication object for a synchronous mode send
 operation, and binds to it all the arguments of a send operation.
 
 A communication (send or receive) that uses a persistent request is
-initiated by the function ``MPI_Start``.
+initiated by the function :ref:`MPI_Start` .
 
 ERRORS
 ======
@@ -84,17 +86,19 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Bsend_init``
-| ``MPI_Send_init``
-| ``MPI_Rsend_init``
-| ``MPI_Recv_init``
-| ``MPI_Start``
-| ``MPI_Startall``
-| ``MPI_Ssend``
+| :ref:`MPI_Bsend_init` 
+| :ref:`MPI_Send_init` 
+| :ref:`MPI_Rsend_init` 
+| :ref:`MPI_Recv_init` 
+| :ref:`MPI_Start` 
+| :ref:`MPI_Startall` 
+| :ref:`MPI_Ssend` 
+
+.. seealso:: :ref:`MPI_Start` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Bsend_init` :ref:`MPI_Send_init` :ref:`MPI_Rsend_init` :ref:`MPI_Recv_init` :ref:`MPI_Startall` :ref:`MPI_Ssend`

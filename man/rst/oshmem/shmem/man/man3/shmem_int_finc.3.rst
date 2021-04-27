@@ -1,3 +1,5 @@
+.. _shmem_int_finc:
+
 shmem_int_finc
 ~~~~~~~~~~~~~~
 
@@ -72,3 +74,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3)
+
+.. seealso::

@@ -1,7 +1,9 @@
+.. _MPI_Comm_spawn:
+
 MPI_Comm_spawn
 ~~~~~~~~~~~~~~
 
-``MPI_Comm_spawn`` - Spawns a number of identical binaries.
+:ref:`MPI_Comm_spawn`  - Spawns a number of identical binaries.
 
 SYNTAX
 ======
@@ -76,28 +78,28 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_Comm_spawn`` tries to start *maxprocs* identical copies of the MPI
+:ref:`MPI_Comm_spawn`  tries to start *maxprocs* identical copies of the MPI
 program specified by *command*, establishing communication with them and
 returning an intercommunicator. The spawned processes are referred to as
-children. The children have their own ``MPI_COMM_WORLD``, which is separate
-from that of the parents. ``MPI_Comm_spawn`` is collective over *comm*, and
-also may not return until ``MPI_Init`` has been called in the children.
-Similarly, ``MPI_Init`` in the children may not return until all parents
-have called ``MPI_Comm_spawn``. In this sense, ``MPI_Comm_spawn`` in the parents
-and ``MPI_Init`` in the children form a collective operation over the union
+children. The children have their own :ref:`MPI_COMM_WORLD` , which is separate
+from that of the parents. :ref:`MPI_Comm_spawn`  is collective over *comm*, and
+also may not return until :ref:`MPI_Init`  has been called in the children.
+Similarly, :ref:`MPI_Init`  in the children may not return until all parents
+have called :ref:`MPI_Comm_spawn` . In this sense, :ref:`MPI_Comm_spawn`  in the parents
+and :ref:`MPI_Init`  in the children form a collective operation over the union
 of parent and child processes. The intercommunicator returned by
-``MPI_Comm_spawn`` contains the parent processes in the local group and the
+:ref:`MPI_Comm_spawn`  contains the parent processes in the local group and the
 child processes in the remote group. The ordering of processes in the
 local and remote groups is the same as the as the ordering of the group
-of the *comm* in the parents and of ``MPI_COMM_WORLD`` of the children,
+of the *comm* in the parents and of :ref:`MPI_COMM_WORLD`  of the children,
 respectively. This intercommunicator can be obtained in the children
-through the function ``MPI_Comm_get_parent``.
+through the function :ref:`MPI_Comm_get_parent` .
 
-The MPI standard allows an implementation to use the ``MPI_UNIVERSE_SIZE``
-attribute of ``MPI_COMM_WORLD`` to specify the number of processes that will
+The MPI standard allows an implementation to use the :ref:`MPI_UNIVERSE_SIZE` 
+attribute of :ref:`MPI_COMM_WORLD`  to specify the number of processes that will
 be active in a program. Although this implementation of the MPI standard
-defines ``MPI_UNIVERSE_SIZE``, it does not allow the user to set its value.
-If you try to set the value of ``MPI_UNIVERSE_SIZE``, you will get an error
+defines :ref:`MPI_UNIVERSE_SIZE` , it does not allow the user to set its value.
+If you try to set the value of :ref:`MPI_UNIVERSE_SIZE` , you will get an error
 message.
 
 The *command* Argument
@@ -117,25 +119,25 @@ Fortran (note that it is the MPI application's responsibility to ensure
 that the last entry of the *argv* array is an empty string; the compiler
 will not automatically insert it). In Fortran, leading and trailing
 spaces are always stripped, so that a string consisting of all spaces is
-considered an empty string. The constant ``MPI_ARGV_NULL`` may be used in C
+considered an empty string. The constant :ref:`MPI_ARGV_NULL`  may be used in C
 and Fortran to indicate an empty argument list. In C, this constant is
 the same as NULL.
 
-In C, the ``MPI_Comm_spawn`` argument *argv* differs from the *argv*
+In C, the :ref:`MPI_Comm_spawn`  argument *argv* differs from the *argv*
 argument of *main* in two respects. First, it is shifted by one element.
 Specifically, *argv*\ [0] of *main* contains the name of the program
 (given by *command*). *argv*\ [1] of *main* corresponds to *argv*\ [0]
-in ``MPI_Comm_spawn``, *argv*\ [2] of *main* to *argv*\ [1] of
-``MPI_Comm_spawn``, and so on. Second, *argv* of ``MPI_Comm_spawn`` must be
+in :ref:`MPI_Comm_spawn` , *argv*\ [2] of *main* to *argv*\ [1] of
+:ref:`MPI_Comm_spawn` , and so on. Second, *argv* of :ref:`MPI_Comm_spawn`  must be
 null-terminated, so that its length can be determined. Passing an *argv*
-of ``MPI_ARGV_NULL`` to ``MPI_Comm_spawn`` results in *main* receiving *argc* of
+of :ref:`MPI_ARGV_NULL`  to :ref:`MPI_Comm_spawn`  results in *main* receiving *argc* of
 1 and an *argv* whose element 0 is the name of the program.
 
 The *maxprocs* Argument
 
 Open MPI tries to spawn *maxprocs* processes. If it is unable to spawn
-*maxprocs* processes, it raises an error of class ``MPI_ERR_SPAWN``. If MPI
-is able to spawn the specified number of processes, ``MPI_Comm_spawn``
+*maxprocs* processes, it raises an error of class :ref:`MPI_ERR_SPAWN` . If MPI
+is able to spawn the specified number of processes, :ref:`MPI_Comm_spawn` 
 returns successfully and the number of spawned processes, *m*, is given
 by the size of the remote group of *intercomm*.
 
@@ -144,7 +146,7 @@ which fewer than *maxprocs* processes may be returned is called soft.
 
 The *info* Argument
 
-The *info* argument is an opaque handle of type ``MPI_Info`` in C and
+The *info* argument is an opaque handle of type :ref:`MPI_Info`  in C and
 INTEGER in Fortran. It is a container for a number of user-specified
 (*key,value*) pairs. *key* and *value* are strings (null-terminated
 char\* in C, character*(*) in Fortran). Routines to create and
@@ -153,9 +155,9 @@ MPI-2 standard.
 
 For the SPAWN calls, *info* provides additional,
 implementation-dependent instructions to MPI and the runtime system on
-how to start processes. An application may pass ``MPI_INFO_NULL`` in C or
+how to start processes. An application may pass :ref:`MPI_INFO_NULL`  in C or
 Fortran. Portable programs not requiring detailed control over process
-locations should use ``MPI_INFO_NULL``.
+locations should use :ref:`MPI_INFO_NULL` .
 
 The following keys for *info* are recognized in Open MPI. (The reserved
 values mentioned in Section 5.3.4 of the MPI-2 standard are not
@@ -256,16 +258,16 @@ The *array_of_errcodes* Argument
 The *array_of_errcodes* is an array of length *maxprocs* in which MPI
 reports the status of the processes that MPI was requested to start. If
 all *maxprocs* processes were spawned, *array_of_errcodes* is filled in
-with the value ``MPI_SUCCESS``. If anyof the processes are *not* spawned,
-*array_of_errcodes* is filled in with the value ``MPI_ERR_SPAWN``. In C or
-Fortran, an application may pass ``MPI_ERRCODES_IGNORE`` if it is not
+with the value :ref:`MPI_SUCCESS` . If anyof the processes are *not* spawned,
+*array_of_errcodes* is filled in with the value :ref:`MPI_ERR_SPAWN` . In C or
+Fortran, an application may pass :ref:`MPI_ERRCODES_IGNORE`  if it is not
 interested in the error codes.
 
 NOTES
 =====
 
-Completion of ``MPI_Comm_spawn`` in the parent does not necessarily mean
-that ``MPI_Init`` has been called in the children (although the returned
+Completion of :ref:`MPI_Comm_spawn`  in the parent does not necessarily mean
+that :ref:`MPI_Init`  has been called in the children (although the returned
 intercommunicator can be used immediately).
 
 ERRORS
@@ -277,7 +279,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -289,3 +291,5 @@ SEE ALSO
    MPI_Comm_spawn_multiple(3)
    MPI_Comm_get_parent(3)
    mpirun(1)
+
+.. seealso:: :ref:`MPI_Init` :ref:`MPI_Comm_get_parent` :ref:`MPI_Info` :ref:`MPI_Comm_set_errhandler`

@@ -1,3 +1,5 @@
+.. _shmem_int_set:
+
 shmem_int_set
 ~~~~~~~~~~~~~
 
@@ -68,3 +70,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3)
+
+.. seealso::

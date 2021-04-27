@@ -1,3 +1,5 @@
+.. _MPI_Graph_map:
+
 MPI_Graph_map
 ~~~~~~~~~~~~~
 

@@ -1,3 +1,5 @@
+.. _MPI_Comm_delete_attr:
+
 MPI_Comm_delete_attr
 ~~~~~~~~~~~~~~~~~~~~
 

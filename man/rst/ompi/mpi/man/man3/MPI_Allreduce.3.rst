@@ -1,7 +1,9 @@
+.. _MPI_Allreduce:
+
 MPI_Allreduce
 ~~~~~~~~~~~~~
 
-``MPI_Allreduce``, ``MPI_Iallreduce`` - Combines values from all processes
+:ref:`MPI_Allreduce` , :ref:`MPI_Iallreduce`  - Combines values from all processes
 and distributes the result back to all processes.
 
 SYNTAX
@@ -89,12 +91,12 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-Same as ``MPI_Reduce`` except that the result appears in the receive buffer
+Same as :ref:`MPI_Reduce`  except that the result appears in the receive buffer
 of all the group members.
 
 **Example 1:** A routine that computes the product of a vector and an
 array that are distributed across a group of processes and returns the
-answer at all nodes (compare with Example 2, with ``MPI_Reduce``, below).
+answer at all nodes (compare with Example 2, with :ref:`MPI_Reduce` , below).
 
 ::
 
@@ -149,11 +151,11 @@ USE OF IN-PLACE OPTION
 
 When the communicator is an intracommunicator, you can perform an
 all-reduce operation in-place (the output buffer is used as the input
-buffer). Use the variable ``MPI_IN_PLACE`` as the value of *sendbuf* at all
+buffer). Use the variable :ref:`MPI_IN_PLACE`  as the value of *sendbuf* at all
 processes.
 
-Note that ``MPI_IN_PLACE`` is a special kind of value; it has the same
-restrictions on its use as ``MPI_BOTTOM``.
+Note that :ref:`MPI_IN_PLACE`  is a special kind of value; it has the same
+restrictions on its use as :ref:`MPI_BOTTOM` .
 
 Because the in-place option converts the receive buffer into a
 send-and-receive buffer, a Fortran binding that includes INTENT must
@@ -175,11 +177,11 @@ same, and the operation occurs in a single phase.
 NOTES ON COLLECTIVE OPERATIONS
 ==============================
 
-The reduction functions ( ``MPI_Op`` ) do not return an error value. As a
+The reduction functions ( :ref:`MPI_Op`  ) do not return an error value. As a
 result, if the functions detect an error, all they can do is either call
-``MPI_Abort`` or silently skip the problem. Thus, if you change the error
-handler from ``MPI_ERRORS_ARE_FATAL`` to something else, for example,
-``MPI_ERRORS_RETURN`` , then no error may be indicated.
+:ref:`MPI_Abort`  or silently skip the problem. Thus, if you change the error
+handler from :ref:`MPI_ERRORS_ARE_FATAL`  to something else, for example,
+:ref:`MPI_ERRORS_RETURN`  , then no error may be indicated.
 
 ERRORS
 ======
@@ -190,6 +192,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Iallreduce` :ref:`MPI_Reduce` :ref:`MPI_Op` :ref:`MPI_Abort` :ref:`MPI_Comm_set_errhandler`

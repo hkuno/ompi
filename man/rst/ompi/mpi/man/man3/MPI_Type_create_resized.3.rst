@@ -1,7 +1,9 @@
+.. _MPI_Type_create_resized:
+
 MPI_Type_create_resized
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Type_create_resized`` - Returns a new data type with new extent
+:ref:`MPI_Type_create_resized`  - Returns a new data type with new extent
 and upper and lower bounds.
 
 SYNTAX
@@ -61,7 +63,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Type_create_resized`` returns in *newtype* a handle to a new data type
+:ref:`MPI_Type_create_resized`  returns in *newtype* a handle to a new data type
 that is identical to *oldtype*, except that the lower bound of this new
 data type is set to be *lb*, and its upper bound is set to be *lb* +
 *extent*. Any previous *lb* and *ub* markers are erased, and a new pair
@@ -83,14 +85,14 @@ non-portable syntax
    or
         INTEGER*MPI_ADDRESS_KIND EXTENT
 
-where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_ADDRESS_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTE
 ====
 
-Use of ``MPI_Type_create_resized`` is strongly recommended over the old
-MPI-1 functions ``MPI_Type_extent`` and ``MPI_Type_lb``.
+Use of :ref:`MPI_Type_create_resized`  is strongly recommended over the old
+MPI-1 functions :ref:`MPI_Type_extent`  and :ref:`MPI_Type_lb` .
 
 ERRORS
 ======
@@ -101,11 +103,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-``MPI_Type_get_extent``
+:ref:`MPI_Type_get_extent` 
+
+.. seealso:: :ref:`MPI_Type_extent` :ref:`MPI_Type_lb` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Type_get_extent`

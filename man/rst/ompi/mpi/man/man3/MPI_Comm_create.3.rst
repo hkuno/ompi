@@ -1,3 +1,5 @@
+.. _MPI_Comm_create:
+
 MPI_Comm_create
 ~~~~~~~~~~~~~~~
 

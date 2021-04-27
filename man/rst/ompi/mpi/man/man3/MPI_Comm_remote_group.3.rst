@@ -1,7 +1,9 @@
+.. _MPI_Comm_remote_group:
+
 MPI_Comm_remote_group
 ~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Comm_remote_group`` - Accesses the remote group associated with an
+:ref:`MPI_Comm_remote_group`  - Accesses the remote group associated with an
 intercommunicator.
 
 SYNTAX
@@ -54,11 +56,11 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Comm_remote_group`` accesses the remote group associated with an
+:ref:`MPI_Comm_remote_group`  accesses the remote group associated with an
 intercommunicator.
 
-The intercommunicator accessors (``MPI_Comm_test_inter``,
-``MPI_Comm_remote_size``, ``MPI_Comm_remote_group)`` are all local operations.
+The intercommunicator accessors (:ref:`MPI_Comm_test_inter` ,
+:ref:`MPI_Comm_remote_size` , :ref:`MPI_Comm_remote_group)`  are all local operations.
 
 ERRORS
 ======
@@ -69,7 +71,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -82,3 +84,5 @@ SEE ALSO
    MPI_Comm_remote_size
    MPI_Intercomm_create
    MPI_Intercomm_merge
+
+.. seealso:: :ref:`MPI_Comm_test_inter` :ref:`MPI_Comm_remote_size` :ref:`MPI_Comm_remote_group)` :ref:`MPI_Comm_set_errhandler`

@@ -1,3 +1,5 @@
+.. _MPI_Status_f082f:
+
 MPI_Status_f082f
 ~~~~~~~~~~~~~~~~
 

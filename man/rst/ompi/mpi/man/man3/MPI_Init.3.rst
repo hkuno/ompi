@@ -1,7 +1,9 @@
+.. _MPI_Init:
+
 MPI_Init
 ~~~~~~~~
 
-``MPI_Init`` - Initializes the MPI execution environment
+:ref:`MPI_Init`  - Initializes the MPI execution environment
 
 SYNTAX
 ======
@@ -51,12 +53,12 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-This routine, or ``MPI_Init_thread``, must be called before most other MPI
+This routine, or :ref:`MPI_Init_thread` , must be called before most other MPI
 routines are called. There are a small number of errors, such as
-``MPI_Initialized`` and ``MPI_Finalized``. MPI can be initialized at most once;
-subsequent calls to ``MPI_Init`` or ``MPI_Init_thread`` are erroneous.
+:ref:`MPI_Initialized`  and :ref:`MPI_Finalized` . MPI can be initialized at most once;
+subsequent calls to :ref:`MPI_Init`  or :ref:`MPI_Init_thread`  are erroneous.
 
-All MPI programs must contain a call to ``MPI_Init`` or ``MPI_Init_thread``.
+All MPI programs must contain a call to :ref:`MPI_Init`  or :ref:`MPI_Init_thread` .
 Open MPI accepts the C *argc* and *argv* arguments to main, but neither
 modifies, interprets, nor distributes them:
 
@@ -76,8 +78,8 @@ NOTES
 The Fortran version does not have provisions for *argc* and *argv* and
 takes only IERROR.
 
-The MPI Standard does not say what a program can do before an ``MPI_Init``
-or after an ``MPI_Finalize``. In the Open MPI implementation, it should do
+The MPI Standard does not say what a program can do before an :ref:`MPI_Init` 
+or after an :ref:`MPI_Finalize` . In the Open MPI implementation, it should do
 as little as possible. In particular, avoid anything that changes the
 external state of the program, such as opening files, reading standard
 input, or writing to standard output.
@@ -91,7 +93,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -106,3 +108,5 @@ SEE ALSO
    MPI_Initialized
    MPI_Finalize
    MPI_Finalized
+
+.. seealso:: :ref:`MPI_Init_thread` :ref:`MPI_Initialized` :ref:`MPI_Finalized` :ref:`MPI_Finalize` :ref:`MPI_Comm_set_errhandler`

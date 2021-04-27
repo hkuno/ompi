@@ -1,3 +1,5 @@
+.. _shmem_putmem_nbi:
+
 shmem_putmem_nbi
 ~~~~~~~~~~~~~~~~
 
@@ -167,3 +169,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_quiet*\ (3)
+
+.. seealso::

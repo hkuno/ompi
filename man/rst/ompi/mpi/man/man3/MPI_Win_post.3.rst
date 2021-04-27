@@ -1,7 +1,9 @@
+.. _MPI_Win_post:
+
 MPI_Win_post
 ~~~~~~~~~~~~
 
-``MPI_Win_post`` - Starts an RMA exposure epoch for the local window
+:ref:`MPI_Win_post`  - Starts an RMA exposure epoch for the local window
 associated with *win*
 
 SYNTAX
@@ -60,7 +62,7 @@ DESCRIPTION
 Starts an RMA exposure epoch for the local window associated with *win*.
 Only the processes belonging to *group* should access the window with
 RMA calls on *win* during this epoch. Each process in *group* must issue
-a matching call to ``MPI_Win_start``. ``MPI_Win_post`` does not block.
+a matching call to :ref:`MPI_Win_start` . :ref:`MPI_Win_post`  does not block.
 
 ERRORS
 ======
@@ -71,11 +73,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Win_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Win_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Win_start`` ``MPI_Win_wait``
+| :ref:`MPI_Win_start`  :ref:`MPI_Win_wait` 
+
+.. seealso:: :ref:`MPI_Win_start` :ref:`MPI_Win_set_errhandler` :ref:`MPI_Win_wait`

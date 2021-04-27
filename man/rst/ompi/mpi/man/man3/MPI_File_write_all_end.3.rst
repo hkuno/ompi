@@ -1,7 +1,9 @@
+.. _MPI_File_write_all_end:
+
 MPI_File_write_all_end
 ~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_File_write_all_end`` - Writes a file starting at the locations
+:ref:`MPI_File_write_all_end`  - Writes a file starting at the locations
 specified by individual file pointers; ending part of a split collective
 routine (blocking).
 
@@ -63,11 +65,11 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_File_write_all_end`` is the ending part of a split collective routine
+:ref:`MPI_File_write_all_end`  is the ending part of a split collective routine
 that stores the number of elements actually written into the file
 associated with *fh* from the user's buffer *buf* in *status.*
-``MPI_File_write_all_end`` blocks until the operation initiated by
-``MPI_File_write_all_begin`` completes. The data is written into those parts
+:ref:`MPI_File_write_all_end`  blocks until the operation initiated by
+:ref:`MPI_File_write_all_begin`  completes. The data is written into those parts
 of the file specified by the current view. All other fields of *status*
 are undefined.
 
@@ -87,7 +89,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_write_all_begin` :ref:`MPI_File_set_errhandler`

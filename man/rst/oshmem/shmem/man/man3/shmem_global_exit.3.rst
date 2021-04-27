@@ -1,3 +1,5 @@
+.. _shmem_global_exit:
+
 shmem_global_exit
 ~~~~~~~~~~~~~~~~~
 
@@ -44,3 +46,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_my_pe*\ (3), *shmem_init*\ (3)
+
+.. seealso::

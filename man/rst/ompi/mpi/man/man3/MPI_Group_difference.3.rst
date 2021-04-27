@@ -1,3 +1,5 @@
+.. _MPI_Group_difference:
+
 MPI_Group_difference
 ~~~~~~~~~~~~~~~~~~~~
 

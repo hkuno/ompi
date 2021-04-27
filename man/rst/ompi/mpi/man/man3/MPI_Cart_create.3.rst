@@ -1,3 +1,5 @@
+.. _MPI_Cart_create:
+
 MPI_Cart_create
 ~~~~~~~~~~~~~~~
 

@@ -1,7 +1,9 @@
+.. _MPI_Error_class:
+
 MPI_Error_class
 ~~~~~~~~~~~~~~~
 
-``MPI_Error_class`` - Converts an error code into an error class.
+:ref:`MPI_Error_class`  - Converts an error code into an error class.
 
 SYNTAX
 ======
@@ -53,7 +55,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-The function ``MPI_Error_class`` maps each standard error code (error class)
+The function :ref:`MPI_Error_class`  maps each standard error code (error class)
 onto itself.
 
 ERRORS
@@ -65,11 +67,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-``MPI_Error_string``
+:ref:`MPI_Error_string` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Error_string`

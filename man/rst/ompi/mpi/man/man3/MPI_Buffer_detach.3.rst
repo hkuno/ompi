@@ -1,3 +1,5 @@
+.. _MPI_Buffer_detach:
+
 MPI_Buffer_detach
 ~~~~~~~~~~~~~~~~~
 

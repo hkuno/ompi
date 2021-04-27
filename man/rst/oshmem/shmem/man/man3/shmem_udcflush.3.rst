@@ -1,3 +1,5 @@
+.. _shmem_udcflush:
+
 shmem_udcflush
 ~~~~~~~~~~~~~~
 
@@ -77,3 +79,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_put*\ (3), *shmem_swap*\ (3)
+
+.. seealso::

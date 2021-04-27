@@ -1,7 +1,9 @@
+.. _MPI_Type_create_darray:
+
 MPI_Type_create_darray
 ~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Type_create_darray`` - Creates a distributed array datatype;
+:ref:`MPI_Type_create_darray`  - Creates a distributed array datatype;
 
 SYNTAX
 ======
@@ -82,11 +84,11 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Type_create_darray`` can be used to generate the data types
+:ref:`MPI_Type_create_darray`  can be used to generate the data types
 corresponding to the distribution of an ndims-dimensional array of
 *oldtype* elements onto an *ndims*-dimensional grid of logical
 processes. Unused dimensions of *array_of_psizes* should be set to 1.
-For a call to ``MPI_Type_create_darray`` to be correct, the equation
+For a call to :ref:`MPI_Type_create_darray`  to be correct, the equation
 
 ::
 
@@ -106,47 +108,47 @@ Each dimension of the array can be distributed in one of three ways:
    - MPI_DISTRIBUTE_CYCLIC - Cyclic distribution
    - MPI_DISTRIBUTE_NONE - Dimension not distributed.
 
-The constant ``MPI_DISTRIBUTE_DFLT_DARG`` specifies a default distribution
+The constant :ref:`MPI_DISTRIBUTE_DFLT_DARG`  specifies a default distribution
 argument. The distribution argument for a dimension that is not
 distributed is ignored. For any dimension *i* in which the distribution
-is ``MPI_DISTRIBUTE_BLOCK``, it erroneous to specify *array_of_dargs[i]*
+is :ref:`MPI_DISTRIBUTE_BLOCK` , it erroneous to specify *array_of_dargs[i]*
 *\** *array_of_psizes[i]* < *array_of_gsizes[i]*.
 
 For example, the HPF layout ARRAY(CYCLIC(15)) corresponds to
-``MPI_DISTRIBUTE_CYCLIC`` with a distribution argument of 15, and the HPF
-layout ARRAY(BLOCK) corresponds to ``MPI_DISTRIBUTE_BLOCK`` with a
-distribution argument of ``MPI_DISTRIBUTE_DFLT_DARG``.
+:ref:`MPI_DISTRIBUTE_CYCLIC`  with a distribution argument of 15, and the HPF
+layout ARRAY(BLOCK) corresponds to :ref:`MPI_DISTRIBUTE_BLOCK`  with a
+distribution argument of :ref:`MPI_DISTRIBUTE_DFLT_DARG` .
 
-The *order* argument is used as in ``MPI_TYPE_CREATE_SUBARRAY`` to specify
+The *order* argument is used as in :ref:`MPI_TYPE_CREATE_SUBARRAY`  to specify
 the storage order. Therefore, arrays described by this type constructor
 may be stored in Fortran (column-major) or C (row-major) order. Valid
-values for order are ``MPI_ORDER_FORTRAN`` and ``MPI_ORDER_C``.
+values for order are :ref:`MPI_ORDER_FORTRAN`  and :ref:`MPI_ORDER_C` .
 
 This routine creates a new MPI data type with a typemap defined in terms
 of a function called "cyclic()" (see below).
 
 Without loss of generality, it suffices to define the typemap for the
-``MPI_DISTRIBUTE_CYCLIC`` case where ``MPI_DISTRIBUTE_DFLT_DARG`` is not used.
+:ref:`MPI_DISTRIBUTE_CYCLIC`  case where :ref:`MPI_DISTRIBUTE_DFLT_DARG`  is not used.
 
-``MPI_DISTRIBUTE_BLOCK`` and ``MPI_DISTRIBUTE_NONE`` can be reduced to the
-``MPI_DISTRIBUTE_CYCLIC`` case for dimension *i* as follows.
+:ref:`MPI_DISTRIBUTE_BLOCK`  and :ref:`MPI_DISTRIBUTE_NONE`  can be reduced to the
+:ref:`MPI_DISTRIBUTE_CYCLIC`  case for dimension *i* as follows.
 
-``MPI_DISTRIBUTE_BLOCK`` with *array_of_dargs[i]* equal to
-``MPI_DISTRIBUTE_DFLT_DARG`` is equivalent to ``MPI_DISTRIBUTE_CYCLIC`` with
+:ref:`MPI_DISTRIBUTE_BLOCK`  with *array_of_dargs[i]* equal to
+:ref:`MPI_DISTRIBUTE_DFLT_DARG`  is equivalent to :ref:`MPI_DISTRIBUTE_CYCLIC`  with
 *array_of_dargs[i]* set to
 
 ::
 
       (array_of_gsizes[i] + array_of_psizes[i] - 1)/array_of_psizes[i]
 
-If *array_of_dargs[i]* is not ``MPI_DISTRIBUTE_DFLT_DARG``, then
-``MPI_DISTRIBUTE_BLOCK`` and DISTRIBUTE_CYCLIC are equivalent.
+If *array_of_dargs[i]* is not :ref:`MPI_DISTRIBUTE_DFLT_DARG` , then
+:ref:`MPI_DISTRIBUTE_BLOCK`  and DISTRIBUTE_CYCLIC are equivalent.
 
-``MPI_DISTRIBUTE_NONE`` is equivalent to ``MPI_DISTRIBUTE_CYCLIC`` with
+:ref:`MPI_DISTRIBUTE_NONE`  is equivalent to :ref:`MPI_DISTRIBUTE_CYCLIC`  with
 *array_of_dargs[i]* set to *array_of_gsizes[i]*.
 
-Finally, ``MPI_DISTRIBUTE_CYCLIC`` with *array_of_dargs[i]* equal to
-``MPI_DISTRIBUTE_DFLT_DARG`` is equivalent to ``MPI_DISTRIBUTE_CYCLIC`` with
+Finally, :ref:`MPI_DISTRIBUTE_CYCLIC`  with *array_of_dargs[i]* equal to
+:ref:`MPI_DISTRIBUTE_DFLT_DARG`  is equivalent to :ref:`MPI_DISTRIBUTE_CYCLIC`  with
 *array_of_dargs[i]* set to 1.
 
 NOTES
@@ -168,6 +170,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler`

@@ -1,3 +1,5 @@
+.. _MPI_Get_count:
+
 MPI_Get_count
 ~~~~~~~~~~~~~
 

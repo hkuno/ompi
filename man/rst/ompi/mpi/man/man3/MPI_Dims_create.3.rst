@@ -1,7 +1,9 @@
+.. _MPI_Dims_create:
+
 MPI_Dims_create
 ~~~~~~~~~~~~~~~
 
-``MPI_Dims_create`` - Creates a division of processors in a Cartesian
+:ref:`MPI_Dims_create`  - Creates a division of processors in a Cartesian
 grid.
 
 SYNTAX
@@ -59,11 +61,11 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-For Cartesian topologies, the function ``MPI_Dims_create`` helps the user
+For Cartesian topologies, the function :ref:`MPI_Dims_create`  helps the user
 select a balanced distribution of processes per coordinate direction,
 depending on the number of processes in the group to be balanced and
 optional constraints that can be specified by the user. One use is to
-partition all the processes (the size of ``MPI_COMM_WORLD``'s group) into an
+partition all the processes (the size of :ref:`MPI_COMM_WORLD` 's group) into an
 n-dimensional topology.
 
 The entries in the array *dims* are set to describe a Cartesian grid
@@ -80,7 +82,7 @@ nnodes is not a multiple of ((pi) over (i, dims[i] != 0)) dims[i].
 
 For dims[i] set by the call, dims[i] will be ordered in nonincreasing
 order. Array dims is suitable for use as input to routine
-``MPI_Cart_create``. ``MPI_Dims_create`` is local.
+:ref:`MPI_Cart_create` . :ref:`MPI_Dims_create`  is local.
 
 **Example:**
 
@@ -106,6 +108,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Cart_create` :ref:`MPI_Comm_set_errhandler`

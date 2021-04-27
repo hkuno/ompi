@@ -1,7 +1,9 @@
+.. _MPI_T_pvar_session_create:
+
 MPI_T_pvar_session_create
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_T_pvar_session_create``, ``MPI_T_pvar_session_free`` - Create/free
+:ref:`MPI_T_pvar_session_create` , :ref:`MPI_T_pvar_session_free`  - Create/free
 performance variable session
 
 SYNTAX
@@ -21,31 +23,33 @@ C Syntax
 DESCRIPTION
 ===========
 
-``MPI_T_pvar_session_create`` creates a session for accessing performance
+:ref:`MPI_T_pvar_session_create`  creates a session for accessing performance
 variables. The new session is returned in the *session* parameter.
 
-``MPI_T_pvar_session_free`` releases a session allocated by
-``MPI_T_pvar_session_create`` and sets the *session* parameter to
-``MPI_T_PVAR_SESSION_NULL``.
+:ref:`MPI_T_pvar_session_free`  releases a session allocated by
+:ref:`MPI_T_pvar_session_create`  and sets the *session* parameter to
+:ref:`MPI_T_PVAR_SESSION_NULL` .
 
 ERRORS
 ======
 
-``MPI_T_pvar_session_create()`` will fail if:
+:ref:`MPI_T_pvar_session_create()`  will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED]``
+[:ref:`MPI_T_ERR_NOT_INITIALIZED]` 
    The MPI Tools interface not initialized
 
-[``MPI_T_ERR_MEMORY]``
+[:ref:`MPI_T_ERR_MEMORY]` 
    Out of memory
 
-[``MPI_T_ERR_OUT_OF_SESSIONS]``
+[:ref:`MPI_T_ERR_OUT_OF_SESSIONS]` 
    No more sessions available
 
-``MPI_T_pvar_session_free()`` will fail if:
+:ref:`MPI_T_pvar_session_free()`  will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED]``
+[:ref:`MPI_T_ERR_NOT_INITIALIZED]` 
    The MPI Tools interface not initialized
 
-[``MPI_T_ERR_INVALID_SESSION]``
+[:ref:`MPI_T_ERR_INVALID_SESSION]` 
    The session parameter is not a valid session
+
+.. seealso:: :ref:`MPI_T_pvar_session_free` :ref:`MPI_T_pvar_session_create()` :ref:`MPI_T_pvar_session_free()`

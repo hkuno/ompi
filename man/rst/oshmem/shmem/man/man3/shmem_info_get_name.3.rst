@@ -1,3 +1,5 @@
+.. _shmem_info_get_name:
+
 shmem_info_get_name
 ~~~~~~~~~~~~~~~~~~~
 
@@ -44,3 +46,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_my_pe*\ (3), *shmem_init*\ (3)
+
+.. seealso::

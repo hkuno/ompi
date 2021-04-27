@@ -1,7 +1,9 @@
+.. _MPI_File_sync:
+
 MPI_File_sync
 ~~~~~~~~~~~~~
 
-``MPI_File_sync`` - Makes semantics consistent for data-access
+:ref:`MPI_File_sync`  - Makes semantics consistent for data-access
 operations (collective).
 
 SYNTAX
@@ -52,14 +54,14 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-Calling ``MPI_File_sync`` with *fh* causes all previous writes to *fh* by
+Calling :ref:`MPI_File_sync`  with *fh* causes all previous writes to *fh* by
 the calling process to be written to permanent storage. If other
 processes have made updates to permanent storage, then all such updates
 become visible to subsequent reads of *fh* by the calling process.
 
-``MPI_File_sync`` is a collective operation. The user is responsible for
+:ref:`MPI_File_sync`  is a collective operation. The user is responsible for
 ensuring that all nonblocking requests on *fh* have been completed
-before calling ``MPI_File_sync``. Otherwise, the call to ``MPI_File_sync`` is
+before calling :ref:`MPI_File_sync` . Otherwise, the call to :ref:`MPI_File_sync`  is
 erroneous.
 
 ERRORS
@@ -70,7 +72,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_set_errhandler`

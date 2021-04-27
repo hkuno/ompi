@@ -1,7 +1,9 @@
+.. _MPI_Dist_graph_neighbors_count:
+
 MPI_Dist_graph_neighbors_count
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Dist_graph_neighbors_count`` - Returns the number of in and out
+:ref:`MPI_Dist_graph_neighbors_count`  - Returns the number of in and out
 edges for the calling processes in a distributed graph topology and a
 flag indicating whether the distributed graph is weighted.
 
@@ -62,9 +64,9 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Dist_graph_neighbors_count`` and ``MPI_Graph_neighbors`` provide adjacency
+:ref:`MPI_Dist_graph_neighbors_count`  and :ref:`MPI_Graph_neighbors`  provide adjacency
 information for a distributed graph topology.
-``MPI_Dist_graph_neighbors_count`` returns the number of sources and
+:ref:`MPI_Dist_graph_neighbors_count`  returns the number of sources and
 destinations for the calling process.
 
 ERRORS
@@ -76,11 +78,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-``MPI_Dist_graph_neighbors``
+:ref:`MPI_Dist_graph_neighbors` 
+
+.. seealso:: :ref:`MPI_Graph_neighbors` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Dist_graph_neighbors`

@@ -1,7 +1,9 @@
+.. _MPI_Win_flush:
+
 MPI_Win_flush
 ~~~~~~~~~~~~~
 
-``MPI_Win_flush``, ``MPI_Win_flush_all`` - Complete all outstanding RMA
+:ref:`MPI_Win_flush` , :ref:`MPI_Win_flush_all`  - Complete all outstanding RMA
 operations at both the origin and the target
 
 SYNTAX
@@ -63,10 +65,10 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_Win_flush`` completes all outstanding RMA operations initiated by
+:ref:`MPI_Win_flush`  completes all outstanding RMA operations initiated by
 the calling process to the target rank on the specified window. The
 operations are completed both at the origin and at the target.
-``MPI_Win_flush_all`` completes all outstanding RMA operations to all
+:ref:`MPI_Win_flush_all`  completes all outstanding RMA operations to all
 targets.
 
 Can only be called from within a passive target epoch.
@@ -80,12 +82,14 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned. Note
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned. Note
 that MPI does not guarantee that an MPI program can continue past an
 error.
 
 SEE ALSO
 ========
 
-| ``MPI_Win_flush_local`` ``MPI_Win_lock`` ``MPI_Win_lock_all``
+| :ref:`MPI_Win_flush_local`  :ref:`MPI_Win_lock`  :ref:`MPI_Win_lock_all` 
+
+.. seealso:: :ref:`MPI_Win_flush_all` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Win_flush_local` :ref:`MPI_Win_lock` :ref:`MPI_Win_lock_all`

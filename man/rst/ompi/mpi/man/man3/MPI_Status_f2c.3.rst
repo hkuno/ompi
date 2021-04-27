@@ -1,3 +1,5 @@
+.. _MPI_Status_f2c:
+
 MPI_Status_f2c
 ~~~~~~~~~~~~~~
 

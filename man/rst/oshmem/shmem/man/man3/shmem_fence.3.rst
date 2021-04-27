@@ -1,3 +1,5 @@
+.. _shmem_fence:
+
 shmem_fence
 ~~~~~~~~~~~
 
@@ -50,3 +52,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3)
+
+.. seealso::

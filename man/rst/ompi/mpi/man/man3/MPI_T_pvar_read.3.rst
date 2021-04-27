@@ -1,7 +1,9 @@
+.. _MPI_T_pvar_read:
+
 MPI_T_pvar_read
 ~~~~~~~~~~~~~~~
 
-``MPI_T_pvar_read`` - Read the value of a performance variable
+:ref:`MPI_T_pvar_read`  - Read the value of a performance variable
 
 SYNTAX
 ======
@@ -27,7 +29,7 @@ INPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_T_pvar_read`` queries the value of a performance variable identified
+:ref:`MPI_T_pvar_read`  queries the value of a performance variable identified
 by the handle specified in *handle* in the session specified in
 *session*. The result is stored in the buffer pointed to by *buf*. The
 caller must ensure that the buffer pointed to by *buf* is large enough
@@ -36,15 +38,15 @@ to hold the entire value of the performance variable.
 ERRORS
 ======
 
-``MPI_T_pvar_read()`` will fail if:
+:ref:`MPI_T_pvar_read()`  will fail if:
 
-[``MPI_T_ERR_NOT_INITIALIZED]``
+[:ref:`MPI_T_ERR_NOT_INITIALIZED]` 
    The MPI Tools interface not initialized
 
-[``MPI_T_ERR_INVALID_HANDLE]``
+[:ref:`MPI_T_ERR_INVALID_HANDLE]` 
    The handle is invalid or not associated with the session
 
-[``MPI_T_ERR_INVALID_SESSION]``
+[:ref:`MPI_T_ERR_INVALID_SESSION]` 
    Session argument is not a valid session
 
 SEE ALSO
@@ -55,3 +57,5 @@ SEE ALSO
    MPI_T_pvar_handle_alloc
    MPI_T_pvar_get_info
    MPI_T_pvar_session_create
+
+.. seealso:: :ref:`MPI_T_pvar_read()`

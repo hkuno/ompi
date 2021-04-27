@@ -1,7 +1,9 @@
+.. _MPI_Irecv:
+
 MPI_Irecv
 ~~~~~~~~~
 
-``MPI_Irecv`` - Starts a standard-mode, nonblocking receive.
+:ref:`MPI_Irecv`  - Starts a standard-mode, nonblocking receive.
 
 SYNTAX
 ======
@@ -80,7 +82,7 @@ the receive buffer after a nonblocking receive operation is called,
 until the receive completes.
 
 A receive request can be determined being completed by calling the
-``MPI_Wait``, ``MPI_Waitany``, ``MPI_Test``, or ``MPI_Testany`` with request returned by
+:ref:`MPI_Wait` , :ref:`MPI_Waitany` , :ref:`MPI_Test` , or :ref:`MPI_Testany`  with request returned by
 this function.
 
 ERRORS
@@ -92,11 +94,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Recv`` ``MPI_Probe`` ``MPI_Test`` ``MPI_Testany`` ``MPI_Wait`` ``MPI_Waitany``
+| :ref:`MPI_Recv`  :ref:`MPI_Probe`  :ref:`MPI_Test`  :ref:`MPI_Testany`  :ref:`MPI_Wait`  :ref:`MPI_Waitany` 
+
+.. seealso:: :ref:`MPI_Wait` :ref:`MPI_Waitany` :ref:`MPI_Test` :ref:`MPI_Testany` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Recv` :ref:`MPI_Probe`

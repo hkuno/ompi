@@ -1,3 +1,5 @@
+.. _shmem_set_lock:
+
 shmem_set_lock
 ~~~~~~~~~~~~~~
 
@@ -77,3 +79,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3)
+
+.. seealso::

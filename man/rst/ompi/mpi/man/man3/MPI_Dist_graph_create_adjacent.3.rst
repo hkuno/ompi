@@ -1,7 +1,9 @@
+.. _MPI_Dist_graph_create_adjacent:
+
 MPI_Dist_graph_create_adjacent
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Dist_graph_create_adjacent`` - Makes a new communicator to which
+:ref:`MPI_Dist_graph_create_adjacent`  - Makes a new communicator to which
 topology information has been attached.
 
 SYNTAX
@@ -81,7 +83,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Dist_graph_create_adjacent`` creats a new communicator
+:ref:`MPI_Dist_graph_create_adjacent`  creats a new communicator
 *comm_dist_graph* with distrubuted graph topology and returns a handle
 to the new communicator. The number of processes in *comm_dist_graph* is
 identical to the number of processes in *comm_old*. Each process passes
@@ -99,7 +101,7 @@ communication graph. Isolated processes (i.e., processes with no
 outgoing or incoming edges, that is, processes that have specied
 indegree and outdegree as zero and thus do not occur as source or
 destination rank in the graph specication) are allowed. The call to
-``MPI_Dist_graph_create_adjacent`` is collective.
+:ref:`MPI_Dist_graph_create_adjacent`  is collective.
 
 WEIGHTS
 =======
@@ -112,15 +114,15 @@ weights. Multiplicity of edges can likewise indicate more intense
 communication between pairs of processes. However, the exact meaning of
 edge weights is not specied by the MPI standard and is left to the
 implementation. An application can supply the special value
-``MPI_UNWEIGHTED`` for the weight array to indicate that all edges have the
-same (effectively no) weight. It is erroneous to supply ``MPI_UNWEIGHTED``
+:ref:`MPI_UNWEIGHTED`  for the weight array to indicate that all edges have the
+same (effectively no) weight. It is erroneous to supply :ref:`MPI_UNWEIGHTED` 
 for some but not all processes of comm_old. If the graph is weighted but
-*indegree* or *outdegree* is zero, then ``MPI_WEIGHTS_EMPTY`` or any
+*indegree* or *outdegree* is zero, then :ref:`MPI_WEIGHTS_EMPTY`  or any
 arbitrary array may be passed to sourceweights or destweights
-respectively. Note that ``MPI_UNWEIGHTED`` and ``MPI_WEIGHTS_EMPTY`` are not
+respectively. Note that :ref:`MPI_UNWEIGHTED`  and :ref:`MPI_WEIGHTS_EMPTY`  are not
 special weight values; rather they are special values for the total
-array argument. In Fortran, ``MPI_UNWEIGHTED`` and ``MPI_WEIGHTS_EMPTY`` are
-objects like ``MPI_BOTTOM`` (not usable for initialization or assignment).
+array argument. In Fortran, :ref:`MPI_UNWEIGHTED`  and :ref:`MPI_WEIGHTS_EMPTY`  are
+objects like :ref:`MPI_BOTTOM`  (not usable for initialization or assignment).
 See MPI-3 § 2.5.4.
 
 ERRORS
@@ -132,12 +134,14 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-``MPI_Dist_graph_create`` ``MPI_Dist_graph_neighbors``
-``MPI_Dist_graph_neighbors_count``
+:ref:`MPI_Dist_graph_create`  :ref:`MPI_Dist_graph_neighbors` 
+:ref:`MPI_Dist_graph_neighbors_count` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Dist_graph_create` :ref:`MPI_Dist_graph_neighbors` :ref:`MPI_Dist_graph_neighbors_count`

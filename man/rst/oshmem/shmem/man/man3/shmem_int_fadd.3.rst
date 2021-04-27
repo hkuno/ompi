@@ -1,3 +1,5 @@
+.. _shmem_int_fadd:
+
 shmem_int_fadd
 ~~~~~~~~~~~~~~
 
@@ -78,3 +80,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3)
+
+.. seealso::

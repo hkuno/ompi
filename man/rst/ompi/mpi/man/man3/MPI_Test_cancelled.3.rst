@@ -1,7 +1,9 @@
+.. _MPI_Test_cancelled:
+
 MPI_Test_cancelled
 ~~~~~~~~~~~~~~~~~~
 
-``MPI_Test_cancelled`` - Tests whether a request was canceled.
+:ref:`MPI_Test_cancelled`  - Tests whether a request was canceled.
 
 SYNTAX
 ======
@@ -58,7 +60,7 @@ Returns *flag* = true if the communication associated with the status
 object was canceled successfully. In such a case, all other fields of
 status (such as *count* or *tag*) are undefined. Otherwise, returns
 *flag* = false. If a receive operation might be canceled, one should
-call ``MPI_Test_cancelled`` first, to check whether the operation was
+call :ref:`MPI_Test_cancelled`  first, to check whether the operation was
 canceled, before checking on the other fields of the return status.
 
 NOTES
@@ -76,6 +78,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler`

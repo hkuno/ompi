@@ -1,7 +1,9 @@
+.. _MPI_Info_get_valuelen:
+
 MPI_Info_get_valuelen
 ~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Info_get_valuelen`` - Retrieves the length of the key value
+:ref:`MPI_Info_get_valuelen`  - Retrieves the length of the key value
 associated with an info object.
 
 SYNTAX
@@ -63,13 +65,13 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Info_get_valuelen`` retrieves the length of the *value* associated
+:ref:`MPI_Info_get_valuelen`  retrieves the length of the *value* associated
 with *key*. If *key* is defined, *valuelen* is set to the length of its
 associated value and *flag* is set to true. If *key* is not defined,
 *valuelen* is not touched and *flag* is set to false. The length
 returned in C does not include the end-of-string character.
 
-If *key* is larger than ``MPI_MAX_INFO_KEY``, the call is erroneous.
+If *key* is larger than :ref:`MPI_MAX_INFO_KEY` , the call is erroneous.
 
 ERRORS
 ======
@@ -80,13 +82,15 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Info_get``
-| ``MPI_Info_get_nkeys``
-| ``MPI_Info_get_nthkey``
+| :ref:`MPI_Info_get` 
+| :ref:`MPI_Info_get_nkeys` 
+| :ref:`MPI_Info_get_nthkey` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Info_get` :ref:`MPI_Info_get_nkeys` :ref:`MPI_Info_get_nthkey`

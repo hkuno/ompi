@@ -1,7 +1,9 @@
+.. _MPI_Allgatherv:
+
 MPI_Allgatherv
 ~~~~~~~~~~~~~~
 
-``MPI_Allgatherv``, ``MPI_Iallgatherv`` - Gathers data from all processes
+:ref:`MPI_Allgatherv` , :ref:`MPI_Iallgatherv`  - Gathers data from all processes
 and delivers it to all. Each process may contribute a different amount
 of data.
 
@@ -100,7 +102,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Allgatherv`` is similar to ``MPI_Allgather`` in that all processes gather
+:ref:`MPI_Allgatherv`  is similar to :ref:`MPI_Allgather`  in that all processes gather
 data from all other processes, except that each process can send a
 different amount of data. The block of data sent from the jth process is
 received by every process and placed in the jth block of the buffer
@@ -117,19 +119,19 @@ The outcome is as if all processes executed calls to
    MPI_Allgatherv(sendbuf,sendcount,sendtype,recvbuf,recvcount,
                displs,recvtype,root,comm)
 
-for root = 0 , ..., n-1. The rules for correct usage of ``MPI_Allgatherv``
-are easily found from the corresponding rules for ``MPI_Gatherv``.
+for root = 0 , ..., n-1. The rules for correct usage of :ref:`MPI_Allgatherv` 
+are easily found from the corresponding rules for :ref:`MPI_Gatherv` .
 
 USE OF IN-PLACE OPTION
 ======================
 
 When the communicator is an intracommunicator, you can perform an
 all-gather operation in-place (the output buffer is used as the input
-buffer). Use the variable ``MPI_IN_PLACE`` as the value of *sendbuf*. In
+buffer). Use the variable :ref:`MPI_IN_PLACE`  as the value of *sendbuf*. In
 this case, *sendcount* and *sendtype* are ignored. The input data of
 each process is assumed to be in the area where that process would
 receive its own contribution to the receive buffer. Specifically, the
-outcome of a call to ``MPI_Allgather`` that used the in-place option is
+outcome of a call to :ref:`MPI_Allgather`  that used the in-place option is
 identical to the case in which all processes executed *n* calls to
 
 ::
@@ -139,8 +141,8 @@ identical to the case in which all processes executed *n* calls to
 
    for root =0, ... , n-1.
 
-Note that ``MPI_IN_PLACE`` is a special kind of value; it has the same
-restrictions on its use as ``MPI_BOTTOM``.
+Note that :ref:`MPI_IN_PLACE`  is a special kind of value; it has the same
+restrictions on its use as :ref:`MPI_BOTTOM` .
 
 Because the in-place option converts the receive buffer into a
 send-and-receive buffer, a Fortran binding that includes INTENT must
@@ -167,12 +169,14 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Gatherv``
-| ``MPI_Allgather``
+| :ref:`MPI_Gatherv` 
+| :ref:`MPI_Allgather` 
+
+.. seealso:: :ref:`MPI_Iallgatherv` :ref:`MPI_Allgather` :ref:`MPI_Gatherv` :ref:`MPI_Comm_set_errhandler`

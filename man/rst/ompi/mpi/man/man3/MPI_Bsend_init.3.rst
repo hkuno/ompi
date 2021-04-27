@@ -1,3 +1,5 @@
+.. _MPI_Bsend_init:
+
 MPI_Bsend_init
 ~~~~~~~~~~~~~~
 

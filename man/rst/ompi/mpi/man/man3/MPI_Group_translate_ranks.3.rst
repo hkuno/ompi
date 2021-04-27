@@ -1,7 +1,9 @@
+.. _MPI_Group_translate_ranks:
+
 MPI_Group_translate_ranks
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Group_translate_ranks`` - Translates the ranks of processes in one
+:ref:`MPI_Group_translate_ranks`  - Translates the ranks of processes in one
 group to those in another group.
 
 SYNTAX
@@ -65,7 +67,7 @@ DESCRIPTION
 
 This function is important for determining the relative numbering of the
 same processes in two different groups. For instance, if one knows the
-ranks of certain processes in the group of ``MPI_COMM_WORLD``, one might
+ranks of certain processes in the group of :ref:`MPI_COMM_WORLD` , one might
 want to know their ranks in a subset of that group.
 
 ERRORS
@@ -77,6 +79,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler`

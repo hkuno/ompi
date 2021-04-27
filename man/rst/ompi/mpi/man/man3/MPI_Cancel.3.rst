@@ -1,3 +1,5 @@
+.. _MPI_Cancel:
+
 MPI_Cancel
 ~~~~~~~~~~
 

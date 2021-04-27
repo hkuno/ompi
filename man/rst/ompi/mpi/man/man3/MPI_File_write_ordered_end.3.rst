@@ -1,3 +1,5 @@
+.. _MPI_File_write_ordered_end:
+
 MPI_File_write_ordered_end
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -1,3 +1,5 @@
+.. _MPI_Group_incl:
+
 MPI_Group_incl
 ~~~~~~~~~~~~~~
 

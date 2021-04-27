@@ -1,7 +1,9 @@
+.. _MPI_File_get_position:
+
 MPI_File_get_position
 ~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_File_get_position`` - Returns the current position of the
+:ref:`MPI_File_get_position`  - Returns the current position of the
 individual file pointer.
 
 SYNTAX
@@ -56,7 +58,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_File_get_position`` returns, in *offset,* the current position of the
+:ref:`MPI_File_get_position`  returns, in *offset,* the current position of the
 individual file pointer in *etype* units relative to the current
 displacement and file type.
 
@@ -71,7 +73,7 @@ non-portable syntax
 
         INTEGER*MPI_OFFSET_KIND OFFSET
 
-where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_ADDRESS_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
@@ -82,7 +84,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_set_errhandler`

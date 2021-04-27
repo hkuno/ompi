@@ -1,3 +1,5 @@
+.. _shmem_short_iput:
+
 shmem_short_iput
 ~~~~~~~~~~~~~~~~
 
@@ -209,3 +211,5 @@ SEE ALSO
 
 *intro_shmem*\ (3), *shmem_iget*\ (3), *shmem_put*\ (3),
 *shmem_quiet*\ (3)
+
+.. seealso::

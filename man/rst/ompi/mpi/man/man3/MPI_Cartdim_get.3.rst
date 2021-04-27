@@ -1,3 +1,5 @@
+.. _MPI_Cartdim_get:
+
 MPI_Cartdim_get
 ~~~~~~~~~~~~~~~
 

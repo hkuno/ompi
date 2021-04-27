@@ -1,7 +1,9 @@
+.. _MPI_Waitsome:
+
 MPI_Waitsome
 ~~~~~~~~~~~~
 
-``MPI_Waitsome`` - Waits for some given communications to complete.
+:ref:`MPI_Waitsome`  - Waits for some given communications to complete.
 
 SYNTAX
 ======
@@ -77,30 +79,30 @@ is indexed from 0 in C and from 1 in Fortran). Returns in the first
 outcount locations of the array array_of_status the status for these
 completed operations. If a request that completed was allocated by a
 nonblocking communication call, then it is deallocated, and the
-associated handle is set to ``MPI_REQUEST_NULL``.
+associated handle is set to :ref:`MPI_REQUEST_NULL` .
 
 If the list contains no active handles, then the call returns
-immediately with outcount = ``MPI_UNDEFINED``.
+immediately with outcount = :ref:`MPI_UNDEFINED` .
 
-When one or more of the communications completed by ``MPI_Waitsome`` fails,
+When one or more of the communications completed by :ref:`MPI_Waitsome`  fails,
 then it is desirable to return specific information on each
 communication. The arguments outcount, array_of_indices, and
 array_of_statuses will be adjusted to indicate completion of all
 communications that have succeeded or failed. The call will return the
-error code ``MPI_ERR_IN_STATUS`` and the error field of each status returned
+error code :ref:`MPI_ERR_IN_STATUS`  and the error field of each status returned
 will be set to indicate success or to indicate the specific error that
-occurred. The call will return ``MPI_SUCCESS`` if no request resulted in an
+occurred. The call will return :ref:`MPI_SUCCESS`  if no request resulted in an
 error, and will return another error code if it failed for other reasons
 (such as invalid arguments). In such cases, it will not update the error
 fields of the statuses.
 
 If your application does not need to examine the *array_of_statuses*
 field, you can save resources by using the predefined constant
-``MPI_STATUSES_IGNORE`` can be used as a special value for the
+:ref:`MPI_STATUSES_IGNORE`  can be used as a special value for the
 *array_of_statuses* argument.
 
-**Example:** Same code as the example in the ``MPI_Waitany`` man page, but
-using ``MPI_Waitsome``.
+**Example:** Same code as the example in the :ref:`MPI_Waitany`  man page, but
+using :ref:`MPI_Waitsome` .
 
 ::
 
@@ -136,36 +138,38 @@ range 1 to incount for Fortran.
 ERRORS
 ======
 
-For each invocation of ``MPI_Waitsome``, if one or more requests generate an
+For each invocation of :ref:`MPI_Waitsome` , if one or more requests generate an
 MPI error, only the *first* MPI request that caused an error will be
 passed to its corresponding error handler. No other error handlers will
 be invoked (even if multiple requests generated errors). However, *all*
 requests that generate an error will have a relevant error code set in
-the corresponding status.``MPI_ERROR`` field (unless ``MPI_STATUSES_IGNORE`` was
+the corresponding status.:ref:`MPI_ERROR`  field (unless :ref:`MPI_STATUSES_IGNORE`  was
 used).
 
 The default error handler aborts the MPI job, except for I/O function
-errors. The error handler may be changed with ``MPI_Comm_set_errhandler``,
-``MPI_File_set_errhandler``, or ``MPI_Win_set_errhandler`` (depending on the
+errors. The error handler may be changed with :ref:`MPI_Comm_set_errhandler` ,
+:ref:`MPI_File_set_errhandler` , or :ref:`MPI_Win_set_errhandler`  (depending on the
 type of MPI handle that generated the MPI request); the predefined error
-handler ``MPI_ERRORS_RETURN`` may be used to cause error values to be
+handler :ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be
 returned. Note that MPI does not guarantee that an MPI program can
 continue past an error.
 
-If the invoked error handler allows ``MPI_Waitsome`` to return to the
-caller, the value ``MPI_ERR_IN_STATUS`` will be returned in the C and
+If the invoked error handler allows :ref:`MPI_Waitsome`  to return to the
+caller, the value :ref:`MPI_ERR_IN_STATUS`  will be returned in the C and
 Fortran bindings.
 
 SEE ALSO
 ========
 
-| ``MPI_Comm_set_errhandler``
-| ``MPI_File_set_errhandler``
-| ``MPI_Test``
-| ``MPI_Testall``
-| ``MPI_Testany``
-| ``MPI_Testsome``
-| ``MPI_Wait``
-| ``MPI_Waitall``
-| ``MPI_Waitany``
-| ``MPI_Win_set_errhandler``
+| :ref:`MPI_Comm_set_errhandler` 
+| :ref:`MPI_File_set_errhandler` 
+| :ref:`MPI_Test` 
+| :ref:`MPI_Testall` 
+| :ref:`MPI_Testany` 
+| :ref:`MPI_Testsome` 
+| :ref:`MPI_Wait` 
+| :ref:`MPI_Waitall` 
+| :ref:`MPI_Waitany` 
+| :ref:`MPI_Win_set_errhandler` 
+
+.. seealso:: :ref:`MPI_Waitany` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_File_set_errhandler` :ref:`MPI_Win_set_errhandler` :ref:`MPI_Test` :ref:`MPI_Testall` :ref:`MPI_Testany` :ref:`MPI_Testsome` :ref:`MPI_Wait` :ref:`MPI_Waitall`

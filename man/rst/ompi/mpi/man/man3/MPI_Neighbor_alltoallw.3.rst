@@ -1,7 +1,9 @@
+.. _MPI_Neighbor_alltoallw:
+
 MPI_Neighbor_alltoallw
 ~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Neighbor_alltoallw``, ``MPI_Ineighbor_alltoallw`` - All processes send
+:ref:`MPI_Neighbor_alltoallw` , :ref:`MPI_Ineighbor_alltoallw`  - All processes send
 data of different types to, and receive data of different types from,
 all processes
 
@@ -114,9 +116,9 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Neighbor_alltoallw`` is a generalized collective operation in which
+:ref:`MPI_Neighbor_alltoallw`  is a generalized collective operation in which
 all processes send data to and receive data from all neighbors. It adds
-flexibility to ``MPI_Neighbor_alltoallv`` by allowing the user to specify
+flexibility to :ref:`MPI_Neighbor_alltoallv`  by allowing the user to specify
 the datatype of individual data blocks (in addition to displacement and
 element count). Its operation can be thought of in the following way,
 where each process performs 2n (n being the number of neighbors in the
@@ -166,7 +168,7 @@ communicator.
 NOTES
 =====
 
-The ``MPI_IN_PLACE`` option for *sendbuf* is not meaningful for this
+The :ref:`MPI_IN_PLACE`  option for *sendbuf* is not meaningful for this
 operation
 
 The specification of counts, types, and displacements should not cause
@@ -176,7 +178,7 @@ All arguments on all processes are significant. The *comm* argument, in
 particular, must describe the same communicator on all processes.
 
 The offsets of *sdispls* and *rdispls* are measured in bytes. Compare
-this to ``MPI_Neighbor_alltoallv``, where these offsets are measured in
+this to :ref:`MPI_Neighbor_alltoallv` , where these offsets are measured in
 units of *sendtype* and *recvtype*, respectively.
 
 ERRORS
@@ -188,7 +190,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -202,3 +204,5 @@ SEE ALSO
    MPI_Cart_create
    MPI_Graph_create
    MPI_Dist_graph_create
+
+.. seealso:: :ref:`MPI_Ineighbor_alltoallw` :ref:`MPI_Neighbor_alltoallv` :ref:`MPI_Comm_set_errhandler`

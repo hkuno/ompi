@@ -1,3 +1,5 @@
+.. _MPI_Buffer_attach:
+
 MPI_Buffer_attach
 ~~~~~~~~~~~~~~~~~
 

@@ -1,3 +1,5 @@
+.. _MPI_Bcast:
+
 MPI_Bcast
 ~~~~~~~~~
 

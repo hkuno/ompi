@@ -1,3 +1,5 @@
+.. _MPI_Publish_name:
+
 MPI_Publish_name
 ~~~~~~~~~~~~~~~~
 
@@ -60,10 +62,10 @@ DESCRIPTION
 ===========
 
 This routine publishes the pair (*service_name, port_name*) so that an
-application may retrieve *port_name* by calling ``MPI_Lookup_name`` with
+application may retrieve *port_name* by calling :ref:`MPI_Lookup_name`  with
 *service_name* as an argument. It is an error to publish the same
 *service_name* twice, or to use a *port_name* argument that was not
-previously opened by the calling process via a call to ``MPI_Open_port``.
+previously opened by the calling process via a call to :ref:`MPI_Open_port` .
 
 INFO ARGUMENTS
 ==============
@@ -106,17 +108,17 @@ will place the specified service/port pair in a data store located on
 the mpirun of the calling process' job. Thus, data published with local
 scope will only be accessible to processes in jobs spawned by that
 mpirun - e.g., processes in the calling process' job, or in jobs spawned
-via ``MPI_Comm_spawn``.
+via :ref:`MPI_Comm_spawn` .
 
 Global scope places the specified service/port pair in a data store
 located on a central server that is accessible to all jobs running in
 the cluster or environment. Thus, data published with global scope can
-be accessed by multiple mpiruns and used for ``MPI_Comm_Connect`` and
-``MPI_Comm_accept`` between jobs.
+be accessed by multiple mpiruns and used for :ref:`MPI_Comm_Connect`  and
+:ref:`MPI_Comm_accept`  between jobs.
 
 Note that global scope operations require both the presence of the
 central server and that the calling process be able to communicate to
-that server. ``MPI_Publish_name`` will return an error if global scope is
+that server. :ref:`MPI_Publish_name`  will return an error if global scope is
 specified and a global server is either not specified or cannot be
 found.
 
@@ -130,10 +132,10 @@ process in job1 creates and publishes a service/port pair using a local
 scope. Open MPI will store this data in the data store within mpirun.
 
 A process in job1 (perhaps the same as did the publish, or perhaps some
-other process in the job) subsequently calls ``MPI_Comm_spawn`` to start
+other process in the job) subsequently calls :ref:`MPI_Comm_spawn`  to start
 another job (call it "job2") under this mpirun. Since the two jobs share
 a common mpirun, both jobs have access to local scope data. Hence, a
-process in job2 can perform an ``MPI_Lookup_name`` with a local scope to
+process in job2 can perform an :ref:`MPI_Lookup_name`  with a local scope to
 retrieve the information.
 
 However, assume another user starts a job using mpirun - call this job
@@ -153,7 +155,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -166,3 +168,5 @@ SEE ALSO
 
    MPI_Lookup_name
    MPI_Open_port
+
+.. seealso:: :ref:`MPI_Lookup_name` :ref:`MPI_Open_port` :ref:`MPI_Comm_spawn` :ref:`MPI_Comm_Connect` :ref:`MPI_Comm_accept` :ref:`MPI_Comm_set_errhandler`

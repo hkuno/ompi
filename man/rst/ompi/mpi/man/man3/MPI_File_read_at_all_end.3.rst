@@ -1,7 +1,9 @@
+.. _MPI_File_read_at_all_end:
+
 MPI_File_read_at_all_end
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_File_read_at_all_end`` - Reads a file at explicitly specified
+:ref:`MPI_File_read_at_all_end`  - Reads a file at explicitly specified
 offsets; ending part of a split collective routine (blocking).
 
 SYNTAX
@@ -60,10 +62,10 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_File_read_at_all_end`` is a split collective routine that stores the
+:ref:`MPI_File_read_at_all_end`  is a split collective routine that stores the
 number of elements actually read from the file associated with *fh* in
-*status.* ``MPI_File_read_at_all_end`` blocks until the operation initiated
-by ``MPI_File_read_at_all_begin`` completes. The data is taken out of those
+*status.* :ref:`MPI_File_read_at_all_end`  blocks until the operation initiated
+by :ref:`MPI_File_read_at_all_begin`  completes. The data is taken out of those
 parts of the file specified by the current view. All other fields of
 *status* are undefined.
 
@@ -83,7 +85,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_read_at_all_begin` :ref:`MPI_File_set_errhandler`

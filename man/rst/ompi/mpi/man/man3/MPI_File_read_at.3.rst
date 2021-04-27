@@ -1,7 +1,9 @@
+.. _MPI_File_read_at:
+
 MPI_File_read_at
 ~~~~~~~~~~~~~~~~
 
-``MPI_File_read_at`` - Reads a file at an explicitly specified offset
+:ref:`MPI_File_read_at`  - Reads a file at an explicitly specified offset
 (blocking, noncollective).
 
 SYNTAX
@@ -72,15 +74,15 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_File_read_at`` attempts to read from the file associated with *fh* (at
+:ref:`MPI_File_read_at`  attempts to read from the file associated with *fh* (at
 the *offset* position) a total number of *count* data items having
 *datatype* type into the user's buffer *buf.* The *offset* is in *etype*
 units relative to the current view. That is, holes are not counted when
 locating an offset. The data is taken out of those parts of the file
-specified by the current view. ``MPI_File_read_at`` stores the number of
+specified by the current view. :ref:`MPI_File_read_at`  stores the number of
 *datatype* elements actually read in *status.* All other fields of
 *status* are undefined. It is erroneous to call this function if
-``MPI_MODE_SEQUENTIAL`` mode was specified when the file was opened.
+:ref:`MPI_MODE_SEQUENTIAL`  mode was specified when the file was opened.
 
 FORTRAN 77 NOTES
 ================
@@ -93,7 +95,7 @@ syntax
 
         INTEGER*MPI_OFFSET_KIND OFFSET
 
-where ``MPI_OFFSET_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_OFFSET_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
@@ -104,7 +106,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_set_errhandler`

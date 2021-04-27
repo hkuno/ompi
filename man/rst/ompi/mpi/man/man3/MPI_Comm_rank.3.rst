@@ -1,7 +1,9 @@
+.. _MPI_Comm_rank:
+
 MPI_Comm_rank
 ~~~~~~~~~~~~~
 
-``MPI_Comm_rank`` - Determines the rank of the calling process in the
+:ref:`MPI_Comm_rank`  - Determines the rank of the calling process in the
 communicator.
 
 SYNTAX
@@ -56,13 +58,13 @@ DESCRIPTION
 
 This function gives the rank of the process in the particular
 communicator's group. It is equivalent to accessing the communicator's
-group with ``MPI_Comm_group``, computing the rank using ``MPI_Group_rank``, and
-then freeing the temporary group via ``MPI_Group_free``.
+group with :ref:`MPI_Comm_group` , computing the rank using :ref:`MPI_Group_rank` , and
+then freeing the temporary group via :ref:`MPI_Group_free` .
 
 Many programs will be written with the master-slave model, where one
 process (such as the rank-zero process) will play a supervisory role,
 and the other processes will serve as compute nodes. In this framework,
-``MPI_Comm_size`` and ``MPI_Comm_rank`` are useful for determining the roles of
+:ref:`MPI_Comm_size`  and :ref:`MPI_Comm_rank`  are useful for determining the roles of
 the various processes of a communicator.
 
 ERRORS
@@ -74,7 +76,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -86,3 +88,5 @@ SEE ALSO
    MPI_Comm_group
    MPI_Comm_size
    MPI_Comm_compare
+
+.. seealso:: :ref:`MPI_Comm_group` :ref:`MPI_Group_rank` :ref:`MPI_Group_free` :ref:`MPI_Comm_size` :ref:`MPI_Comm_set_errhandler`

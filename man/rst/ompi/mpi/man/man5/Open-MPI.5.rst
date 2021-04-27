@@ -1,3 +1,5 @@
+.. _Open-MPI:
+
 Open-MPI
 ~~~~~~~~
 

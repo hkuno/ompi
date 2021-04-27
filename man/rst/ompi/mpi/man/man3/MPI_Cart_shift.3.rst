@@ -1,3 +1,5 @@
+.. _MPI_Cart_shift:
+
 MPI_Cart_shift
 ~~~~~~~~~~~~~~
 

@@ -1,3 +1,5 @@
+.. _shmem_ptr:
+
 shmem_ptr
 ~~~~~~~~~
 
@@ -128,3 +130,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_put*\ (3), *shmem_get*\ (3)
+
+.. seealso::

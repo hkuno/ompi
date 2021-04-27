@@ -1,7 +1,9 @@
+.. _MPI_Type_create_keyval:
+
 MPI_Type_create_keyval
 ~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Type_create_keyval`` - Generates a new attribute key for caching
+:ref:`MPI_Type_create_keyval`  - Generates a new attribute key for caching
 on data types.
 
 SYNTAX
@@ -66,19 +68,19 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Type_create_keyval`` generates a new attribute key for caching on data
-types. This routine partially replaces ``MPI_Keyval_create``.
+:ref:`MPI_Type_create_keyval`  generates a new attribute key for caching on data
+types. This routine partially replaces :ref:`MPI_Keyval_create` .
 
 The argument *type_copy_attr_fn* may be specified as
-``MPI_TYPE_NULL_COPY_FN`` or ``MPI_TYPE_DUP_FN`` from C or Fortran.
-``MPI_TYPE_NULL_COPY_FN`` is a function that does nothing other than
-returning *flag* = 0 and ``MPI_SUCCESS``. ``MPI_TYPE_DUP_FN`` is a simple-minded
+:ref:`MPI_TYPE_NULL_COPY_FN`  or :ref:`MPI_TYPE_DUP_FN`  from C or Fortran.
+:ref:`MPI_TYPE_NULL_COPY_FN`  is a function that does nothing other than
+returning *flag* = 0 and :ref:`MPI_SUCCESS` . :ref:`MPI_TYPE_DUP_FN`  is a simple-minded
 copy function that sets *flag* = 1, returns the value of
-*attribute_val_in* in *attribute_val_out*, and returns ``MPI_SUCCESS``.
+*attribute_val_in* in *attribute_val_out*, and returns :ref:`MPI_SUCCESS` .
 
 The argument *type_delete_attr_fn* may be specified as
-``MPI_TYPE_NULL_DELETE_FN`` from C or Fortran. ``MPI_TYPE_NULL_DELETE_FN`` is a
-function that does nothing beyond returning ``MPI_SUCCESS``. The C callback
+:ref:`MPI_TYPE_NULL_DELETE_FN`  from C or Fortran. :ref:`MPI_TYPE_NULL_DELETE_FN`  is a
+function that does nothing beyond returning :ref:`MPI_SUCCESS` . The C callback
 functions are:
 
 ::
@@ -126,7 +128,7 @@ non-portable syntax
 
         INTEGER*MPI_ADDRESS_KIND EXTRA_STATE
 
-where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_ADDRESS_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 ERRORS
@@ -138,11 +140,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-``MPI_Type_free_keyval``
+:ref:`MPI_Type_free_keyval` 
+
+.. seealso:: :ref:`MPI_Keyval_create` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Type_free_keyval`

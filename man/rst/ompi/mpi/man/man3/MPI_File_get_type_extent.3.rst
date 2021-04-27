@@ -1,7 +1,9 @@
+.. _MPI_File_get_type_extent:
+
 MPI_File_get_type_extent
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_File_get_type_extent`` - Returns the extent of the data type in a
+:ref:`MPI_File_get_type_extent`  - Returns the extent of the data type in a
 file.
 
 SYNTAX
@@ -60,10 +62,10 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_File_get_type_extent`` can be used to calculate *extent* for
+:ref:`MPI_File_get_type_extent`  can be used to calculate *extent* for
 *datatype* in the file. The extent is the same for all processes
 accessing the file associated with *fh*. If the current view uses a
-user-defined data representation, ``MPI_File_get_type_extent`` uses the
+user-defined data representation, :ref:`MPI_File_get_type_extent`  uses the
 *dtype_file_extent_fn* callback to calculate the extent.
 
 FORTRAN 77 NOTES
@@ -77,7 +79,7 @@ syntax
 
         INTEGER*MPI_ADDRESS_KIND EXTENT
 
-where ``MPI_ADDRESS_KIND`` is a constant defined in mpif.h and gives the
+where :ref:`MPI_ADDRESS_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
 
 NOTES
@@ -89,7 +91,7 @@ constructor functions may be used; however, for those functions that
 accept displacements in bytes, the displacements must be specified in
 terms of their values in the file for the file data representation being
 used. MPI will interpret these byte displacements as is; no scaling will
-be done. The function ``MPI_File_get_type_extent`` can be used to calculate
+be done. The function :ref:`MPI_File_get_type_extent`  can be used to calculate
 the extents of data types in the file. For etypes and file types that
 are portable data types, MPI will scale any displacements in the data
 types to match the file data representation. Data types passed as
@@ -105,7 +107,9 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that MPI
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_File_set_errhandler`

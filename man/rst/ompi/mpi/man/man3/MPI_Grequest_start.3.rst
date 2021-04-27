@@ -1,3 +1,5 @@
+.. _MPI_Grequest_start:
+
 MPI_Grequest_start
 ~~~~~~~~~~~~~~~~~~
 

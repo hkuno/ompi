@@ -1,3 +1,5 @@
+.. _shmem_char_put:
+
 shmem_char_put
 ~~~~~~~~~~~~~~
 
@@ -197,3 +199,5 @@ SEE ALSO
 ========
 
 *intro_shmem*\ (3), *shmem_iput*\ (3), *shmem_quiet*\ (3)
+
+.. seealso::

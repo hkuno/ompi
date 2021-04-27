@@ -1,7 +1,9 @@
+.. _MPI_Win_free:
+
 MPI_Win_free
 ~~~~~~~~~~~~
 
-``MPI_Win_free`` - Frees the window object and returns a null handle.
+:ref:`MPI_Win_free`  - Frees the window object and returns a null handle.
 
 SYNTAX
 ======
@@ -50,13 +52,13 @@ OUTPUT PARAMETER
 DESCRIPTION
 ===========
 
-``MPI_Win_free`` frees the window object *win* and returns a null handle
-(equal to ``MPI_WIN_NULL)``. This collective call is executed by all
+:ref:`MPI_Win_free`  frees the window object *win* and returns a null handle
+(equal to :ref:`MPI_WIN_NULL)` . This collective call is executed by all
 processes in the group associated with *win*. It can be invoked by a
 process only after it has completed its involvement in RMA
 communications on window *win*, that is, the process has called
-``MPI_Win_fence``, or called ``MPI_Win_unlock`` to match a previous call to
-``MPI_Win_lock``. When the call returns, the window memory can be freed.
+:ref:`MPI_Win_fence` , or called :ref:`MPI_Win_unlock`  to match a previous call to
+:ref:`MPI_Win_lock` . When the call returns, the window memory can be freed.
 
 ERRORS
 ======
@@ -67,11 +69,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Win_create`` ``MPI_Win_fence`` ``MPI_Win_unlock``
+| :ref:`MPI_Win_create`  :ref:`MPI_Win_fence`  :ref:`MPI_Win_unlock` 
+
+.. seealso:: :ref:`MPI_Win_fence` :ref:`MPI_Win_unlock` :ref:`MPI_Win_lock` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Win_create`

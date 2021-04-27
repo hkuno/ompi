@@ -1,3 +1,5 @@
+.. _intro_shmem:
+
 intro_shmem
 ~~~~~~~~~~~
 
@@ -965,3 +967,5 @@ See the specific man pages for implementation information.
 *shmem_wait*\ (3), *shmem_xor*\ (3), *shmem_pe_accessible*\ (3),
 *shmem_addr_accessible*\ (3), *shmem_init*\ (3), *shmem_malloc*\ (3C),
 *shmem_my_pe*\ (3I), *shmem_n_pes*\ (3I)
+
+.. seealso::

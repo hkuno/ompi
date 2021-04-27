@@ -1,7 +1,9 @@
+.. _MPI_Alloc_mem:
+
 MPI_Alloc_mem
 ~~~~~~~~~~~~~
 
-``MPI_Alloc_mem`` - Allocates a specified memory segment.
+:ref:`MPI_Alloc_mem`  - Allocates a specified memory segment.
 
 SYNTAX
 ======
@@ -58,15 +60,15 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Alloc_mem`` allocates *size* bytes of memory. The starting address of
+:ref:`MPI_Alloc_mem`  allocates *size* bytes of memory. The starting address of
 this memory is returned in the variable *base*.
 
 FORTRAN NOTES
 =============
 
-There is no portable FORTRAN 77 syntax for using ``MPI_Alloc_mem``. There is
+There is no portable FORTRAN 77 syntax for using :ref:`MPI_Alloc_mem` . There is
 no portable Fortran syntax for using pointers returned from
-``MPI_Alloc_mem``. However, ``MPI_Alloc_mem`` can be used with Sun Fortran
+:ref:`MPI_Alloc_mem` . However, :ref:`MPI_Alloc_mem`  can be used with Sun Fortran
 compilers.
 
 From FORTRAN 77, you can use the following non-standard declarations for
@@ -105,11 +107,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-``MPI_Free_mem``
+:ref:`MPI_Free_mem` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Free_mem`

@@ -1,3 +1,5 @@
+.. _MPI_Graph_neighbors_count:
+
 MPI_Graph_neighbors_count
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 

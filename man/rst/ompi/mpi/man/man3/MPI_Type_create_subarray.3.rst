@@ -1,7 +1,9 @@
+.. _MPI_Type_create_subarray:
+
 MPI_Type_create_subarray
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-``MPI_Type_create_subarray`` - Creates a data type describing an
+:ref:`MPI_Type_create_subarray`  - Creates a data type describing an
 *n*-dimensional subarray of an *n*-dimensional array.
 
 SYNTAX
@@ -110,9 +112,9 @@ or
 The *order* argument specifies the storage order for the subarray as
 well as the full array. It must be set to one of the following:
 
-- ``MPI_ORDER_C``: The ordering used by C arrays, (that is, row-major order)
+- :ref:`MPI_ORDER_C` : The ordering used by C arrays, (that is, row-major order)
 
-- ``MPI_ORDER_FORTRAN``: The ordering used by Fortran arrays, (that is,
+- :ref:`MPI_ORDER_FORTRAN` : The ordering used by Fortran arrays, (that is,
 column-major order)
 
 A *ndims*-dimensional subarray (*newtype*) with no extra padding can be
@@ -140,7 +142,7 @@ extent of *oldtype*.
 The Subarray() function is defined recursively in three equations on
 page 72 of the MPI-2 standard.
 
-For an example use of ``MPI_Type_create_subarray`` in the context of I/O,
+For an example use of :ref:`MPI_Type_create_subarray`  in the context of I/O,
 see Section 9.9.2 of the MPI-2 standard.
 
 NOTES
@@ -159,6 +161,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler`

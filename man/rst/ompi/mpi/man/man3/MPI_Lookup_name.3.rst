@@ -1,3 +1,5 @@
+.. _MPI_Lookup_name:
+
 MPI_Lookup_name
 ~~~~~~~~~~~~~~~
 
@@ -61,9 +63,9 @@ DESCRIPTION
 ===========
 
 This function retrieves a *port_name* published under *service_name* by
-a previous invocation of ``MPI_Publish_name``. The application must supply a
+a previous invocation of :ref:`MPI_Publish_name` . The application must supply a
 *port_name* buffer large enough to hold the largest possible port name
-(i.e., ``MPI_MAX_PORT_NAME`` bytes).
+(i.e., :ref:`MPI_MAX_PORT_NAME`  bytes).
 
 INFO ARGUMENTS
 ==============
@@ -104,12 +106,12 @@ NAME SCOPE
 Open MPI supports two name scopes: *global* and *local*. Local scope
 values are placed in a data store located on the mpirun of the calling
 process' job, while global scope values reside on a central server.
-Calls to ``MPI_Unpublish_name`` must correctly specify the scope to be used
+Calls to :ref:`MPI_Unpublish_name`  must correctly specify the scope to be used
 in finding the value to be removed. The function will return an error if
 the specified service name is not found on the indicated location.
 
 For a more detailed description of scoping rules, please see the
-``MPI_Publish_name`` man page.
+:ref:`MPI_Publish_name`  man page.
 
 ERRORS
 ======
@@ -120,7 +122,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
@@ -133,3 +135,5 @@ SEE ALSO
 
    MPI_Publish_name
    MPI_Open_port
+
+.. seealso:: :ref:`MPI_Publish_name` :ref:`MPI_Unpublish_name` :ref:`MPI_Comm_set_errhandler`

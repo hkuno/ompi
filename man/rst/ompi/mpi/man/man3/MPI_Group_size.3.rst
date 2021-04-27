@@ -1,7 +1,9 @@
+.. _MPI_Group_size:
+
 MPI_Group_size
 ~~~~~~~~~~~~~~
 
-``MPI_Group_size`` - Returns the size of a group.
+:ref:`MPI_Group_size`  - Returns the size of a group.
 
 SYNTAX
 ======
@@ -53,9 +55,9 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Group_size`` returns in *size* the number of processes in the group.
-Thus, if group = ``MPI_GROUP_EMPTY``, then the call will return size = 0. On
-the other hand, a call with group = ``MPI_GROUP_NULL`` is erroneous.
+:ref:`MPI_Group_size`  returns in *size* the number of processes in the group.
+Thus, if group = :ref:`MPI_GROUP_EMPTY` , then the call will return size = 0. On
+the other hand, a call with group = :ref:`MPI_GROUP_NULL`  is erroneous.
 
 ERRORS
 ======
@@ -66,6 +68,8 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler`

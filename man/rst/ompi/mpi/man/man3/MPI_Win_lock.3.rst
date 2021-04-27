@@ -1,7 +1,9 @@
+.. _MPI_Win_lock:
+
 MPI_Win_lock
 ~~~~~~~~~~~~
 
-``MPI_Win_lock`` - Starts an RMA access epoch locking access to a
+:ref:`MPI_Win_lock`  - Starts an RMA access epoch locking access to a
 particular rank.
 
 SYNTAX
@@ -81,7 +83,7 @@ NOTES
 In a client/server environment in which clients connect to a server and
 create windows that span both the client and the server, if a client or
 server that has obtained a lock on such a window and then terminates
-abnormally, the server or other clients may hang in a ``MPI_Win_lock`` call,
+abnormally, the server or other clients may hang in a :ref:`MPI_Win_lock`  call,
 failing to notice that the peer MPI job has terminated.
 
 ERRORS
@@ -93,11 +95,13 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler ``MPI_ERRORS_RETURN``
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
 SEE ALSO
 ========
 
-| ``MPI_Win_unlock`` ``MPI_Win_lock_all``
+| :ref:`MPI_Win_unlock`  :ref:`MPI_Win_lock_all` 
+
+.. seealso:: :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Win_unlock` :ref:`MPI_Win_lock_all`
