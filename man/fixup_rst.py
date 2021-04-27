@@ -49,6 +49,10 @@ if (len(sys.argv) > 2):
 # TODO: append to output_lines instead of printing lines
 output_lines = list()
 
+# Add a reference for each file
+refline=".. _{}:\n".format(CMDNAME)
+output_lines.append(refline)
+
 # Read input as an array of lines, then 
 # walk through the input, identifying sections by their headings.
 with open(in_fname) as fp:
@@ -72,6 +76,9 @@ unliteral=re.compile("^[A-Za-z]")
 # bullet item
 bullet=re.compile("^[\s]*[^*]\- ")
 
+# distinguish MPI_Cmd from MPI_ARG
+contains_lowercase=re.compile(".*[a-z]")
+
 # Indicates parameters in body
 paramsect=re.compile(".*PARAMETER")
 
@@ -87,11 +94,15 @@ cpp_lang=re.compile(".*C\+\+", re.IGNORECASE)
 c_lang=re.compile(".*C[^a-zA-Z]", re.IGNORECASE)
 
 # repl functions
+# :ref:`my-reference-label`:
+seealsodict=dict()
 def mpicmdrepl(match):
     match = match.group()
     match = match.replace('`','')
     match = match.replace('*','')
-    return ('``' + match + '``')
+    if (contains_lowercase.match(match)):
+        seealsodict[match]=match
+    return (':ref:`' + match + '` ')
 
 # for labeling codeblocks
 LANGUAGE="FOOBAR_ERROR"
@@ -120,7 +131,8 @@ SKIP=0
 # Walk through all the lines, working on a section at a time
 # Leave LITERAL sections alone.
 # In PARAMETER sections, combine bullets into a single line.
-# If not a LITERAL section, list MPI commands verbatim: ``MPI_Abort``
+# If not a LITERAL section, list MPI commands as a reference:
+# :ref:`my-reference-label`:
 # If a code-block section, add notation.
 for i in range(len(in_lines)):
   curline = in_lines[i].rstrip()
@@ -214,6 +226,13 @@ for i in range(len(in_lines)):
             output_lines.append(f"{curline}")
       else: 
         SKIP-=1
+
+
+seealso='\n.. seealso::'
+for k, v in seealsodict.items():
+    seealso=seealso + ' :ref:`' + k + '`'
+
+output_lines.append(seealso)
 
 if (out_fname):
   with open(out_fname,'w') as outfile:

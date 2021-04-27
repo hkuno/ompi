@@ -30,6 +30,10 @@ if (len(sys.argv) > 2):
 # append to output_lines instead of printing lines
 output_lines = list()
 
+# Add a reference for each file
+refline=".. _{}:\n".format(CMDNAME)
+output_lines.append(refline)
+
 # delimiter line (occurs after the heading text)
 dline=re.compile("^[=]+")
 
