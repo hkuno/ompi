@@ -230,7 +230,8 @@ for i in range(len(in_lines)):
 
 seealso='\n.. seealso::'
 for k, v in seealsodict.items():
-    seealso=seealso + ' :ref:`' + k + '`'
+    if ( k != CMDNAME ):
+        seealso=seealso + ' :ref:`' + k + '`'
 
 output_lines.append(seealso)
 
