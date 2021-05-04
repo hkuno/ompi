@@ -37,8 +37,26 @@ output_lines.append(refline)
 # delimiter line (occurs after the heading text)
 dline=re.compile("^[=]+")
 
+# literal
+codeblock=re.compile("\.\. .*code::")
+
+# distinguish MPI_Cmd from MPI_ARG
+contains_lowercase=re.compile(".*[a-z]")
+
 # name
 name=re.compile("^name$", flags=re.IGNORECASE | re.MULTILINE)
+
+# repl functions
+# :ref:`my-reference-label`:
+seealsodict=dict()
+def mpicmdrepl(match):
+    match = match.group()
+    match = match.replace('`','')
+    match = match.replace('*','')
+    if (contains_lowercase.match(match)):
+        seealsodict[match]=match
+    return (':ref:`' + match + '` ')
+
 
 # Read input as an array of lines, then 
 # walk through the input, identifying sections by their headings.
@@ -52,10 +70,17 @@ dline=re.compile("^[=]+")
 # So we don't repeat combined or replaced lines
 SKIP=0
 
+# keep track of state
+LITERAL=True
+
 # Walk through all the lines, working on a section at a time
+# If the current line contains 'code::' then LITERAL=True 
+# If we hit a delimiter, then LITERAL=False
+# If LITERAL == False, then add references to all MPI commands. 
 for i in range(len(in_lines)):
   curline = in_lines[i].rstrip()
   nextline = curline
+
   if (i < (len(in_lines) - 1)):
       nextline = in_lines[i+1].rstrip()
 
@@ -65,10 +90,26 @@ for i in range(len(in_lines)):
       # build-doc seems to expect a single-rooted hierarchy.
       output_lines.append(f"{CMDNAME}\n{re.sub('[A-Z,a-z,0-9,_,-]','~',CMDNAME)}")
       SKIP += 1
+      LITERAL=False
   elif (SKIP == 0):
+      if codeblock.match(curline):
+        LITERAL=True
+      elif dline.match(curline):
+        LITERAL=False
+
+      if not LITERAL and curline:
+        curline = re.sub(r'[\*]*[\`]*MPI_[A-Z][\*,()\[\]0-9A-Za-z_]*[()\[\]0-9A-Za-z_][\`]*[\*]*',mpicmdrepl,curline)
+
       output_lines.append(f"{curline}")
   else: 
       SKIP -= 1
+
+seealso='\n.. seealso::'
+for k, v in seealsodict.items():
+    if ( k != CMDNAME ):
+        seealso=seealso + ' :ref:`' + k + '`'
+
+output_lines.append(seealso)
 
 if (out_fname):
   with open(out_fname,'w') as outfile:

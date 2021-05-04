@@ -30,6 +30,7 @@
 import re
 import sys
 import os
+from pathlib import Path
 
 APPNAME=os.path.basename(__file__)
 DIRNAME=os.path.dirname(__file__)
@@ -40,6 +41,7 @@ def usage():
 # Get input and optional output files
 in_fname = sys.argv[1]
 CMDNAME = os.path.basename(in_fname).rsplit('.',100)[0]
+PARENTPATH = os.path.dirname(in_fname)
 
 # TODO: optionally print to output file
 out_fname=""
@@ -100,7 +102,10 @@ def mpicmdrepl(match):
     match = match.group()
     match = match.replace('`','')
     match = match.replace('*','')
-    if (contains_lowercase.match(match)):
+    pfile = Path(PARENTPATH + '/' + match + '.3.rst')
+    if not pfile.is_file():
+      print(f"pfile {pfile} is not a file");
+    if ((contains_lowercase.match(match)) and pfile.is_file() and (match != CMDNAME)):
         seealsodict[match]=match
     return (':ref:`' + match + '` ')
 
@@ -143,6 +148,7 @@ for i in range(len(in_lines)):
   if (i == len(in_lines) - 1):
     if ((not include_pat.match(curline)) and (not LITERAL)):
       curline = re.sub(r'[\*]*[\`]*MPI_[A-Z][\*,()\[\]0-9A-Za-z_]*[()\[\]0-9A-Za-z_]*[\`]*[\*]*',mpicmdrepl,curline)
+      curline = re.sub(r'[\*]*[\`]*shmem_[A-Z][\*,()\[\]0-9A-Za-z_]*[()\[\]0-9A-Za-z_]*[\`]*[\*]*',mpicmdrepl,curline)
     if (not SKIP):
       output_lines.append(f"{curline}")
   else:
@@ -228,12 +234,15 @@ for i in range(len(in_lines)):
         SKIP-=1
 
 
+SEEALSOEXISTS=False
 seealso='\n.. seealso::'
 for k, v in seealsodict.items():
     if ( k != CMDNAME ):
         seealso=seealso + ' :ref:`' + k + '`'
+        SEEALSOEXISTS=True
 
-output_lines.append(seealso)
+if SEEALSOEXISTS:
+  output_lines.append(seealso)
 
 if (out_fname):
   with open(out_fname,'w') as outfile:
