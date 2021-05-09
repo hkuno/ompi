@@ -42,9 +42,5 @@ program always return the same string. For a given library
 implementation, the major and minor version returned by these calls is
 consistent with the compile-time constants defined in its shmem.h.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_my_pe*\ (3), *shmem_init*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_my_pe` \ (3), *:ref:`shmem_init` \ (3)

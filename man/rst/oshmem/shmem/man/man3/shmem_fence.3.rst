@@ -48,9 +48,5 @@ NOTES
 The shmem_quiet function should be called if ordering of puts is desired
 when multiple remote PEs are involved.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3)
-
-.. seealso::
+.. seealso:: 

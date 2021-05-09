@@ -2,8 +2,9 @@
 
 MPI_Get_accumulate
 ~~~~~~~~~~~~~~~~~~
+====
 
-``MPI_Get_accumulate``, ``MPI_Rget_accumulate`` - Combines the contents
+:ref:`MPI_Get_accumulate` , :ref:`MPI_Rget_accumulate`  - Combines the contents
 of the origin buffer with that of a target buffer and returns the target
 buffer value.
 
@@ -110,24 +111,24 @@ Input Parameters
 Output Parameter
 ================
 
--  ``MPI_Rget_accumulate``: RMA request
+-  :ref:`MPI_Rget_accumulate` : RMA request
 -  ``IERROR`` : Fortran only: Error status (integer).
 
 Description
 ===========
 
-``MPI_Get_accumulate`` is a function used for one-sided MPI
+:ref:`MPI_Get_accumulate`  is a function used for one-sided MPI
 communication that adds the contents of the origin buffer (as defined by
 ``origin_addr``, ``origin_count``, and ``origin_datatype``) to the
 buffer specified by the arguments ``target_count`` and
 ``target_datatype``, at offset ``target_disp``, in the target window
 specified by ``target_rank`` and ``win``, using the operation ``op``.
-``MPI_Get_accumulate`` returns in the result buffer ``result_addr`` the
+:ref:`MPI_Get_accumulate`  returns in the result buffer ``result_addr`` the
 contents of the target buffer before the accumulation.
 
-Any of the predefined operations for ``MPI_Reduce``, as well as
-``MPI_NO_OP,`` can be used. User-defined functions cannot be used. For
-example, if ``op`` is ``MPI_SUM``, each element of the origin buffer is
+Any of the predefined operations for :ref:`MPI_Reduce` , as well as
+:ref:`MPI_NO_OP` ,`` can be used. User-defined functions cannot be used. For
+example, if ``op`` is :ref:`MPI_SUM` , each element of the origin buffer is
 added to the corresponding element in the target, replacing the former
 value in the target.
 
@@ -138,19 +139,19 @@ data type. The operation ``op`` applies to elements of that predefined
 type. The ``target_datatype`` argument must not specify overlapping
 entries, and the target buffer must fit in the target window.
 
-A new predefined operation, ``MPI_REPLACE``, is defined. It corresponds
+A new predefined operation, :ref:`MPI_REPLACE` , is defined. It corresponds
 to the associative function f(a, b) =b; that is, the current value in
 the target memory is replaced by the value supplied by the origin.
 
-A new predefined operation, ``MPI_NO_OP``, is defined. It corresponds to
+A new predefined operation, :ref:`MPI_NO_OP` , is defined. It corresponds to
 the assiciative function f(a, b) = a; that is the current value in the
 target memory is returned in the result buffer at the origin and no
 operation is performed on the target buffer.
 
-``MPI_Rget_accumulate`` is similar to ``MPI_Get_accumulate``, except
+:ref:`MPI_Rget_accumulate`  is similar to :ref:`MPI_Get_accumulate` , except
 that it allocates a communication request object and associates it with
 the request handle (the argument request) that can be used to wait or
-test for completion. The completion of an ``MPI_Rget_accumulate``
+test for completion. The completion of an :ref:`MPI_Rget_accumulate` 
 operation indicates that the data is available in the result buffer and
 the origin buffer is free to be updated. It does not indicate that the
 operation has been completed at the target window.
@@ -172,20 +173,20 @@ length of the declared integer in bytes.
 Notes
 =====
 
-The generic functionality of ``MPI_Get_accumulate`` might limit the
+The generic functionality of :ref:`MPI_Get_accumulate`  might limit the
 performance of fetch-and-increment or fetch-and-add calls that might be
-supported by special hardware operations. ``MPI_Fetch_and_op`` thus
+supported by special hardware operations. :ref:`MPI_Fetch_and_op`  thus
 allows for a fast implementation of a commonly used subset of the
-functionality of ``MPI_Get_accumulate``.
+functionality of :ref:`MPI_Get_accumulate` .
 
-``MPI_Get`` is a special case of ``MPI_Get_accumulate``, with the
-operation ``MPI_NO_OP``. Note, however, that ``MPI_Get`` and
-``MPI_Get_accumulate`` have different constraints on concurrent updates.
+:ref:`MPI_Get`  is a special case of :ref:`MPI_Get_accumulate` , with the
+operation :ref:`MPI_NO_OP` . Note, however, that :ref:`MPI_Get`  and
+:ref:`MPI_Get_accumulate`  have different constraints on concurrent updates.
 
 It is the user's responsibility to guarantee that, when using the
 accumulate functions, the target displacement argument is such that
 accesses to the window are properly aligned according to the data type
-arguments in the call to the ``MPI_Get_accumulate`` function.
+arguments in the call to the :ref:`MPI_Get_accumulate`  function.
 
 Errors
 ======
@@ -196,15 +197,10 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.
 
-See Also
-========
 
-```MPI_Put``\ (3) <MPI_Put.html>`__ ```MPI_Get``\ (3) <MPI_Get.html>`__
-```MPI_Accumulate``\ (3) <MPI_Accumulate.html>`__
-```MPI_Fetch_and_op``\ (3) <MPI_Fetch_and_op.html>`__
-```MPI_Reduce``\ (3) <MPI_Reduce.html>`__
+.. seealso:: :ref:`MPI_Put` :ref:`MPI_Accumulate` :ref:`MPI_Fetch_and_op` :ref:`MPI_Reduce` 

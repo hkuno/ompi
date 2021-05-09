@@ -2,8 +2,9 @@
 
 MPI_Comm_call_errhandler
 ~~~~~~~~~~~~~~~~~~~~~~~~
+====
 
-``MPI_Comm_call_errhandler`` - Passes the supplied error code to the
+:ref:`MPI_Comm_call_errhandler`  - Passes the supplied error code to the
 error handler assigned to a communicator
 
 Syntax
@@ -59,13 +60,13 @@ This function invokes the error handler assigned to the
 ``comm``\ unicator ``comm`` with the supplied error code ``errorcode``.
 If the error handler was successfully called, the process is not
 aborted, and the error handler returns, this function returns
-``MPI_SUCCESS.``
+:ref:`MPI_SUCCESS` .``
 
 Notes
 =====
 
 Users should note that the default error handler is
-``MPI_ERRORS_ARE_FATAL``. Thus, calling this function will abort the
+:ref:`MPI_ERRORS_ARE_FATAL` . Thus, calling this function will abort the
 processes in ``comm`` if the default error handler has not been changed.
 
 Errors
@@ -75,8 +76,5 @@ Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument. See the MPI
 man page for a full list of MPI error codes.
 
-See Also
-========
 
-```MPI_Comm_create_errhandler``\ (3) <MPI_Comm_create_errhandler.html>`__
-```MPI_Comm_set_errhandler``\ (3) <MPI_Comm_set_errhandler.html>`__
+.. seealso:: :ref:`MPI_Comm_create_errhandler` :ref:`MPI_Comm_set_errhandler` 

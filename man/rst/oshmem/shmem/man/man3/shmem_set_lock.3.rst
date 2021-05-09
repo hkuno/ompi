@@ -75,9 +75,5 @@ cleared and this call was able to set the lock. A value of 1 is returned
 if the lock had been set and the call returned without waiting to set
 the lock.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3)
-
-.. seealso::
+.. seealso:: 

@@ -161,12 +161,5 @@ guarantee that an MPI program can continue past an error.
 
 See the MPI man page for a full list of MPI error codes.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Lookup_name
-   MPI_Open_port
-
-.. seealso:: :ref:`MPI_Lookup_name` :ref:`MPI_Open_port` :ref:`MPI_Comm_spawn` :ref:`MPI_Comm_Connect` :ref:`MPI_Comm_accept` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Lookup_name`    :ref:`MPI_Open_port` 

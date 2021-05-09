@@ -124,13 +124,5 @@ guarantee that an MPI program can continue past an error.
 
 See the MPI man page for a full list of MPI error codes.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Publish_name
-   MPI_Lookup_name
-   MPI_Open_port
-
-.. seealso:: :ref:`MPI_Lookup_name` :ref:`MPI_Publish_name` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Publish_name`    :ref:`MPI_Lookup_name`    :ref:`MPI_Open_port` 

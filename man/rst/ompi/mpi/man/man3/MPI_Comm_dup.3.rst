@@ -2,8 +2,9 @@
 
 MPI_Comm_dup
 ~~~~~~~~~~~~
+====
 
-``MPI_Comm_dup`` - Duplicates an existing communicator with all its
+:ref:`MPI_Comm_dup`  - Duplicates an existing communicator with all its
 cached information.
 
 Syntax
@@ -55,7 +56,7 @@ Output Parameters
 Description
 ===========
 
-``MPI_Comm_dup`` duplicates the existing communicator ``comm`` with
+:ref:`MPI_Comm_dup`  duplicates the existing communicator ``comm`` with
 associated key values. For each key value, the respective copy callback
 function determines the attribute value associated with this key in the
 new communicator; one particular action that a copy callback may take is
@@ -73,8 +74,8 @@ original communicator. This includes any attributes (see below) and
 topologies (see Chapter 6, "Process Topologies," in the MPI-1 Standard).
 This call is valid even if there are pending point-to-point
 communications involving the communicator ``comm``. A typical call might
-involve an ``MPI_Comm_dup`` at the beginning of the parallel call, and
-an ``MPI_Comm_free`` of that duplicated communicator at the end of the
+involve an :ref:`MPI_Comm_dup`  at the beginning of the parallel call, and
+an :ref:`MPI_Comm_free`  of that duplicated communicator at the end of the
 call. Other models of communicator management are also possible. This
 call applies to both intra- and intercommunicators. Note that it is not
 defined by the MPI standard what happens if the attribute copy callback
@@ -90,13 +91,10 @@ of the function and Fortran routines in the last argument. Before the
 error value is returned, the current MPI error handler is called. By
 default, this error handler aborts the MPI job, except for I/O function
 errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.
 
-See Also
-========
 
-```MPI_Comm_dup_with_info``\ (3) <MPI_Comm_dup_with_info.html>`__
-```MPI_Comm_idup``\ (3) <MPI_Comm_idup.html>`__
+.. seealso:: :ref:`MPI_Comm_dup_with_info` :ref:`MPI_Comm_idup` 

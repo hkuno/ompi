@@ -68,12 +68,5 @@ ERRORS
    The handle is invalid or the handle argument passed in is not
    associated with the session argument
 
-SEE ALSO
-========
 
-::
-
-   MPI_T_pvar_get_info
-   MPI_T_pvar_get_num
-
-.. seealso:: :ref:`MPI_T_pvar_handle_free` :ref:`MPI_T_pvar_get_info` :ref:`MPI_T_pvar_handle_alloc()` :ref:`MPI_T_pvar_handle_free()`
+.. seealso::    :ref:`MPI_T_pvar_get_info`    :ref:`MPI_T_pvar_get_num` 

@@ -202,9 +202,5 @@ program. Compile this example with the -lsma compiler option.
      CALL SHMEM_BARRIER_ALL
    END
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_get*\ (3), *shmem_quiet*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_get` \ (3), *:ref:`shmem_quiet` \ (3)

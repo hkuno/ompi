@@ -2,8 +2,9 @@
 
 MPI_Get
 ~~~~~~~
+====
 
-``MPI_Get``, ``MPI_Rget`` - Copies data from the target memory to the
+:ref:`MPI_Get` , :ref:`MPI_Rget`  - Copies data from the target memory to the
 origin.
 
 Syntax
@@ -94,23 +95,23 @@ Input Parameters
 Output Parameter
 ================
 
--  ``request`` : MPI_Rget: RMA request
+-  ``request`` : :ref:`MPI_Rget` : RMA request
 -  ``IERROR`` : Fortran only: Error status (integer).
 
 Description
 ===========
 
-``MPI_Get`` copies data from the target memory to the origin, similar to
-``MPI_Put``, except that the direction of data transfer is reversed. The
+:ref:`MPI_Get`  copies data from the target memory to the origin, similar to
+:ref:`MPI_Put` , except that the direction of data transfer is reversed. The
 ``origin_datatype`` may not specify overlapping entries in the origin
 buffer. The target buffer must be contained within the target window,
 and the copied data must fit, without truncation, in the origin buffer.
 Only processes within the same node can access the target window.
 
-``MPI_Rget`` is similar to ``MPI_Get``, except that it allocates a
+:ref:`MPI_Rget`  is similar to :ref:`MPI_Get` , except that it allocates a
 communication ``request`` object and associates it with the ``request``
 handle (the argument ``request``) that can be used to wait or test for
-completion. The completion of an ``MPI_Rget`` operation indicates that
+completion. The completion of an :ref:`MPI_Rget`  operation indicates that
 the data is available in the origin buffer. If ``origin_addr`` points to
 memory attached to a window, then the data becomes available in the
 private copy of this window.
@@ -138,12 +139,10 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.
 
-See Also
-========
 
-```MPI_Put``\ (3) <MPI_Put.html>`__
+.. seealso:: :ref:`MPI_Put` 

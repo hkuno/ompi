@@ -2,8 +2,9 @@
 
 MPI_Cartdim_get
 ~~~~~~~~~~~~~~~
+====
 
-``MPI_Cartdim_get`` - Retrieves Cartesian topology information
+:ref:`MPI_Cartdim_get`  - Retrieves Cartesian topology information
 associated with a communicator.
 
 Syntax
@@ -56,7 +57,7 @@ Output Parameters
 Description
 ===========
 
-``MPI_Cartdim_get`` returns the number of dimensions of the Cartesian
+:ref:`MPI_Cartdim_get`  returns the number of dimensions of the Cartesian
 structure.
 
 Errors
@@ -67,13 +68,10 @@ of the function and Fortran routines in the last argument. Before the
 error value is returned, the current MPI error handler is called. By
 default, this error handler aborts the MPI job, except for I/O function
 errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.
 
-See Also
-========
 
-```MPI_Cart_get``\ (3) <MPI_Cart_get.html>`__
-```MPI_Cart_create``\ (3) <MPI_Cart_create.html>`__
+.. seealso:: :ref:`MPI_Cart_get` :ref:`MPI_Cart_create` 

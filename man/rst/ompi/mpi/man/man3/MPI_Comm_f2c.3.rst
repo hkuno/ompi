@@ -68,5 +68,3 @@ NOTE
 
 This function does not return an error value. Consequently, the result
 of calling it before :ref:`MPI_Init`  or after :ref:`MPI_Finalize`  is undefined.
-
-.. seealso:: :ref:`MPI_Comm_c2f` :ref:`MPI_File_f2c` :ref:`MPI_File_c2f` :ref:`MPI_Info_f2c` :ref:`MPI_Info_c2f` :ref:`MPI_Message_f2c` :ref:`MPI_Message_c2f` :ref:`MPI_Op_f2c` :ref:`MPI_Op_c2f` :ref:`MPI_Request_f2c` :ref:`MPI_Request_c2f` :ref:`MPI_Type_f2c` :ref:`MPI_Type_c2f` :ref:`MPI_Win_f2c` :ref:`MPI_Win_c2f` :ref:`MPI_Fint` :ref:`MPI_Init` :ref:`MPI_Finalize`

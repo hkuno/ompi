@@ -165,9 +165,5 @@ Consider this simple example for C.
      printf("target[0] on PE %d is %d\n", shmem_my_pe(), target[0]);
    }
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_quiet*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_quiet` \ (3)

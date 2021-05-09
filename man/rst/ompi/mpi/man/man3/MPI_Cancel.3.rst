@@ -2,8 +2,9 @@
 
 MPI_Cancel
 ~~~~~~~~~~
+====
 
-``MPI_Cancel`` - Cancels a communication request.
+:ref:`MPI_Cancel`  - Cancels a communication request.
 
 Syntax
 ======
@@ -52,31 +53,31 @@ Output Parameter
 Description
 ===========
 
-The ``MPI_Cancel`` operation allows pending communications to be
+The :ref:`MPI_Cancel`  operation allows pending communications to be
 canceled. This is required for cleanup. Posting a send or a receive ties
 up user resources (send or receive buffers), and a cancel may be needed
 to free these resources gracefully.
 
-A call to ``MPI_Cancel`` marks for cancellation a pending, nonblocking
+A call to :ref:`MPI_Cancel`  marks for cancellation a pending, nonblocking
 communication operation (send or receive). The cancel call is local. It
 returns immediately, possibly before the communication is actually
 canceled. It is still necessary to complete a communication that has
-been marked for cancellation, using a call to ``MPI_Request_free,``
-``MPI_Wait``, or ``MPI_Test`` (or any of the derived operations).
+been marked for cancellation, using a call to :ref:`MPI_Request_free` ,``
+:ref:`MPI_Wait` , or :ref:`MPI_Test`  (or any of the derived operations).
 
-If a communication is marked for cancellation, then an ``MPI_Wait`` call
+If a communication is marked for cancellation, then an :ref:`MPI_Wait`  call
 for that communication is guaranteed to return, irrespective of the
-activities of other processes (i.e., ``MPI_Wait`` behaves as a local
-function); similarly if ``MPI_Test`` is repeatedly called in a busy wait
-loop for a canceled communication, then ``MPI_Test`` will eventually be
+activities of other processes (i.e., :ref:`MPI_Wait`  behaves as a local
+function); similarly if :ref:`MPI_Test`  is repeatedly called in a busy wait
+loop for a canceled communication, then :ref:`MPI_Test`  will eventually be
 successful.
 
-``MPI_Cancel`` can be used to cancel a communication that uses a
+:ref:`MPI_Cancel`  can be used to cancel a communication that uses a
 persistent ``request`` (see Section 3.9 in the MPI-1 Standard,
 "Persistent Communication Requests") in the same way it is used for
 nonpersistent ``request``\ s. A successful cancellation cancels the
 active communication, but not the ``request`` itself. After the call to
-``MPI_Cancel`` and the subsequent call to ``MPI_Wait`` or ``MPI_Test``,
+:ref:`MPI_Cancel`  and the subsequent call to :ref:`MPI_Wait`  or :ref:`MPI_Test` ,
 the ``request`` becomes inactive and can be activated for a new
 communication.
 
@@ -101,9 +102,9 @@ communication.
 Notes
 =====
 
-The primary expected use of ``MPI_Cancel`` is in multi-buffering
-schemes, where speculative ``MPI_Irecvs`` are made. When the computation
-completes, some of these ``request``\ s may remain; using ``MPI_Cancel``
+The primary expected use of :ref:`MPI_Cancel`  is in multi-buffering
+schemes, where speculative :ref:`MPI_Irecvs`  are made. When the computation
+completes, some of these ``request``\ s may remain; using :ref:`MPI_Cancel` 
 allows the user to cancel these unsatisfied ``request``\ s.
 
 Errors
@@ -114,15 +115,10 @@ of the function and Fortran routines in the last argument. Before the
 error value is returned, the current MPI error handler is called. By
 default, this error handler aborts the MPI job, except for I/O function
 errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.
 
-See Also
-========
 
-```MPI_Probe``\ (3) <MPI_Probe.html>`__
-```MPI_Iprobe``\ (3) <MPI_Iprobe.html>`__
-```MPI_Test_cancelled``\ (3) <MPI_Test_cancelled.html>`__
-```MPI_Cart_coords``\ (3) <MPI_Cart_coords.html>`__
+.. seealso:: :ref:`MPI_Probe` :ref:`MPI_Iprobe` :ref:`MPI_Test_cancelled` :ref:`MPI_Cart_coords` 

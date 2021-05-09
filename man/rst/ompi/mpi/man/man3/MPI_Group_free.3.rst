@@ -2,8 +2,9 @@
 
 MPI_Group_free
 ~~~~~~~~~~~~~~
+====
 
-``MPI_Group_free`` - Frees a group.
+:ref:`MPI_Group_free`  - Frees a group.
 
 Syntax
 ======
@@ -53,13 +54,13 @@ Description
 ===========
 
 This operation marks a ``group`` object for deallocation. The handle
-``group`` is set to ``MPI_GROUP_NULL`` by the call. Any ongoing
+``group`` is set to :ref:`MPI_GROUP_NULL`  by the call. Any ongoing
 operation using this ``group`` will complete normally.
 
 Note
 ====
 
-On return, ``group`` is set to ``MPI_GROUP_NULL``.
+On return, ``group`` is set to :ref:`MPI_GROUP_NULL` .
 
 Errors
 ======
@@ -70,7 +71,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.

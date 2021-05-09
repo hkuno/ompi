@@ -52,9 +52,5 @@ EXAMPLES
      shmem_barrier_all();
    }
 
-SEE ALSO
-========
 
-*shmem_barrier*\ (3), *shmem_init*\ (3)
-
-.. seealso::
+.. seealso:: *:ref:`shmem_barrier` \ (3), *:ref:`shmem_init` \ (3)

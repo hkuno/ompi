@@ -80,13 +80,5 @@ I/O function errors. The error handler may be changed with
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Comm_group
-   MPI_Comm_size
-   MPI_Comm_compare
-
-.. seealso:: :ref:`MPI_Comm_group` :ref:`MPI_Group_rank` :ref:`MPI_Group_free` :ref:`MPI_Comm_size` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Comm_group`    :ref:`MPI_Comm_size`    :ref:`MPI_Comm_compare` 

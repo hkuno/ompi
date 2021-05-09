@@ -75,10 +75,5 @@ EXAMPLES
      ENDIF
    END
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_barrier*\ (3), *shmem_barrier_all*\ (3),
-*shmem_fence*\ (3), *shmem_put*\ (3), *shmem_wait*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_barrier` \ (3), *:ref:`shmem_barrier_all` \ (3),*:ref:`shmem_fence` \ (3), *:ref:`shmem_put` \ (3), *:ref:`shmem_wait` \ (3)

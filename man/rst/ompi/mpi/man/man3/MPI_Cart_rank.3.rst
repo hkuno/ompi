@@ -2,8 +2,9 @@
 
 MPI_Cart_rank
 ~~~~~~~~~~~~~
+====
 
-``MPI_Cart_rank`` - Determines process rank in communicator given
+:ref:`MPI_Cart_rank`  - Determines process rank in communicator given
 Cartesian location.
 
 Syntax
@@ -47,7 +48,7 @@ Input Parameters
 
 -  ``comm`` : Communicator with Cartesian structure (handle).
 -  ``coords`` : Integer array (of size ndims, which was defined by
-   ``MPI_Cart_create`` call) specifying the Cartesian coordinates of a
+   :ref:`MPI_Cart_create`  call) specifying the Cartesian coordinates of a
    process.
 
 Output Parameter
@@ -60,7 +61,7 @@ Description
 ===========
 
 For a process group with Cartesian structure, the function
-``MPI_Cart_rank`` translates the logical process coordinates to process
+:ref:`MPI_Cart_rank`  translates the logical process coordinates to process
 ``rank``\ s as they are used by the point-to-point routines. For
 dimension i with periods(i) = true, if the coordinate, ``coords(i)``, is
 out of range, that is, ``coords(i)`` < 0 or ``coords(i)`` >=
@@ -76,12 +77,10 @@ of the function and Fortran routines in the last argument. Before the
 error value is returned, the current MPI error handler is called. By
 default, this error handler aborts the MPI job, except for I/O function
 errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.
 
-See Also
-========
 
-```MPI_Cart_create``\ (3) <MPI_Cart_create.html>`__
+.. seealso:: :ref:`MPI_Cart_create` 

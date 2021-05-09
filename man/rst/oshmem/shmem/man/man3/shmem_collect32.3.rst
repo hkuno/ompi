@@ -204,9 +204,5 @@ Fortran:
    CALL SHMEM_COLLECT4(TARGET, SOURCE, 64, PE_START,
    & LOGPE_STRIDE, PE_SIZE, PSYNC)
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3)
-
-.. seealso::
+.. seealso:: 

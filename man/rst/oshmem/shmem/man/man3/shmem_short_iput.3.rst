@@ -206,10 +206,5 @@ programs.
      shmem_barrier_all(); /* sync before exiting */
    }
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_iget*\ (3), *shmem_put*\ (3),
-*shmem_quiet*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_iget` \ (3), *:ref:`shmem_put` \ (3),*:ref:`shmem_quiet` \ (3)

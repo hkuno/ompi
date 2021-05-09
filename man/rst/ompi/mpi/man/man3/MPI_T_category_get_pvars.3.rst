@@ -47,5 +47,3 @@ ERRORS
 
 [:ref:`MPI_T_ERR_INVALID_INDEX]` 
    The category index is invalid
-
-.. seealso:: :ref:`MPI_T_category_get_pvars()`

@@ -88,9 +88,5 @@ I/O function errors. The error handler may be changed with
 that MPI does not guarantee that an MPI program can continue past an
 error.
 
-SEE ALSO
-========
 
-| :ref:`MPI_Win_flush`  :ref:`MPI_Win_lock`  :ref:`MPI_Win_lock_all` 
-
-.. seealso:: :ref:`MPI_Win_flush_local_all` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Win_flush` :ref:`MPI_Win_lock` :ref:`MPI_Win_lock_all`
+.. seealso:: | :ref:`MPI_Win_flush`  :ref:`MPI_Win_lock`  :ref:`MPI_Win_lock_all` 

@@ -2,8 +2,9 @@
 
 MPI_Group_incl
 ~~~~~~~~~~~~~~
+====
 
-``MPI_Group_incl`` - Produces a group by reordering an existing group
+:ref:`MPI_Group_incl`  - Produces a group by reordering an existing group
 and taking only listed members.
 
 Syntax
@@ -62,13 +63,13 @@ Output Parameters
 Description
 ===========
 
-The function ``MPI_Group_incl`` creates a group ``group_out`` that
+The function :ref:`MPI_Group_incl`  creates a group ``group_out`` that
 consists of the n processes in ``group`` with ranks ``rank[0]``, ...,
 ``rank[n-1]``; the process with rank i in ``group_out`` is the process
 with rank ``ranks[i]`` in ``group``. Each of the n elements of ranks
 must be a valid rank in ``group`` and all elements must be distinct, or
 else the program is erroneous. If ``n`` = 0, then ``group_out`` is
-``MPI_GROUP_EMPTY``. This function can, for instance, be used to reorder
+:ref:`MPI_GROUP_EMPTY` . This function can, for instance, be used to reorder
 the elements of a ``group``.
 
 Note
@@ -86,14 +87,10 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.
 
-See Also
-========
 
-```MPI_Group_compare``\ (3) <MPI_Group_compare.html>`__
-```MPI_Group_range_incl``\ (3) <MPI_Group_range_incl.html>`__
-```MPI_Group_free``\ (3) <MPI_Group_free.html>`__
+.. seealso:: :ref:`MPI_Group_compare` :ref:`MPI_Group_range_incl` :ref:`MPI_Group_free` 

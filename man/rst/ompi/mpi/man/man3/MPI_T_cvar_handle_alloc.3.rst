@@ -64,11 +64,5 @@ ERRORS
 [:ref:`MPI_T_ERR_INVALID_HANDLE]` 
    The handle is invalid
 
-SEE ALSO
-========
 
-::
-
-   MPI_T_cvar_get_info
-
-.. seealso:: :ref:`MPI_T_cvar_handle_free` :ref:`MPI_T_cvar_get_info` :ref:`MPI_T_cvar_handle_alloc()` :ref:`MPI_T_cvar_handle_free()`
+.. seealso::    :ref:`MPI_T_cvar_get_info` 

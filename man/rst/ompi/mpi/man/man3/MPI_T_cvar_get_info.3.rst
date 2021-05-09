@@ -162,11 +162,5 @@ ERRORS
 [:ref:`MPI_T_ERR_INVALID_INDEX]` 
    The control variable index is invalid
 
-SEE ALSO
-========
 
-::
-
-   ompi_info
-
-.. seealso:: :ref:`MPI_T_cvar_get_info()`
+.. seealso::    o:ref:`mpi_info` 

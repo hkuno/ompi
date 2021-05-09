@@ -131,15 +131,5 @@ guarantee that an MPI program can continue past an error.
 
 See the MPI man page for a full list of MPI error codes.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Pack_external
-   MPI_Sizeof
-   MPI_Type_match_size
-   MPI_Unpack_external
-   SELECTED_REAL_KIND
-
-.. seealso:: :ref:`MPI_Pack_external` :ref:`MPI_Unpack_external` :ref:`MPI_File` :ref:`MPI_Sizeof` :ref:`MPI_Type_match_size` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Pack_external`    :ref:`MPI_Sizeof`    :ref:`MPI_Type_match_size`    :ref:`MPI_Unpack_external` 

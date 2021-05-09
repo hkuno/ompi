@@ -2,8 +2,9 @@
 
 MPI_Graphdims_get
 ~~~~~~~~~~~~~~~~~
+====
 
-``MPI_Graphdims_get`` - Retrieves graph topology information associated
+:ref:`MPI_Graphdims_get`  - Retrieves graph topology information associated
 with a communicator.
 
 Syntax
@@ -56,13 +57,13 @@ Output Parameters
 Description
 ===========
 
-Functions ``MPI_Graphdims_get`` and ``MPI_Graph_get`` retrieve the
+Functions :ref:`MPI_Graphdims_get`  and :ref:`MPI_Graph_get`  retrieve the
 graph-topology information that was associated with a communicator by
-``MPI_Graph_create``.
+:ref:`MPI_Graph_create` .
 
-The information provided by ``MPI_Graphdims_get`` can be used to
+The information provided by :ref:`MPI_Graphdims_get`  can be used to
 dimension the vectors index and edges correctly for a call to
-``MPI_Graph_get``.
+:ref:`MPI_Graph_get` .
 
 Errors
 ======
@@ -73,13 +74,10 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.
 
-See Also
-========
 
-```MPI_Graph_create``\ (3) <MPI_Graph_create.html>`__
-```MPI_Graph_get``\ (3) <MPI_Graph_get.html>`__
+.. seealso:: :ref:`MPI_Graph_create` :ref:`MPI_Graph_get` 

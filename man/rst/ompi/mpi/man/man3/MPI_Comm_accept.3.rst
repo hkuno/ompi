@@ -2,8 +2,9 @@
 
 MPI_Comm_accept
 ~~~~~~~~~~~~~~~
+====
 
-``MPI_Comm_accept`` - Establishes communication with a client.
+:ref:`MPI_Comm_accept`  - Establishes communication with a client.
 
 Syntax
 ======
@@ -62,12 +63,12 @@ Output Parameters
 Description
 ===========
 
-``MPI_Comm_accept`` establishes communication with a client. It is
+:ref:`MPI_Comm_accept`  establishes communication with a client. It is
 collective over the calling communicator. It returns an
 intercommunicator that allows communication with the client, after the
-client has connected with the ``MPI_Comm_accept`` function using the
-``MPI_Comm_connect`` function. The ``port_name`` must have been
-established through a call to ``MPI_Open_port`` on the ``root``.
+client has connected with the :ref:`MPI_Comm_accept`  function using the
+:ref:`MPI_Comm_connect`  function. The ``port_name`` must have been
+established through a call to :ref:`MPI_Open_port`  on the ``root``.
 
 Errors
 ======
@@ -77,12 +78,9 @@ of the function and Fortran routines in the last argument. Before the
 error value is returned, the current MPI error handler is called. By
 default, this error handler aborts the MPI job, except for I/O function
 errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 See the MPI man page for a full list of MPI error codes.
 
-See Also
-========
 
-```MPI_Comm_connect``\ (3) <MPI_Comm_connect.html>`__
-```MPI_Open_port``\ (3) <MPI_Open_port.html>`__
+.. seealso:: :ref:`MPI_Comm_connect` :ref:`MPI_Open_port` 

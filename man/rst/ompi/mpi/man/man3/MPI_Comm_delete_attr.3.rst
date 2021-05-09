@@ -2,8 +2,9 @@
 
 MPI_Comm_delete_attr
 ~~~~~~~~~~~~~~~~~~~~
+====
 
-``MPI_Comm_delete_attr`` - Deletes attribute value associated with a
+:ref:`MPI_Comm_delete_attr`  - Deletes attribute value associated with a
 key.
 
 Syntax
@@ -59,18 +60,18 @@ Output Parameter
 Description
 ===========
 
-``MPI_Comm_delete_attr`` deletes an attribute from cache by key. This
+:ref:`MPI_Comm_delete_attr`  deletes an attribute from cache by key. This
 function invokes the attribute delete function ``delete_fn`` specified
 when the ``comm_keyval`` was created. The call will fail if the
-``delete_fn`` function returns an error code other than ``MPI_SUCCESS.``
+``delete_fn`` function returns an error code other than :ref:`MPI_SUCCESS` .``
 Whenever a communicator is replicated using the function
-``MPI_Comm_dup``, all callback copy functions for attributes that are
+:ref:`MPI_Comm_dup` , all callback copy functions for attributes that are
 currently set are invoked (in arbitrary order). Whenever a communicator
-is deleted using the function ``MPI_Comm_free``, all callback delete
+is deleted using the function :ref:`MPI_Comm_free` , all callback delete
 functions for attributes that are currently set are invoked. This
-function is the same as ``MPI_Attr_delete`` but is needed to match the
+function is the same as :ref:`MPI_Attr_delete`  but is needed to match the
 ``comm``\ unicator-specific functions introduced in the MPI-2 standard.
-The use of ``MPI_Attr_delete`` is deprecated.
+The use of :ref:`MPI_Attr_delete`  is deprecated.
 
 Notes
 =====
@@ -89,7 +90,7 @@ of the function and Fortran routines in the last argument. Before the
 error value is returned, the current MPI error handler is called. By
 default, this error handler aborts the MPI job, except for I/O function
 errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.

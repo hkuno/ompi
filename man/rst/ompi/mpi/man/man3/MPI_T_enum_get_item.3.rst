@@ -66,5 +66,3 @@ ERRORS
 
 [:ref:`MPI_T_ERR_INVALID_INDEX]` 
    The enumeration is invalid or has been deleted
-
-.. seealso:: :ref:`MPI_T_enum_get_item()`

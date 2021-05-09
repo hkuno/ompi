@@ -59,11 +59,5 @@ ERRORS
 [:ref:`MPI_T_ERR_PVAR_NO_STARTSTOP]` 
    The variable cannot be started or stopped
 
-SEE ALSO
-========
 
-::
-
-   MPI_T_pvar_get_info
-
-.. seealso:: :ref:`MPI_T_pvar_stop` :ref:`MPI_T_pvar_start()` :ref:`MPI_T_pvar_stop()`
+.. seealso::    :ref:`MPI_T_pvar_get_info` 

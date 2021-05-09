@@ -99,14 +99,5 @@ guarantee that an MPI program can continue past an error.
 
 See the MPI man page for a full list of MPI error codes.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Init_thread
-   MPI_Initialized
-   MPI_Finalize
-   MPI_Finalized
-
-.. seealso:: :ref:`MPI_Init_thread` :ref:`MPI_Initialized` :ref:`MPI_Finalized` :ref:`MPI_Finalize` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Init_thread`    :ref:`MPI_Initialized`    :ref:`MPI_Finalize`    :ref:`MPI_Finalized` 

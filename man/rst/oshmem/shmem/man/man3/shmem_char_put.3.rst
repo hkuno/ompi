@@ -195,9 +195,5 @@ The following shmem_put example is for C/C++ programs:
      printf("target[0] on PE %d is %d\n", shmem_my_pe(), target[0]);
    }
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_iput*\ (3), *shmem_quiet*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_iput` \ (3), *:ref:`shmem_quiet` \ (3)

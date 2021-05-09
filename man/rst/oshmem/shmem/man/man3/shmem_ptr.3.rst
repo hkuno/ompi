@@ -126,9 +126,5 @@ RETURN VALUES
 shmem_ptr returns a pointer to the data object on the specified remote
 PE. If target is not remotely accessible, a NULL pointer is returned.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_put*\ (3), *shmem_get*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_put` \ (3), *:ref:`shmem_get` \ (3)

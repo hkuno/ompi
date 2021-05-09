@@ -2,8 +2,9 @@
 
 MPI_Grequest_complete
 ~~~~~~~~~~~~~~~~~~~~~
+====
 
-``MPI_Grequest_complete`` - Reports that a generalized request is
+:ref:`MPI_Grequest_complete`  - Reports that a generalized request is
 complete.
 
 Syntax
@@ -53,21 +54,21 @@ Output Parameter
 Description
 ===========
 
-``MPI_Grequest_complete`` informs MPI that the operations represented by
+:ref:`MPI_Grequest_complete`  informs MPI that the operations represented by
 the generalized request ``request`` are complete. A call to
-``MPI_Wait(request, status)`` will return, and a call to
-``MPI_Test(request, flag, status)`` will return flag=true only after a
-call to ``MPI_Grequest_complete`` has declared that these operations are
+:ref:`MPI_Wait(request` , status)`` will return, and a call to
+:ref:`MPI_Test(request` , flag, status)`` will return flag=true only after a
+call to :ref:`MPI_Grequest_complete`  has declared that these operations are
 complete.
 
 MPI imposes no restrictions on the code executed by the callback
 functions. However, new nonblocking operations should be defined so that
-the general semantic rules about MPI calls such as ``MPI_Test``,
-``MPI_Request_free``, or ``MPI_Cancel`` still hold. For example, all
+the general semantic rules about MPI calls such as :ref:`MPI_Test` ,
+:ref:`MPI_Request_free` , or :ref:`MPI_Cancel`  still hold. For example, all
 these calls are supposed to be local and nonblocking. Therefore, the
 callback functions ``query_fn``, ``free_fn``, or ``cancel_fn`` should
 invoke blocking MPI communication calls only if the context is such that
-these calls are guaranteed to return in finite time. Once ``MPI_Cancel``
+these calls are guaranteed to return in finite time. Once :ref:`MPI_Cancel` 
 has been invoked, the canceled operation should complete in finite time,
 regardless of the state of other processes (the operation has acquired
 "local" semantics). It should either succeed or fail without
@@ -83,7 +84,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.

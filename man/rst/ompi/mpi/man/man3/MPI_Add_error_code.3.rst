@@ -80,12 +80,5 @@ I/O function errors. The error handler may be changed with
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Add_error_class
-   MPI_Error_class
-
-.. seealso:: :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Add_error_class`    :ref:`MPI_Error_class` 

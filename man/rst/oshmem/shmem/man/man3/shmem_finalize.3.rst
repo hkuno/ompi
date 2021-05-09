@@ -42,9 +42,5 @@ All processes and threads that represent the PEs will still exist after
 the call to shmem_finalize returns, but they will no longer have access
 to any resources that have been released.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_my_pe*\ (3), *shmem_init*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_my_pe` \ (3), *:ref:`shmem_init` \ (3)

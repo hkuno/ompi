@@ -2,8 +2,9 @@
 
 MPI_Get_library_version
 ~~~~~~~~~~~~~~~~~~~~~~~
+====
 
-``MPI_Get_library_version`` - Returns a string of the current Open MPI
+:ref:`MPI_Get_library_version`  - Returns a string of the current Open MPI
 version
 
 Syntax
@@ -60,18 +61,18 @@ flexibility.
 The number of characters actually written is returned in the output
 argument, ``resultlen``. In C, a '0' character is additionally stored at
 ``version[resultlen]``. The ``resultlen`` cannot be larger than
-(``MPI_MAX_LIBRARY_VERSION_STRING`` - 1). In Fortran, ``version`` is
+(:ref:`MPI_MAX_LIBRARY_VERSION_STRING`  - 1). In Fortran, ``version`` is
 padded on the right with blank characters. The ``resultlen`` cannot be
-larger than ``MPI_MAX_LIBRARY_VERSION_STRING``.
+larger than :ref:`MPI_MAX_LIBRARY_VERSION_STRING` .
 
 Note
 ====
 
 The ``version`` string that is passed must be at least
-``MPI_MAX_LIBRARY_VERSION_STRING`` characters long.
+:ref:`MPI_MAX_LIBRARY_VERSION_STRING`  characters long.
 
-``MPI_Get_library_version`` is one of the few functions that can be
-called before ``MPI_Init`` and after ``MPI_Finalize.``
+:ref:`MPI_Get_library_version`  is one of the few functions that can be
+called before :ref:`MPI_Init`  and after :ref:`MPI_Finalize` .``
 
 Errors
 ======
@@ -82,12 +83,10 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.
 
-See Also
-========
 
-```MPI_Get_version``\ (3) <MPI_Get_version.html>`__
+.. seealso:: :ref:`MPI_Get_version` 

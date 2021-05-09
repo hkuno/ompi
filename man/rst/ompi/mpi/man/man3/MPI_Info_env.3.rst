@@ -85,9 +85,5 @@ ERRORS
 | When calling :ref:`MPI_INFO_GET(3)` , the *flag* parameter will be set to zero
   (false) if a value for the field has not been set.
 
-SEE ALSO
-========
 
-:ref:`MPI_Info_get` 
-
-.. seealso:: :ref:`MPI_Info` :ref:`MPI_Init` :ref:`MPI_Info_get`
+.. seealso:: :ref:`MPI_Info_get` 

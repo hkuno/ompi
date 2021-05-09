@@ -2,8 +2,9 @@
 
 MPI_Bsend
 ~~~~~~~~~
+====
 
-``MPI_Bsend`` - Basic send with user-specified buffering.
+:ref:`MPI_Bsend`  - Basic send with user-specified buffering.
 
 Syntax
 ======
@@ -60,17 +61,17 @@ Output Parameters
 Description
 ===========
 
-``MPI_Bsend`` performs a buffered-mode, blocking send.
+:ref:`MPI_Bsend`  performs a buffered-mode, blocking send.
 
 Notes
 =====
 
 This send is provided as a convenience function; it allows the user to
 send messages without worrying about where they are buffered (because
-the user must have provided buffer space with ``MPI_Buffer_attach``).
+the user must have provided buffer space with :ref:`MPI_Buffer_attach` ).
 
 In deciding how much buffer space to allocate, remember that the buffer
-space is not available for reuse by subsequent ``MPI_Bsend``\ s unless
+space is not available for reuse by subsequent :ref:`MPI_Bsend` \ s unless
 you are certain that the message has been received (not just that it
 should have been received). For example, this code does not allocate
 enough buffer space:
@@ -101,7 +102,7 @@ argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.

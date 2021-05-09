@@ -192,9 +192,5 @@ subroutine:
      . . .
    END
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_put*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_put` \ (3)

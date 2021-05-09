@@ -2,8 +2,9 @@
 
 MPI_Gather
 ~~~~~~~~~~
+====
 
-``MPI_Gather``, ``MPI_Igather`` - Gathers values from a group of
+:ref:`MPI_Gather` , :ref:`MPI_Igather`  - Gathers values from a group of
 processes.
 
 Synopsis
@@ -192,12 +193,12 @@ Use Of In-Place Option
 
 When the communicator is an intracommunicator, you can perform a gather
 operation in-place (the output buffer is used as the input buffer). Use
-the variable ``MPI_IN_PLACE`` as the value of the root process
+the variable :ref:`MPI_IN_PLACE`  as the value of the root process
 ``sendbuf``. In this case, ``sendcount`` and ``sendtype`` are ignored,
 and the contribution of the root process to the gathered vector is
 assumed to already be in the correct place in the receive buffer. Note
-that ``MPI_IN_PLACE`` is a special kind of value; it has the same
-restrictions on its use as MPI_BOTTOM. Because the in-place option
+that :ref:`MPI_IN_PLACE`  is a special kind of value; it has the same
+restrictions on its use as :ref:`MPI_BOTTOM` . Because the in-place option
 converts the receive buffer into a send-and-receive buffer, a Fortran
 binding that includes ``INTENT`` must mark these as ``INOUT``, not
 ``OUT``.
@@ -207,9 +208,9 @@ When Communicator Is An Inter-Communicator
 
 When the communicator is an inter-communicator, the root process in the
 first group gathers data from all the processes in the second group. The
-first group defines the root process. That process uses MPI_ROOT as the
+first group defines the root process. That process uses :ref:`MPI_ROOT`  as the
 value of its ``root`` argument. The remaining processes use
-``MPI_PROC_NULL`` as the value of their ``root`` argument. All processes
+:ref:`MPI_PROC_NULL`  as the value of their ``root`` argument. All processes
 in the second group use the rank of that root process in the first group
 as the value of their ``root`` argument. The send buffer argument of the
 processes in the first group must be consistent with the receive buffer
@@ -223,14 +224,10 @@ of the function and Fortran routines in the last argument. Before the
 error value is returned, the current MPI error handler is called. By
 default, this error handler aborts the MPI job, except for I/O function
 errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error. See the MPI man page for a full list of MPI error codes.
 
-See Also
-========
 
-```MPI_Gatherv``\ (3) <MPI_Gatherv.html>`__
-```MPI_Scatter``\ (3) <MPI_Scatter.html>`__
-```MPI_Scatterv``\ (3) <MPI_Scatterv.html>`__
+.. seealso:: :ref:`MPI_Gatherv` :ref:`MPI_Scatter` :ref:`MPI_Scatterv` 

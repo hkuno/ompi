@@ -116,18 +116,5 @@ If the invoked error handler allows :ref:`MPI_Waitall`  to return to the caller,
 the value :ref:`MPI_ERR_IN_STATUS`  will be returned in the C and Fortran
 bindings.
 
-SEE ALSO
-========
 
-| :ref:`MPI_Comm_set_errhandler` 
-| :ref:`MPI_File_set_errhandler` 
-| :ref:`MPI_Test` 
-| :ref:`MPI_Testall` 
-| :ref:`MPI_Testany` 
-| :ref:`MPI_Testsome` 
-| :ref:`MPI_Wait` 
-| :ref:`MPI_Waitany` 
-| :ref:`MPI_Waitsome` 
-| :ref:`MPI_Win_set_errhandler` 
-
-.. seealso:: :ref:`MPI_Waitall(count` :ref:`MPI_Wait(` :ref:`MPI_Wait` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_File_set_errhandler` :ref:`MPI_Win_set_errhandler` :ref:`MPI_Test` :ref:`MPI_Testall` :ref:`MPI_Testany` :ref:`MPI_Testsome` :ref:`MPI_Waitany` :ref:`MPI_Waitsome`
+.. seealso:: | :ref:`MPI_Comm_set_errhandler` | :ref:`MPI_File_set_errhandler` | :ref:`MPI_Test` | :ref:`MPI_Testall` | :ref:`MPI_Testany` | :ref:`MPI_Testsome` | :ref:`MPI_Wait` | :ref:`MPI_Waitany` | :ref:`MPI_Waitsome` | :ref:`MPI_Win_set_errhandler` 

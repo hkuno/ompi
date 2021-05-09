@@ -124,9 +124,5 @@ swap will successfully write its PE number to race_winner on PE 0.
        printf("pe %d was first\n",shmem_my_pe());
    }
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_cache*\ (3), *shmem_swap*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_cache` \ (3), *:ref:`shmem_swap` \ (3)

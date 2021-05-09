@@ -51,5 +51,3 @@ ERRORS
 
 [:ref:`MPI_T_ERR_INVALID_SESSION]` 
    The session parameter is not a valid session
-
-.. seealso:: :ref:`MPI_T_pvar_session_free` :ref:`MPI_T_pvar_session_create()` :ref:`MPI_T_pvar_session_free()`

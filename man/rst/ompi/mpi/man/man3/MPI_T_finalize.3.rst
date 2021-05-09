@@ -44,11 +44,5 @@ ERRORS
 [:ref:`MPI_T_ERR_NOT_INITIALIZED]` 
    The MPI Tools interface not initialized
 
-SEE ALSO
-========
 
-::
-
-   MPI_T_init_thread
-
-.. seealso:: :ref:`MPI_T_finalize()` :ref:`MPI_T_init_thread()`
+.. seealso::    :ref:`MPI_T_init_thread` 

@@ -154,11 +154,5 @@ I/O function errors. The error handler may be changed with
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
-SEE ALSO
-========
 
-| :ref:`MPI_Neighbor_allgatherv`  :ref:`MPI_Cart_create`  :ref:`MPI_Garph_create` 
-  :ref:`MPI_Dist_graph_create` 
-| :ref:`MPI_Gather` 
-
-.. seealso:: :ref:`MPI_Ineighbor_allgather` :ref:`MPI_Allgather` :ref:`MPI_Dist_graph_create` :ref:`MPI_Dist_graph_neighbors` :ref:`MPI_Graph_create` :ref:`MPI_Graph_neighbors` :ref:`MPI_Cart_create` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Neighbor_allgatherv` :ref:`MPI_Garph_create` :ref:`MPI_Gather`
+.. seealso:: | :ref:`MPI_Neighbor_allgatherv`  :ref:`MPI_Cart_create`  :ref:`MPI_Garph_create`   :ref:`MPI_Dist_graph_create` | :ref:`MPI_Gather` 

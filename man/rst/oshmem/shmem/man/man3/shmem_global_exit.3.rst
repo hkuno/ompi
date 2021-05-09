@@ -42,9 +42,5 @@ values passed to shmem_global_exit as the status argument. There is no
 return to the caller of shmem_global_exit; control is returned from the
 OpenSHMEM program to the execution environment for all PEs.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_my_pe*\ (3), *shmem_init*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_my_pe` \ (3), *:ref:`shmem_init` \ (3)

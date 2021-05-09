@@ -188,9 +188,5 @@ Fortran example:
    CALL SHMEM_BROADCAST64(TARGET, SOURCE, NELEMS, 0, 4, 0, 4,
    & PSYNC)
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3)
-
-.. seealso::
+.. seealso:: 

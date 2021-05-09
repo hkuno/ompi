@@ -85,12 +85,5 @@ I/O function errors. The error handler may be changed with
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Comm_spawn
-   MPI_Comm_spawn_multiple
-
-.. seealso:: :ref:`MPI_Comm_spawn` :ref:`MPI_Comm_spawn_multiple` :ref:`MPI_Init` :ref:`MPI_Comm_disconnect` :ref:`MPI_Comm_free` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Comm_spawn`    :ref:`MPI_Comm_spawn_multiple` 

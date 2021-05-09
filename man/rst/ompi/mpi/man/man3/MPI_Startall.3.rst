@@ -108,15 +108,5 @@ I/O function errors. The error handler may be changed with
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
-SEE ALSO
-========
 
-| :ref:`MPI_Bsend_init` 
-| :ref:`MPI_Rsend_init` 
-| :ref:`MPI_Send_init` 
-| :ref:`MPI_Ssend_init` 
-| :ref:`MPI_Recv_init` 
-| :ref:`MPI_Start` 
-| :ref:`MPI_Request_free` 
-
-.. seealso:: :ref:`MPI_Startall(count` :ref:`MPI_Start` :ref:`MPI_Wait` :ref:`MPI_Test` :ref:`MPI_Waitany` :ref:`MPI_Testany` :ref:`MPI_Waitall` :ref:`MPI_Testall` :ref:`MPI_Waitsome` :ref:`MPI_Testsome` :ref:`MPI_Request_free` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Bsend_init` :ref:`MPI_Rsend_init` :ref:`MPI_Send_init` :ref:`MPI_Ssend_init` :ref:`MPI_Recv_init`
+.. seealso:: | :ref:`MPI_Bsend_init` | :ref:`MPI_Rsend_init` | :ref:`MPI_Send_init` | :ref:`MPI_Ssend_init` | :ref:`MPI_Recv_init` | :ref:`MPI_Start` | :ref:`MPI_Request_free` 

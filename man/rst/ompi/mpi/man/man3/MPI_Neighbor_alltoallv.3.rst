@@ -208,15 +208,5 @@ I/O function errors. The error handler may be changed with
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Neighbor_alltoall
-   MPI_Neighbor_alltoallw
-   MPI_Cart_create
-   MPI_Graph_create
-   MPI_Dist_graph_create
-
-.. seealso:: :ref:`MPI_Ineighbor_alltoallv` :ref:`MPI_Neighbor_alltoall` :ref:`MPI_Dist_graph_create` :ref:`MPI_Dist_graph_neighbors` :ref:`MPI_Graph_create` :ref:`MPI_Graph_neighbors` :ref:`MPI_Cart_create` :ref:`MPI_Neighbor_alltoallw` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Neighbor_alltoall`    :ref:`MPI_Neighbor_alltoallw`    :ref:`MPI_Cart_create`    :ref:`MPI_Graph_create`    :ref:`MPI_Dist_graph_create` 

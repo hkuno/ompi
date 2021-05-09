@@ -68,9 +68,5 @@ RETURN VALUES
 
 None.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3)
-
-.. seealso::
+.. seealso:: 

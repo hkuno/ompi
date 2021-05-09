@@ -93,5 +93,3 @@ library.
 
 This function does not return an error value. Consequently, the result
 of calling it before :ref:`MPI_Init`  or after :ref:`MPI_Finalize`  is undefined.
-
-.. seealso:: :ref:`MPI_Init` :ref:`MPI_Finalize`

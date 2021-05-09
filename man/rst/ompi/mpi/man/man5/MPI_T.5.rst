@@ -2,6 +2,7 @@
 
 MPI_T
 ~~~~~
+====
 
 Open MPI's MPI_T interface - General information
 
@@ -41,7 +42,7 @@ initialized may affect *how* MPI is initialized (e.g., by influencing
 which frameworks and components are selected).
 
 The following example sets the ``pml`` and ``btl`` MCA params before
-invoking ``MPI_Init(3)`` in order to force a specific selection of PML
+invoking :ref:`MPI_Init(3)`  in order to force a specific selection of PML
 and BTL components:
 
 .. code:: c
@@ -121,8 +122,5 @@ Open MPI's MPI_T categories are organized hierarchically:
    -  For example, the ``tcp`` component can be found under the ``opal``
       framework in the ``opal`` layer.
 
-SEE ALSO
-========
 
-```MPI_T_init``\ (3) <MPI_T_init.html>`__,
-```MPI_T_finalize``\ (3) <MPI_T_finalize.html>`__
+.. seealso:: :ref:`MPI_T_init` :ref:`MPI_T_finalize` 

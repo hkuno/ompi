@@ -134,10 +134,5 @@ I/O function errors. The error handler may be changed with
 that MPI does not guarantee that an MPI program can continue past an
 error.
 
-SEE ALSO
-========
 
-| :ref:`MPI_Get_accumulate` 
-| :ref:`MPI_Reduce` 
-
-.. seealso:: :ref:`MPI_Rreduce` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Get_accumulate` :ref:`MPI_Reduce`
+.. seealso:: | :ref:`MPI_Get_accumulate` | :ref:`MPI_Reduce` 

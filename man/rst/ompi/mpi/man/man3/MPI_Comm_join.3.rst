@@ -98,13 +98,5 @@ guarantee that an MPI program can continue past an error.
 
 See the MPI man page for a full list of MPI error codes.
 
-SEE ALSO
-========
 
-::
-
-   socket(3SOCKET)
-   MPI_Comm_create
-   MPI_Comm_group
-
-.. seealso:: :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Comm_create`    :ref:`MPI_Comm_group` 

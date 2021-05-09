@@ -121,25 +121,5 @@ I/O function errors. The error handler may be changed with
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
-SEE ALSO
-========
 
-| :ref:`MPI_Isend` 
-| :ref:`MPI_Irecv` 
-| :ref:`MPI_Issend` 
-| :ref:`MPI_Ibsend` 
-| :ref:`MPI_Irsend` 
-| :ref:`MPI_Recv_init` 
-| :ref:`MPI_Send_init` 
-| :ref:`MPI_Ssend_init` 
-| :ref:`MPI_Rsend_init` 
-| :ref:`MPI_Test` 
-| :ref:`MPI_Wait` 
-| :ref:`MPI_Waitall` 
-| :ref:`MPI_Waitany` 
-| :ref:`MPI_Waitsome` 
-| :ref:`MPI_Testall` 
-| :ref:`MPI_Testany` 
-| :ref:`MPI_Testsome` 
-
-.. seealso:: :ref:`MPI_Wait` :ref:`MPI_Test` :ref:`MPI_Recv_init` :ref:`MPI_Send_init` :ref:`MPI_Irecv` :ref:`MPI_Isend` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Issend` :ref:`MPI_Ibsend` :ref:`MPI_Irsend` :ref:`MPI_Ssend_init` :ref:`MPI_Rsend_init` :ref:`MPI_Waitall` :ref:`MPI_Waitany` :ref:`MPI_Waitsome` :ref:`MPI_Testall` :ref:`MPI_Testany` :ref:`MPI_Testsome`
+.. seealso:: | :ref:`MPI_Isend` | :ref:`MPI_Irecv` | :ref:`MPI_Issend` | :ref:`MPI_Ibsend` | :ref:`MPI_Irsend` | :ref:`MPI_Recv_init` | :ref:`MPI_Send_init` | :ref:`MPI_Ssend_init` | :ref:`MPI_Rsend_init` | :ref:`MPI_Test` | :ref:`MPI_Wait` | :ref:`MPI_Waitall` | :ref:`MPI_Waitany` | :ref:`MPI_Waitsome` | :ref:`MPI_Testall` | :ref:`MPI_Testany` | :ref:`MPI_Testsome` 

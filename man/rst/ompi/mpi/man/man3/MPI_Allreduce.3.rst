@@ -195,5 +195,3 @@ I/O function errors. The error handler may be changed with
 :ref:`MPI_Comm_set_errhandler` ; the predefined error handler :ref:`MPI_ERRORS_RETURN` 
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
-
-.. seealso:: :ref:`MPI_Iallreduce` :ref:`MPI_Reduce` :ref:`MPI_Op` :ref:`MPI_Abort` :ref:`MPI_Comm_set_errhandler`

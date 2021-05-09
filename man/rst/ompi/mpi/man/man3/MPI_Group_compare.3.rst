@@ -2,8 +2,9 @@
 
 MPI_Group_compare
 ~~~~~~~~~~~~~~~~~
+====
 
-``MPI_Group_compare`` - Compares two groups.
+:ref:`MPI_Group_compare`  - Compares two groups.
 
 Syntax
 ======
@@ -50,18 +51,18 @@ Input Parameters
 Output Parameters
 =================
 
--  ``result`` : Integer which is MPI_IDENT if the order and members of
-   the two groups are the same, MPI_SIMILAR if only the members are the
-   same, and MPI_UNEQUAL otherwise.
+-  ``result`` : Integer which is :ref:`MPI_IDENT`  if the order and members of
+   the two groups are the same, :ref:`MPI_SIMILAR`  if only the members are the
+   same, and :ref:`MPI_UNEQUAL`  otherwise.
 -  ``IERROR`` : Fortran only: Error status (integer).
 
 Description
 ===========
 
-``MPI_IDENT`` results if the group members and group order is exactly
+:ref:`MPI_IDENT`  results if the group members and group order is exactly
 the same in both groups. This happens for instance if ``group1`` and
-``group2`` are the same handle. ``MPI_SIMILAR`` results if the group
-members are the same but the order is different. ``MPI_UNEQUAL`` results
+``group2`` are the same handle. :ref:`MPI_SIMILAR`  results if the group
+members are the same but the order is different. :ref:`MPI_UNEQUAL`  results
 otherwise.
 
 Errors
@@ -73,7 +74,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.

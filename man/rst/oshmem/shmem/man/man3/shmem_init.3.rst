@@ -80,10 +80,5 @@ NOTES
 If the start_pes call is not the first statement in a program,
 unexpected results may occur on some architectures.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_barrier*\ (3), *shmem_barrier_all*\ (3),
-*shmem_put*\ (3), *my_pe*\ (3I), *shmem_n_pes*\ (3I)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_barrier` \ (3), *:ref:`shmem_barrier_all` \ (3),*:ref:`shmem_put` \ (3), *my_pe*\ (3I), *:ref:`shmem_n_pes` \ (3I)

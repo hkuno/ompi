@@ -89,12 +89,5 @@ guarantee that an MPI program can continue past an error.
 
 See the MPI man page for a full list of MPI error codes.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Sizeof
-   MPI_Type_get_extent
-
-.. seealso:: :ref:`MPI_Sizeof` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Sizeof`    :ref:`MPI_Type_get_extent` 

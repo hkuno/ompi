@@ -88,11 +88,11 @@ The arguments are as follows:
 
 A symmetric data object with one of the following data types:
 
-   **shmem_alltoall32**: Any noncharacter type that
-      has an element size of 32 bits. No Fortran derived types or C/C++
-      structures are allowed.
+   **shmem_alltoall32**
+      Any noncharacter type that has an element size of 32 bits. No Fortran derived types or C/C++ structures are allowed.
 
-   **shmem_alltoall64**: Any noncharacter type that has an element size
+   **shmem_alltoall64**
+      Any noncharacter type that has an element size
       of 64 bits. No Fortran derived types or C/C++ structures are
       allowed.
 
@@ -232,9 +232,5 @@ C/C++ example:
    return 0;
    }
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3)
-
-.. seealso::
+.. seealso:: 

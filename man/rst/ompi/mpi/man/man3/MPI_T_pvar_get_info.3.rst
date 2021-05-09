@@ -210,11 +210,5 @@ ERRORS
 [:ref:`MPI_T_ERR_INVALID_INDEX]` 
    The performance variable index is invalid
 
-SEE ALSO
-========
 
-::
-
-   MPI_T_cvar_get_info
-
-.. seealso:: :ref:`MPI_T_cvar_get_info` :ref:`MPI_Wtime()` :ref:`MPI_T_pvar_get_info()`
+.. seealso::    :ref:`MPI_T_cvar_get_info` 

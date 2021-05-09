@@ -2,8 +2,9 @@
 
 MPI_File_write_ordered
 ~~~~~~~~~~~~~~~~~~~~~~
+====
 
-``MPI_File_write_ordered`` - Writes a file at a location specified by a
+:ref:`MPI_File_write_ordered`  - Writes a file at a location specified by a
 shared file pointer (blocking, collective).
 
 Syntax
@@ -65,7 +66,7 @@ Output Parameters
 Description
 ===========
 
-``MPI_File_write_ordered`` is a collective routine. This routine must be
+:ref:`MPI_File_write_ordered`  is a collective routine. This routine must be
 called by all processes in the communicator group associated with the
 file handle ``fh``. Each process may pass different argument values for
 the ``datatype`` and ``count`` arguments. Each process attempts to
@@ -74,7 +75,7 @@ data items having ``datatype`` type contained in the user's buffer
 ``buf``. For each process, the location in the file at which data is
 written is the position at which the shared file pointer would be after
 all processes whose ranks within the group are less than that of this
-process had written their data. ``MPI_File_write_ordered`` returns the
+process had written their data. :ref:`MPI_File_write_ordered`  returns the
 number of ``datatype`` elements written in ``status``. The shared file
 pointer is updated by the amounts of data requested by all processes of
 the group.
@@ -87,7 +88,7 @@ of the function and Fortran routines in the last argument.
 
 Before the error value is returned, the current MPI error handler is
 called. For MPI I/O function errors, the default error handler is set to
-``MPI_ERRORS_RETURN``. The error handler may be changed with
-``MPI_File_set_errhandler``; the predefined error handler
-``MPI_ERRORS_ARE_FATAL`` may be used to make I/O errors fatal. Note that
+:ref:`MPI_ERRORS_RETURN` . The error handler may be changed with
+:ref:`MPI_File_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that
 MPI does not guarantee that an MPI program can continue past an error.

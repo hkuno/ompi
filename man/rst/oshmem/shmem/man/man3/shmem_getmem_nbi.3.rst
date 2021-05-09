@@ -162,9 +162,5 @@ Consider this simple example for Fortran.
      CALL SHMEM_BARRIER_ALL
    END
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_quiet*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_quiet` \ (3)

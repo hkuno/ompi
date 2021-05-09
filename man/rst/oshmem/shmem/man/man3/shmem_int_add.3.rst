@@ -66,9 +66,5 @@ NOTES
 
 The term remotely accessible is defined in *intro_shmem*\ (3).
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_cache*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_cache` \ (3)

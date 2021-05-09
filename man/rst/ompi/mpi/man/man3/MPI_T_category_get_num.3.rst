@@ -35,5 +35,3 @@ ERRORS
 
 [:ref:`MPI_T_ERR_NOT_INITIALIZED]` 
    The MPI Tools interface not initialized
-
-.. seealso:: :ref:`MPI_T_category_get_num()`

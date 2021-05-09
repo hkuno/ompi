@@ -160,13 +160,5 @@ guarantee that an MPI program can continue past an error.
 
 See the MPI man page for a full list of MPI error codes.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Op_create
-   MPI_Reduce
-   MPI_Scan
-
-.. seealso:: :ref:`MPI_Iexscan` :ref:`MPI_Scan` :ref:`MPI_Reduce` :ref:`MPI_Op` :ref:`MPI_Abort` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Op_create`    :ref:`MPI_Reduce`    :ref:`MPI_Scan` 

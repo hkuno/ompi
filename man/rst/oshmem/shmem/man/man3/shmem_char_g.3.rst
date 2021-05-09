@@ -51,9 +51,5 @@ addr
 pe
    The number of the remote PE.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_get*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_get` \ (3)

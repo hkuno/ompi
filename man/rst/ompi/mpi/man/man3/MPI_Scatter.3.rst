@@ -197,13 +197,5 @@ I/O function errors. The error handler may be changed with
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Scatterv
-   MPI_Gather
-   MPI_Gatherv
-
-.. seealso:: :ref:`MPI_Iscatter` :ref:`MPI_Gather` :ref:`MPI_Send(sendbuf` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Scatterv`    :ref:`MPI_Gather`    :ref:`MPI_Gatherv` 

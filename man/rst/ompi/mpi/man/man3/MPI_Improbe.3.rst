@@ -99,16 +99,5 @@ I/O function errors. The error handler may be changed with
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Mprobe
-   MPI_Probe
-   MPI_Iprobe
-   MPI_Mrecv
-   MPI_Imrecv
-   MPI_Cancel
-
-.. seealso:: :ref:`MPI_Probe` :ref:`MPI_Iprobe` :ref:`MPI_Mprobe` :ref:`MPI_Mrecv` :ref:`MPI_Imrecv` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Mprobe`    :ref:`MPI_Probe`    :ref:`MPI_Iprobe`    :ref:`MPI_Mrecv`    :ref:`MPI_Imrecv`    :ref:`MPI_Cancel` 

@@ -51,12 +51,5 @@ ERRORS
 [:ref:`MPI_T_ERR_CVAR_SET_NEVER]` 
    Variable cannot be set until end of execution
 
-SEE ALSO
-========
 
-::
-
-   MPI_T_cvar_handle_alloc
-   MPI_T_cvar_get_info
-
-.. seealso:: :ref:`MPI_T_cvar_write()`
+.. seealso::    :ref:`MPI_T_cvar_handle_alloc`    :ref:`MPI_T_cvar_get_info` 

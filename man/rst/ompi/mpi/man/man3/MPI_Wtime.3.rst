@@ -102,9 +102,5 @@ processor core).
 This function does not return an error value. Consequently, the result
 of calling it before :ref:`MPI_Init`  or after :ref:`MPI_Finalize`  is undefined.
 
-SEE ALSO
-========
 
-| :ref:`MPI_Wtick` 
-
-.. seealso:: :ref:`MPI_Wtick` :ref:`MPI_Init` :ref:`MPI_Finalize`
+.. seealso:: | :ref:`MPI_Wtick` 

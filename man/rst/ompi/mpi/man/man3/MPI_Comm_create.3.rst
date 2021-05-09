@@ -2,8 +2,9 @@
 
 MPI_Comm_create
 ~~~~~~~~~~~~~~~
+====
 
-``MPI_Comm_create`` - Creates a new communicator.
+:ref:`MPI_Comm_create`  - Creates a new communicator.
 
 Syntax
 ======
@@ -59,10 +60,10 @@ Description
 This function creates a new communicator ``newcomm`` with communication
 ``group`` defined by ``group`` and a new context. The function sets
 ``newcomm`` to a new communicator that spans all the processes that are
-in the ``group``. It sets ``newcomm`` to ``MPI_COMM_NULL`` for processes
+in the ``group``. It sets ``newcomm`` to :ref:`MPI_COMM_NULL`  for processes
 that are not in the ``group``. Each process must call with a ``group``
 argument that is a subgroup of the ``group`` associated with ``comm``;
-this could be ``MPI_GROUP_EMPTY``. The processes may specify different
+this could be :ref:`MPI_GROUP_EMPTY` . The processes may specify different
 values for the ``group`` argument. If a process calls with a non-empty
 ``group``, then all processes in that ``group`` must call the function
 with the same ``group`` as argument, that is: the same processes in the
@@ -71,13 +72,13 @@ same order. Otherwise the call is erroneous.
 Notes
 =====
 
-``MPI_Comm_create`` provides a means of making a subset of processes for
+:ref:`MPI_Comm_create`  provides a means of making a subset of processes for
 the purpose of separate MIMD computation, with separate communication
-space. ``newcomm``, which is created by ``MPI_Comm_create``, can be used
-in subsequent calls to ``MPI_Comm_create`` (or other communicator
+space. ``newcomm``, which is created by :ref:`MPI_Comm_create` , can be used
+in subsequent calls to :ref:`MPI_Comm_create`  (or other communicator
 constructors) to further subdivide a computation into parallel
 sub-computations. A more general service is provided by
-``MPI_Comm_split``.
+:ref:`MPI_Comm_split` .
 
 Errors
 ======
@@ -87,14 +88,10 @@ of the function and Fortran routines in the last argument. Before the
 error value is returned, the current MPI error handler is called. By
 default, this error handler aborts the MPI job, except for I/O function
 errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.
 
-See Also
-========
 
-```MPI_Comm_split``\ (3) <MPI_Comm_split.html>`__
-```MPI_Intercomm_create``\ (3) <MPI_Intercomm_create.html>`__
-```MPI_Comm_create_group``\ (3) <MPI_Comm_create_group.html>`__
+.. seealso:: :ref:`MPI_Comm_split` :ref:`MPI_Intercomm_create` :ref:`MPI_Comm_create_group` 

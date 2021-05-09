@@ -2,8 +2,9 @@
 
 MPI_Status_f082c
 ~~~~~~~~~~~~~~~~
+====
 
-MPI_Status_f082c, MPI_Status_c2f08 - Translates a C status into a
+:ref:`MPI_Status_f082c` , :ref:`MPI_Status_c2f08`  - Translates a C status into a
 Fortran 2008 status, or vice versa.
 
 SYNTAX
@@ -34,16 +35,16 @@ is a structure), and vice versa. The conversion occurs on all the
 information in ``status``, including that which is hidden. That is, no
 status information is lost in the conversion.
 
-When using ``MPI_Status_f082c()``, if ``f08_status`` is a valid Fortran
-status, but not the Fortran value of ``MPI_F08_STATUS_IGNORE`` or
-``MPI_F08_STATUSES_IGNORE``, then ``MPI_Status_f082c()`` returns in
+When using :ref:`MPI_Status_f082c()` , if ``f08_status`` is a valid Fortran
+status, but not the Fortran value of :ref:`MPI_F08_STATUS_IGNORE`  or
+:ref:`MPI_F08_STATUSES_IGNORE` , then :ref:`MPI_Status_f082c()`  returns in
 ``c_status`` a valid C status with the same content. If ``f08_status``
-is the Fortran value of ``MPI_STATUS_IGNORE`` or
-``MPI_STATUSES_IGNORE``, or if ``f08_status`` is not a valid Fortran
+is the Fortran value of :ref:`MPI_STATUS_IGNORE`  or
+:ref:`MPI_STATUSES_IGNORE` , or if ``f08_status`` is not a valid Fortran
 status, then the call is erroneous.
 
-When using ``MPI_Status_c2f08()``, the opposite conversion is applied.
-If ``c_status`` is ``MPI_STATUS_IGNORE`` or ``MPI_STATUSES_IGNORE``, or
+When using :ref:`MPI_Status_c2f08()` , the opposite conversion is applied.
+If ``c_status`` is :ref:`MPI_STATUS_IGNORE`  or :ref:`MPI_STATUSES_IGNORE` , or
 if ``c_status`` is not a valid C status, then the call is erroneous.
 
 The input status has the same source, tag and error code values as the
@@ -59,10 +60,5 @@ NOTES
 These functions are only available in C; they are not available in any
 of the Fortran MPI interfaces.
 
-SEE ALSO
-========
 
-```MPI_Status_c2f``\ (3) <MPI_Status_c2f.html>`__,
-```MPI_Status_f2c``\ (3) <MPI_Status_f2c.html>`__,
-```MPI_Status_f082f``\ (3) <MPI_Status_f082f.html>`__,
-```MPI_Status_f2f08``\ (3) <MPI_Status_f2f08.html>`__
+.. seealso:: :ref:`MPI_Status_c2f` :ref:`MPI_Status_f2c` :ref:`MPI_Status_f082f` :ref:`MPI_Status_f2f08` 

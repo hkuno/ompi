@@ -237,9 +237,5 @@ the combination of the following calls:
 Note that two sets of pWrk and pSync arrays are used alternately because
 no synchronization is done between calls.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3)
-
-.. seealso::
+.. seealso:: 

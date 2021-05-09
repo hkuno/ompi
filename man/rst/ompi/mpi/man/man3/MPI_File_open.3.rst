@@ -201,5 +201,3 @@ called. For MPI I/O function errors, the default error handler is set to
 :ref:`MPI_File_set_errhandler` ; the predefined error handler
 :ref:`MPI_ERRORS_ARE_FATAL`  may be used to make I/O errors fatal. Note that MPI
 does not guarantee that an MPI program can continue past an error.
-
-.. seealso:: :ref:`MPI_File_close` :ref:`MPI_Finalize` :ref:`MPI_File_close)` :ref:`MPI_File_set_view` :ref:`MPI_File_set_atomicity` :ref:`MPI_File_set_errhandler`

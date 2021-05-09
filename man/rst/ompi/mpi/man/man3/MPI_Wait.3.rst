@@ -125,18 +125,5 @@ back to the caller through the return value of :ref:`MPI_WAIT`  if the back-end
 error handler returns it. The pre-defined MPI error handler
 :ref:`MPI_ERRORS_RETURN`  exhibits this behavior, for example.
 
-SEE ALSO
-========
 
-| :ref:`MPI_Comm_set_errhandler` 
-| :ref:`MPI_File_set_errhandler` 
-| :ref:`MPI_Test` 
-| :ref:`MPI_Testall` 
-| :ref:`MPI_Testany` 
-| :ref:`MPI_Testsome` 
-| :ref:`MPI_Waitall` 
-| :ref:`MPI_Waitany` 
-| :ref:`MPI_Waitsome` 
-| :ref:`MPI_Win_set_errhandler` 
-
-.. seealso:: :ref:`MPI_Test_cancelled` :ref:`MPI_Ibsend` :ref:`MPI_Buffer_attach` :ref:`MPI_Cancel` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_File_set_errhandler` :ref:`MPI_Win_set_errhandler` :ref:`MPI_Test` :ref:`MPI_Testall` :ref:`MPI_Testany` :ref:`MPI_Testsome` :ref:`MPI_Waitall` :ref:`MPI_Waitany` :ref:`MPI_Waitsome`
+.. seealso:: | :ref:`MPI_Comm_set_errhandler` | :ref:`MPI_File_set_errhandler` | :ref:`MPI_Test` | :ref:`MPI_Testall` | :ref:`MPI_Testany` | :ref:`MPI_Testsome` | :ref:`MPI_Waitall` | :ref:`MPI_Waitany` | :ref:`MPI_Waitsome` | :ref:`MPI_Win_set_errhandler` 

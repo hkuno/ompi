@@ -51,9 +51,5 @@ Fortran: The return value is .TRUE. if addr is a symmetric data object
 and accessible via SHMEM operations from the specified remote PE;
 otherwise, it is .FALSE..
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_pe_accessible*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_pe_accessible` \ (3)

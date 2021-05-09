@@ -33,9 +33,5 @@ DESCRIPTION
 num_pes() or shmem_n_pes() return the total number of PEs running in an
 application.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_my_pe*\ (3), *shmem_init*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_my_pe` \ (3), *:ref:`shmem_init` \ (3)

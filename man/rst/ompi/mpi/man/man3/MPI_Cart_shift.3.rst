@@ -2,8 +2,9 @@
 
 MPI_Cart_shift
 ~~~~~~~~~~~~~~
+====
 
-``MPI_Cart_shift`` - Returns the shifted source and destination ranks,
+:ref:`MPI_Cart_shift`  - Returns the shifted source and destination ranks,
 given a shift direction and amount.
 
 Syntax
@@ -63,13 +64,13 @@ Output Parameters
 Description
 ===========
 
-If the process topology is a Cartesian structure, an ``MPI_Sendrecv``
+If the process topology is a Cartesian structure, an :ref:`MPI_Sendrecv` 
 operation is likely to be used along a coordinate ``direction`` to
-perform a shift of data. As input, ``MPI_Sendrecv`` takes the rank of a
+perform a shift of data. As input, :ref:`MPI_Sendrecv`  takes the rank of a
 source process for the receive, and the rank of a destination process
-for the send. If the function ``MPI_Cart_shift`` is called for a
+for the send. If the function :ref:`MPI_Cart_shift`  is called for a
 Cartesian process group, it provides the calling process with the above
-identifiers, which then can be passed to ``MPI_Sendrecv``. The user
+identifiers, which then can be passed to :ref:`MPI_Sendrecv` . The user
 specifies the coordinate ``direction`` and the size of the step
 (positive or negative). The function is local.
 
@@ -81,9 +82,9 @@ Note: The ``direction`` argument is in the range [0, n-1] for an
 n-dimensional Cartesian mesh.
 
 Depending on the periodicity of the Cartesian group in the specified
-coordinate ``direction``, ``MPI_Cart_shift`` provides the identifiers
+coordinate ``direction``, :ref:`MPI_Cart_shift`  provides the identifiers
 for a circular or an end-off shift. In the case of an end-off shift, the
-value ``MPI_PROC_NULL`` may be returned in ``rank_source`` or
+value :ref:`MPI_PROC_NULL`  may be returned in ``rank_source`` or
 ``rank_dest``, indicating that the source or the destination for the
 shift is out of range.
 
@@ -122,7 +123,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.

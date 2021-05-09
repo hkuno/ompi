@@ -90,9 +90,5 @@ value. The **shrealloc** function returns a pointer to the allocated
 space (which may have moved); otherwise, it returns a null pointer (with
 malloc_error set).
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *my_pe*\ (3I), *start_pes*\ (3)
-
-.. seealso::
+.. seealso:: 

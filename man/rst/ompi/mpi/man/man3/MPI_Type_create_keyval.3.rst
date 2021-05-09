@@ -144,9 +144,5 @@ I/O function errors. The error handler may be changed with
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
-SEE ALSO
-========
 
-:ref:`MPI_Type_free_keyval` 
-
-.. seealso:: :ref:`MPI_Keyval_create` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Type_free_keyval`
+.. seealso:: :ref:`MPI_Type_free_keyval` 

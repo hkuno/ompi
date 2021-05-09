@@ -2,8 +2,9 @@
 
 MPI_Bcast
 ~~~~~~~~~
+====
 
-``MPI_Bcast``, ``MPI_Ibcast`` - Broadcasts a message from the process
+:ref:`MPI_Bcast` , :ref:`MPI_Ibcast`  - Broadcasts a message from the process
 with rank *root* to all other processes of the group.
 
 SYNTAX
@@ -75,7 +76,7 @@ OUTPUT PARAMETERS
 DESCRIPTION
 ===========
 
-``MPI_Bcast`` broadcasts a message from the process with rank root to
+:ref:`MPI_Bcast`  broadcasts a message from the process with rank root to
 all processes of the group, itself included. It is called by all members
 of group using the same arguments for ``comm``, ``root``. On return, the
 contents of root's communication buffer has been copied to all
@@ -85,7 +86,7 @@ General, derived datatypes are allowed for datatype. The type signature
 of count, datatype on any process must be equal to the type signature o
 f count, datatype at the root. This implies that the amount of data sent
 must be equal to the amount received, pairwise between each process and
-the root. ``MPI_Bcast`` and all other data-movement collective routines
+the root. :ref:`MPI_Bcast`  and all other data-movement collective routines
 make this restriction. Distinct type maps between sender and receiver
 are still allowed.
 
@@ -109,9 +110,9 @@ WHEN COMMUNICATOR IS AN INTER-COMMUNICATOR
 
 When the communicator is an inter-communicator, the root process in the
 first group broadcasts data to all the processes in the second group.
-The first group defines the root process. That process uses ``MPI_ROOT``
+The first group defines the root process. That process uses :ref:`MPI_ROOT` 
 as the value of its ``root`` argument. The remaining processes use
-``MPI_PROC_NULL`` as the value of their ``root`` argument. All processes
+:ref:`MPI_PROC_NULL`  as the value of their ``root`` argument. All processes
 in the second group use the rank of that root process in the first group
 as the value of their ``root`` argument. The receive buffer arguments of
 the processes in the second group must be consistent with the send
@@ -131,7 +132,7 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.

@@ -101,9 +101,5 @@ RETURN VALUES
 The contents that had been at the target address on the remote PE prior
 to the swap is returned.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3)
-
-.. seealso::
+.. seealso:: 

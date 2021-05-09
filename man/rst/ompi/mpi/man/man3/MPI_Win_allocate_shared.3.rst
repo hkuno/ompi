@@ -134,10 +134,5 @@ I/O function errors. The error handler may be changed with
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
-SEE ALSO
-========
 
-:ref:`MPI_Alloc_mem`  :ref:`MPI_Free_mem`  :ref:`MPI_Win_allocate`  :ref:`MPI_Win_create` 
-:ref:`MPI_Win_shared_query` 
-
-.. seealso:: :ref:`MPI_Win_shared_query` :ref:`MPI_Alloc_mem` :ref:`MPI_Free_mem` :ref:`MPI_Barrier` :ref:`MPI_Win_fence` :ref:`MPI_Win_create` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Win_allocate`
+.. seealso:: :ref:`MPI_Alloc_mem`  :ref:`MPI_Free_mem`  :ref:`MPI_Win_allocate`  :ref:`MPI_Win_create` :ref:`MPI_Win_shared_query` 

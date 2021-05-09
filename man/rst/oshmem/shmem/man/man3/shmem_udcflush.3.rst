@@ -75,9 +75,5 @@ NOTES
 These routines have been retained for improved backward compatability
 with legacy architectures.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_put*\ (3), *shmem_swap*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_put` \ (3), *:ref:`shmem_swap` \ (3)

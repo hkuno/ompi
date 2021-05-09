@@ -222,15 +222,5 @@ I/O function errors. The error handler may be changed with
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Reduce
-   MPI_Reduce_scatter
-   MPI_Allreduce
-   MPI_Scan
-   MPI_Op_free
-
-.. seealso:: :ref:`MPI_Reduce` :ref:`MPI_Allreduce` :ref:`MPI_Reduce_scatter` :ref:`MPI_Scan` :ref:`MPI_Abort` :ref:`MPI_Op` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Reduce`    :ref:`MPI_Reduce_scatter`    :ref:`MPI_Allreduce`    :ref:`MPI_Scan`    :ref:`MPI_Op_free` 

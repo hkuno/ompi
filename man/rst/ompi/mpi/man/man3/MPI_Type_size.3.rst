@@ -99,5 +99,3 @@ use the non-portable syntax
 
 where :ref:`MPI_COUNT_KIND`  is a constant defined in mpif.h and gives the
 length of the declared integer in bytes.
-
-.. seealso:: :ref:`MPI_Type_size_x` :ref:`MPI_Comm_set_errhandler`

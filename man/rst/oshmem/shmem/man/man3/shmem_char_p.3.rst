@@ -58,9 +58,5 @@ As with *shmem_put*\ (3), these functions start the remote transfer and
 may return before the data is delivered to the remote PE. Use
 *shmem_quiet*\ (3) to force completion of all remote PUT transfers.
 
-SEE ALSO
-========
 
-*intro_shmem*\ (3), *shmem_put*\ (3)
-
-.. seealso::
+.. seealso:: *intro_:ref:`shmem` \ (3), *:ref:`shmem_put` \ (3)

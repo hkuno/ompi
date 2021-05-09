@@ -2,8 +2,9 @@
 
 MPI_Buffer_attach
 ~~~~~~~~~~~~~~~~~
+====
 
-``MPI_Buffer_attach`` - Attaches a user-defined buffer for sending.
+:ref:`MPI_Buffer_attach`  - Attaches a user-defined buffer for sending.
 
 Syntax
 ======
@@ -63,9 +64,9 @@ Notes
 =====
 
 The size given should be the sum of the sizes of all outstanding Bsends
-that you intend to have, plus ``MPI_BSEND_OVERHEAD`` bytes for each
+that you intend to have, plus :ref:`MPI_BSEND_OVERHEAD`  bytes for each
 Bsend that you do. For the purposes of calculating size, you should use
-``MPI_Pack_size``. In other words, in the code
+:ref:`MPI_Pack_size` . In other words, in the code
 
 .. code:: c
 
@@ -96,12 +97,10 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.
 
-See Also
-========
 
-`MPI_Buffer_detach(3) <MPI_Buffer_detach.html>`__
+.. seealso:: :ref:`MPI_Buffer_detach` 

@@ -77,12 +77,5 @@ of the function and Fortran routines in the last argument.
 
 See the MPI man page for a full list of MPI error codes.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Win_create_errhandler
-   MPI_Win_set_errhandler
-
-.. seealso::
+.. seealso::    :ref:`MPI_Win_create_errhandler`    :ref:`MPI_Win_set_errhandler` 

@@ -111,12 +111,5 @@ I/O function errors. The error handler may be changed with
 may be used to cause error values to be returned. Note that MPI does not
 guarantee that an MPI program can continue past an error.
 
-SEE ALSO
-========
 
-| :ref:`MPI_Intercomm_merge` 
-| :ref:`MPI_Comm_free` 
-| :ref:`MPI_Comm_remote_group` 
-| :ref:`MPI_Comm_remote_size` 
-
-.. seealso:: :ref:`MPI_Intercomm_creates` :ref:`MPI_Intercomm_merge` :ref:`MPI_Comm_set_errhandler` :ref:`MPI_Comm_free` :ref:`MPI_Comm_remote_group` :ref:`MPI_Comm_remote_size`
+.. seealso:: | :ref:`MPI_Intercomm_merge` | :ref:`MPI_Comm_free` | :ref:`MPI_Comm_remote_group` | :ref:`MPI_Comm_remote_size` 

@@ -2,8 +2,9 @@
 
 MPI_Cart_sub
 ~~~~~~~~~~~~
+====
 
-``MPI_Cart_sub`` - Partitions a communicator into subgroups, which form
+:ref:`MPI_Cart_sub`  - Partitions a communicator into subgroups, which form
 lower-dimensional Cartesian subgrids.
 
 Syntax
@@ -61,23 +62,23 @@ Output Parameters
 Description
 ===========
 
-If a Cartesian topology has been created with ``MPI_Cart_create``, the
-function ``MPI_Cart_sub`` can be used to partition the communicator
+If a Cartesian topology has been created with :ref:`MPI_Cart_create` , the
+function :ref:`MPI_Cart_sub`  can be used to partition the communicator
 group into subgroups that form lower-dimensional Cartesian subgrids, and
 to build for each subgroup a communicator with the associated subgrid
 Cartesian topology. (This function is closely related to
-``MPI_Comm_split``.)
+:ref:`MPI_Comm_split` .)
 
-Example: Assume that ``MPI_Cart_create( ..., comm)`` has defined a (2 x
+Example: Assume that :ref:`MPI_Cart_create(`  ..., comm)`` has defined a (2 x
 3 x 4) grid. Let ``remain_dims`` = (true, false, true). Then a call to
 
 ::
 
-   MPI_Cart_sub(comm, remain_dims, comm_new)
+   :ref:`MPI_Cart_sub(comm` , remain_dims, comm_new)
 
 will create three communicators, each with eight processes in a 2 x 4
 Cartesian topology. If ``remain_dims = (false, false, true)`` then the
-call to ``MPI_Cart_sub(comm, remain_dims, comm_new)`` will create six
+call to :ref:`MPI_Cart_sub(comm` , remain_dims, comm_new)`` will create six
 nonoverlapping communicators, each with four processes, in a
 one-dimensional Cartesian topology.
 
@@ -89,13 +90,10 @@ of the function and Fortran routines in the last argument. Before the
 error value is returned, the current MPI error handler is called. By
 default, this error handler aborts the MPI job, except for I/O function
 errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.
 
-See Also
-========
 
-```MPI_Cart_create``\ (3) <MPI_Cart_create.html>`__
-```MPI_Comm_split``\ (3) <MPI_Comm_split.html>`__
+.. seealso:: :ref:`MPI_Cart_create` :ref:`MPI_Comm_split` 

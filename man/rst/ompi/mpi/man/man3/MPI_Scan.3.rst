@@ -227,13 +227,5 @@ guarantee that an MPI program can continue past an error.
 
 See the MPI man page for a full list of MPI error codes.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Exscan
-   MPI_Op_create
-   MPI_Reduce
-
-.. seealso:: :ref:`MPI_Iscan` :ref:`MPI_Reduce` :ref:`MPI_Op` :ref:`MPI_Abort` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Exscan`    :ref:`MPI_Op_create`    :ref:`MPI_Reduce` 

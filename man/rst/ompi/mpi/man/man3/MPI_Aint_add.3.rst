@@ -86,9 +86,5 @@ in the signed difference from *addr1* to *addr2*, as if the process that
 originally produced the addresses had called (char \*) *addr1* - (char
 \*) *addr2* on the addresses initially passed to :ref:`MPI_Get_address` .
 
-SEE ALSO
-========
 
-:ref:`MPI_Get_address` 
-
-.. seealso:: :ref:`MPI_Aint_diff` :ref:`MPI_Aint` :ref:`MPI_Get_address`
+.. seealso:: :ref:`MPI_Get_address` 

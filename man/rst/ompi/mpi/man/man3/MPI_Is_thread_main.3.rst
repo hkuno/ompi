@@ -69,12 +69,5 @@ guarantee that an MPI program can continue past an error.
 
 See the MPI man page for a full list of MPI error codes.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Init
-   MPI_Init_thread
-
-.. seealso:: :ref:`MPI_Init` :ref:`MPI_Init_thread)` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Init`    :ref:`MPI_Init_thread` 

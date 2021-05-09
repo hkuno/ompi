@@ -2,8 +2,9 @@
 
 MPI_Comm_connect
 ~~~~~~~~~~~~~~~~
+====
 
-``MPI_Comm_connect`` - Establishes communication with a server.
+:ref:`MPI_Comm_connect`  - Establishes communication with a server.
 
 Syntax
 ======
@@ -63,19 +64,19 @@ Output Parameters
 Description
 ===========
 
-``MPI_Comm_connect`` establishes communication with a server specified
+:ref:`MPI_Comm_connect`  establishes communication with a server specified
 by ``port_name``. It is collective over the calling communicator and
 returns an intercommunicator in which the remote group participated in
-an ``MPI_Comm_accept``. The ``MPI_Comm_connect`` call must only be
-called after the ``MPI_Comm_accept`` call has been made by the MPI job
+an :ref:`MPI_Comm_accept` . The :ref:`MPI_Comm_connect`  call must only be
+called after the :ref:`MPI_Comm_accept`  call has been made by the MPI job
 acting as the server. If the named port does not exist (or has been
-closed), ``MPI_Comm_connect`` raises an error of class ``MPI_ERR_PORT``.
+closed), :ref:`MPI_Comm_connect`  raises an error of class :ref:`MPI_ERR_PORT` .
 MPI provides no guarantee of fairness in servicing connection attempts.
 That is, connection attempts are not necessarily satisfied in the order
 in which they were initiated, and competition from other connection
 attempts may prevent a particular connection attempt from being
 satisfied. The ``port_name`` parameter is the address of the server. It
-must be the same as the name returned by ``MPI_Open_port`` on the
+must be the same as the name returned by :ref:`MPI_Open_port`  on the
 server.
 
 Errors
@@ -86,13 +87,10 @@ of the function and Fortran routines in the last argument. Before the
 error value is returned, the current MPI error handler is called. By
 default, this error handler aborts the MPI job, except for I/O function
 errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error. See the MPI man page for a full list of MPI error codes.
 
-See Also
-========
 
-```MPI_Comm_accept``\ (3) <MPI_Comm_accept.html>`__
-```MPI_Open_port``\ (3) <MPI_Open_port.html>`__
+.. seealso:: :ref:`MPI_Comm_accept` :ref:`MPI_Open_port` 

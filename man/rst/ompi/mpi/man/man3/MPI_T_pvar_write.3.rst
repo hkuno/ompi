@@ -52,13 +52,5 @@ ERRORS
 [:ref:`MPI_T_ERR_PVAR_NO_WRITE]` 
    Variable cannot be written
 
-SEE ALSO
-========
 
-::
-
-   MPI_T_pvar_handle_alloc
-   MPI_T_pvar_get_info
-   MPI_T_pvar_session_create
-
-.. seealso:: :ref:`MPI_T_pvar_write()`
+.. seealso::    :ref:`MPI_T_pvar_handle_alloc`    :ref:`MPI_T_pvar_get_info`    :ref:`MPI_T_pvar_session_create` 

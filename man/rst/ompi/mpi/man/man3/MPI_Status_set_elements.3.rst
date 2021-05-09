@@ -120,5 +120,3 @@ users may use the non-portable syntax*
         INTEGER*MPI_COUNT_KIND COUNT
 
    where MPI_COUNT_KIND is a constant defined in mpif.h and gives the length of the declared integer in bytes.
-
-.. seealso:: :ref:`MPI_Status_set_elements_x` :ref:`MPI_Get_elements` :ref:`MPI_Get_elements_x` :ref:`MPI_Get_count` :ref:`MPI_Get_count(status` :ref:`MPI_Get_elements(status` :ref:`MPI_Get_elements_x(status` :ref:`MPI_Recv` :ref:`MPI_Comm_set_errhandler`

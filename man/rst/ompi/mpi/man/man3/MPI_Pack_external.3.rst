@@ -188,14 +188,5 @@ guarantee that an MPI program can continue past an error.
 
 See the MPI man page for a full list of MPI error codes.
 
-SEE ALSO
-========
 
-::
-
-   MPI_Pack_external_size
-   MPI_Send
-   MPI_Unpack_external
-   sscanf(3C)
-
-.. seealso:: :ref:`MPI_Send` :ref:`MPI_Unpack_external` :ref:`MPI_Comm_set_errhandler`
+.. seealso::    :ref:`MPI_Pack_external_size`    :ref:`MPI_Send`    :ref:`MPI_Unpack_external` 

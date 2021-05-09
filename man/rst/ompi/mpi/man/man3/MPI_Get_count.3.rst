@@ -2,8 +2,9 @@
 
 MPI_Get_count
 ~~~~~~~~~~~~~
+====
 
-``MPI_Get_count`` - Gets the number of top-level elements received.
+:ref:`MPI_Get_count`  - Gets the number of top-level elements received.
 
 Syntax
 ======
@@ -61,13 +62,13 @@ Returns the number of entries received. (We count entries, each of type
 ``datatype``, not bytes.) The ``datatype`` argument should match the
 argument provided by the receive call that set the ``status`` variable.
 (As explained in Section 3.12.5 in the MPI-1 Standard, "Use of General
-Datatypes in Communication," ``MPI_Get_count`` may, in certain
-situations, return the value ``MPI_UNDEFINED``.)
+Datatypes in Communication," :ref:`MPI_Get_count`  may, in certain
+situations, return the value :ref:`MPI_UNDEFINED` .)
 
-The ``datatype`` argument is passed to ``MPI_Get_count`` to improve
+The ``datatype`` argument is passed to :ref:`MPI_Get_count`  to improve
 performance. A message might be received without counting the number of
 elements it contains, and the ``count`` value is often not needed. Also,
-this allows the same function to be used after a call to ``MPI_Probe``.
+this allows the same function to be used after a call to :ref:`MPI_Probe` .
 
 Notes
 =====
@@ -75,13 +76,13 @@ Notes
 If the size of the ``datatype`` is zero, this routine will return a
 ``count`` of zero. If the amount of data in ``status`` is not an exact
 multiple of the size of ``datatype`` (so that ``count`` would not be
-integral), a ``count`` of ``MPI_UNDEFINED`` is returned instead.
+integral), a ``count`` of :ref:`MPI_UNDEFINED`  is returned instead.
 
 Errors
 ======
 
 If the value to be returned is larger than can fit into the ``count``
-parameter, an ``MPI_ERR_TRUNCATE`` error is raised.
+parameter, an :ref:`MPI_ERR_TRUNCATE`  error is raised.
 
 Almost all MPI routines return an error value; C routines as the value
 of the function and Fortran routines in the last argument.
@@ -89,12 +90,10 @@ of the function and Fortran routines in the last argument.
 Before the error value is returned, the current MPI error handler is
 called. By default, this error handler aborts the MPI job, except for
 I/O function errors. The error handler may be changed with
-``MPI_Comm_set_errhandler``; the predefined error handler
-``MPI_ERRORS_RETURN`` may be used to cause error values to be returned.
+:ref:`MPI_Comm_set_errhandler` ; the predefined error handler
+:ref:`MPI_ERRORS_RETURN`  may be used to cause error values to be returned.
 Note that MPI does not guarantee that an MPI program can continue past
 an error.
 
-See Also
-========
 
-```MPI_Get_elements``\ (3) <MPI_Get_elements.html>`__
+.. seealso:: :ref:`MPI_Get_elements` 
