@@ -16,6 +16,7 @@ MANDIRS="ompi/mpi/man oshmem/shmem/man"
 TSTMAN_ORIG=./tmpman_orig/
 TSTMAN_NEW=./tmpman_new/
 TSTMAN_DIFF=./tmpman_diff/
+TSTMAN_TEXT_DIFF=./tmpman_text_diff/
 
 mkdir -p $BUILDMAN
 mkdir -p $BUILDRST
@@ -152,7 +153,7 @@ fi
 
 # check the man pages by comparing against original man pages
 j=0
-if [[ 1 -eq 1 ]] ; then
+if [[ 0 -eq 1 ]] ; then
     SAVEME=$( pwd -P )
     mkdir -p $TSTMAN_NEW
     TSTMAN_NEW=$( cd $TSTMAN_NEW; pwd -P )
@@ -169,7 +170,7 @@ if [[ 1 -eq 1 ]] ; then
 fi
 wait
 
-if [[ 1 -eq 1 ]] ; then
+if [[ 0 -eq 1 ]] ; then
     mkdir -p $TSTMAN_ORIG
     TSTMAN_ORIG=$( cd $TSTMAN_ORIG; pwd -P )
     SAVEME=$( pwd -P )
@@ -190,7 +191,7 @@ if [[ 1 -eq 1 ]] ; then
 fi
 wait
 
-if [[ 1 -eq 1 ]] ; then
+if [[ 0 -eq 1 ]] ; then
     SAVEME=$( pwd -P )
     TSTMAN_ORIG=$( cd $TSTMAN_ORIG; pwd -P )
     TSTMAN_NEW=$( cd $TSTMAN_NEW; pwd -P )
@@ -209,6 +210,30 @@ if [[ 1 -eq 1 ]] ; then
                 [[ $(( $j%5 )) -eq 0 ]] && wait
             else
                 echo "Missing: $f1 or $f2"
+            fi
+        fi
+    done
+fi
+wait
+
+
+if [[ 0 -eq 1 ]] ; then
+    SAVEME=$( pwd -P )
+    TSTMAN_ORIG=$( cd $TSTMAN_ORIG; pwd -P )
+    TSTMAN_NEW=$( cd $TSTMAN_NEW; pwd -P )
+    mkdir -p $TSTMAN_TEXT_DIFF
+    TSTMAN_TEXT_DIFF=$( cd $TSTMAN_TEXT_DIFF; pwd -P )
+    echo "TSTMAN_TEXT_DIFF is $TSTMAN_TEXT_DIFF"
+    j=0
+    for i in $( /bin/ls $TSTMAN_NEW ) ; do
+        if [[ ! -d $TSTMAN_NEW/$i ]] ; then
+            out=${TSTMAN_TEXT_DIFF}/$i
+            f1=${TSTMAN_NEW}/${i}
+            f2=${TSTMAN_ORIG}/${i}
+            if [[ -f $f1 ]] && [[ -f $f2 ]] ; then
+                ( ./checktext.sh $f1 $f2 >& $out ) &
+                j=$(( j + 1 ))
+                [[ $(( $j%5 )) -eq 0 ]] && wait
             fi
         fi
     done
