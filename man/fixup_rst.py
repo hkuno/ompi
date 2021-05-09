@@ -23,7 +23,7 @@
 #  - Write output to array and then print to file or stdout
 #  - Replace NAME with the name of the program? Or add a line like the following?
 #      :program:`MPI_Abort`
-#  - Convert existing "SEE ALSO" sections into ".. :seelso::" 
+#  - Convert existing "SEE ALSO" sections into ".. :seealso::" 
 #  - Add ".. :seelso::" for MPI commands that do not forward to this page
 #    (Note to self: verify that doing this would actually produce good output.)
 
@@ -90,6 +90,11 @@ contains_colon=re.compile(".*:")
 # codeblock pattern
 literalpat=re.compile("^::")
 
+# seealso
+seealso = re.compile("^see also$", flags = re.IGNORECASE )
+mpicmd = re.compile(".*MPI[_A-Z0-9]", flags = re.IGNORECASE )
+shmemcmd = re.compile(".*shmem[_A-Z0-9]", flags = re.IGNORECASE )
+
 # languages
 fortran_lang=re.compile(".*Fortran", re.IGNORECASE)
 cpp_lang=re.compile(".*C\+\+", re.IGNORECASE)
@@ -97,17 +102,23 @@ c_lang=re.compile(".*C[^a-zA-Z]", re.IGNORECASE)
 
 # repl functions
 # :ref:`my-reference-label`:
-seealsodict=dict()
+#seealsodict=dict()
 def mpicmdrepl(match):
     match = match.group()
     match = match.replace('`','')
     match = match.replace('*','')
-    pfile = Path(PARENTPATH + '/' + match + '.3.rst')
-    if not pfile.is_file():
-      print(f"pfile {pfile} is not a file");
-    if ((contains_lowercase.match(match)) and pfile.is_file() and (match != CMDNAME)):
-        seealsodict[match]=match
+#    pfile = Path(PARENTPATH + '/' + match + '.3.rst')
+#    if not pfile.is_file():
+#      print(f"pfile {pfile} is not a file");
+#    if ((contains_lowercase.match(match)) and pfile.is_file() and (match != CMDNAME)):
+#        seealsodict[match]=match
     return (':ref:`' + match + '` ')
+
+def seealso_repl(match):
+    thecmd = match.group(2)
+    thecmd = thecmd.replace('`','')
+    thecmd = thecmd.replace('*','')
+    return (':ref:`' + thecmd + '` ')
 
 # for labeling codeblocks
 LANGUAGE="FOOBAR_ERROR"
@@ -129,6 +140,8 @@ def get_cb_language(aline):
 BULLETITEM=False
 LITERAL=False
 PARAM=False
+SEEALSO=False
+seealsolist=""
 
 # So we don't repeat combined or replaced lines
 SKIP=0
@@ -161,35 +174,57 @@ for i in range(len(in_lines)):
       LITERAL=False
       PARAM=False
       SKIP+=1
-      if paramsect.match(curline):
-        PARAM=True
-      if (curline.isupper()):
-        if name.match(curline): 
-          # Substitute program name because html index needs it.
-          # Only substitute delimeter for the first NAME heading because 
-          # build-doc seems to expect a single-rooted hierarchy.
-          output_lines.append(f"{CMDNAME}\n{re.sub('[A-Z,a-z,0-9,_,-]','~',CMDNAME)}")
-        else:
-          output_lines.append(f"{curline}\n{nextline}")
+
+      if seealso.match(curline):
+         #output_lines.append('\n.. seealso:: ')
+         SEEALSO=True
+         SKIP += 2
+         d=1
+         seealsoline=""
+         while (d+i < len(in_lines)):
+           sline=in_lines[i+d].rstrip()
+           cmdline=""
+           if mpicmd.match(sline):
+             cmdline=re.sub(r'([^A-Za-z]*)([Mm][Pp][Ii][^\\ (]*)(.*)',seealso_repl,sline)
+           elif shmemcmd.match(sline):
+             cmdline=re.sub(r'([^A-Za-z]*)([Ss][Hh][Mm][Ee][Mm][^\\ (]*)(.*)',seealso_repl,sline)
+           else: 
+             SKIP += 1
+           seealsolist=f"{seealsolist}{cmdline}"
+           SKIP += 1
+           d+=1
+         output_lines.append(f'\n.. seealso:: {seealsolist}')
+         break
       else:
-        # level 2 heading
-        output_lines.append(f"{curline}\n{re.sub('=','-',nextline)}")
-    elif literalpat.match(curline):
-        LITERAL=True
-        prevlangline=prevline
-        nextlangline=nextline
-        d=1
-        while (not prevlangline) or dline.match(prevlangline):
-          prevlangline = in_lines[i-d].rstrip()
-          curlangline = in_lines[i-d+1].rstrip()
-          d += 1
-        LANGUAGE = get_cb_language(prevlangline)
-        if (not LANGUAGE):
-          if not dline.match(nextnextnextline):
-            output_lines.append(f"{curline}")
+        if paramsect.match(curline):
+          PARAM=True
+        if (curline.isupper()):
+          if name.match(curline): 
+            # Substitute program name because html index needs it.
+            # Only substitute delimeter for the first NAME heading because 
+            # build-doc seems to expect a single-rooted hierarchy.
+            output_lines.append(f"{CMDNAME}\n{re.sub('[A-Z,a-z,0-9,_,-]','~',CMDNAME)}")
+          else:
+            output_lines.append(f"{curline}\n{nextline}")
         else:
-          output_lines.append(f".. code-block:: {LANGUAGE}\n   :linenos:\n")
-          SKIP+=1
+          # level 2 heading
+          output_lines.append(f"{curline}\n{re.sub('=','-',nextline)}")
+    elif (literalpat.match(curline)):
+          LITERAL=True
+          prevlangline=prevline
+          nextlangline=nextline
+          d=1
+          while (not prevlangline) or dline.match(prevlangline):
+            prevlangline = in_lines[i-d].rstrip()
+            curlangline = in_lines[i-d+1].rstrip()
+            d += 1
+          LANGUAGE = get_cb_language(prevlangline)
+          if (not LANGUAGE):
+            if not dline.match(nextnextnextline):
+              output_lines.append(f"{curline}")
+          else:
+            output_lines.append(f".. code-block:: {LANGUAGE}\n   :linenos:\n")
+            SKIP+=1
     else:
 #      print(f"166: SKIP is {SKIP}; LITERAL is {LITERAL}; PARAM is {PARAM}")
       if (SKIP == 0):
@@ -234,15 +269,15 @@ for i in range(len(in_lines)):
         SKIP-=1
 
 
-SEEALSOEXISTS=False
-seealso='\n.. seealso::'
-for k, v in seealsodict.items():
-    if ( k != CMDNAME ):
-        seealso=seealso + ' :ref:`' + k + '`'
-        SEEALSOEXISTS=True
-
-if SEEALSOEXISTS:
-  output_lines.append(seealso)
+#SEEALSOEXISTS=False
+#seealso='\n.. seealso::'
+#for k, v in seealsodict.items():
+#    if ( k != CMDNAME ):
+#        seealso=seealso + ' :ref:`' + k + '`'
+#        SEEALSOEXISTS=True
+#
+#if SEEALSOEXISTS:
+#  output_lines.append(seealso)
 
 if (out_fname):
   with open(out_fname,'w') as outfile:

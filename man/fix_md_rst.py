@@ -46,17 +46,27 @@ contains_lowercase=re.compile(".*[a-z]")
 # name
 name=re.compile("^name$", flags=re.IGNORECASE | re.MULTILINE)
 
+# see also
+seealso = re.compile("^see also$", flags = re.IGNORECASE )
+mpicmd = re.compile(".*MPI[_A-Z0-9]", flags = re.IGNORECASE )
+shmemcmd = re.compile(".*shmem[_A-Z0-9]", flags = re.IGNORECASE )
+
 # repl functions
 # :ref:`my-reference-label`:
-seealsodict=dict()
+#seealsodict=dict()
 def mpicmdrepl(match):
     match = match.group()
     match = match.replace('`','')
     match = match.replace('*','')
-    if (contains_lowercase.match(match)):
-        seealsodict[match]=match
+#    if (contains_lowercase.match(match)):
+#        seealsodict[match]=match
     return (':ref:`' + match + '` ')
 
+def seealso_repl(match):
+    thecmd = match.group(2)
+    thecmd = thecmd.replace('`','')
+    thecmd = thecmd.replace('*','')
+    return (':ref:`' + thecmd + '` ')
 
 # Read input as an array of lines, then 
 # walk through the input, identifying sections by their headings.
@@ -72,6 +82,7 @@ SKIP=0
 
 # keep track of state
 LITERAL=True
+seealsolist=""
 
 # Walk through all the lines, working on a section at a time
 # If the current line contains 'code::' then LITERAL=True 
@@ -91,6 +102,27 @@ for i in range(len(in_lines)):
       output_lines.append(f"{CMDNAME}\n{re.sub('[A-Z,a-z,0-9,_,-]','~',CMDNAME)}")
       SKIP += 1
       LITERAL=False
+  if seealso.match(curline) and dline.match(nextline):
+      SKIP += 2
+      LITERAL=False
+      SEEALSO=True
+      d=1
+      seealsoline=""
+      while (d+i < len(in_lines)):
+        sline=in_lines[i+d].rstrip()
+        cmdline=""
+        if mpicmd.match(sline):
+          cmdline=re.sub(r'([^A-Za-z]*)([Mm][Pp][Ii][^\\ (]*)(.*)',seealso_repl,sline)
+        elif shmemcmd.match(sline):
+          cmdline=re.sub(r'([^A-Za-z]*)([Ss][Hh][Mm][Ee][Mm][^\\ (]*)(.*)',seealso_repl,sline)
+        else: 
+          SKIP += 1
+        seealsolist=f"{seealsolist}{cmdline}"
+        SKIP += 1
+        d+=1
+      output_lines.append(f'\n.. seealso:: {seealsolist}')
+      break
+
   elif (SKIP == 0):
       if codeblock.match(curline):
         LITERAL=True
@@ -104,12 +136,12 @@ for i in range(len(in_lines)):
   else: 
       SKIP -= 1
 
-seealso='\n.. seealso::'
-for k, v in seealsodict.items():
-    if ( k != CMDNAME ):
-        seealso=seealso + ' :ref:`' + k + '`'
-
-output_lines.append(seealso)
+#seealso='\n.. seealso::'
+#for k, v in seealsodict.items():
+#    if ( k != CMDNAME ):
+#        seealso=seealso + ' :ref:`' + k + '`'
+#
+#output_lines.append(seealso)
 
 if (out_fname):
   with open(out_fname,'w') as outfile:
