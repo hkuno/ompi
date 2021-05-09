@@ -115,7 +115,7 @@ def mpicmdrepl(match):
     return (':ref:`' + match + '` ')
 
 def seealso_repl(match):
-    thecmd = match.group(2)
+    thecmd = match.group(1)
     thecmd = thecmd.replace('`','')
     thecmd = thecmd.replace('*','')
     return (':ref:`' + thecmd + '` ')
@@ -185,14 +185,15 @@ for i in range(len(in_lines)):
            sline=in_lines[i+d].rstrip()
            cmdline=""
            if mpicmd.match(sline):
-             cmdline=re.sub(r'([^A-Za-z]*)([Mm][Pp][Ii][^\\ (]*)(.*)',seealso_repl,sline)
+             cmdline=re.sub(r"([Mm][Pp][Ii][^\\ (]*)",seealso_repl,sline)
            elif shmemcmd.match(sline):
-             cmdline=re.sub(r'([^A-Za-z]*)([Ss][Hh][Mm][Ee][Mm][^\\ (]*)(.*)',seealso_repl,sline)
+             cmdline=re.sub(r"([Ss][Hh][Mm][Ee][Mm][^\\ (]*)",seealso_repl,sline)
            else: 
              SKIP += 1
            seealsolist=f"{seealsolist}{cmdline}"
            SKIP += 1
            d+=1
+         seealsolist=re.sub(r"\n","",seealsolist)
          output_lines.append(f'\n.. seealso:: {seealsolist}')
          break
       else:
